@@ -1,0 +1,68 @@
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+    opacity: 0.5;
+  }
+
+#myBtn:hover {
+    background-color: #555;
+}
+a{
+    text-decoration: none;
+}
+/* Style all font awesome icons */
+.fa {
+    padding: 0px 25px 0px 0px;
+    font-size: 20px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+    opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+    color: black;
+}
+
+/* LinkedIn */
+.fa-linkedin {
+    color: black;
+}
+
+/*Instagram*/
+.fa-instagram {
+    color: black;
+}
+
+/*Style for a:hover*/
+
+.about a:hover{
+    color: aqua !important;
+}
+.education a:hover{
+    color: aqua !important;
+}
+.skills a:hover{
+    color: aqua !important;
+}.awards a:hover{
+    color: aqua !important;
+}

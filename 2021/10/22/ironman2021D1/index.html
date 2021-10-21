@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>JS30 全攻略 第一天 | Hexo</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="JS30" />
+    
+    <meta name="description" content="前言JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話可">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS30 全攻略 第一天">
+<meta property="og:url" content="https://qi-xiang.github.io/2021/10/22/ironman2021D1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前言JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話可">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/NnD0ZoY.png">
+<meta property="article:published_time" content="2021-10-21T16:20:35.000Z">
+<meta property="article:modified_time" content="2021-10-21T16:25:00.466Z">
+<meta property="article:author" content="Qi Xiang,Zhang">
+<meta property="article:tag" content="JS30">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/NnD0ZoY.png">
+    
+
+    
+        <link rel="alternate" href="/" title="Hexo" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">首頁</a>
+                                </li>
+                            
+                                    
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">關於</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="輸入關鍵字..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '頁面',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    未分類
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-ironman2021D1" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        JS30 全攻略 第一天
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/10/22/ironman2021D1/" class="article-date">
+       <time datetime="2021-10-21T16:20:35.000Z" itemprop="datePublished">2021-10-22</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/10/22/ironman2021D1/" class="article-date">
+     <time datetime="2021-10-21T16:25:00.466Z" itemprop="dateModified">2021-10-22</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/JS30/" rel="tag">JS30</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
+style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
+<p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
+<hr>
+<h2 id="本日目標"><a href="#本日目標" class="headerlink" title="本日目標"></a>本日目標</h2><p>透過監聽 “transitionend 事件” 和 “keydown 事件”，調整 CSS 設定以及播放音效，最終建立一組爵士鼓並依照按下按鍵的不同播放不同的音效伴隨網頁上的 CSS 動畫效果。</p>
+<p><img src="https://i.imgur.com/NnD0ZoY.png"></p>
+<hr>
+<h2 id="解析程式碼"><a href="#解析程式碼" class="headerlink" title="解析程式碼"></a>解析程式碼</h2><h3 id="HTML-部分"><a href="#HTML-部分" class="headerlink" title="HTML 部分"></a>HTML 部分</h3><p>基本結構是由最外層的 “keys” 包住內層9個 “key” 的巢狀結構，內層的 “key” 都有 <span style="color:red;">data-key</span> 屬性並有相異的數值，這些相異值在接下來判斷要播放哪個音檔和套用 CSS 設定到哪個 “key” 時很重要。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;keys&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">data-key</span>=<span class="string">&quot;65&quot;</span> <span class="attr">class</span>=<span class="string">&quot;key&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">kbd</span>&gt;</span>A<span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;sound&quot;</span>&gt;</span>clap<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">data-key</span>=<span class="string">&quot;83&quot;</span> <span class="attr">class</span>=<span class="string">&quot;key&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">kbd</span>&gt;</span>S<span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;sound&quot;</span>&gt;</span>hihat<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">data-key</span>=<span class="string">&quot;68&quot;</span> <span class="attr">class</span>=<span class="string">&quot;key&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">kbd</span>&gt;</span>D<span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;sound&quot;</span>&gt;</span>kick<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">data-key</span>=<span class="string">&quot;70&quot;</span> <span class="attr">class</span>=<span class="string">&quot;key&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">kbd</span>&gt;</span>F<span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;sound&quot;</span>&gt;</span>openhat<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">data-key</span>=<span class="string">&quot;71&quot;</span> <span class="attr">class</span>=<span class="string">&quot;key&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">kbd</span>&gt;</span>G<span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;sound&quot;</span>&gt;</span>boom<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">data-key</span>=<span class="string">&quot;72&quot;</span> <span class="attr">class</span>=<span class="string">&quot;key&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">kbd</span>&gt;</span>H<span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;sound&quot;</span>&gt;</span>ride<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">data-key</span>=<span class="string">&quot;74&quot;</span> <span class="attr">class</span>=<span class="string">&quot;key&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">kbd</span>&gt;</span>J<span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;sound&quot;</span>&gt;</span>snare<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">data-key</span>=<span class="string">&quot;75&quot;</span> <span class="attr">class</span>=<span class="string">&quot;key&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">kbd</span>&gt;</span>K<span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;sound&quot;</span>&gt;</span>tom<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">data-key</span>=<span class="string">&quot;76&quot;</span> <span class="attr">class</span>=<span class="string">&quot;key&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">kbd</span>&gt;</span>L<span class="tag">&lt;/<span class="name">kbd</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;sound&quot;</span>&gt;</span>tink<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="補充說明1"><a href="#補充說明1" class="headerlink" title="補充說明1:"></a>補充說明1:</h4><p>HTML5 新增了 <span style="color:red;">data-*</span> 自定義屬性(data attributes)，讓我們能以 <span style="color:red;">data-</span> 為開頭，建立自訂的屬性和值並隨時可以讀寫在元素上的資料數值，而不會影響到整個版面。</p>
+<p>程式碼中的 <span style="color:red;">data-key</span> 就是一個不錯的例子。</p>
+<h4 id="補充說明2"><a href="#補充說明2" class="headerlink" title="補充說明2:"></a>補充說明2:</h4><p><span style="color:red;"><code>&lt;kbd&gt;</code></span> 是一個行內元素 (inline element) ，用來標示鍵盤符號。</p>
+<h3 id="JS-部分"><a href="#JS-部分" class="headerlink" title="JS 部分"></a>JS 部分</h3><p>首先，我們先依照按下按鍵的 <span style="color:red;">keyCode</span> 取得特定的音檔和 div 標籤。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*JS*/</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&quot;keydown&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> audio = <span class="built_in">document</span>.querySelector(<span class="string">`audio[data-key=&quot;<span class="subst">$&#123;e.keyCode&#125;</span>&quot;]`</span>);</span><br><span class="line">    <span class="keyword">const</span> key = <span class="built_in">document</span>.querySelector(<span class="string">`.key[data-key=&quot;<span class="subst">$&#123;e.keyCode&#125;</span>&quot;]`</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<br>
+
+<p>因為實際上會有作用的按鍵只有9個，按到沒作用的按鍵時，理論上我們應該要終止執行方法避免錯誤，所以新增 if 判斷是否成功取得音檔，沒有取得就終止方法的執行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*JS*/</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&quot;keydown&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> audio = <span class="built_in">document</span>.querySelector(<span class="string">`audio[data-key=&quot;<span class="subst">$&#123;e.keyCode&#125;</span>&quot;]`</span>);</span><br><span class="line">    <span class="keyword">const</span> key = <span class="built_in">document</span>.querySelector(<span class="string">`.key[data-key=&quot;<span class="subst">$&#123;e.keyCode&#125;</span>&quot;]`</span>);</span><br><span class="line">    <span class="keyword">if</span>(!audio)<span class="keyword">return</span>; <span class="comment">/*如果keyCode不存在則中止執行方法*/</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>接著是播放音檔的部分，如果只單用 <code>audio.play()</code>的話，則在連續按下同一按鍵時，會出現聲音不連貫的效果，此時需要將每次播放音檔的時間軸都設為0，讓每次播放都是從頭開始。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*JS*/</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&quot;keydown&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> audio = <span class="built_in">document</span>.querySelector(<span class="string">`audio[data-key=&quot;<span class="subst">$&#123;e.keyCode&#125;</span>&quot;]`</span>);</span><br><span class="line">    <span class="keyword">const</span> key = <span class="built_in">document</span>.querySelector(<span class="string">`.key[data-key=&quot;<span class="subst">$&#123;e.keyCode&#125;</span>&quot;]`</span>);</span><br><span class="line">    <span class="keyword">if</span>(!audio)<span class="keyword">return</span>; <span class="comment">/*如果keyCode不存在則中止執行方法*/</span></span><br><span class="line">    </span><br><span class="line">    audio.currentTime = <span class="number">0</span>; <span class="comment">/*確保每一次按下鍵盤都從頭播放音檔*/</span></span><br><span class="line">    audio.play(); <span class="comment">/*播放音檔*/</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>最後處理 CSS 的動畫效果，我們會套用 <span style="color:red;">.playing</span> 的 CSS 設定到播放音檔的 div 標籤上。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*CSS*/</span></span><br><span class="line"><span class="selector-class">.playing</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">1.1</span>); <span class="comment">/*讓 div 標籤變大1.1倍*/</span></span><br><span class="line">  <span class="attribute">border-color</span>: <span class="number">#ffc600</span>; <span class="comment">/*改變 border 的顏色*/</span></span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">1rem</span> <span class="number">#ffc600</span>; <span class="comment">/*產生陰影*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*JS*/</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&quot;keydown&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> audio = <span class="built_in">document</span>.querySelector(<span class="string">`audio[data-key=&quot;<span class="subst">$&#123;e.keyCode&#125;</span>&quot;]`</span>);</span><br><span class="line">    <span class="keyword">const</span> key = <span class="built_in">document</span>.querySelector(<span class="string">`.key[data-key=&quot;<span class="subst">$&#123;e.keyCode&#125;</span>&quot;]`</span>);</span><br><span class="line">    <span class="keyword">if</span>(!audio)<span class="keyword">return</span>; <span class="comment">/*如果keyCode不存在則中止執行方法*/</span></span><br><span class="line">    </span><br><span class="line">    audio.currentTime = <span class="number">0</span>; <span class="comment">/*確保每一次按下鍵盤都從頭播放音檔*/</span></span><br><span class="line">    audio.play(); <span class="comment">/*播放音檔*/</span></span><br><span class="line">    </span><br><span class="line">    key.classList.add(<span class="string">&#x27;playing&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>一定時間後，我們必須拿掉 <span style="color:red;">.playing</span> 的 CSS 設定，讓 div 標籤回到未被按鍵觸發的狀態。因此我們可以在每個 key 上都註冊 “transitionend 事件” 的監聽器，並用 <span style="color:red;">removeTransition()</span> 處理該事件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*JS*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeTransition</span>(<span class="params">e</span>)</span>&#123; </span><br><span class="line">    <span class="built_in">this</span>.classList.remove(<span class="string">&#x27;playing&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*取得所有的 key 標籤*/</span></span><br><span class="line"><span class="keyword">const</span> keys = <span class="built_in">document</span>.querySelectorAll(<span class="string">`.key`</span>);</span><br><span class="line"><span class="comment">/*在每個 key 上都註冊 &quot;transitionend 事件&quot; 的監聽器*/</span></span><br><span class="line">keys.forEach(<span class="function"><span class="params">key</span> =&gt;</span> key.addEventListener(<span class="string">&#x27;transitionend&#x27;</span>,removeTransition));</span><br></pre></td></tr></table></figure>
+
+<p>到這裡基本上就完成了，但是如果把 <span style="color:red;">removeTransition()</span> 的 “transitionend 事件” 印到 console，可以發現 “transitionend 事件” 不只有一個。</p>
+<p><img src="https://i.imgur.com/TcXFxaQ.png"></p>
+<p>我們可以選擇以 <span style="color:red;">transform</span> 結束觸發的那個 “transitionend 事件”，作為移除 CSS 設定的時機點。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*JS*/</span></span><br><span class="line"><span class="comment">/*當transform完成就移除.playing*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeTransition</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(e.propertyName != <span class="string">&#x27;transform&#x27;</span>) <span class="keyword">return</span>; </span><br><span class="line">    <span class="built_in">this</span>.classList.remove(<span class="string">&#x27;playing&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>整理後的完整JS如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*JS*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">playSound</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> audio = <span class="built_in">document</span>.querySelector(<span class="string">`audio[data-key=&quot;<span class="subst">$&#123;e.keyCode&#125;</span>&quot;]`</span>);</span><br><span class="line">    <span class="keyword">const</span> key = <span class="built_in">document</span>.querySelector(<span class="string">`.key[data-key=&quot;<span class="subst">$&#123;e.keyCode&#125;</span>&quot;]`</span>);</span><br><span class="line">    <span class="keyword">if</span>(!audio)<span class="keyword">return</span>; <span class="comment">/*如果keyCode不存在則中止執行方法*/</span></span><br><span class="line">    audio.currentTime = <span class="number">0</span>; <span class="comment">/*確保每一次按下鍵盤都從頭播放音檔*/</span></span><br><span class="line">    audio.play(); <span class="comment">/*播放音檔*/</span></span><br><span class="line">    key.classList.add(<span class="string">&#x27;playing&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line"><span class="comment">/*當transform完成就移除.playing*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeTransition</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(e.propertyName != <span class="string">&#x27;transform&#x27;</span>) <span class="keyword">return</span>; </span><br><span class="line">    <span class="built_in">this</span>.classList.remove(<span class="string">&#x27;playing&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> keys = <span class="built_in">document</span>.querySelectorAll(<span class="string">`.key`</span>);</span><br><span class="line">keys.forEach(<span class="function"><span class="params">key</span> =&gt;</span> key.addEventListener(<span class="string">&#x27;transitionend&#x27;</span>,removeTransition));</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&quot;keydown&quot;</span>,playSound)</span><br></pre></td></tr></table></figure>
+
+<h4 id="補充說明"><a href="#補充說明" class="headerlink" title="補充說明:"></a>補充說明:</h4><p>上面 <span style="color:red">`.key`</span> 的用法是 JavaScript ES6 中新增的模版字符串（template literals)。</p>
+<p>在過去我們需要用以下寫法在JS 的字串中放入 HTML 內容:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/*JS*/</span></span><br><span class="line"><span class="keyword">let</span> component_es5 = <span class="string">&#x27;&lt;header&gt;\n&#x27;</span>+</span><br><span class="line"><span class="string">&#x27;&lt;div class=&quot;banner&quot;&gt;\n&#x27;</span>+</span><br><span class="line"><span class="string">&#x27;&lt;img src=&quot;img1.jpg&quot;\n&#x27;</span>+</span><br><span class="line"><span class="string">&#x27;&lt;/div&gt;\n&#x27;</span>+</span><br><span class="line"><span class="string">&#x27;&lt;/header&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>上面的寫法相當冗長，而且不具備閱讀性。在 ES6 中我們可以用反引號快速的解決這樣的狀況：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*JS*/</span></span><br><span class="line"><span class="keyword">let</span> component_es6 = <span class="string">`</span></span><br><span class="line"><span class="string">&lt;header&gt;</span></span><br><span class="line"><span class="string">    &lt;div class=&#x27;banner&#x27;&gt;</span></span><br><span class="line"><span class="string">        &lt;img src=&quot;img1.jpg&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;/header&gt;</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
+
+<p>– 資料來源: <a href="">[筆記] JavaScript ES6 中的模版字符串（template literals）和標籤模版（tagged template）</a></p>
+<h2 id="實際效果請按此"><a href="#實際效果請按此" class="headerlink" title="實際效果請按此"></a><a target="_blank" rel="noopener" href="https://dustinhsiao21.github.io/Javascript30-dustin/01%20-%20JavaScript%20Drum%20Kit/">實際效果請按此</a></h2><hr>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://qi-xiang.github.io/2021/10/22/ironman2021D1/" data-id="ckv15pegk0000oktxdsaw9gn1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Qi Xiang,Zhang"
+        },
+        "headline": "JS30 全攻略 第一天",
+        "image": "https://qi-xiang.github.iohttps://i.imgur.com/NnD0ZoY.png",
+        "keywords": "JS30",
+        "genre": "",
+        "datePublished": "2021-10-22",
+        "dateCreated": "2021-10-22",
+        "dateModified": "2021-10-22",
+        "url": "https://qi-xiang.github.io/2021/10/22/ironman2021D1/",
+        "description": "前言JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。
+另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話可",
+        "wordCount": 1257
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>追蹤 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2021/10/21/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">Hello World</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/10/22/ironman2021D1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/NnD0ZoY.png)" alt="JS30 全攻略 第一天" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/10/22/ironman2021D1/" class="title">JS30 全攻略 第一天</a></p>
+                            <p class="item-date"><time datetime="2021-10-21T16:20:35.000Z" itemprop="datePublished">2021-10-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/10/21/hello-world/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/10/21/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2021-10-21T10:28:26.490Z" itemprop="datePublished">2021-10-21</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">所有文章</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">標籤</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS30/" rel="tag">JS30</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/JS30/" style="font-size: 10px;">JS30</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/QI-XIANG">My Github</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 Qi Xiang,Zhang</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://qi-xiang.github.io/2021/10/22/ironman2021D1/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
