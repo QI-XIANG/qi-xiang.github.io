@@ -6,7 +6,7 @@
     
 
     
-    <title>JS30 全攻略 第三天 | Hexo</title>
+    <title>JS30 全攻略 第七天 | Hexo</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -14,18 +14,18 @@
     
     <meta name="description" content="前言JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話可">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS30 全攻略 第三天">
-<meta property="og:url" content="https://qi-xiang.github.io/2021/10/22/ironman2021D3/index.html">
+<meta property="og:title" content="JS30 全攻略 第七天">
+<meta property="og:url" content="https://qi-xiang.github.io/2021/10/22/ironman2021D7/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="前言JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話可">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://i.imgur.com/Q6ufCX9.jpg">
-<meta property="article:published_time" content="2021-10-22T05:39:53.000Z">
-<meta property="article:modified_time" content="2021-10-22T05:40:34.224Z">
+<meta property="og:image" content="https://i.imgur.com/1mPuz9E.jpg">
+<meta property="article:published_time" content="2021-10-22T06:35:50.000Z">
+<meta property="article:modified_time" content="2021-10-22T06:38:41.490Z">
 <meta property="article:author" content="Qi Xiang,Zhang">
 <meta property="article:tag" content="JS30">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/Q6ufCX9.jpg">
+<meta name="twitter:image" content="https://i.imgur.com/1mPuz9E.jpg">
     
 
     
@@ -157,14 +157,14 @@
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-ironman2021D3" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-ironman2021D7" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        JS30 全攻略 第三天
+        JS30 全攻略 第七天
         </h1>
     
 
@@ -175,16 +175,16 @@
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2021/10/22/ironman2021D3/" class="article-date">
-       <time datetime="2021-10-22T05:39:53.000Z" itemprop="datePublished">2021-10-22</time>
+    <a href="/2021/10/22/ironman2021D7/" class="article-date">
+       <time datetime="2021-10-22T06:35:50.000Z" itemprop="datePublished">2021-10-22</time>
     </a>
   </div>
 
 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2021/10/22/ironman2021D3/" class="article-date">
-     <time datetime="2021-10-22T05:40:34.224Z" itemprop="dateModified">2021-10-22</time>
+  <a href="/2021/10/22/ironman2021D7/" class="article-date">
+     <time datetime="2021-10-22T06:38:41.490Z" itemprop="dateModified">2021-10-22</time>
   </a>
 </div>
 
@@ -215,43 +215,53 @@
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標"><a href="#本日目標" class="headerlink" title="本日目標"></a>本日目標</h2><p>學習建立 CSS 變數並透過 JavaScript 監聽 mousemove、change 事件，接著主動去更新變數的值，讓使用者得以調整圖片框的大小和背景色、圖片的模糊程度等等…。</p>
-<p><img src="https://i.imgur.com/Q6ufCX9.jpg"></p>
+<h2 id="本日目標"><a href="#本日目標" class="headerlink" title="本日目標"></a>本日目標</h2><p>練習使用JS Array 的 some()、every()、find()、findIndex()。</p>
+<p><img src="https://i.imgur.com/1mPuz9E.jpg"></p>
 <hr>
-<h2 id="解析程式碼"><a href="#解析程式碼" class="headerlink" title="解析程式碼"></a>解析程式碼</h2><h3 id="HTML-部分"><a href="#HTML-部分" class="headerlink" title="HTML 部分"></a>HTML 部分</h3><p>由最外層的代表控制列(<code>.controls</code>)的div元素包覆住內部用來調整圖片的三個 input 元素(<code>#spacing、#blur、#base</code>)。其中兩個 input 元素上有設定 <span style="color:red;">data-</span> 屬性，標明使用的單位。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>Update CSS Variables with <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&#x27;hl&#x27;</span>&gt;</span>JS<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;controls&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;spacing&quot;</span>&gt;</span>Spacing:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;spacing&quot;</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">name</span>=<span class="string">&quot;spacing&quot;</span> <span class="attr">min</span>=<span class="string">&quot;10&quot;</span> <span class="attr">max</span>=<span class="string">&quot;200&quot;</span> <span class="attr">value</span>=<span class="string">&quot;10&quot;</span> <span class="attr">data-sizing</span>=<span class="string">&quot;px&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;blur&quot;</span>&gt;</span>Blur:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;blur&quot;</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">name</span>=<span class="string">&quot;blur&quot;</span> <span class="attr">min</span>=<span class="string">&quot;0&quot;</span> <span class="attr">max</span>=<span class="string">&quot;25&quot;</span> <span class="attr">value</span>=<span class="string">&quot;10&quot;</span> <span class="attr">data-sizing</span>=<span class="string">&quot;px&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;base&quot;</span>&gt;</span>Base Color<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;base&quot;</span> <span class="attr">type</span>=<span class="string">&quot;color&quot;</span> <span class="attr">name</span>=<span class="string">&quot;base&quot;</span> <span class="attr">value</span>=<span class="string">&quot;#ffc600&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://source.unsplash.com/7bwQXzbF6KE/800x500&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="解析程式碼"><a href="#解析程式碼" class="headerlink" title="解析程式碼"></a>解析程式碼</h2><h3 id="JS-部分"><a href="#JS-部分" class="headerlink" title="JS 部分"></a>JS 部分</h3><p>練習題使用到的資料:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> people = [</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&#x27;Wes&#x27;</span>, <span class="attr">year</span>: <span class="number">1988</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&#x27;Kait&#x27;</span>, <span class="attr">year</span>: <span class="number">1986</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&#x27;Irv&#x27;</span>, <span class="attr">year</span>: <span class="number">1970</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&#x27;Lux&#x27;</span>, <span class="attr">year</span>: <span class="number">2015</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> comments = [</span><br><span class="line">    &#123; <span class="attr">text</span>: <span class="string">&#x27;Love this!&#x27;</span>, <span class="attr">id</span>: <span class="number">523423</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">text</span>: <span class="string">&#x27;Super good&#x27;</span>, <span class="attr">id</span>: <span class="number">823423</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">text</span>: <span class="string">&#x27;You are the best&#x27;</span>, <span class="attr">id</span>: <span class="number">2039842</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">text</span>: <span class="string">&#x27;Ramen is my fav food ever&#x27;</span>, <span class="attr">id</span>: <span class="number">123523</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">text</span>: <span class="string">&#x27;Nice Nice Nice!&#x27;</span>, <span class="attr">id</span>: <span class="number">542328</span> &#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
 
-<h3 id="CSS-部分"><a href="#CSS-部分" class="headerlink" title="CSS 部分"></a>CSS 部分</h3><p>用<span style="color:red;"><code>--變數名稱</code></span>的方式，宣告三個 CSS 的全域變數，並且是在根元素之下。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span>&#123; <span class="comment">/*CSS 全域變數*/</span></span><br><span class="line">      --base: <span class="number">#ffc600</span>;</span><br><span class="line">      --spacing: <span class="number">10px</span>;</span><br><span class="line">      --blur: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="1-Is-at-least-one-person-19-or-older"><a href="#1-Is-at-least-one-person-19-or-older" class="headerlink" title="1. Is at least one person 19 or older?"></a>1. Is at least one person 19 or older?</h4><p><strong>Array.prototype.some()</strong></p>
+<p><code>some()</code> 可以給定一個函式，測試陣列中是否至少有一個元素符合指定的條件，該方法回傳的是布林值。</p>
+<p><strong>Date</strong></p>
+<p>建立一個  JavaScript <code>Date</code> 物件來取得某個時間點。Date 物件是從世界標準時間（UTC） 1970 年 1 月 1 日開始算起。</p>
+<p>第一題，我們檢查是否至少有一個 person 的年紀大於 19歲。指定一個 function 到 some() 中，在 function 裡面，我們宣告一個常數 <code>currentYear</code>來存放現在的年份，之後透過 if 判斷用現在的年份減去 person 的出生年，是否大於19，如果大於19就返回 true。</p>
+<h4 id="基本版"><a href="#基本版" class="headerlink" title="基本版:"></a>基本版:</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isAdult = people.some(<span class="function"><span class="keyword">function</span>(<span class="params">person</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> currentYear = (<span class="keyword">new</span> <span class="built_in">Date</span>()).getFullYear();</span><br><span class="line">        <span class="keyword">if</span>(currentYear - person.year &gt;= <span class="number">19</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>要使用 CSS 變數，我們可以利用<span style="color:red;"><code>var()</code></span>並在裡面放入要使用的變數名稱。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="built_in">var</span>(--spacing); <span class="comment">/*使用關鍵字 var( )並在括號內填入想套用的變數名稱*/</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">var</span>(--base);</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">blur</span>(<span class="built_in">var</span>(--blur)); <span class="comment">/*套上帶有模糊效果的濾鏡*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hl</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--base);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="簡化版"><a href="#簡化版" class="headerlink" title="簡化版:"></a>簡化版:</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isAdult = people.some(<span class="function"><span class="params">person</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> currentYear = (<span class="keyword">new</span> <span class="built_in">Date</span>()).getFullYear();</span><br><span class="line">    <span class="keyword">return</span> currentYear - person.year &gt; <span class="number">19</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="更簡化版"><a href="#更簡化版" class="headerlink" title="更簡化版:"></a>更簡化版:</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isAdult = people.some(<span class="function"><span class="params">person</span> =&gt;</span> (<span class="keyword">new</span> <span class="built_in">Date</span>().getFullYear()) - person.year &gt;= <span class="number">19</span> );</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(isAdult);</span><br></pre></td></tr></table></figure>
 
-<h4 id="補充說明1"><a href="#補充說明1" class="headerlink" title="補充說明1:"></a>補充說明1:</h4><p>CSS 變數的補充資料 &gt;&gt;&gt; <a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10228111">:root 根目錄選取器 - 叫你阿爸出來講</a></p>
-<h4 id="補充說明2"><a href="#補充說明2" class="headerlink" title="補充說明2:"></a>補充說明2:</h4><p>使用 CSS 的 <code>filter</code> 屬性，主要目的是套一層濾鏡到圖片上，常見的值除了有 <code>blur</code> 以外，還有 <code>contrast、grayscale</code> 等等…。 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/filter">詳細見此</a></p>
-<h3 id="JS部分"><a href="#JS部分" class="headerlink" title="JS部分"></a>JS部分</h3><p>取得所有的 input 標籤，要注意的是這裡的資料型態是 <code>NodeList</code> 而不是 <code>Array</code>。</p>
-<p>相較 <code>Array</code> 而言，<code>NodeList</code> 能用的方法少很多。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*JS*/</span></span><br><span class="line"><span class="keyword">const</span> inputs = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.controls input&#x27;</span>); <span class="comment">/*取得所有的 input 元素，資料型態是 NodeList 不是 Array*/</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-Is-everyone-19-or-older"><a href="#2-Is-everyone-19-or-older" class="headerlink" title="2. Is everyone 19 or older?"></a>2. Is everyone 19 or older?</h4><p><strong>Array.prototype.every()</strong></p>
+<p><code>every()</code> 方法會測試陣列中的所有元素是否都符合函式所指定的條件，若全部元素都符合則返回 true，反之則返回 false。</p>
+<p>我們使用 every() 方法，將陣列元素一個個的拿出來做條件判斷，若是有其中一個元素經過計算不符合設定的規則就 return false。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> allAdults = people.every(<span class="function"><span class="params">person</span> =&gt;</span> (<span class="keyword">new</span> <span class="built_in">Date</span>().getFullYear()) - person.year &gt;= <span class="number">19</span> );</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(allAdults);</span><br></pre></td></tr></table></figure>
 
-<p>將每個取得的 input 標籤都分別註冊兩個事件監聽器，當 input 標籤的 <code>value</code> 屬性有變動(change)或是滑鼠有在 input 標籤的桿上移動時，就透過 <code>handleUpdate()</code> 方法進行事件處理。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleUpdate</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inputs.forEach(<span class="function"><span class="params">input</span> =&gt;</span> input.addEventListener(<span class="string">&#x27;change&#x27;</span>,handleUpdate)); <span class="comment">/*當數值改變*/</span></span><br><span class="line">inputs.forEach(<span class="function"><span class="params">input</span> =&gt;</span> input.addEventListener(<span class="string">&#x27;mousemove&#x27;</span>,handleUpdate)); <span class="comment">/*當滑鼠移動*/</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-Find-the-comment-with-the-ID-of-823423"><a href="#3-Find-the-comment-with-the-ID-of-823423" class="headerlink" title="3. Find the comment with the ID of 823423."></a>3. Find the comment with the ID of 823423.</h4><p><strong>Array.prototype.find()</strong></p>
+<p><code>find()</code> 方法會回傳<strong>第一個</strong>符合函式定義條件的元素值，若沒有元素符合條件就回傳<code>undefined</code>。</p>
+<p>下面我們使用 find() 找出 comment id 是 823423 的 comment。這邊是用<code>===</code>而不是<code>==</code>進行相等運算，因為在 js 中使用 <code>==</code> 進行相等運算，js 會幫你偷偷地轉換型別再進行比較，例如: <code>&#39;99&#39; == 99</code> 的結果就會是 true。<code>===</code>則是嚴格的相等運算，js 不會偷偷的做資料轉型，兩邊資料型態只要不一致，自然就會回傳 false。</p>
+<p><strong>基本版:</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> comment = comments.find(<span class="function"><span class="keyword">function</span>(<span class="params">comment</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(comment.id === <span class="number">823423</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>在 <code>handleUpdate()</code> 方法內宣告 <code>suffix</code> 變數，透過 <code>dataset.sizing</code> 取得對應屬性的單位。當屬性沒有單位時，指定 <code>suffix</code> 為空字串，避免因為是 <code>undefined</code> 出現錯誤。</p>
-<p>最後，藉著 <code>document.documentElement.style</code> 取得文件上”根元素”的 CSS 屬性，進一步使用 <code>setProperty()</code> 調整 CSS 屬性值(注意，有些屬性必須要加上單位)。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleUpdate</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> suffix = <span class="built_in">this</span>.dataset.sizing || <span class="string">&#x27;&#x27;</span>; <span class="comment">/*取得單位，當單位不存在時就指定為空字串*/</span></span><br><span class="line">    <span class="built_in">document</span>.documentElement.style.setProperty(<span class="string">`--<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>`</span>,<span class="built_in">this</span>.value + suffix); <span class="comment">/*Template literals*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>簡化版:</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> comment = comments.find(<span class="function"><span class="params">comment</span> =&gt;</span> comment.id === <span class="number">823423</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(comment);</span><br></pre></td></tr></table></figure>
 
-<h4 id="補充說明1-1"><a href="#補充說明1-1" class="headerlink" title="補充說明1:"></a>補充說明1:</h4><p>NodeList 的補充資料 – <a target="_blank" rel="noopener" href="https://www.w3schools.com/js/js_htmldom_nodelist.asp">JavaScript HTML DOM Node Lists</a> </p>
-<h4 id="補充說明2-1"><a href="#補充說明2-1" class="headerlink" title="補充說明2:"></a>補充說明2:</h4><p>透過 <code>dataset</code> 實際取得的 <code>data-自訂名稱</code> 屬性內容如下:</p>
-<p><img src="https://i.imgur.com/QpPbeL4.png"></p>
-<p>我們可以進一步使用 <code>dataset.自訂名稱</code>，取得裡面代表單位的”px”。<br>(圖片中的 <code>sizing</code> 等同於標籤上的 <code>data-sizing</code>)</p>
-<h2 id="實際效果請按此"><a href="#實際效果請按此" class="headerlink" title="實際效果請按此"></a><a href="https://qi-xiang.github.io/iThelp2021_JS30/03%20-%20CSS%20Variables/index-START.html">實際效果請按此</a></h2>
+<h4 id="4-Delete-the-comment-with-the-ID-of-823423"><a href="#4-Delete-the-comment-with-the-ID-of-823423" class="headerlink" title="4. Delete the comment with the ID of 823423."></a>4. Delete the comment with the ID of 823423.</h4><p><strong>Array.prototype.findIndex()</strong></p>
+<p><code>findIndex()</code>方法將按照指定的函式，尋找陣列中第一個符合條件的元素，並回傳元素的 <strong>index</strong>（索引）。如果沒有找到符合的元素就回傳 -1 。</p>
+<p><strong>Array.prototype.slice()</strong></p>
+<p><code>slice()</code>方法會回傳一個新的陣列，它會切割出原陣列從索引 <code>begin</code> 至 <code>end</code>（不含 <code>end</code>）的元素。原本的陣列不會被影響。</p>
+<p>我們使用 findIndex() 尋找到第一個 comment id 是 823423 的元素並取得該元素的索引值(index)。</p>
+<p>透過 slice()將陣列進行切割，我們可以將找出的元素值從陣列中移除並宣告常數承接回傳的新陣列。(複習一下，前面說過<code>...</code>可以把陣列中的元素一個個地展開。)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> index = comments.findIndex(<span class="function"><span class="params">comment</span> =&gt;</span> comment.id === <span class="number">823423</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(index);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> newComments = [</span><br><span class="line">    ...comments.slice(<span class="number">0</span>,index),</span><br><span class="line">    ...comments.slice(index + <span class="number">1</span>)</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.table(comments);</span><br><span class="line"><span class="built_in">console</span>.table(newComments);</span><br></pre></td></tr></table></figure>
+
+<h4 id="補充資料"><a href="#補充資料" class="headerlink" title="補充資料:"></a>補充資料:</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Equality_comparisons_and_sameness">相等比較 <code>===</code>、<code>==</code></a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/slice">Array.prototype.slice()</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex">Array.prototype.findIndex()</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/find">Array.prototype.find()</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/every">Array.prototype.every()</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/some">Array.prototype.some()</a></p>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/10/22/ironman2021D3/" data-id="ckv1y1uw70002s8txc4pbgh4g" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/10/22/ironman2021D7/" data-id="ckv20cxt40003m0txcclwcn0j" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -321,17 +331,17 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
             "@type": "Person",
             "name": "Qi Xiang,Zhang"
         },
-        "headline": "JS30 全攻略 第三天",
-        "image": "https://qi-xiang.github.iohttps://i.imgur.com/Q6ufCX9.jpg",
+        "headline": "JS30 全攻略 第七天",
+        "image": "https://qi-xiang.github.iohttps://i.imgur.com/1mPuz9E.jpg",
         "keywords": "JS30",
         "genre": "",
         "datePublished": "2021-10-22",
         "dateCreated": "2021-10-22",
         "dateModified": "2021-10-22",
-        "url": "https://qi-xiang.github.io/2021/10/22/ironman2021D3/",
+        "url": "https://qi-xiang.github.io/2021/10/22/ironman2021D7/",
         "description": "前言JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。
 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話可",
-        "wordCount": 536
+        "wordCount": 663
     }
 </script>
 
@@ -396,20 +406,20 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
         
 <nav id="article-nav">
     
-        <a href="/2021/10/22/ironman2021D4/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2021/10/22/ironman2021D8/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
-            JS30 全攻略 第四天
+            JS30 全攻略 第八天
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/2021/10/22/ironman2021D2/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2021/10/22/ironman2021D6/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">JS30 全攻略 第二天</p>
+        <p class="article-nav-title">JS30 全攻略 第六天</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -619,7 +629,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://qi-xiang.github.io/2021/10/22/ironman2021D3/';
+    var disqus_url = 'https://qi-xiang.github.io/2021/10/22/ironman2021D7/';
     
     (function() {
     var dsq = document.createElement('script');
