@@ -6,7 +6,7 @@
     
 
     
-    <title>JS30 全攻略 第十二天 | Hexo</title>
+    <title>JS30 全攻略 第十四天 | Hexo</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -14,18 +14,18 @@
     
     <meta name="description" content="前言JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話可">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS30 全攻略 第十二天">
-<meta property="og:url" content="https://qi-xiang.github.io/2021/10/22/ironman2021D12/index.html">
+<meta property="og:title" content="JS30 全攻略 第十四天">
+<meta property="og:url" content="https://qi-xiang.github.io/2021/10/22/ironman2021D14/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="前言JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話可">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://i.imgur.com/Xc8wySc.jpg">
-<meta property="article:published_time" content="2021-10-22T06:53:06.000Z">
-<meta property="article:modified_time" content="2021-10-22T06:58:26.748Z">
+<meta property="og:image" content="https://i.imgur.com/WbZ1431.jpg">
+<meta property="article:published_time" content="2021-10-22T07:08:17.000Z">
+<meta property="article:modified_time" content="2021-10-22T07:15:35.408Z">
 <meta property="article:author" content="Qi Xiang,Zhang">
 <meta property="article:tag" content="JS30">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/Xc8wySc.jpg">
+<meta name="twitter:image" content="https://i.imgur.com/WbZ1431.jpg">
     
 
     
@@ -157,14 +157,14 @@
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-ironman2021D12" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-ironman2021D14" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        JS30 全攻略 第十二天
+        JS30 全攻略 第十四天
         </h1>
     
 
@@ -175,16 +175,16 @@
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2021/10/22/ironman2021D12/" class="article-date">
-       <time datetime="2021-10-22T06:53:06.000Z" itemprop="datePublished">2021-10-22</time>
+    <a href="/2021/10/22/ironman2021D14/" class="article-date">
+       <time datetime="2021-10-22T07:08:17.000Z" itemprop="datePublished">2021-10-22</time>
     </a>
   </div>
 
 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2021/10/22/ironman2021D12/" class="article-date">
-     <time datetime="2021-10-22T06:58:26.748Z" itemprop="dateModified">2021-10-22</time>
+  <a href="/2021/10/22/ironman2021D14/" class="article-date">
+     <time datetime="2021-10-22T07:15:35.408Z" itemprop="dateModified">2021-10-22</time>
   </a>
 </div>
 
@@ -215,36 +215,86 @@
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標"><a href="#本日目標" class="headerlink" title="本日目標"></a>本日目標</h2><p>預先設定一組<code>secretCode</code>，如果在視窗畫面內輸入的文字與<code>secretCode</code>相同則在視窗畫面加上圖案。</p>
-<p><img src="https://i.imgur.com/Xc8wySc.jpg"><br>(ps.背景圖是後來改的，原版是空白畫面。)</p>
+<h2 id="本日目標"><a href="#本日目標" class="headerlink" title="本日目標"></a>本日目標</h2><p>瞭解 JavaScript 的 <code>Passed by Value</code> 和 <code>Passed by Reference</code> 以及 Object 的 <code>shallow copy</code> 和 <code>deep copy</code>。</p>
+<p><img src="https://i.imgur.com/WbZ1431.jpg"></p>
 <hr>
-<h2 id="解析程式碼"><a href="#解析程式碼" class="headerlink" title="解析程式碼"></a>解析程式碼</h2><p>這次我們需要藉助網路上別人寫好的 JavaScript API，讓他幫忙在每次視窗畫面中輸入文字等於<code>secretCode</code>時，在視窗畫面上新增一個生動的圖案。</p>
-<p><a target="_blank" rel="noopener" href="https://www.cornify.com/js/cornify.js">觀看完整的 JavaScript API 內容</a></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://www.cornify.com/js/cornify.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="解析程式碼"><a href="#解析程式碼" class="headerlink" title="解析程式碼"></a>解析程式碼</h2><h3 id="JS-部分"><a href="#JS-部分" class="headerlink" title="JS 部分"></a>JS 部分</h3><h4 id="Passed-by-Value"><a href="#Passed-by-Value" class="headerlink" title="Passed by Value"></a>Passed by Value</h4><p>在 JavaScript 裡，如果變數的資料型態屬於 Primitive(原生型別)，則在傳遞變數時，採用的是 Passed by Value (傳遞值)。</p>
+<h5 id="常見的-Primitive"><a href="#常見的-Primitive" class="headerlink" title="常見的 Primitive:"></a>常見的 Primitive:</h5><ul>
+<li>String</li>
+<li>Number </li>
+<li>BigInt </li>
+<li>Boolean </li>
+<li>Symbol </li>
+</ul>
+<p>在下面的兩個例子，我們分別將<code>age</code>、<code>name</code>傳遞給<code>age2</code>、<code>name2</code>，之後改變<code>age2</code>、<code>name2</code>的數值。結果原本的<code>age</code>、<code>name</code>均不會受到影響，因為在傳遞過程是 <strong>Passed by Value</strong>，將原本存於<code>age</code>、<code>name</code>的值複製一份給<code>age2</code>、<code>name2</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> age = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">let</span> age2 = age;</span><br><span class="line"><span class="built_in">console</span>.log(age,age2);</span><br><span class="line"></span><br><span class="line">age = <span class="number">200</span>;</span><br><span class="line"><span class="built_in">console</span>.log(age,age2);</span><br></pre></td></tr></table></figure>
 
-<h3 id="JS-部分"><a href="#JS-部分" class="headerlink" title="JS 部分"></a>JS 部分</h3><p>宣告常數 <code>pressed</code> 為一個空陣列，用來存放我們在視窗畫面所輸入的值。</p>
-<p>宣告常數<code>secretCode</code>作為預設的文字密碼。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> pressed = [];</span><br><span class="line"><span class="keyword">const</span> secretCode = <span class="string">&#x27;saber&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&#x27;Mes&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> name2 = name;</span><br><span class="line"><span class="built_in">console</span>.log(name,name2);</span><br><span class="line"></span><br><span class="line">name = <span class="string">&#x27;wesley&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(name,name2);</span><br></pre></td></tr></table></figure>
 
-<p>我們替整個視窗註冊<code>keyup 事件</code>(放開按鍵時觸發)的監聽器，藉由<code>console.log(e.key);</code>可以在<code>console</code>看到我們按下的是哪一個按鍵，緊接著我們將按下的那個按鍵(<code>key</code>)放入陣列<code>pressed</code>的末端。</p>
-<p>為了比對輸入文字是否等於<code>secretCode</code>，我們可以利用<code>splice(start,deleteCount)</code>來讓陣列的長度跟<code>secretCode</code>保持一樣，沒做這個處理的話，我們會發現陣列中的元素愈來愈多、長度愈來愈長，永遠沒有和<code>secretCode</code>相同的可能。</p>
-<p><code>splice(start,deleteCount)</code>可以刪除陣列自<code>start</code>索引開始的<code>deleteCount</code>個元素，要注意的是<code>deleteCount</code>要大於0才會開始刪去元素，範例中的<code>secretCode</code>長度是5，也就是說只有輸入到第6次才會開始刪去元素。</p>
-<p>有趣的是我們將<code>deleteCount</code>指定為<code>pressed.length - secretCode</code>則效果和直接指定為1相同。只要<code>pressed</code>的長度到達6，經過計算後<code>deleteCount</code>是1，刪去一個元素後，<code>pressed</code>長度又變為5，由此周而復始(5-&gt;6；6-&gt;5)。</p>
-<p>指定<code>start</code> = <code>-secretCode.length - 1</code>的效果是讓我們從最早被 push 進陣列(最前端)的元素開始刪除。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&#x27;keyup&#x27;</span>,<span class="function">(<span class="params">e</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.key);</span><br><span class="line">    pressed.push(e.key);</span><br><span class="line">    pressed.splice(-secretCode.length - <span class="number">1</span>,pressed.length - secretCode.length);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/7VVyXzr.png"></p>
+<ul>
+<li>簡易概念圖</li>
+</ul>
+<p><img src="https://i.imgur.com/IGtwPRS.png"></p>
+<h4 id="Passed-by-Reference"><a href="#Passed-by-Reference" class="headerlink" title="Passed by Reference"></a>Passed by Reference</h4><p>在 JavaScript 裡，如果變數的資料型態屬於 Object(物件型別)，則在傳遞變數時，採用的是 <strong>Passed by Reference</strong> (傳遞位址)。</p>
+<p>常見的 Object:</p>
+<ul>
+<li>Array</li>
+<li>Object</li>
+</ul>
+<p>下面的例子，我們將陣列 <code>players</code> 傳遞給常數 <code>team</code>，之後將<code>team[3]</code>(Poppy)改成<code>Lux</code>，再把兩個陣列都印到 console，會發現到兩個陣列的第四個位置都被修改成新的值(Lux)。</p>
+<p>這是因為物件在傳遞的過程中採取的是 <strong>Passed by Reference</strong>，也就是將物件在記憶體上的位置傳遞給另一個物件(兩者共享同一個記憶體位置)，所以只要更改其中一方，另一方也會受到影響。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> players = [<span class="string">&#x27;Wes&#x27;</span>,<span class="string">&#x27;Sarah&#x27;</span>,<span class="string">&#x27;Ryan&#x27;</span>,<span class="string">&#x27;Poppy&#x27;</span>];</span><br><span class="line"><span class="keyword">const</span> team = players;</span><br><span class="line"><span class="built_in">console</span>.log(players,team);</span><br><span class="line">    </span><br><span class="line">team[<span class="number">3</span>] = <span class="string">&#x27;Lux&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(players,team);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/bGctsjK.png"></p>
+<p>如果想修改陣列的值又不影響另一個陣列的話，我們可以使用<code>slice()</code>來複製陣列並回傳新陣列(擁有自己的記憶體空間)。</p>
+<p>下面的例子，我們呼叫<code>players.slice()</code>將陣列<code>players</code>完整的複製一份到新陣列中並傳遞給<code>team2</code>，之後再修改<code>team2</code>的第四個位置，這次我們發現到原來的陣列<code>players</code>並沒有被修改到。</p>
+<p><strong>注意:<code>slice()</code>進行的是<code>shallow copy</code>(淺複製)!!!</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> team2 = players.slice()</span><br><span class="line">team2[<span class="number">3</span>] = <span class="string">&#x27;Lux&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(players,team2)</span><br></pre></td></tr></table></figure>
 
-<p>最後，我們利用 if 判斷用<code>pressed.join(&#39;&#39;)</code>串聯出的字串是否有包含<code>secretCode</code>，如果有包含就在<code>console</code>印出<code>DING DING!</code>並呼叫 API 中的<code>cornify_add()</code>在視窗畫面裡加上圖片。我們也可以再補上<code>console.log(pressed);</code>，查看目前<code>pressed</code>陣列內的元素。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&#x27;keyup&#x27;</span>,<span class="function">(<span class="params">e</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">/***省略***/</span></span><br><span class="line">    <span class="comment">/***省略***/</span></span><br><span class="line">    <span class="keyword">if</span>(pressed.join(<span class="string">&#x27;&#x27;</span>).includes(secretCode))&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;DING DING!&#x27;</span>);</span><br><span class="line">      cornify_add();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(pressed);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/hRcOCXI.png"></p>
+<p>其他修改陣列的值又不影響另一個陣列的方法有:</p>
+<ul>
+<li>concat() : 將多個陣列進行串聯和<code>slice()</code>一樣會回傳串聯後的新陣列。</li>
+<li>Spread : 將陣列中的元素展開並逐個放到新陣列中。 </li>
+<li>Array.from() : 建立一個新的 Array 實體。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> team3 = [].concat(players);</span><br><span class="line"></span><br><span class="line"><span class="comment">//use the new ES6 Spread</span></span><br><span class="line"><span class="keyword">const</span> team4 = [...players];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> team5 = <span class="built_in">Array</span>.from(players);</span><br></pre></td></tr></table></figure>
 
-<h4 id="補充資料"><a href="#補充資料" class="headerlink" title="補充資料:"></a>補充資料:</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/API/Document/keyup_event">keyup事件</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/splice">Array.prototype.splice()</a></p>
-<h2 id="範例網頁請按此"><a href="#範例網頁請按此" class="headerlink" title="範例網頁請按此"></a><a href="https://qi-xiang.github.io/iThelp2021_JS30/12%20-%20Key%20Sequence%20Detection/index-START.html">範例網頁請按此</a></h2>
+<p>另一個例子，我們宣告物件<code>person</code>並把它傳遞給<code>captain</code>，在<code>captain</code>上新增<code>number: 90</code>後將兩個物件都印到 consle，此時會發現在<code>captain</code>新增的<code>number: 90</code>，也會被加到<code>person</code>上。會這樣是因為物件在傳遞過程是 <strong>Passed by Reference</strong>，兩物件同時指向一個記憶體空間。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;Wes Bos&#x27;</span>,</span><br><span class="line">      <span class="attr">age</span>: <span class="number">80</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> captain = person;</span><br><span class="line">captain.number = <span class="number">99</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person,captain);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/A0zKq1v.png"></p>
+<p>如果不想修改到另一個物件的話，我們可以使用<code>Object.assign(target, ...sources)</code>來複製一個或多個物件的屬性到另一個目標物件，最後回傳目標物件。</p>
+<p>下面我們利用<code>Object.assign(&#123;&#125;,person,&#123;number: 99,age:12&#125;);</code>，將物件<code>person</code>和<code>&#123;number:99,age:12&#125;</code>的屬性複製到目標物件({ })。</p>
+<p>如果複製的多個物件的屬性有重複，以後面物件的屬性為準進行合併。舉例來說<code>age</code>是重複出現的屬性，最後複製屬性值時，要以後面出現的<code>age:12</code>為準合併物件。</p>
+<p><strong>注意 : <code>Object.assign()</code>做的是 shallow copy(淺複製)，如果要複製的物件屬性包含子物件，就會複製到子物件的參照(reference)!!!。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;Wes Bos&#x27;</span>,</span><br><span class="line">      <span class="attr">age</span>: <span class="number">80</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> cap2 = <span class="built_in">Object</span>.assign(&#123;&#125;,person,&#123;<span class="attr">number</span>: <span class="number">99</span>,<span class="attr">age</span>:<span class="number">12</span>&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(person,cap2);</span><br></pre></td></tr></table></figure>
+
+<p>原來的<code>person</code>並沒有被改動到。</p>
+<p><img src="https://i.imgur.com/hxETBx3.png"></p>
+<ul>
+<li>簡單概念圖</li>
+</ul>
+<p><img src="https://i.imgur.com/APVV1UP.png"></p>
+<h4 id="Shallow-Copy-amp-Deep-Copy"><a href="#Shallow-Copy-amp-Deep-Copy" class="headerlink" title="Shallow Copy &amp; Deep Copy"></a>Shallow Copy &amp; Deep Copy</h4><p>前面我們有提到，<code>Object.assign()</code>做的是 shallow copy(淺複製)，若要複製的物件屬性包含子物件，就會複製到子物件的參照。</p>
+<p>所以只要去改動新物件的子物件屬性值，就會連帶影響原本複製的物件子屬性值。</p>
+<p>下面我們用<code>Object.assign()</code>複製來源物件(<code>wes</code>)的屬性到目標物件({})，再將目標物件傳遞給<code>dev</code>物件，要留意<code>wes</code>的屬性包含子物件屬性(<code>social</code>)。</p>
+<p>例子中我們修改複製來的物件屬性(<code>name</code>)和子物件屬性(<code>social.twitter</code>)，之後把<code>wes</code>、<code>dev</code>物件印到 console 會發現複製的來源物件<code>wes</code>的屬性(<code>name</code>)不受影響，但<code>wes</code>的子物件屬性(<code>social.twitter</code>)卻被影響。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> wes = &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;Wes&#x27;</span>,</span><br><span class="line">      <span class="attr">age</span>: <span class="number">100</span>,</span><br><span class="line">      <span class="attr">social</span>: &#123;</span><br><span class="line">        <span class="attr">twitter</span>: <span class="string">&#x27;@wesbos&#x27;</span>,</span><br><span class="line">        <span class="attr">facebook</span>: <span class="string">&#x27;wesbos.developer&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//shallow copy</span></span><br><span class="line"><span class="keyword">const</span> dev = <span class="built_in">Object</span>.assign(&#123;&#125;,wes);</span><br><span class="line">dev.name = <span class="string">&#x27;Wesley&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(wes,dev);</span><br><span class="line"></span><br><span class="line">dev.social.twitter = <span class="string">&#x27;@coolman&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(wes.social,dev.social);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/etJyOi7.png"></p>
+<p>如果不想改動複製來源物件的子屬性值(<code>social.twitter</code>)，我們可以將要複製的物件用<code>JSON.stringify()</code>先轉換成 JSON String(因為是Primitive，所以是 Passed by Value)，再用<code>JSON.parse()</code>把它還原成物件再回傳給<code>dev2</code>。</p>
+<p>下面我們一樣修改子物件的屬性值，但這次的原物件子屬性值並沒有受到影響。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> wes = &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;Wes&#x27;</span>,</span><br><span class="line">      <span class="attr">age</span>: <span class="number">100</span>,</span><br><span class="line">      <span class="attr">social</span>: &#123;</span><br><span class="line">        <span class="attr">twitter</span>: <span class="string">&#x27;@wesbos&#x27;</span>,</span><br><span class="line">        <span class="attr">facebook</span>: <span class="string">&#x27;wesbos.developer&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// deep copy</span></span><br><span class="line"><span class="keyword">const</span> dev2 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(wes));<span class="comment">//先轉成string再換回object</span></span><br><span class="line">dev2.social.twitter = <span class="string">&#x27;@coolman&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(wes.social,dev2.social);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/uUoIcIg.png"></p>
+<h4 id="補充資料"><a href="#補充資料" class="headerlink" title="補充資料:"></a>補充資料:</h4><p><a target="_blank" rel="noopener" href="https://totoroliu.medium.com/javascript-var-let-const-%E5%B7%AE%E7%95%B0-e3d930521230">JavaScript: var, let, const 差異</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/concat">Array.prototype.concat()</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Spread_syntax">Spread syntax (…)</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/from">Array.from()</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign()</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify">JSON.stringify()</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse">JSON.parse()</a></p>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/10/22/ironman2021D12/" data-id="ckv20xw3q0001q4tx7rlgbb17" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/10/22/ironman2021D14/" data-id="ckv21twzg0000u8tx0rvihywp" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -314,17 +364,17 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
             "@type": "Person",
             "name": "Qi Xiang,Zhang"
         },
-        "headline": "JS30 全攻略 第十二天",
-        "image": "https://qi-xiang.github.iohttps://i.imgur.com/Xc8wySc.jpg",
+        "headline": "JS30 全攻略 第十四天",
+        "image": "https://qi-xiang.github.iohttps://i.imgur.com/WbZ1431.jpg",
         "keywords": "JS30",
         "genre": "",
         "datePublished": "2021-10-22",
         "dateCreated": "2021-10-22",
         "dateModified": "2021-10-22",
-        "url": "https://qi-xiang.github.io/2021/10/22/ironman2021D12/",
+        "url": "https://qi-xiang.github.io/2021/10/22/ironman2021D14/",
         "description": "前言JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。
 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話可",
-        "wordCount": 213
+        "wordCount": 650
     }
 </script>
 
@@ -389,20 +439,20 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
         
 <nav id="article-nav">
     
-        <a href="/2021/10/22/ironman2021D13/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2021/10/22/ironman2021D15/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
-            JS30 全攻略 第十三天
+            JS30 全攻略 第十五天
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/2021/10/22/ironman2021D11/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2021/10/22/ironman2021D13/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">JS30 全攻略 第十一天</p>
+        <p class="article-nav-title">JS30 全攻略 第十三天</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -612,7 +662,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://qi-xiang.github.io/2021/10/22/ironman2021D12/';
+    var disqus_url = 'https://qi-xiang.github.io/2021/10/22/ironman2021D14/';
     
     (function() {
     var dsq = document.createElement('script');
