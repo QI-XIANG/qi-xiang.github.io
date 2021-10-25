@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://i.imgur.com/4i8JZj2.jpg">
 <meta property="article:published_time" content="2021-10-25T17:57:39.000Z">
-<meta property="article:modified_time" content="2021-10-25T18:14:50.137Z">
+<meta property="article:modified_time" content="2021-10-25T18:17:19.906Z">
 <meta property="article:author" content="Qi Xiang,Zhang">
 <meta property="article:tag" content="區塊鏈">
 <meta name="twitter:card" content="summary">
@@ -184,7 +184,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2021/10/26/blockchainyt2/" class="article-date">
-     <time datetime="2021-10-25T18:14:50.137Z" itemprop="dateModified">2021-10-26</time>
+     <time datetime="2021-10-25T18:17:19.906Z" itemprop="dateModified">2021-10-26</time>
   </a>
 </div>
 
@@ -234,18 +234,9 @@
 </ul>
 </li>
 <li>例子: 假設A給B 10個比特幣<ul>
-<li><ol>
-<li>A先寫一條紀錄(A給10比特幣到B)，之後進行Hash運算，再用私鑰進行加密，產生一組密碼</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>將交易訊息、公鑰、密碼對每一節點進行”廣播”，節點會去運用紀錄去做Hash運算，與運用公鑰解密後的密碼進行比對，驗證其交易的真偽</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>現假設A只有10個比特幣，卻同時給兩人10比特幣(double spending problem)</li>
-</ol>
-<ul>
+<li>1.A先寫一條紀錄(A給10比特幣到B)，之後進行Hash運算，再用私鑰進行加密，產生一組密碼</li>
+<li>2.將交易訊息、公鑰、密碼對每一節點進行”廣播”，節點會去運用紀錄去做Hash運算，與運用公鑰解密後的密碼進行比對，驗證其交易的真偽</li>
+<li>3.現假設A只有10個比特幣，卻同時給兩人10比特幣(double spending problem)<ul>
 <li>如何進行帳戶餘額檢查<ul>
 <li>A廣播出交易訊息後，區塊鏈中的節點會往前檢查每一區塊中A的交易紀錄(追溯)，確認A的餘額</li>
 <li>防止雙重支付<ul>
@@ -255,9 +246,8 @@
 </ul>
 </li>
 <li>每一個節點會去算A的餘額是否還夠，如果剛好有10比特幣的話，一些節點收到第一條消息就會拒絕第二條(因為餘額不足)，反之亦然。</li>
-<li>第1(或2)的消息會被放到區塊中(未被確認)，當有一個節點解出隨機數，新的區塊會被鏈結到區塊鏈中，其餘節點則會放棄打包區塊的機會，自動承認第一個產生的區塊，此時第1(或2)個消息被確認，另一消息則不會被確認(此時A餘額已經確定是0)<pre><code>  * 只有當區塊鏈接到區塊鏈上，交易才真正完成
-</code></pre>
-</li>
+<li>第1(或2)的消息會被放到區塊中(未被確認)，當有一個節點解出隨機數，新的區塊會被鏈結到區塊鏈中，其餘節點則會放棄打包區塊的機會，自動承認第一個產生的區塊，此時第1(或2)個消息被確認，另一消息則不會被確認(此時A餘額已經確定是0)</li>
+<li>只有當區塊鏈接到區塊鏈上，交易才真正完成</li>
 </ul>
 </li>
 </ul>
@@ -378,7 +368,7 @@
 公鑰無法反算私鑰
 自己轉出比特幣: 公鑰+地址
 他人轉入比特幣: 地址",
-        "wordCount": 24
+        "wordCount": 19
     }
 </script>
 
