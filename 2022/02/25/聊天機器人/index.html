@@ -6,26 +6,26 @@
     
 
     
-    <title>2021/10/18 NLP Matplotlib(範例) | Xiang&#39;s Blog</title>
+    <title>建置簡單 Line 聊天機器人 | Xiang&#39;s Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="NLP自然語言處理" />
+    <meta name="keywords" content="LineBot超入門" />
     
-    <meta name="description" content="Simple plot12345678910111213141516171819%matplotlib inline #此行目的是為了畫在jupyter notebook裡#import 需要的套件import numpy as npimport matplotlib.pyplot as plt#在 -pi 和 pi 間，以等差數列的方式取256個點，endpoint&#x3D;True(包含stop)X">
+    <meta name="description" content="Hint: 筆記內容主要來自: iT邦幫忙 - LINE BOT 新手村30日攻略系列 的部分重點節錄。 ¶Our Goal &amp; Ability You Need ¶1. 目的: 實做出一個可以回應使用者的天氣預報 line 機器人 :muscle: ¶2. 需要具備的能力:  Line 帳號 Python 環境 Python 基礎語法 分析JSON資料 學習熱誠   接下來進入實作環節">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2021&#x2F;10&#x2F;18 NLP Matplotlib(範例)">
-<meta property="og:url" content="https://qi-xiang.github.io/2021/10/25/nlp20211018/index.html">
+<meta property="og:title" content="建置簡單 Line 聊天機器人">
+<meta property="og:url" content="https://qi-xiang.github.io/2022/02/25/%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA/index.html">
 <meta property="og:site_name" content="Xiang&#39;s Blog">
-<meta property="og:description" content="Simple plot12345678910111213141516171819%matplotlib inline #此行目的是為了畫在jupyter notebook裡#import 需要的套件import numpy as npimport matplotlib.pyplot as plt#在 -pi 和 pi 間，以等差數列的方式取256個點，endpoint&#x3D;True(包含stop)X">
+<meta property="og:description" content="Hint: 筆記內容主要來自: iT邦幫忙 - LINE BOT 新手村30日攻略系列 的部分重點節錄。 ¶Our Goal &amp; Ability You Need ¶1. 目的: 實做出一個可以回應使用者的天氣預報 line 機器人 :muscle: ¶2. 需要具備的能力:  Line 帳號 Python 環境 Python 基礎語法 分析JSON資料 學習熱誠   接下來進入實作環節">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://i.imgur.com/oFf6p3B.png">
-<meta property="article:published_time" content="2021-10-24T16:02:46.000Z">
-<meta property="article:modified_time" content="2021-10-24T16:04:06.531Z">
+<meta property="og:image" content="https://i.imgur.com/QynLazT.png">
+<meta property="article:published_time" content="2022-02-24T16:25:00.000Z">
+<meta property="article:modified_time" content="2022-03-08T14:58:14.481Z">
 <meta property="article:author" content="Qi Xiang,Zhang">
-<meta property="article:tag" content="NLP自然語言處理">
+<meta property="article:tag" content="LineBot超入門">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/oFf6p3B.png">
+<meta name="twitter:image" content="https://i.imgur.com/QynLazT.png">
     
 
     
@@ -152,19 +152,19 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    未分類
+    <a class="page-title-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-nlp20211018" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-聊天機器人" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        2021/10/18 NLP Matplotlib(範例)
+        建置簡單 Line 聊天機器人
         </h1>
     
 
@@ -175,16 +175,16 @@
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2021/10/25/nlp20211018/" class="article-date">
-       <time datetime="2021-10-24T16:02:46.000Z" itemprop="datePublished">2021-10-25</time>
+    <a href="/2022/02/25/%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA/" class="article-date">
+       <time datetime="2022-02-24T16:25:00.000Z" itemprop="datePublished">2022-02-25</time>
     </a>
   </div>
 
 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2021/10/25/nlp20211018/" class="article-date">
-     <time datetime="2021-10-24T16:04:06.531Z" itemprop="dateModified">2021-10-25</time>
+  <a href="/2022/02/25/%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA/" class="article-date">
+     <time datetime="2022-03-08T14:58:14.481Z" itemprop="dateModified">2022-03-08</time>
   </a>
 </div>
 
@@ -194,7 +194,7 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" rel="tag">NLP自然語言處理</a>
+        <a class="tag-link-link" href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" rel="tag">LineBot超入門</a>
     </div>
 
                 
@@ -211,26 +211,181 @@
 
             
 
-            <h2 id="Simple-plot"><a href="#Simple-plot" class="headerlink" title="Simple plot"></a>Simple plot</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline <span class="comment">#此行目的是為了畫在jupyter notebook裡</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#import 需要的套件</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment">#在 -pi 和 pi 間，以等差數列的方式取256個點，endpoint=True(包含stop)</span></span><br><span class="line">X = np.linspace(-np.pi, np.pi, <span class="number">256</span>, endpoint=<span class="literal">True</span>)</span><br><span class="line"><span class="comment">#print(X)</span></span><br><span class="line">C,S = np.cos(X), np.sin(X) <span class="comment">#分別計算cos、sin值</span></span><br><span class="line">plt.plot(X,C) <span class="comment">#使用plt.plot()繪圖並帶入x,y座標</span></span><br><span class="line">plt.plot(X,S)</span><br><span class="line">plt.title(<span class="string">&#x27;this is title&#x27;</span>) <span class="comment">#設定圖表標題</span></span><br><span class="line">plt.ylabel(<span class="string">&#x27;y label&#x27;</span>) <span class="comment">#設定y軸名稱</span></span><br><span class="line">plt.xlabel(<span class="string">&#x27;x label&#x27;</span>) <span class="comment">#設定x軸名稱</span></span><br><span class="line">plt.grid() <span class="comment">#顯示網格</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#plt.show() #匯出圖表</span></span><br><span class="line">plt.savefig(<span class="string">&quot;./simple_plot.png&quot;</span>,dpi=<span class="number">72</span>) <span class="comment">#將圖表存成檔案；dpi是解析度</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/oFf6p3B.png"></p>
+            <p><strong>Hint:</strong> 筆記內容主要來自: iT邦幫忙 - <a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/users/20122649/ironman/3122">LINE BOT 新手村30日攻略系列</a> 的部分重點節錄。</p>
+<h2 id="Our-Goal-Ability-You-Need"><a class="header-anchor" href="#Our-Goal-Ability-You-Need">¶</a>Our Goal &amp; Ability You Need</h2>
+<h3 id="1-目的-實做出一個可以回應使用者的天氣預報-line-機器人-muscle"><a class="header-anchor" href="#1-目的-實做出一個可以回應使用者的天氣預報-line-機器人-muscle">¶</a>1. 目的: 實做出一個可以回應使用者的天氣預報 line 機器人 :muscle:</h3>
+<h3 id="2-需要具備的能力"><a class="header-anchor" href="#2-需要具備的能力">¶</a>2. 需要具備的能力:</h3>
+<ul>
+<li>Line 帳號</li>
+<li>Python 環境</li>
+<li>Python 基礎語法</li>
+<li>分析JSON資料</li>
+<li>學習熱誠</li>
+</ul>
 <blockquote>
-<p>要特別注意，plt.savefig()之前不能有plt.show()，不然存到的會是空白圖。</p>
+<p>接下來進入實作環節 !</p>
 </blockquote>
-<p><strong>numpy.linspace(等差數列): 此陣列以等差數列的形式產生，指定個數</strong></p>
 <hr>
-<h2 id="Figure"><a href="#Figure" class="headerlink" title="Figure"></a>Figure</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline <span class="comment">#此行目的是為了畫在jupyter notebook裡</span></span><br><span class="line"><span class="comment">#import必要套件</span></span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment">#在 -pi 和 pi 間，以等差數列的方式取256個點，endpoint=True(包含stop)</span></span><br><span class="line">X = np.linspace(-np.pi, np.pi, <span class="number">256</span>, endpoint=<span class="literal">True</span>)</span><br><span class="line">C,S = np.cos(X), np.sin(X)<span class="comment">#分別計算cos、sin值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#要畫一張新的圖只要重新呼叫 plt.figure() 即可</span></span><br><span class="line"><span class="comment">#以下分開繪製 cos、sin 的圖</span></span><br><span class="line">plt.figure()</span><br><span class="line">plt.plot(X,C) <span class="comment">#使用plt.plot()繪圖並帶入x,y座標</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#重新繪製另一張圖</span></span><br><span class="line">plt.figure()</span><br><span class="line">plt.plot(X,S, color=<span class="string">&#x27;red&#x27;</span>, linewidth=<span class="number">10</span>) <span class="comment">#將線段設為紅色，linewidth=10 用來調整線段寬度</span></span><br><span class="line"></span><br><span class="line">plt.show() <span class="comment">#繪出兩個圖表</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/KxUxFM1.png"><br><img src="https://i.imgur.com/OqCAn9w.png"></p>
-<hr>
-<h2 id="Subplot"><a href="#Subplot" class="headerlink" title="Subplot"></a>Subplot</h2><p>畫子圖，將原來的一張圖分成數個子圖<br>subplot函數需要使用幾個參數(row,col,# of plot)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#%matplotlib inline #此行目的是為了畫在jupyter notebook裡</span></span><br><span class="line"><span class="comment">#import必要套件</span></span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">6</span>, <span class="number">4</span>)) <span class="comment">#開始繪圖，指定 figsize</span></span><br><span class="line"><span class="comment"># plt.subplot(n_rows, n_cols, plot_num)</span></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>) <span class="comment">#繪製子圖 plt.subplot(row,col,number of plot) 第一張圖</span></span><br><span class="line">plt.plot([<span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">1</span>]) <span class="comment">#繪製從(0,0)到(1,1)的點</span></span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>) <span class="comment">#第二張圖</span></span><br><span class="line">plt.plot([<span class="number">1</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">2</span>]) <span class="comment">#以此類推</span></span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>) <span class="comment">#...</span></span><br><span class="line">plt.plot([<span class="number">2</span>, <span class="number">1</span>], [<span class="number">3</span>, <span class="number">3</span>])</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>) <span class="comment">#...</span></span><br><span class="line">plt.plot([<span class="number">4</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">4</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#tight_layout automatically adjusts subplot params so that the subplot(s) fits in to the figure area.</span></span><br><span class="line">plt.tight_layout() <span class="comment">#用於自動調整子圖參數以提供指定的填充</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/PXVOADp.png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">6</span>, <span class="number">4</span>))</span><br><span class="line"><span class="comment"># plt.subplot(n_rows, n_cols, plot_num)</span></span><br><span class="line">plt.subplot(<span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line"><span class="comment"># figure splits into 2 rows, 1 col, plot to the 1st sub-fig</span></span><br><span class="line">plt.plot([<span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"><span class="comment"># figure splits into 2 rows, 3 col, plot to the 4th sub-fig</span></span><br><span class="line">plt.plot([<span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>)</span><br><span class="line"><span class="comment"># figure splits into 2 rows, 3 col, plot to the 5th sub-fig</span></span><br><span class="line">plt.plot([<span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">3</span>])</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">3</span>,<span class="number">6</span>)</span><br><span class="line"><span class="comment"># figure splits into 2 rows, 3 col, plot to the 6th sub-fig</span></span><br><span class="line">plt.plot([<span class="number">0</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">4</span>])</span><br><span class="line">plt.tight_layout()</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.imgur.com/ocjriB6.png"></p>
+<h2 id="Setting-Environment"><a class="header-anchor" href="#Setting-Environment">¶</a>Setting Environment</h2>
+<ul>
+<li>LINE Messenging API</li>
+<li>LINE BOT設定</li>
+</ul>
+<p><strong>Hint:</strong> 將我們希望回覆的訊息格式和內容以特定的JSON格式回覆給Messenging API，指定的 JSON格式檔案就可以在我們的 BOT Server 及 LINE Platform 之間以HTTPS的方式，傳遞這則訊息給用戶。</p>
+<h3 id="Step1-LINE-BOT設定"><a class="header-anchor" href="#Step1-LINE-BOT設定">¶</a>Step1. LINE BOT設定</h3>
+<h4 id="新增LINE-BOT"><a class="header-anchor" href="#新增LINE-BOT">¶</a>新增LINE BOT</h4>
+<ol>
+<li>前往 <a target="_blank" rel="noopener" href="https://developers.line.biz/">https://developers.line.biz/</a> 並 登入/創建LINE帳號</li>
+</ol>
+<p><img src="https://i.imgur.com/QynLazT.png" alt=""></p>
+<ol start="2">
+<li>新增Providers<br>
+登入 LINE 帳號後看到介面如下 :point_down:</li>
+</ol>
+<p><img src="https://i.imgur.com/9LwiqmV.png" alt=""></p>
+<p>接下來點擊 <strong>Create</strong><br>
+輸入<strong>Providers name</strong>，可以隨意填寫，只要下面都是綠色勾勾就可以~</p>
+<p><img src="https://i.imgur.com/n59Gasl.png" alt=""></p>
+<ol start="3">
+<li>新增 <strong>Messenger API channel</strong><br>
+點選 <strong>Create a Messenging API channel</strong></li>
+</ol>
+<p><img src="https://i.imgur.com/9stlDRx.png" alt=""></p>
+<p>接下來修改以下內容:</p>
+<ul>
+<li><strong>Channel name</strong></li>
+<li><strong>Channel description</strong></li>
+<li><strong>Category</strong></li>
+<li><strong>Subcategory</strong></li>
+<li><strong>Email address</strong></li>
+<li><strong>其餘選填</strong></li>
+</ul>
+<p><img src="https://i.imgur.com/vGhnzAY.png" alt=""></p>
+<p><img src="https://i.imgur.com/fYKJNWG.png" alt=""></p>
+<p>填完後<strong>下方選項打勾</strong>並點選 <strong>Create</strong></p>
+<p><img src="https://i.imgur.com/CSw5sg1.png" alt=""></p>
+<h4 id="產生Access-token"><a class="header-anchor" href="#產生Access-token">¶</a>產生Access token</h4>
+<ol>
+<li>到 Messaging API</li>
+<li>在最下面找到 Channel access token 並點擊 issue</li>
+</ol>
+<p><img src="https://i.imgur.com/z6oy2AB.png" alt=""></p>
+<p><strong>務必將此token記下來!之後會用到喔!</strong></p>
+<h4 id="Channel-Secret"><a class="header-anchor" href="#Channel-Secret">¶</a>Channel Secret</h4>
+<ol>
+<li>請到 Basic settings</li>
+<li>往下找到Channel secret</li>
+</ol>
+<p><img src="https://i.imgur.com/iLpD2Br.jpg" alt=""></p>
+<p><strong>務必將此secret記下來!之後會用到喔!</strong></p>
+<h4 id="啟用webhook"><a class="header-anchor" href="#啟用webhook">¶</a>啟用webhook</h4>
+<ol>
+<li>前往 <a target="_blank" rel="noopener" href="https://manager.line.biz/">LINE manager</a> 選擇剛剛新增的BOT</li>
+</ol>
+<p><img src="https://i.imgur.com/divuL7h.png" alt=""></p>
+<ol start="2">
+<li>按右上角<strong>設定</strong></li>
+</ol>
+<p><img src="https://i.imgur.com/6TYtmBi.jpg" alt=""></p>
+<ol start="3">
+<li>選擇左側的回應設定 ， 將進階設定中的 Webhook勾選啟用、自動回覆訊息改為停用</li>
+</ol>
+<p><img src="https://i.imgur.com/izHVD51.jpg" alt=""></p>
 <blockquote>
-<p>要注意這個例題的圖表順序，因為第一張圖表佔據3個位置(1~3)，所以下面的圖表要以4、5、6來排列。</p>
+<p>到這邊關於LINE BOT的設定就告一段落 :smile:</p>
 </blockquote>
-<h3 id="補充資料"><a href="#補充資料" class="headerlink" title="補充資料:"></a>補充資料:</h3><p><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10196239">Matplotlib讓資料視覺化！</a><br><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10233646">NumPy基礎介紹</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_35930259/article/details/80002213">subplot和subplots绘制子图</a><br><a target="_blank" rel="noopener" href="https://vimsky.com/zh-tw/examples/usage/matplotlib-pyplot-tight_layout-in-python.html">Python Matplotlib.pyplot.tight_layout()用法及代碼示例</a></p>
+<h3 id="Step2-下載Python套件"><a class="header-anchor" href="#Step2-下載Python套件">¶</a>Step2. 下載Python套件</h3>
+<p>LINE官方關於python部分有提供 line-bot-sdk<br>
+此外，我們也會用到 flask 套件</p>
+<ol>
+<li>win+R 開啟cmd</li>
+<li>輸入以下指令</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install line-bot-sdk flask</span><br></pre></td></tr></table></figure>
+<p>Python的部分完成囉!</p>
+<h3 id="Step3-開發用資料夾"><a class="header-anchor" href="#Step3-開發用資料夾">¶</a>Step3. 開發用資料夾</h3>
+<p>上面的套件都下載&amp;安裝完後就新增一個資料夾吧~<br>
+之後所有的資料都會放在這個資料夾裡面</p>
+<h3 id="Step4-下載ngrok"><a class="header-anchor" href="#Step4-下載ngrok">¶</a>Step4. 下載ngrok</h3>
+<p>做本機測試會用到ngrok，這邊就先下載<br>
+建議放在剛剛新增的資料夾裡面，之後會比較方便使用</p>
+<ol>
+<li>前往 <a target="_blank" rel="noopener" href="https://ngrok.com/download">https://ngrok.com/download</a> 下載windows版ngrok<br>
+如果你是使用WSL或是Linux系統可以下載Linux版ngrok</li>
+</ol>
+<blockquote>
+<p>前置作業終於完成 ! :+1:</p>
+</blockquote>
 <hr>
+<h2 id="實作-鸚鵡式機器人"><a class="header-anchor" href="#實作-鸚鵡式機器人">¶</a>實作 - 鸚鵡式機器人</h2>
+<p><strong>Hint:</strong> 所謂鸚鵡式機器人就是 你說甚麼，它就說甚麼</p>
+<ol>
+<li>Coding</li>
+<li>使用webhook建立連線</li>
+<li>接收使用者訊息</li>
+<li>回覆使用者訊息</li>
+</ol>
+<h3 id="Coding"><a class="header-anchor" href="#Coding">¶</a>Coding</h3>
+<p>先到建立的開發用資料夾中開啟新檔案，建議使用VScode開啟。<br>
+名稱就叫<code>main.py</code></p>
+<p><img src="https://i.imgur.com/brJBc2g.png" alt=""></p>
+<p>將模板放入main.py中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask, request, abort</span><br><span class="line">from linebot import (</span><br><span class="line">    LineBotApi, WebhookHandler</span><br><span class="line">)</span><br><span class="line">from linebot.exceptions import (</span><br><span class="line">    InvalidSignatureError</span><br><span class="line">)</span><br><span class="line">from linebot.models import *</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"># LINE BOT info</span><br><span class="line">line_bot_api = LineBotApi(&#x27;Channel Access token&#x27;)</span><br><span class="line">handler = WebhookHandler(&#x27;Channel Secret&#x27;)</span><br><span class="line"></span><br><span class="line">@app.route(&quot;/callback&quot;, methods=[&#x27;POST&#x27;])</span><br><span class="line">def callback():</span><br><span class="line">    signature = request.headers[&#x27;X-Line-Signature&#x27;]</span><br><span class="line">    body = request.get_data(as_text=True)</span><br><span class="line">    app.logger.info(&quot;Request body: &quot; + body)</span><br><span class="line">    print(body)</span><br><span class="line">    try:</span><br><span class="line">        handler.handle(body, signature)</span><br><span class="line">    except InvalidSignatureError:</span><br><span class="line">        abort(400)</span><br><span class="line">    return &#x27;OK&#x27;</span><br><span class="line"></span><br><span class="line"># Message event</span><br><span class="line">@handler.add(MessageEvent)</span><br><span class="line">def handle_message(event):</span><br><span class="line">    message_type = event.message.type</span><br><span class="line">    user_id = event.source.user_id</span><br><span class="line">    reply_token = event.reply_token</span><br><span class="line">    message = event.message.text</span><br><span class="line">    line_bot_api.reply_message(reply_token, TextSendMessage(text = message))</span><br><span class="line"></span><br><span class="line">import os</span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    port = int(os.environ.get(&#x27;PORT&#x27;, 8888))</span><br><span class="line">    app.run(host=&#x27;0.0.0.0&#x27;, port=port)</span><br></pre></td></tr></table></figure>
+<p><strong>Channel Access token 以及 Channel Secret 改成上面提到要記的兩個值放入</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app = Flask(__name__)</span><br><span class="line"># LINE BOT info</span><br><span class="line">line_bot_api = LineBotApi(&#x27;Channel Access token&#x27;)</span><br><span class="line">handler = WebhookHandler(&#x27;Channel Secret&#x27;)</span><br></pre></td></tr></table></figure>
+<p>指定在 <strong>/callback</strong> 通道上接收訊息，且方法是 <strong>POST</strong><br>
+而 <strong>callback()</strong> 是為了要檢查連線是否正常<br>
+其中 <strong>signature</strong> 是LINE官方提供用來檢查該訊息是否透過LINE官方APP傳送<br>
+而 <strong>body</strong> 就是用戶傳送的訊息，並且是以 <strong>JSON</strong> 的格式傳送</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@app.route(&quot;/callback&quot;, methods=[&#x27;POST&#x27;])</span><br><span class="line">def callback():</span><br><span class="line">    signature = request.headers[&#x27;X-Line-Signature&#x27;]</span><br><span class="line">    body = request.get_data(as_text=True)</span><br><span class="line">    app.logger.info(&quot;Request body: &quot; + body)</span><br><span class="line">    print(body)</span><br><span class="line">    try:</span><br><span class="line">        handler.handle(body, signature)</span><br><span class="line">    except InvalidSignatureError:</span><br><span class="line">        abort(400)</span><br><span class="line">    return &#x27;OK&#x27;</span><br></pre></td></tr></table></figure>
+<p>這邊是用來接收訊息的地方<br>
+特別注意到 <strong>line_bot_api.reply_message()</strong><br>
+它是回傳訊息的方法，而我們設定回傳的型態是文字(<strong>text</strong>)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Message event</span><br><span class="line">@handler.add(MessageEvent)</span><br><span class="line">def handle_message(event):</span><br><span class="line">    message_type = event.message.type</span><br><span class="line">    user_id = event.source.user_id</span><br><span class="line">    reply_token = event.reply_token</span><br><span class="line">    message = event.message.text</span><br><span class="line">    line_bot_api.reply_message(reply_token, TextSendMessage(text = message))</span><br></pre></td></tr></table></figure>
+<p>接收到的訊息會被放在event中，一樣會是<strong>JSON</strong>格式</p>
+<p><img src="https://i.imgur.com/yzTdwgt.png" alt=""></p>
+<ul>
+<li><strong>events.message.type</strong><br>
+這裡記錄訊息的型態</li>
+<li><strong>events.message.text</strong><br>
+如果是文字訊息(text)<br>
+這裡會記錄傳送的文字</li>
+<li><strong>events.sourse.userId</strong><br>
+這裡記錄使用者的ID</li>
+</ul>
+<p>指定BOT執行的位置是在 0.0.0.0:8888<br>
+接上前面所說的，BOT會接收訊息的位置會是0.0.0.0:8888/callback</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    port = int(os.environ.get(&#x27;PORT&#x27;, 8888))</span><br><span class="line">    app.run(host=&#x27;0.0.0.0&#x27;, port=port)</span><br></pre></td></tr></table></figure>
+<h3 id="Webhook"><a class="header-anchor" href="#Webhook">¶</a>Webhook</h3>
+<p><strong>Hint:</strong> 當LINE Platfrom接收到來自使用者的訊息後，透過API接口，webhook通道使得LINE Platform從被動方變成主動方，將訊息傳送到BOT Server</p>
+<h3 id="實作開始"><a class="header-anchor" href="#實作開始">¶</a>實作開始</h3>
+<p>實際上，這份code已經完成了鸚鵡的功能了，那接下來就讓它動起來吧 !</p>
+<ol>
+<li>執行ngrok.exe</li>
+<li>在命令提示視窗執行以下指令</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ngrok.exe http 8888</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>執行cmd，移動路徑到專案的資料夾中</li>
+<li>在cmd執行以下指令</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python main.py </span><br></pre></td></tr></table></figure>
+<p>目前為止，你的畫面應該會是這樣</p>
+<p><img src="https://i.imgur.com/zW74NHT.png" alt=""></p>
+<p>你會發現有一個會將訊息導向 localhost:80 上的webhook<br>
+現在只需要讓LINE 知道webhook在哪裡就完成了!</p>
+<p>前往 <a target="_blank" rel="noopener" href="https://manager.line.biz/">https://manager.line.biz/</a> 登入自己的LINE帳號，並進入自己的LINE BOT<br>
+點擊右上角的設定 &gt; Messaging API</p>
+<p><img src="https://i.imgur.com/jUKjJKA.jpg" alt=""></p>
+<p>將Webhook網址改成剛剛ngrok上看到的網址加上/callback並儲存</p>
+<p><img src="https://i.imgur.com/4yBimGE.jpg" alt=""><br>
+<strong>圖片中忘記加上callback，請記得補上</strong></p>
+<p>這樣一來，通道就建構成功啦!<br>
+先將LINE BOT加入好友後來試試看功能吧!<br>
+LINE ID可以在剛剛的網頁上方找到</p>
+<p><img src="https://i.imgur.com/MoZHono.png" alt=""></p>
+<p>接下來就可以跟自己的BOT聊天</p>
+<p><img src="https://i.imgur.com/S1jIT40.png" alt=""></p>
 
         </div>
         <footer class="article-footer">
@@ -238,7 +393,7 @@
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/10/25/nlp20211018/" data-id="ckv5f8mwi00001gtx338l7epy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2022/02/25/%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA/" data-id="cl0i8gam10000k8tx9m0j71it" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -308,16 +463,28 @@
             "@type": "Person",
             "name": "Qi Xiang,Zhang"
         },
-        "headline": "2021/10/18 NLP Matplotlib(範例)",
-        "image": "https://qi-xiang.github.iohttps://i.imgur.com/oFf6p3B.png",
-        "keywords": "NLP自然語言處理",
-        "genre": "",
-        "datePublished": "2021-10-25",
-        "dateCreated": "2021-10-25",
-        "dateModified": "2021-10-25",
-        "url": "https://qi-xiang.github.io/2021/10/25/nlp20211018/",
-        "description": "Simple plot12345678910111213141516171819%matplotlib inline #此行目的是為了畫在jupyter notebook裡#import 需要的套件import numpy as npimport matplotlib.pyplot as plt#在 -pi 和 pi 間，以等差數列的方式取256個點，endpoint=True(包含stop)X ",
-        "wordCount": 542
+        "headline": "建置簡單 Line 聊天機器人",
+        "image": "https://qi-xiang.github.iohttps://i.imgur.com/QynLazT.png",
+        "keywords": "LineBot超入門",
+        "genre": "技術類文章",
+        "datePublished": "2022-02-25",
+        "dateCreated": "2022-02-25",
+        "dateModified": "2022-03-08",
+        "url": "https://qi-xiang.github.io/2022/02/25/聊天機器人/",
+        "description": "Hint: 筆記內容主要來自: iT邦幫忙 - LINE BOT 新手村30日攻略系列 的部分重點節錄。
+¶Our Goal &amp; Ability You Need
+¶1. 目的: 實做出一個可以回應使用者的天氣預報 line 機器人 :muscle:
+¶2. 需要具備的能力:
+
+Line 帳號
+Python 環境
+Python 基礎語法
+分析JSON資料
+學習熱誠
+
+
+接下來進入實作環節 ",
+        "wordCount": 665
     }
 </script>
 
@@ -382,20 +549,20 @@
         
 <nav id="article-nav">
     
-        <a href="/2021/10/25/nlp20211025/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2022/03/06/IP%E4%BD%8D%E5%9D%80%E8%A8%88%E7%AE%97-IPv4-%E9%81%A9%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
-            2021/10/25 NLP Matplotlib(範例1)
+            IP位址計算 (IPv4 適用)
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/2021/10/22/ironman2021D30/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2022/02/15/%E9%81%B2%E4%BE%86%E7%9A%84%E9%90%B5%E4%BA%BA%E8%B3%BD%E5%BF%83%E5%BE%97/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">JS30 全攻略 第30天</p>
+        <p class="article-nav-title">遲來的鐵人賽心得</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -612,7 +779,7 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://qi-xiang.github.io/2021/10/25/nlp20211018/';
+    var disqus_url = 'https://qi-xiang.github.io/2022/02/25/%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA/';
     
     (function() {
     var dsq = document.createElement('script');
