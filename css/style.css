@@ -274,14 +274,14 @@ code {
 .logo {
   display: block;
   padding: 10px 0;
-  width: 200px;
+  width: 250px;
   height: 90px;
   background-image: url("images/blog-header.svg");
   background-position: 0px 10px;
   background-repeat: no-repeat;
-  -webkit-background-size: 200px 90px;
-  -moz-background-size: 200px 90px;
-  background-size: 200px 90px;
+  -webkit-background-size: 300px 100px;
+  -moz-background-size: 300px 100px;
+  background-size: 300px 100px;
 }
 .main-body {
   margin-top: -60px;
