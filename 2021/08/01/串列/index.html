@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Python 學習日記 EP 4 - 串列 | Xiang&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Python 學習日記" />
+    
+    <meta name="description" content="參考書目: Python自動化的樂趣: 搞定重複瑣碎&amp;單調無聊的工作  tags: Python 學習日記 📝 串列資料型別 📓 以索引取得串列值  📓 負數索引取值  📓 切片取得子串列  example: spam[起始索引 : 結束索引]，不包含&quot;結束索引&quot;   📓 len() 取得串列長度  📓 用索引改變串列中的值  📓 串列的連接與複製  �">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 學習日記 EP 4 - 串列">
+<meta property="og:url" content="https://qi-xiang.github.io/2021/08/01/%E4%B8%B2%E5%88%97/index.html">
+<meta property="og:site_name" content="Xiang&#39;s Blog">
+<meta property="og:description" content="參考書目: Python自動化的樂趣: 搞定重複瑣碎&amp;單調無聊的工作  tags: Python 學習日記 📝 串列資料型別 📓 以索引取得串列值  📓 負數索引取值  📓 切片取得子串列  example: spam[起始索引 : 結束索引]，不包含&quot;結束索引&quot;   📓 len() 取得串列長度  📓 用索引改變串列中的值  📓 串列的連接與複製  �">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/GW6N4Ng.png">
+<meta property="article:published_time" content="2021-07-31T18:00:00.000Z">
+<meta property="article:modified_time" content="2022-03-09T10:09:48.618Z">
+<meta property="article:author" content="Qi Xiang,Zhang">
+<meta property="article:tag" content="Python 學習日記">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/GW6N4Ng.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">首頁</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">關於</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="輸入關鍵字..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '頁面',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-串列" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Python 學習日記 EP 4 - 串列
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/08/01/%E4%B8%B2%E5%88%97/" class="article-date">
+       <time datetime="2021-07-31T18:00:00.000Z" itemprop="datePublished">2021-08-01</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/08/01/%E4%B8%B2%E5%88%97/" class="article-date">
+     <time datetime="2022-03-09T10:09:48.618Z" itemprop="dateModified">2022-03-09</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" rel="tag">Python 學習日記</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <blockquote>
+<p>參考書目: Python自動化的樂趣: 搞定重複瑣碎&amp;單調無聊的工作</p>
+</blockquote>
+<h6 id="tags-Python-學習日記">tags: <code>Python 學習日記</code></h6>
+<h2 id="📝-串列資料型別">📝 串列資料型別</h2>
+<h3 id="📓-以索引取得串列值">📓 以索引取得串列值</h3>
+<p><img src="https://i.imgur.com/GW6N4Ng.png" alt=""></p>
+<h3 id="📓-負數索引取值">📓 負數索引取值</h3>
+<p><img src="https://i.imgur.com/dNAdI4c.png" alt=""></p>
+<h3 id="📓-切片取得子串列">📓 切片取得子串列</h3>
+<ul>
+<li>example: spam[起始索引 : 結束索引]，<strong>不包含</strong>&quot;結束索引&quot;</li>
+</ul>
+<p><img src="https://i.imgur.com/6cS8Blg.png" alt=""></p>
+<h3 id="📓-len-取得串列長度">📓 len() 取得串列長度</h3>
+<p><img src="https://i.imgur.com/cT7aRMj.png" alt=""></p>
+<h3 id="📓-用索引改變串列中的值">📓 用索引改變串列中的值</h3>
+<p><img src="https://i.imgur.com/t2CI8w5.png" alt=""></p>
+<h3 id="📓-串列的連接與複製">📓 串列的連接與複製</h3>
+<p><img src="https://i.imgur.com/eVizUng.png" alt=""></p>
+<h3 id="📓-del-刪除串列中的值">📓 del 刪除串列中的值</h3>
+<p><img src="https://i.imgur.com/gWGGNFu.png" alt=""></p>
+<hr>
+<h2 id="📝-運用串列">📝 運用串列</h2>
+<p><img src="https://i.imgur.com/jC9nhlp.png" alt=""></p>
+<hr>
+<h2 id="📝-在迴圈中使用串列">📝 在迴圈中使用串列</h2>
+<p><img src="https://i.imgur.com/NePsWX0.png" alt=""></p>
+<h3 id="📓-in、not-in-運算子">📓 in、not in 運算子</h3>
+<p><img src="https://i.imgur.com/7tSl2RI.png" alt=""></p>
+<h3 id="📓-多重指定值">📓 多重指定值</h3>
+<p><img src="https://i.imgur.com/3Qxy2ML.png" alt=""></p>
+<hr>
+<h2 id="📝-增強型指定運算子">📝 增強型指定運算子</h2>
+<table>
+<thead>
+<tr>
+<th>增強型運算子</th>
+<th style="text-align:left">相同的表達式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>spam += 1</td>
+<td style="text-align:left">spam = spam + 1</td>
+</tr>
+<tr>
+<td>spam -= 1</td>
+<td style="text-align:left">spam = spam - 1</td>
+</tr>
+<tr>
+<td>spam *= 1</td>
+<td style="text-align:left">spam = spam * 1</td>
+</tr>
+<tr>
+<td>spam /= 1</td>
+<td style="text-align:left">spam = spam / 1</td>
+</tr>
+<tr>
+<td>spam %= 1</td>
+<td style="text-align:left">spam = spam % 1</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://i.imgur.com/tYRdDf1.png" alt=""></p>
+<hr>
+<h2 id="📝-串列方法">📝 串列方法</h2>
+<h3 id="📓-index">📓 index()</h3>
+<ul>
+<li>回傳欲搜尋值所在的索引(有相同的重複值則回傳第一個)，若值不存在串列中則回報 ValueError</li>
+</ul>
+<p><img src="https://i.imgur.com/GLLzabz.png" alt=""></p>
+<h3 id="📓-append">📓 append()</h3>
+<ul>
+<li>新增值到串列的最後方</li>
+</ul>
+<p><img src="https://i.imgur.com/tHL7XXi.png" alt=""></p>
+<h3 id="📓-insert">📓 insert()</h3>
+<ul>
+<li>插入值到特定的串列位置</li>
+</ul>
+<p><img src="https://i.imgur.com/QTLjYW9.png" alt=""></p>
+<h3 id="📓-remove">📓 remove()</h3>
+<ul>
+<li>將特定值從串列中刪除(有相同的重複值則刪除出現的第一個)，若值原本就不存在於串列中，則回報 ValueError</li>
+</ul>
+<p><img src="https://i.imgur.com/U9pbI4p.png" alt=""></p>
+<h3 id="📓-sort">📓 sort()</h3>
+<ul>
+<li>排序串列 (預設由小到大)</li>
+<li>關鍵字引數: <span style='color:red;'><code>reverse = True</code></span>，反向做串列排序</li>
+<li>關鍵字引數: <span style='color:red;'><code>key = str.lower</code></span>，將字母都視為小寫後排序</li>
+</ul>
+<p><img src="https://i.imgur.com/TNUMyTZ.png" alt=""></p>
+<hr>
+<h2 id="📝-類似串列-List-like-的型別-字串、元組">📝 類似串列 (List-like) 的型別: 字串、元組</h2>
+<h3 id="📓-可變、不可變資料型別">📓 可變、不可變資料型別</h3>
+<ol>
+<li>可變 (mutable): 例如: 串列的值可以新增、刪除、修改</li>
+<li>不可變 (immutable): 例如: 字串的值不能新增、刪除、修改</li>
+</ol>
+<p><img src="https://i.imgur.com/QhRJAOr.png" alt=""></p>
+<h3 id="📓-多元組資料型別">📓 多元組資料型別</h3>
+<ul>
+<li>多元組和串列幾乎相同除了:
+<ul>
+<li>使用小括弧 ()</li>
+<li>多元組是不可變的</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/pXdR3qZ.png" alt=""></p>
+<p>💡 <strong>Hint:</strong> 當多元組內只有一個值時，要在值後加上逗號(,)，說明它是一個&quot;多元組&quot;而&quot;不是字串&quot;，例如: spam = (1,)。</p>
+<h3 id="📓-轉換型別">📓 轉換型別</h3>
+<ol>
+<li>list()</li>
+<li>tuple()</li>
+</ol>
+<p><img src="https://i.imgur.com/4uWRtZD.png" alt=""></p>
+<hr>
+<h2 id="📝-參照">📝 參照</h2>
+<ul>
+<li>參照(reference)可以想成是存放變數的位置，假設有兩個變數指向同一個位置，更改其中一個變數值，也會動到另一個變數值。</li>
+</ul>
+<p><img src="https://i.imgur.com/WKu4FJJ.png" alt=""></p>
+<h3 id="📓-傳入參照">📓 傳入參照</h3>
+<ul>
+<li>將串列指定給變數時，實際上是將參照指定給變數</li>
+</ul>
+<p><img src="https://i.imgur.com/54pD2TE.png" alt=""></p>
+<h3 id="📓-copy-模組">📓 copy 模組</h3>
+<ul>
+<li>若不想影響到串列原有值，可以考慮使用 copy 模組</li>
+</ul>
+<ol>
+<li>copy(): 一維串列適用</li>
+<li>deepcopy(): 多維串列適用 (但直接用 copy() 似乎也可以)</li>
+</ol>
+<p><img src="https://i.imgur.com/OTspebC.png" alt=""></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://qi-xiang.github.io/2021/08/01/%E4%B8%B2%E5%88%97/" data-id="cl0jerqen000050txg847cmj4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Qi Xiang,Zhang"
+        },
+        "headline": "Python 學習日記 EP 4 - 串列",
+        "image": "https://qi-xiang.github.iohttps://i.imgur.com/GW6N4Ng.png",
+        "keywords": "Python 學習日記",
+        "genre": "技術類文章",
+        "datePublished": "2021-08-01",
+        "dateCreated": "2021-08-01",
+        "dateModified": "2022-03-09",
+        "url": "https://qi-xiang.github.io/2021/08/01/串列/",
+        "description": "
+參考書目: Python自動化的樂趣: 搞定重複瑣碎&amp;單調無聊的工作
+
+tags: Python 學習日記
+📝 串列資料型別
+📓 以索引取得串列值
+
+📓 負數索引取值
+
+📓 切片取得子串列
+
+example: spam[起始索引 : 結束索引]，不包含&quot;結束索引&quot;
+
+
+📓 len() 取得串列長度
+
+📓 用索引改變串列中的值
+
+📓 串列的連接與複製
+
+�",
+        "wordCount": 181
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>追蹤 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/profile.php?id=100004441091584" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/qi-xiang-zhang-499625210/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://stackoverflow.com/users/17213183/xiang?tab=profile" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/QI-XIANG" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2021/08/01/%E5%AD%97%E5%85%B8%E8%88%87%E7%B5%90%E6%A7%8B%E5%8C%96%E8%B3%87%E6%96%99/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            Python 學習日記 EP 5 - 字典與結構化資料
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2021/07/30/%E5%87%BD%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">Python 學習日記 EP 3 - 函式</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/03/06/IP%E4%BD%8D%E5%9D%80%E8%A8%88%E7%AE%97-IPv4-%E9%81%A9%E7%94%A8/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/ysQfuj9.jpg)" alt="IP位址計算 (IPv4 適用)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2022/03/06/IP%E4%BD%8D%E5%9D%80%E8%A8%88%E7%AE%97-IPv4-%E9%81%A9%E7%94%A8/" class="title">IP位址計算 (IPv4 適用)</a></p>
+                            <p class="item-date"><time datetime="2022-03-05T18:00:00.000Z" itemprop="datePublished">2022-03-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/02/25/%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/QynLazT.png)" alt="建置簡單 Line 聊天機器人" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2022/02/25/%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA/" class="title">建置簡單 Line 聊天機器人</a></p>
+                            <p class="item-date"><time datetime="2022-02-24T16:25:00.000Z" itemprop="datePublished">2022-02-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/02/15/%E9%81%B2%E4%BE%86%E7%9A%84%E9%90%B5%E4%BA%BA%E8%B3%BD%E5%BF%83%E5%BE%97/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/Ind4xj0.jpg)" alt="遲來的鐵人賽心得" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/02/15/%E9%81%B2%E4%BE%86%E7%9A%84%E9%90%B5%E4%BA%BA%E8%B3%BD%E5%BF%83%E5%BE%97/" class="title">遲來的鐵人賽心得</a></p>
+                            <p class="item-date"><time datetime="2022-02-15T12:05:00.000Z" itemprop="datePublished">2022-02-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/01/27/%E5%A5%87%E8%B9%9F%E4%BC%BC%E7%9A%84%E9%80%9A%E9%81%8E%E6%97%A5%E6%AA%A2N4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/7YNmKp4.png)" alt="奇蹟似的通過日檢N4" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
+                            <p class="item-title"><a href="/2022/01/27/%E5%A5%87%E8%B9%9F%E4%BC%BC%E7%9A%84%E9%80%9A%E9%81%8E%E6%97%A5%E6%AA%A2N4/" class="title">奇蹟似的通過日檢N4</a></p>
+                            <p class="item-date"><time datetime="2022-01-26T17:40:00.000Z" itemprop="datePublished">2022-01-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/01/26/%E9%97%9C%E6%96%BC%E6%88%91%E9%96%8B%E5%A7%8B%E5%AF%AB%E9%9B%BB%E5%AD%90%E7%AD%86%E8%A8%98%E9%80%99%E6%AA%94%E4%BA%8B/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/zvuzq0B.jpg)" alt="關於我開始寫電子筆記這檔事" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
+                            <p class="item-title"><a href="/2022/01/26/%E9%97%9C%E6%96%BC%E6%88%91%E9%96%8B%E5%A7%8B%E5%AF%AB%E9%9B%BB%E5%AD%90%E7%AD%86%E8%A8%98%E9%80%99%E6%AA%94%E4%BA%8B/" class="title">關於我開始寫電子筆記這檔事</a></p>
+                            <p class="item-date"><time datetime="2022-01-26T09:20:00.000Z" itemprop="datePublished">2022-01-26</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">8</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 15px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 17.5px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 12.5px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 15px;">原子習慣</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 12.5px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 12.5px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 15px;">財報狗挖好股精華</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/QI-XIANG">My Github</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 Qi Xiang,Zhang</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://qi-xiang.github.io/2021/08/01/%E4%B8%B2%E5%88%97/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
