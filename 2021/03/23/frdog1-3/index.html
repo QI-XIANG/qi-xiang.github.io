@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>財報狗教你挖好股 [1.獲利性分析-股東權益報酬率] | Xiang&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="財報狗挖好股精華" />
+    
+    <meta name="description" content="股東權益報酬率  股東權益報酬率 &#x3D; 淨利 &#x2F; 股東權益(自有資金) * 100%   股東拿錢出來投資一家公司，這筆錢稱為股東權益  4種ROE型態，顯示公司以自有資金賺錢的能力  觀察ROE的高低與走勢，可以看出公司所處產業的特性，有利判斷投資方向   觀察ROE的時間越長越好，最好超過兩個景氣循環的時間，也就是6~8年的時間   1.平穩型-&gt; 受景氣波動影響小，多為民生必需產業 2.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="財報狗教你挖好股 [1.獲利性分析-股東權益報酬率]">
+<meta property="og:url" content="https://qi-xiang.github.io/2021/03/23/frdog1-3/index.html">
+<meta property="og:site_name" content="Xiang&#39;s Blog">
+<meta property="og:description" content="股東權益報酬率  股東權益報酬率 &#x3D; 淨利 &#x2F; 股東權益(自有資金) * 100%   股東拿錢出來投資一家公司，這筆錢稱為股東權益  4種ROE型態，顯示公司以自有資金賺錢的能力  觀察ROE的高低與走勢，可以看出公司所處產業的特性，有利判斷投資方向   觀察ROE的時間越長越好，最好超過兩個景氣循環的時間，也就是6~8年的時間   1.平穩型-&gt; 受景氣波動影響小，多為民生必需產業 2.">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/dpjYwDy.jpg">
+<meta property="article:published_time" content="2021-03-22T17:49:36.000Z">
+<meta property="article:modified_time" content="2022-03-09T12:23:16.837Z">
+<meta property="article:author" content="Qi Xiang,Zhang">
+<meta property="article:tag" content="財報狗挖好股精華">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/dpjYwDy.jpg">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">首頁</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">關於</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="輸入關鍵字..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '頁面',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-frdog1-3" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        財報狗教你挖好股 [1.獲利性分析-股東權益報酬率]
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/03/23/frdog1-3/" class="article-date">
+       <time datetime="2021-03-22T17:49:36.000Z" itemprop="datePublished">2021-03-23</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/03/23/frdog1-3/" class="article-date">
+     <time datetime="2022-03-09T12:23:16.837Z" itemprop="dateModified">2022-03-09</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" rel="tag">財報狗挖好股精華</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h2 id="股東權益報酬率">股東權益報酬率</h2>
+<blockquote>
+<p>股東權益報酬率 = 淨利 / 股東權益(自有資金) * 100%</p>
+</blockquote>
+<ul>
+<li>股東拿錢出來投資一家公司，這筆錢稱為股東權益</li>
+</ul>
+<h3 id="4種ROE型態，顯示公司以自有資金賺錢的能力">4種ROE型態，顯示公司以自有資金賺錢的能力</h3>
+<ul>
+<li>觀察ROE的高低與走勢，可以看出公司所處產業的特性，有利判斷投資方向</li>
+</ul>
+<blockquote>
+<p>觀察ROE的時間越長越好，最好超過兩個景氣循環的時間，也就是6~8年的時間</p>
+</blockquote>
+<ul>
+<li>1.平穩型-&gt; 受景氣波動影響小，多為民生必需產業</li>
+<li>2.大幅波動型(不宜長期投資) -&gt; 受景氣影響大，多為景氣循環股</li>
+<li>3.趨勢向下型 -&gt; 夕陽產業或公司競爭力衰退</li>
+<li>4.趨勢向上型 -&gt; 火紅產業或公司具有競爭實力</li>
+</ul>
+<h3 id="利用-杜邦分析-看出公司ROE變化玄機">利用&quot;杜邦分析&quot;看出公司ROE變化玄機</h3>
+<blockquote>
+<p>杜邦分析法將ROE拆成3項財務數字: 1.淨利率 2.總資產周轉率 3.權益乘數</p>
+</blockquote>
+<ul>
+<li>淨利率: 代表公司獲利能力 = 淨利 / 營收</li>
+<li>總資產周轉率: 公司利用資產創造營收的效率 = 營收 / 總資產</li>
+<li>權益乘數: 公司使用的財務槓桿大小 = 總資產 / 股東權益 (負債越多就越大)</li>
+<li>ROE = 淨利率 X 總資產周轉率 X 權益乘數</li>
+</ul>
+<h4 id="淨利率推動ROE上升，才是名副其實績優股">淨利率推動ROE上升，才是名副其實績優股</h4>
+<ul>
+<li>若公司的ROE成長單純來自&quot;總資產周轉率&quot;的提升，代表好業績來自短期營收的衝刺，甚至可能有削價競爭的情況</li>
+</ul>
+<h4 id="ROE提高但淨利率下滑，營收反轉時股價恐跌">ROE提高但淨利率下滑，營收反轉時股價恐跌</h4>
+<ul>
+<li>若ROE提高淨利反而下滑，則須注意是來自總資產周轉率或權益乘數的成長
+<ul>
+<li>總資產周轉率提高可能來自削價競爭</li>
+<li>權益乘數提高可能來自公司的債務</li>
+</ul>
+</li>
+<li>月營收開始下跌時，此類公司股價可能大幅向下修正</li>
+</ul>
+<h4 id="淨利率衰退連累ROE下滑，應避免長期投資">淨利率衰退連累ROE下滑，應避免長期投資</h4>
+<ul>
+<li>ROE下滑的主因為淨利率的公司，不宜作為長期投資標的</li>
+</ul>
+<h4 id="經營者資金操作轉趨保守，亦會拉低ROE">經營者資金操作轉趨保守，亦會拉低ROE</h4>
+<ul>
+<li>在資金操作方面降低負債，代表經營者心態趨向保守，公司ROE要重上軌道，經營心態是關鍵</li>
+</ul>
+<blockquote>
+<p>在眾多獲利指標中，ROE絕對是最重要的一個。投資者在研究一家新公司時，請謹記先看公司長期的ROE走勢；走勢平穩是最好的，若出現轉折，可通過杜邦分析了解其中原因，說不定能發現不錯的投資機會!</p>
+</blockquote>
+<h5 id="Written-By-QI-XIANG-2021-03-30">Written By QI-XIANG 2021/03/30</h5>
+<p><img src="https://i.imgur.com/dpjYwDy.jpg" alt=""></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://qi-xiang.github.io/2021/03/23/frdog1-3/" data-id="ckv6yj5vi00024gtxddih410w" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Qi Xiang,Zhang"
+        },
+        "headline": "財報狗教你挖好股 [1.獲利性分析-股東權益報酬率]",
+        "image": "https://qi-xiang.github.iohttps://i.imgur.com/dpjYwDy.jpg",
+        "keywords": "財報狗挖好股精華",
+        "genre": "生活類文章",
+        "datePublished": "2021-03-23",
+        "dateCreated": "2021-03-23",
+        "dateModified": "2022-03-09",
+        "url": "https://qi-xiang.github.io/2021/03/23/frdog1-3/",
+        "description": "股東權益報酬率
+
+股東權益報酬率 = 淨利 / 股東權益(自有資金) * 100%
+
+
+股東拿錢出來投資一家公司，這筆錢稱為股東權益
+
+4種ROE型態，顯示公司以自有資金賺錢的能力
+
+觀察ROE的高低與走勢，可以看出公司所處產業的特性，有利判斷投資方向
+
+
+觀察ROE的時間越長越好，最好超過兩個景氣循環的時間，也就是6~8年的時間
+
+
+1.平穩型-&gt; 受景氣波動影響小，多為民生必需產業
+2.",
+        "wordCount": 52
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>追蹤 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/profile.php?id=100004441091584" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/qi-xiang-zhang-499625210/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://stackoverflow.com/users/17213183/xiang?tab=profile" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/QI-XIANG" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2021/03/29/CH2/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            BDC CH2: Network Model
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2021/03/19/frdog1-2/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">財報狗教你挖好股 [1.獲利性分析-營運周轉天數]</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/03/06/IP%E4%BD%8D%E5%9D%80%E8%A8%88%E7%AE%97-IPv4-%E9%81%A9%E7%94%A8/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/ysQfuj9.jpg)" alt="IP位址計算 (IPv4 適用)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2022/03/06/IP%E4%BD%8D%E5%9D%80%E8%A8%88%E7%AE%97-IPv4-%E9%81%A9%E7%94%A8/" class="title">IP位址計算 (IPv4 適用)</a></p>
+                            <p class="item-date"><time datetime="2022-03-05T18:00:00.000Z" itemprop="datePublished">2022-03-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/02/25/%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/QynLazT.png)" alt="建置簡單 Line 聊天機器人" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2022/02/25/%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA/" class="title">建置簡單 Line 聊天機器人</a></p>
+                            <p class="item-date"><time datetime="2022-02-24T16:25:00.000Z" itemprop="datePublished">2022-02-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/02/15/%E9%81%B2%E4%BE%86%E7%9A%84%E9%90%B5%E4%BA%BA%E8%B3%BD%E5%BF%83%E5%BE%97/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/Ind4xj0.jpg)" alt="遲來的鐵人賽心得" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/02/15/%E9%81%B2%E4%BE%86%E7%9A%84%E9%90%B5%E4%BA%BA%E8%B3%BD%E5%BF%83%E5%BE%97/" class="title">遲來的鐵人賽心得</a></p>
+                            <p class="item-date"><time datetime="2022-02-15T12:05:00.000Z" itemprop="datePublished">2022-02-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/01/27/%E5%A5%87%E8%B9%9F%E4%BC%BC%E7%9A%84%E9%80%9A%E9%81%8E%E6%97%A5%E6%AA%A2N4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/7YNmKp4.png)" alt="奇蹟似的通過日檢N4" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
+                            <p class="item-title"><a href="/2022/01/27/%E5%A5%87%E8%B9%9F%E4%BC%BC%E7%9A%84%E9%80%9A%E9%81%8E%E6%97%A5%E6%AA%A2N4/" class="title">奇蹟似的通過日檢N4</a></p>
+                            <p class="item-date"><time datetime="2022-01-26T17:40:00.000Z" itemprop="datePublished">2022-01-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/01/26/%E9%97%9C%E6%96%BC%E6%88%91%E9%96%8B%E5%A7%8B%E5%AF%AB%E9%9B%BB%E5%AD%90%E7%AD%86%E8%A8%98%E9%80%99%E6%AA%94%E4%BA%8B/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/zvuzq0B.jpg)" alt="關於我開始寫電子筆記這檔事" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
+                            <p class="item-title"><a href="/2022/01/26/%E9%97%9C%E6%96%BC%E6%88%91%E9%96%8B%E5%A7%8B%E5%AF%AB%E9%9B%BB%E5%AD%90%E7%AD%86%E8%A8%98%E9%80%99%E6%AA%94%E4%BA%8B/" class="title">關於我開始寫電子筆記這檔事</a></p>
+                            <p class="item-date"><time datetime="2022-01-26T09:20:00.000Z" itemprop="datePublished">2022-01-26</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">16</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/BDC/" style="font-size: 14.29px;">BDC</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.86px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.71px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.43px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.86px;">原子習慣</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.43px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 11.43px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.14px;">財報狗挖好股精華</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.57px;">金魚也能學會寫網頁</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/QI-XIANG">My Github</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 Qi Xiang,Zhang</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://qi-xiang.github.io/2021/03/23/frdog1-3/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

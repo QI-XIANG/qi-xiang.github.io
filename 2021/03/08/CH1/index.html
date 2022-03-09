@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>BDC CH1: Introduction | Xiang&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="BDC" />
+    
+    <meta name="description" content="CH1: Introduction   Data Communication  Exchange of data between two devices via some form of transmission medium    Kinds of data communication   Simplex(單工)  Only one of the two stations on a link">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BDC CH1: Introduction">
+<meta property="og:url" content="https://qi-xiang.github.io/2021/03/08/CH1/index.html">
+<meta property="og:site_name" content="Xiang&#39;s Blog">
+<meta property="og:description" content="CH1: Introduction   Data Communication  Exchange of data between two devices via some form of transmission medium    Kinds of data communication   Simplex(單工)  Only one of the two stations on a link">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/u8G9khM.jpg">
+<meta property="article:published_time" content="2021-03-08T06:58:09.000Z">
+<meta property="article:modified_time" content="2022-03-09T12:58:49.320Z">
+<meta property="article:author" content="Qi Xiang,Zhang">
+<meta property="article:tag" content="BDC">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/u8G9khM.jpg">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">首頁</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">關於</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="輸入關鍵字..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '頁面',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-CH1" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        BDC CH1: Introduction
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/03/08/CH1/" class="article-date">
+       <time datetime="2021-03-08T06:58:09.000Z" itemprop="datePublished">2021-03-08</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/03/08/CH1/" class="article-date">
+     <time datetime="2022-03-09T12:58:49.320Z" itemprop="dateModified">2022-03-09</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/BDC/" rel="tag">BDC</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="https://i.imgur.com/u8G9khM.jpg" alt=""></p>
+<h1>CH1: Introduction</h1>
+<ul>
+<li>
+<p>Data Communication</p>
+<ul>
+<li>Exchange of data between two devices via some form of transmission medium</li>
+</ul>
+</li>
+<li>
+<p>Kinds of data communication</p>
+<ul>
+<li>
+<p>Simplex(單工)</p>
+<ul>
+<li>Only one of the two stations on a link can transmit(只有一方接收，另一方傳送)</li>
+</ul>
+</li>
+<li>
+<p>Half-duplex(半雙工)</p>
+<ul>
+<li>Each station can both transmit and receive, but not at the same time(兩方都可以進行傳送，只是不可&quot;同時&quot;進行傳送或接收)</li>
+</ul>
+</li>
+<li>
+<p>Full-duplex(全雙工)</p>
+<ul>
+<li>Both stations can transmit and receive simultaneously(兩方可同時進行傳送、接收)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Physical network</p>
+<ul>
+<li>
+<p>Interconnection of a set of devices capable of communication(連接不同裝置，使其彼此間可以互相溝通)</p>
+</li>
+<li>
+<p>Type of connection</p>
+<ul>
+<li>
+<p>Point-to-Point</p>
+<ul>
+<li>Provide a dedicated link between two devices(在兩裝置間，直接用一條線連接)</li>
+<li>ex. ISDN(直接電纜連線)</li>
+</ul>
+</li>
+<li>
+<p>Multi-Point</p>
+<ul>
+<li>More than two specific devices share a single link(提供一條線，多部裝置共用)</li>
+<li>ex. Ethernet(乙太網路)</li>
+</ul>
+</li>
+<li>
+<p>傳送的手法、媒介可以不同，但Message的protocol、format必須保持一樣</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Topology</p>
+<ul>
+<li>
+<p>Mesh Topology(網狀拓樸)</p>
+<ul>
+<li>
+<p>Every node has a dedicated point-to-point link to each other(每一節點都有自己專用的點對點連線)</p>
+</li>
+<li>
+<p>Require N*(N-1)/2 links to onnect N devices</p>
+</li>
+<li>
+<p>Strong Robustness(強堅固性、生存性高)</p>
+<ul>
+<li>If one line fails, only that line is affected, and all other links remain active(1條link不通，可走其他路徑)</li>
+<li>路徑的各種組合，可以讓整體傳輸量上升</li>
+<li>若link有閒置，可同時走不同link到相同的終點，進而提升傳輸量</li>
+<li>可以直接溝通、低延遲</li>
+<li>Required more cable and line costs(需要多條cable，造成花費過高)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Star Topology(星狀拓樸)</p>
+<ul>
+<li>
+<p>Every node has a dedicated point-to-point link to the networking device(有一中心化節點替其他節點傳送)</p>
+</li>
+<li>
+<p>Ease of adding/removing nodes and managing network(容易修正)</p>
+</li>
+<li>
+<p>Highly depend on switch hub(生存性不佳，ex. 中心節點fail)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Bus Topology(匯流排拓樸)</p>
+<ul>
+<li>
+<p>Every node share the same limk to stitch to the networking device</p>
+</li>
+<li>
+<p>Easy to install and re-configure</p>
+</li>
+<li>
+<p>Diffiuult to isolate a fault, a fault or break in the bus cable stops all the transmission(低生存性，沒有備援線路可以傳輸)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Ring Topology(環狀拓樸)</p>
+<ul>
+<li>
+<p>Nodes are connected as a ring(has two directions for reaching the target node)</p>
+</li>
+<li>
+<p>Singnal flows in one direction until reach destination</p>
+</li>
+<li>
+<p>Need N cable links to connect N devices</p>
+</li>
+<li>
+<p>Easy to install and re-configure</p>
+</li>
+<li>
+<p>Difficult to isolate a fault(但優於Bus Topology)</p>
+</li>
+<li>
+<p>困難點: 確認傳送路徑(方向)，生存性優於Bus Topology，當1條link出錯，可走另一邊</p>
+</li>
+<li>
+<p>Looping issue</p>
+<ul>
+<li>假設有一不確定目的地的無義訊息進入，則會在ring結構中不斷移動，形成風暴(stormy) -&gt; 占用band-width</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Hybrid Topology(混合式拓樸)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Physical Network Transmission</p>
+<ul>
+<li>
+<p>Parallel Transmission(並行傳輸)</p>
+<ul>
+<li>ex. one 8 bits signal are sent together by 8 different lines</li>
+<li>同時改變多條線電位 -&gt; 產生不同訊號，有可能造成訊息傳送不穩或漏</li>
+</ul>
+</li>
+<li>
+<p>Serial Transmission(序列傳輸)</p>
+<ul>
+<li>
+<p>ex. one 8 bits signal are sent one after another(follow order) by only one line</p>
+</li>
+<li>
+<p>只有一條線，依序傳送各個bit的訊號給receiver</p>
+</li>
+<li>
+<p>同樣以8條線以序列傳輸，可得到比較好的效率</p>
+</li>
+<li>
+<p>Two types for Serial Transmission</p>
+<ul>
+<li>
+<p>Asynchronous Serial Transmission</p>
+<ul>
+<li>ex. telephone communication</li>
+<li>Data is sent one character at a time</li>
+<li>start bit + data + parity bit + 1, 1.5 or 2 stop bits(不像同步傳輸有精確的控管)</li>
+<li>Synchronization is reestablised for each other(同步與非同步間的差異在於是否在訊號中加上’‘註解’)</li>
+</ul>
+</li>
+<li>
+<p>Synchronous Serial Transmission</p>
+<ul>
+<li>ex. Token Ring, SONET, Ethernet-common used in computer network</li>
+<li>Data is sent as a “block” of uninterrupted chars, using “frame” to encapsulate payload data(比非同步在外面多了一層信封)</li>
+<li>More cost-efficiency</li>
+<li>Frame裡面可以放細部資訊(可檢查是否漏包)，每一段序號可套用&quot;檢查碼&quot;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Network Criteria</p>
+<ul>
+<li>Latency
+<ul>
+<li>Elapse time between an inquiry(詢問) and a response</li>
+</ul>
+</li>
+<li>Throughput
+<ul>
+<li>number of bits per second - bps, Kbps,…</li>
+</ul>
+</li>
+</ul>
+<h2 id="Reliability">Reliability</h2>
+<ul>
+<li>
+<p>Mean Time Between Failures(MTBF，平均故障時間)</p>
+</li>
+<li>
+<p>Mean Time To Recovery(MTTR，平均復原時間)</p>
+</li>
+<li>
+<p>Security(維護資料&quot;正確性&quot;)</p>
+<ul>
+<li>Cyclic Redundancy Check(CRC, 循環冗餘校驗)</li>
+<li>Error Correction/ Correcting Code(ECC，錯誤修正碼，不用重傳，可在傳輸過程修正，缺點是資料肥大)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Network Type(僅列出常用)</p>
+<ul>
+<li>
+<p>Local Area Network (LAN,區域網路)</p>
+</li>
+<li>
+<p>Wireless Local Area Network (WLAN, 無線區域網路)</p>
+</li>
+<li>
+<p>Storage Area Network (SAN, 儲存區域網路)</p>
+</li>
+<li>
+<p>Wide Area Network (WAN, 廣域網路)</p>
+</li>
+<li>
+<p>LAN與WAN的分界視參照物而定</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="OSI-Model">OSI Model</h2>
+<ul>
+<li>OSI has seven layers
+<ul>
+<li>7.Application Layer
+<ul>
+<li>Human-computer interaction layer, where application can access the network services</li>
+<li>處理應用程式，進而提供使用者網路應用服務</li>
+<li>ex. DHCP、FTP、HTTP、POP3</li>
+</ul>
+</li>
+<li>6.Presentation Layer
+<ul>
+<li>Ensures that data is in a usable format and is where data encryption occures</li>
+<li>透過應用層收到資料後，透過展示層可轉換表達方式</li>
+<li>ex. JPEG,MIDI</li>
+</ul>
+</li>
+<li>5.Session Layer
+<ul>
+<li>Maintain connection and is responsible for controlling ports and sessions</li>
+<li>這個層級負責建立網路連線，等到資料傳輸結束時，再將連線中斷</li>
+<li>ex. NetBIOS names</li>
+</ul>
+</li>
+<li>4.Transport Layer
+<ul>
+<li>Transmits data using transmission protocal</li>
+<li>傳輸層主要負責電腦整體的資料傳輸及控制</li>
+<li>ex. TCP, UDP</li>
+</ul>
+</li>
+<li>3.Network Layer
+<ul>
+<li>Decides which physcial path the data will take</li>
+<li>網路層定義網路路由及定址功能，讓資料能夠在網路間傳遞</li>
+<li>ex. IP, 路由器(Router)及Layer 3交換器(Switch)</li>
+</ul>
+</li>
+<li>2.Data Link Layer
+<ul>
+<li>Defines the format of data on the network</li>
+<li>主要是在網路之間建立邏輯連結，並且在傳輸過程中處理流量控制及錯誤偵測，讓資料傳送與接收更穩定。資料連結層將實體層的數位訊號封裝成一組符合邏輯傳輸資料，這組訊號稱為資料訊框（Data Frame）。訊框內包含媒體存取控制（Media Access Control，MAC）位址-&gt;讓對方主機辨認資料來源。</li>
+<li>ex. 網路卡、網路交換器（Switch）</li>
+</ul>
+</li>
+<li>1.Physical Layer
+<ul>
+<li>Transmits the raw bit stream over the medium</li>
+<li>定義網路裝置之間的位元資料傳輸，也就是在電線或其他物理線材上，傳遞0與1電子訊號，形成網路</li>
+<li>ex. 網路線、網路卡與集線器（Hub）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Basic-Notions-of-Networking-Component">Basic Notions of Networking Component</h2>
+<ul>
+<li>Repeater(訊號放大/延伸器)</li>
+<li>Hub(集線器)
+<ul>
+<li>以廣播方式傳遞封包，A電腦透過Hub傳封包給B時，其他連在Hub上電腦也會收到封包，但只有B會把封包接起來，其餘則會丟掉</li>
+<li>半雙工(Half-duplex)</li>
+</ul>
+</li>
+<li>Bridage(橋接器)
+<ul>
+<li>可不接電，單純結合網路線使其變長</li>
+</ul>
+</li>
+<li>Converter(轉換器)</li>
+<li>Gateway(通訊閘)</li>
+<li>Network Interface Card (NIC, 網路卡)/Network Adapter(網路配接器)</li>
+<li>Switch Hub/Switch(交換器)
+<ul>
+<li>Switch並不一直廣播，Switch會記錄封包中的MAC位址所以當電腦A傳送資料給電腦B時，其他電腦並不會也收到資料，而且這個時候別的電腦也可以同時互相傳送資料。</li>
+<li>全雙工</li>
+</ul>
+</li>
+<li>Router(路由器)
+<ul>
+<li>子網路送封包到另一子網路(ex.中央-&gt;台大)</li>
+</ul>
+</li>
+<li>Transceiver(收發器/光電轉換器)
+<ul>
+<li>光訊號-&gt;電訊號</li>
+</ul>
+</li>
+<li>Fiber-optic Cable(光纖線/光纖跳線)</li>
+<li>Unshielded/Shielded Twisted Pair Cable (UTP/STP Cable, 無遮蔽/有遮蔽雙絞線)
+<ul>
+<li>有遮蔽-&gt;接頭有特殊設計</li>
+</ul>
+</li>
+</ul>
+<h2 id="Common-Networking-Component">Common Networking Component</h2>
+<ul>
+<li>
+<p>Hub - broadcasting everything to other ports</p>
+</li>
+<li>
+<p>Switch Hub (Switch) - be capable of learning -&gt;有記憶功能(透過MAC位置)</p>
+<ul>
+<li>By function
+<ul>
+<li>Unmanaged Switch(無網管交換器)</li>
+<li>Managed Switch(網管型交換器) -&gt; 有管理介面控制</li>
+</ul>
+</li>
+<li>By expandability
+<ul>
+<li>Fixed Switch(固定式交換器)</li>
+<li>Stackable Switch(堆疊式交換器) -&gt; 可串多台</li>
+<li>Chassis Switch(機箱式交換器)/Modular Switch(模組式交換器)</li>
+</ul>
+</li>
+<li>Others
+<ul>
+<li>Power over Ethernet(PoE,乙太供電交換器) -&gt; 一條網路線同時供電和傳送封包</li>
+<li>Power Line Communication (PLC, 電力線通信橋接器,又稱電力線網路) -&gt; 讓電源線可以傳送封包(具網路線功能)，缺點:無法通過保險絲，故僅能用在內部</li>
+<li>Bypass Switch (旁路交換器) -&gt; 可以偵測網路系統狀態</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Router(路由器)</p>
+<ul>
+<li>By type
+<ul>
+<li>Wired Router (路由器)</li>
+<li>Wireless Router (無線路由器)</li>
+</ul>
+</li>
+<li>By location
+<ul>
+<li>Core/Spine Router(核心路由器)</li>
+<li>Edge/Leaf Router(邊緣路由器)</li>
+<li>Software/Virtual Router(軟體/虛擬路由器)</li>
+</ul>
+</li>
+<li>By performance
+<ul>
+<li>Small Office Home Office Router(SOHO Router, 小型辦公室家用型路由器,俗稱IP分享器)</li>
+<li>Telecommunication-level Router(電信等級路由器)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Networking-Cable">Networking Cable</h2>
+<ul>
+<li>With auto MDI/MDIX function in Gigabit Ethernet, it is not necessary to use Crossover Cable (跳線/跳接線) for device to device connection</li>
+<li>現在的交換器技術讓使用者或網路管理員不必太在意直連線和交叉線，因為交換器擁有端口自動翻轉(線序自適應)特性，即 Auto MDI/MDIX 特性。</li>
+</ul>
+<h2 id="Ageing-issue-of-UTP-STP">Ageing issue of UTP/STP</h2>
+<ul>
+<li>Slow speed</li>
+<li>Degraded (full-duplex -&gt; half-duplex)</li>
+<li>Link Status Flapping (error -&gt; disable)</li>
+<li>Cyclic Redundancy Check Error (循環冗餘校驗錯誤)</li>
+<li>Packet Loss (掉包)</li>
+<li>Re-transmission</li>
+<li>No signal</li>
+</ul>
+<h2 id="Fiber-optic-Cable-光纖線-光纖跳線">Fiber-optic Cable(光纖線/光纖跳線)</h2>
+<ul>
+<li>
+<p>Type</p>
+<ul>
+<li>Signal Mode (SM, 單模光纖) -&gt; 長距離、單一波長、成本高</li>
+<li>Multi Mode (MM, 多模光纖) -&gt; 短距離、多種波長、成本低</li>
+</ul>
+</li>
+<li>
+<p>Connector (僅列出常見)</p>
+<ul>
+<li>Subscriber Connector / Square Connector / Standard Connector (SC)</li>
+<li>Lucent Connector / Little Connector / Local Connector (LC)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Ageing-issue-of-Fiber-optic-Cable">Ageing issue of Fiber-optic Cable</h2>
+<ul>
+<li>Connector Problem
+<ul>
+<li>Increasing CRC value</li>
+<li>Packet Loss</li>
+<li>In-completed transmission (ex. ok for small packet, failed on large one)</li>
+</ul>
+</li>
+<li>Broken (ex.斷芯)
+<ul>
+<li>Outdoor fiber</li>
+<li>Indoor fiber</li>
+<li>Skin damaged</li>
+</ul>
+</li>
+</ul>
+<h2 id="Transceiver-收發器-光電轉換器">Transceiver(收發器,光電轉換器)</h2>
+<ul>
+<li>GigaBit Interface Converter (GBIC)</li>
+<li>Small Form-factor Pluggable transceiver (SFP)</li>
+<li>Enhanced  Small Form-factor Pluggable transceiver (SFP+)</li>
+<li>XENAPK</li>
+<li>XFP</li>
+<li>X2…</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://qi-xiang.github.io/2021/03/08/CH1/" data-id="cl0jmalan0004uktx4m7leqox" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Qi Xiang,Zhang"
+        },
+        "headline": "BDC CH1: Introduction",
+        "image": "https://qi-xiang.github.iohttps://i.imgur.com/u8G9khM.jpg",
+        "keywords": "BDC",
+        "genre": "技術類文章",
+        "datePublished": "2021-03-08",
+        "dateCreated": "2021-03-08",
+        "dateModified": "2022-03-09",
+        "url": "https://qi-xiang.github.io/2021/03/08/CH1/",
+        "description": "
+CH1: Introduction
+
+
+Data Communication
+
+Exchange of data between two devices via some form of transmission medium
+
+
+
+Kinds of data communication
+
+
+Simplex(單工)
+
+Only one of the two stations on a link ",
+        "wordCount": 612
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>追蹤 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/profile.php?id=100004441091584" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/qi-xiang-zhang-499625210/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://stackoverflow.com/users/17213183/xiang?tab=profile" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/QI-XIANG" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2021/03/18/frdog1-1/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            財報狗教你挖好股 [1.獲利性分析-利潤比率]
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2021/01/06/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8-%E7%94%B7%E5%AD%90%E9%99%BD%E5%89%9B%E7%89%B9%E8%B3%AA/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">男子性與陽剛氣質、男子氣概的養成</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/03/06/IP%E4%BD%8D%E5%9D%80%E8%A8%88%E7%AE%97-IPv4-%E9%81%A9%E7%94%A8/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/ysQfuj9.jpg)" alt="IP位址計算 (IPv4 適用)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2022/03/06/IP%E4%BD%8D%E5%9D%80%E8%A8%88%E7%AE%97-IPv4-%E9%81%A9%E7%94%A8/" class="title">IP位址計算 (IPv4 適用)</a></p>
+                            <p class="item-date"><time datetime="2022-03-05T18:00:00.000Z" itemprop="datePublished">2022-03-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/02/25/%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/QynLazT.png)" alt="建置簡單 Line 聊天機器人" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2022/02/25/%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA/" class="title">建置簡單 Line 聊天機器人</a></p>
+                            <p class="item-date"><time datetime="2022-02-24T16:25:00.000Z" itemprop="datePublished">2022-02-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/02/15/%E9%81%B2%E4%BE%86%E7%9A%84%E9%90%B5%E4%BA%BA%E8%B3%BD%E5%BF%83%E5%BE%97/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/Ind4xj0.jpg)" alt="遲來的鐵人賽心得" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/02/15/%E9%81%B2%E4%BE%86%E7%9A%84%E9%90%B5%E4%BA%BA%E8%B3%BD%E5%BF%83%E5%BE%97/" class="title">遲來的鐵人賽心得</a></p>
+                            <p class="item-date"><time datetime="2022-02-15T12:05:00.000Z" itemprop="datePublished">2022-02-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/01/27/%E5%A5%87%E8%B9%9F%E4%BC%BC%E7%9A%84%E9%80%9A%E9%81%8E%E6%97%A5%E6%AA%A2N4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/7YNmKp4.png)" alt="奇蹟似的通過日檢N4" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
+                            <p class="item-title"><a href="/2022/01/27/%E5%A5%87%E8%B9%9F%E4%BC%BC%E7%9A%84%E9%80%9A%E9%81%8E%E6%97%A5%E6%AA%A2N4/" class="title">奇蹟似的通過日檢N4</a></p>
+                            <p class="item-date"><time datetime="2022-01-26T17:40:00.000Z" itemprop="datePublished">2022-01-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/01/26/%E9%97%9C%E6%96%BC%E6%88%91%E9%96%8B%E5%A7%8B%E5%AF%AB%E9%9B%BB%E5%AD%90%E7%AD%86%E8%A8%98%E9%80%99%E6%AA%94%E4%BA%8B/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/zvuzq0B.jpg)" alt="關於我開始寫電子筆記這檔事" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
+                            <p class="item-title"><a href="/2022/01/26/%E9%97%9C%E6%96%BC%E6%88%91%E9%96%8B%E5%A7%8B%E5%AF%AB%E9%9B%BB%E5%AD%90%E7%AD%86%E8%A8%98%E9%80%99%E6%AA%94%E4%BA%8B/" class="title">關於我開始寫電子筆記這檔事</a></p>
+                            <p class="item-date"><time datetime="2022-01-26T09:20:00.000Z" itemprop="datePublished">2022-01-26</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">16</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/BDC/" style="font-size: 14.29px;">BDC</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.86px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.71px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.43px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.86px;">原子習慣</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.43px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 11.43px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.14px;">財報狗挖好股精華</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.57px;">金魚也能學會寫網頁</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/QI-XIANG">My Github</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 Qi Xiang,Zhang</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://qi-xiang.github.io/2021/03/08/CH1/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
