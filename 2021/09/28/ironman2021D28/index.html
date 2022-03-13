@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="JS30" />
     
-    <meta name="description" content="¶前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的">
+    <meta name="description" content="前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS30 全攻略 第28天">
 <meta property="og:url" content="https://qi-xiang.github.io/2021/09/28/ironman2021D28/index.html">
 <meta property="og:site_name" content="Xiang&#39;s Blog">
-<meta property="og:description" content="¶前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的">
+<meta property="og:description" content="前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://i.imgur.com/09wuxaN.jpg">
 <meta property="article:published_time" content="2021-09-28T07:46:39.000Z">
-<meta property="article:modified_time" content="2022-03-08T15:28:22.299Z">
+<meta property="article:modified_time" content="2022-03-13T17:24:00.454Z">
 <meta property="article:author" content="Qi Xiang,Zhang">
 <meta property="article:tag" content="JS30">
 <meta name="twitter:card" content="summary">
@@ -194,7 +194,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2021/09/28/ironman2021D28/" class="article-date">
-     <time datetime="2022-03-08T15:28:22.299Z" itemprop="dateModified">2022-03-08</time>
+     <time datetime="2022-03-13T17:24:00.454Z" itemprop="dateModified">2022-03-14</time>
   </a>
 </div>
 
@@ -221,20 +221,20 @@
 
             
 
-            <h2 id="前言-v28"><a class="header-anchor" href="#前言-v28">¶</a>前言</h2>
+            <h2 id="前言-20">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-v28"><a class="header-anchor" href="#本日目標-v28">¶</a>本日目標</h2>
+<h2 id="本日目標-20">本日目標</h2>
 <p>除了原本在<code>video</code>元素自帶的影片控制器(設定<code>controls</code>屬性)，我們可以另外實作一個調節影片速度的控制介面，這個介面可以用拖拉的方式改變影片的播放速度。</p>
 <p><img src="https://i.imgur.com/09wuxaN.jpg" alt=""></p>
 <hr>
-<h2 id="解析程式碼-v27"><a class="header-anchor" href="#解析程式碼-v27">¶</a>解析程式碼</h2>
-<h3 id="HTML-部分-v22"><a class="header-anchor" href="#HTML-部分-v22">¶</a>HTML 部分</h3>
+<h2 id="解析程式碼-20">解析程式碼</h2>
+<h3 id="HTML-部分-18">HTML 部分</h3>
 <p>div(<code>.wrapper</code>)是我們整個的影片播放器，下面可拆作兩部分，一個是 video(<code>.flex</code>)和自帶的預設控制介面(啟用<code>controls</code>)，另一個是我們這次要實作出的影片速度調節介面 div(<code>.speed</code>)。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wrapper&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">video</span> <span class="attr">class</span>=<span class="string">&quot;flex&quot;</span> <span class="attr">width</span>=<span class="string">&quot;765&quot;</span> <span class="attr">height</span>=<span class="string">&quot;430&quot;</span> <span class="attr">src</span>=<span class="string">&quot;http://clips.vorwaerts-gmbh.de/VfE_html5.mp4&quot;</span> <span class="attr">loop</span> <span class="attr">controls</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;speed&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;speed-bar&quot;</span>&gt;</span>1×<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="JS-部分-v26"><a class="header-anchor" href="#JS-部分-v26">¶</a>JS 部分</h3>
+<h3 id="JS-部分-20">JS 部分</h3>
 <p>首先，取得所有需要的元素 :</p>
 <ul>
 <li>宣告常數<code>speed</code>放入取得的速度調節介面(<code>.speed</code>)。</li>
@@ -253,14 +253,14 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p>最後修改<code>video</code>的<code>playbackRate</code>屬性就完成了。</p>
 <p>(播放速度太快或太慢均有可能導致影片部分聲音消失!!!)</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">speed.addEventListener(<span class="string">&#x27;mousemove&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="comment">/*上略...*/</span></span><br><span class="line">    <span class="keyword">const</span> height = <span class="built_in">Math</span>.round(percent*<span class="number">100</span>)+<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">    <span class="keyword">const</span> playbackRate = percent * (max-min) + min;</span><br><span class="line">    bar.style.height = height;</span><br><span class="line">    bar.textContent = playbackRate.toFixed(<span class="number">1</span>)+<span class="string">&#x27;x&#x27;</span>;</span><br><span class="line">    video.playbackRate = playbackRate;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="補充資料-v25"><a class="header-anchor" href="#補充資料-v25">¶</a><strong>補充資料</strong> :</h4>
+<h4 id="補充資料-20"><strong>補充資料</strong> :</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetTop">HTMLElement.offsetTop</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLMediaElement/playbackRate">HTMLMediaElement.playbackRate</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetHeight">HTMLElement.offsetHeight</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed">Number.prototype.toFixed()</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/round">Math.round()</a></p>
-<h2 id="範例網頁請點此-v11"><a class="header-anchor" href="#範例網頁請點此-v11">¶</a><a href="https://qi-xiang.github.io/iThelp2021_JS30/28%20-%20Video%20Speed%20Controller/index-START.html">範例網頁請點此</a></h2>
-<h2 id="觀看完整程式碼"><a class="header-anchor" href="#觀看完整程式碼">¶</a><a target="_blank" rel="noopener" href="https://github.com/QI-XIANG/iThelp2021_JS30/blob/master/28%20-%20Video%20Speed%20Controller/index-FINISHED.html">觀看完整程式碼</a></h2>
+<h2 id="範例網頁請點此-11"><a href="https://qi-xiang.github.io/iThelp2021_JS30/28%20-%20Video%20Speed%20Controller/index-START.html">範例網頁請點此</a></h2>
+<h2 id="觀看完整程式碼"><a target="_blank" rel="noopener" href="https://github.com/QI-XIANG/iThelp2021_JS30/blob/master/28%20-%20Video%20Speed%20Controller/index-FINISHED.html">觀看完整程式碼</a></h2>
 
         </div>
         <footer class="article-footer">
@@ -268,7 +268,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/28/ironman2021D28/" data-id="ckv22q64x000h20txab3bgfn5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/28/ironman2021D28/" data-id="cl0pjvgo90040qotx758b2oe9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -344,12 +344,12 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
         "genre": "2021 iThome 鐵人賽",
         "datePublished": "2021-09-28",
         "dateCreated": "2021-09-28",
-        "dateModified": "2022-03-08",
+        "dateModified": "2022-03-14",
         "url": "https://qi-xiang.github.io/2021/09/28/ironman2021D28/",
-        "description": "¶前言
+        "description": "前言
 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。
-另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的",
-        "wordCount": 331
+另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話",
+        "wordCount": 315
     }
 </script>
 
@@ -449,6 +449,26 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2022/03/14/Hexo/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/tg4DCNx.png)" alt="輕鬆玩轉 Hexo" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2022/03/14/Hexo/" class="title">輕鬆玩轉 Hexo</a></p>
+                            <p class="item-date"><time datetime="2022-03-13T17:11:55.000Z" itemprop="datePublished">2022-03-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2022/03/06/IP%E4%BD%8D%E5%9D%80%E8%A8%88%E7%AE%97-IPv4-%E9%81%A9%E7%94%A8/" class="thumbnail">
     
     
@@ -526,26 +546,6 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2022/01/26/%E9%97%9C%E6%96%BC%E6%88%91%E9%96%8B%E5%A7%8B%E5%AF%AB%E9%9B%BB%E5%AD%90%E7%AD%86%E8%A8%98%E9%80%99%E6%AA%94%E4%BA%8B/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://i.imgur.com/zvuzq0B.jpg)" alt="關於我開始寫電子筆記這檔事" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
-                            <p class="item-title"><a href="/2022/01/26/%E9%97%9C%E6%96%BC%E6%88%91%E9%96%8B%E5%A7%8B%E5%AF%AB%E9%9B%BB%E5%AD%90%E7%AD%86%E8%A8%98%E9%80%99%E6%AA%94%E4%BA%8B/" class="title">關於我開始寫電子筆記這檔事</a></p>
-                            <p class="item-date"><time datetime="2022-01-26T09:20:00.000Z" itemprop="datePublished">2022-01-26</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -555,7 +555,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分類</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">16</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">16</span></li></ul>
         </div>
     </div>
 
@@ -565,7 +565,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">標籤雲</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/BDC/" style="font-size: 14.29px;">BDC</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.86px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.71px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.43px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.86px;">原子習慣</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.43px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 11.43px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.14px;">財報狗挖好股精華</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.57px;">金魚也能學會寫網頁</a>
+            <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/BDC/" style="font-size: 14.29px;">BDC</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.86px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.71px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.43px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.86px;">原子習慣</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.43px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 11.43px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.14px;">財報狗挖好股精華</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.57px;">金魚也能學會寫網頁</a>
         </div>
     </div>
 

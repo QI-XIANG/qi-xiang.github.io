@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="JS30" />
     
-    <meta name="description" content="¶前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的">
+    <meta name="description" content="前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS30 全攻略 第3天">
 <meta property="og:url" content="https://qi-xiang.github.io/2021/09/03/ironman2021D3/index.html">
 <meta property="og:site_name" content="Xiang&#39;s Blog">
-<meta property="og:description" content="¶前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的">
+<meta property="og:description" content="前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://i.imgur.com/Q6ufCX9.jpg">
 <meta property="article:published_time" content="2021-09-03T05:39:53.000Z">
-<meta property="article:modified_time" content="2022-03-08T15:23:39.333Z">
+<meta property="article:modified_time" content="2022-03-13T17:22:30.638Z">
 <meta property="article:author" content="Qi Xiang,Zhang">
 <meta property="article:tag" content="JS30">
 <meta name="twitter:card" content="summary">
@@ -194,7 +194,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2021/09/03/ironman2021D3/" class="article-date">
-     <time datetime="2022-03-08T15:23:39.333Z" itemprop="dateModified">2022-03-08</time>
+     <time datetime="2022-03-13T17:22:30.638Z" itemprop="dateModified">2022-03-14</time>
   </a>
 </div>
 
@@ -221,29 +221,29 @@
 
             
 
-            <h2 id="前言-v3"><a class="header-anchor" href="#前言-v3">¶</a>前言</h2>
+            <h2 id="前言-22">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-v3"><a class="header-anchor" href="#本日目標-v3">¶</a>本日目標</h2>
+<h2 id="本日目標-22">本日目標</h2>
 <p>學習建立 CSS 變數並透過 JavaScript 監聽 mousemove、change 事件，接著主動去更新變數的值，讓使用者得以調整圖片框的大小和背景色、圖片的模糊程度等等…。</p>
 <p><img src="https://i.imgur.com/Q6ufCX9.jpg" alt=""></p>
 <hr>
-<h2 id="解析程式碼-v3"><a class="header-anchor" href="#解析程式碼-v3">¶</a>解析程式碼</h2>
-<h3 id="HTML-部分-v3"><a class="header-anchor" href="#HTML-部分-v3">¶</a>HTML 部分</h3>
+<h2 id="解析程式碼-22">解析程式碼</h2>
+<h3 id="HTML-部分-20">HTML 部分</h3>
 <p>由最外層的代表控制列(<code>.controls</code>)的div元素包覆住內部用來調整圖片的三個 input 元素(<code>#spacing、#blur、#base</code>)。其中兩個 input 元素上有設定 <span style="color:red;">data-</span> 屬性，標明使用的單位。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>Update CSS Variables with <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&#x27;hl&#x27;</span>&gt;</span>JS<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;controls&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;spacing&quot;</span>&gt;</span>Spacing:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;spacing&quot;</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">name</span>=<span class="string">&quot;spacing&quot;</span> <span class="attr">min</span>=<span class="string">&quot;10&quot;</span> <span class="attr">max</span>=<span class="string">&quot;200&quot;</span> <span class="attr">value</span>=<span class="string">&quot;10&quot;</span> <span class="attr">data-sizing</span>=<span class="string">&quot;px&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;blur&quot;</span>&gt;</span>Blur:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;blur&quot;</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">name</span>=<span class="string">&quot;blur&quot;</span> <span class="attr">min</span>=<span class="string">&quot;0&quot;</span> <span class="attr">max</span>=<span class="string">&quot;25&quot;</span> <span class="attr">value</span>=<span class="string">&quot;10&quot;</span> <span class="attr">data-sizing</span>=<span class="string">&quot;px&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;base&quot;</span>&gt;</span>Base Color<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;base&quot;</span> <span class="attr">type</span>=<span class="string">&quot;color&quot;</span> <span class="attr">name</span>=<span class="string">&quot;base&quot;</span> <span class="attr">value</span>=<span class="string">&quot;#ffc600&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://source.unsplash.com/7bwQXzbF6KE/800x500&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="CSS-部分-v2"><a class="header-anchor" href="#CSS-部分-v2">¶</a>CSS 部分</h3>
+<h3 id="CSS-部分-5">CSS 部分</h3>
 <p>用<span style="color:red;"><code>--變數名稱</code></span>的方式，宣告三個 CSS 的全域變數，並且是在根元素之下。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span>&#123; <span class="comment">/*CSS 全域變數*/</span></span><br><span class="line">      --base: <span class="number">#ffc600</span>;</span><br><span class="line">      --spacing: <span class="number">10px</span>;</span><br><span class="line">      --blur: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>要使用 CSS 變數，我們可以利用<span style="color:red;"><code>var()</code></span>並在裡面放入要使用的變數名稱。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="built_in">var</span>(--spacing); <span class="comment">/*使用關鍵字 var( )並在括號內填入想套用的變數名稱*/</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">var</span>(--base);</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">blur</span>(<span class="built_in">var</span>(--blur)); <span class="comment">/*套上帶有模糊效果的濾鏡*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hl</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--base);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="補充說明1-v4"><a class="header-anchor" href="#補充說明1-v4">¶</a>補充說明1:</h4>
+<h4 id="補充說明1-4">補充說明1:</h4>
 <p>CSS 變數的補充資料 &gt;&gt;&gt; <a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10228111">:root 根目錄選取器 - 叫你阿爸出來講</a></p>
-<h4 id="補充說明2-v3"><a class="header-anchor" href="#補充說明2-v3">¶</a>補充說明2:</h4>
+<h4 id="補充說明2-3">補充說明2:</h4>
 <p>使用 CSS 的 <code>filter</code> 屬性，主要目的是套一層濾鏡到圖片上，常見的值除了有 <code>blur</code> 以外，還有 <code>contrast、grayscale</code> 等等…。 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/filter">詳細見此</a></p>
-<h3 id="JS部分"><a class="header-anchor" href="#JS部分">¶</a>JS部分</h3>
+<h3 id="JS部分">JS部分</h3>
 <p>取得所有的 input 標籤，要注意的是這裡的資料型態是 <code>NodeList</code> 而不是 <code>Array</code>。</p>
 <p>相較 <code>Array</code> 而言，<code>NodeList</code> 能用的方法少很多。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*JS*/</span></span><br><span class="line"><span class="keyword">const</span> inputs = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.controls input&#x27;</span>); <span class="comment">/*取得所有的 input 元素，資料型態是 NodeList 不是 Array*/</span></span><br></pre></td></tr></table></figure>
@@ -252,14 +252,14 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p>在 <code>handleUpdate()</code> 方法內宣告 <code>suffix</code> 變數，透過 <code>dataset.sizing</code> 取得對應屬性的單位。當屬性沒有單位時，指定 <code>suffix</code> 為空字串，避免因為是 <code>undefined</code> 出現錯誤。</p>
 <p>最後，藉著 <code>document.documentElement.style</code> 取得文件上&quot;根元素&quot;的 CSS 屬性，進一步使用 <code>setProperty()</code> 調整 CSS 屬性值(注意，有些屬性必須要加上單位)。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleUpdate</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> suffix = <span class="built_in">this</span>.dataset.sizing || <span class="string">&#x27;&#x27;</span>; <span class="comment">/*取得單位，當單位不存在時就指定為空字串*/</span></span><br><span class="line">    <span class="built_in">document</span>.documentElement.style.setProperty(<span class="string">`--<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>`</span>,<span class="built_in">this</span>.value + suffix); <span class="comment">/*Template literals*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="補充說明1-v5"><a class="header-anchor" href="#補充說明1-v5">¶</a>補充說明1:</h4>
+<h4 id="補充說明1-5">補充說明1:</h4>
 <p>NodeList 的補充資料 – <a target="_blank" rel="noopener" href="https://www.w3schools.com/js/js_htmldom_nodelist.asp">JavaScript HTML DOM Node Lists</a></p>
-<h4 id="補充說明2-v4"><a class="header-anchor" href="#補充說明2-v4">¶</a>補充說明2:</h4>
+<h4 id="補充說明2-4">補充說明2:</h4>
 <p>透過 <code>dataset</code> 實際取得的 <code>data-自訂名稱</code> 屬性內容如下:</p>
 <p><img src="https://i.imgur.com/QpPbeL4.png" alt=""></p>
 <p>我們可以進一步使用 <code>dataset.自訂名稱</code>，取得裡面代表單位的&quot;px&quot;。<br>
 (圖片中的 <code>sizing</code> 等同於標籤上的 <code>data-sizing</code>)</p>
-<h2 id="實際效果請按此-v2"><a class="header-anchor" href="#實際效果請按此-v2">¶</a><a href="https://qi-xiang.github.io/iThelp2021_JS30/03%20-%20CSS%20Variables/index-START.html">實際效果請按此</a></h2>
+<h2 id="實際效果請按此-2"><a href="https://qi-xiang.github.io/iThelp2021_JS30/03%20-%20CSS%20Variables/index-START.html">實際效果請按此</a></h2>
 
         </div>
         <footer class="article-footer">
@@ -267,7 +267,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/03/ironman2021D3/" data-id="ckv1y1uw70002s8txc4pbgh4g" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/03/ironman2021D3/" data-id="cl0pjvgob0046qotx8t9lfmnc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -343,12 +343,12 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
         "genre": "2021 iThome 鐵人賽",
         "datePublished": "2021-09-03",
         "dateCreated": "2021-09-03",
-        "dateModified": "2022-03-08",
+        "dateModified": "2022-03-14",
         "url": "https://qi-xiang.github.io/2021/09/03/ironman2021D3/",
-        "description": "¶前言
+        "description": "前言
 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。
-另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的",
-        "wordCount": 524
+另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話",
+        "wordCount": 502
     }
 </script>
 
@@ -448,6 +448,26 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2022/03/14/Hexo/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/tg4DCNx.png)" alt="輕鬆玩轉 Hexo" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2022/03/14/Hexo/" class="title">輕鬆玩轉 Hexo</a></p>
+                            <p class="item-date"><time datetime="2022-03-13T17:11:55.000Z" itemprop="datePublished">2022-03-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2022/03/06/IP%E4%BD%8D%E5%9D%80%E8%A8%88%E7%AE%97-IPv4-%E9%81%A9%E7%94%A8/" class="thumbnail">
     
     
@@ -525,26 +545,6 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2022/01/26/%E9%97%9C%E6%96%BC%E6%88%91%E9%96%8B%E5%A7%8B%E5%AF%AB%E9%9B%BB%E5%AD%90%E7%AD%86%E8%A8%98%E9%80%99%E6%AA%94%E4%BA%8B/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://i.imgur.com/zvuzq0B.jpg)" alt="關於我開始寫電子筆記這檔事" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
-                            <p class="item-title"><a href="/2022/01/26/%E9%97%9C%E6%96%BC%E6%88%91%E9%96%8B%E5%A7%8B%E5%AF%AB%E9%9B%BB%E5%AD%90%E7%AD%86%E8%A8%98%E9%80%99%E6%AA%94%E4%BA%8B/" class="title">關於我開始寫電子筆記這檔事</a></p>
-                            <p class="item-date"><time datetime="2022-01-26T09:20:00.000Z" itemprop="datePublished">2022-01-26</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -554,7 +554,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分類</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">16</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">16</span></li></ul>
         </div>
     </div>
 
@@ -564,7 +564,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">標籤雲</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/BDC/" style="font-size: 14.29px;">BDC</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.86px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.71px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.43px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.86px;">原子習慣</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.43px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 11.43px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.14px;">財報狗挖好股精華</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.57px;">金魚也能學會寫網頁</a>
+            <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/BDC/" style="font-size: 14.29px;">BDC</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.86px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.71px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.43px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.86px;">原子習慣</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.43px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 11.43px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.14px;">財報狗挖好股精華</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.57px;">金魚也能學會寫網頁</a>
         </div>
     </div>
 

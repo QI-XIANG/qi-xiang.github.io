@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="JS30" />
     
-    <meta name="description" content="¶前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的">
+    <meta name="description" content="前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS30 全攻略 第5天">
 <meta property="og:url" content="https://qi-xiang.github.io/2021/09/05/ironman2021D5/index.html">
 <meta property="og:site_name" content="Xiang&#39;s Blog">
-<meta property="og:description" content="¶前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的">
+<meta property="og:description" content="前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://i.imgur.com/buH9SwO.jpg">
 <meta property="article:published_time" content="2021-09-05T06:27:31.000Z">
-<meta property="article:modified_time" content="2022-03-08T15:24:20.121Z">
+<meta property="article:modified_time" content="2022-03-13T17:22:35.061Z">
 <meta property="article:author" content="Qi Xiang,Zhang">
 <meta property="article:tag" content="JS30">
 <meta name="twitter:card" content="summary">
@@ -194,7 +194,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2021/09/05/ironman2021D5/" class="article-date">
-     <time datetime="2022-03-08T15:24:20.121Z" itemprop="dateModified">2022-03-08</time>
+     <time datetime="2022-03-13T17:22:35.061Z" itemprop="dateModified">2022-03-14</time>
   </a>
 </div>
 
@@ -221,20 +221,20 @@
 
             
 
-            <h2 id="前言-v5"><a class="header-anchor" href="#前言-v5">¶</a>前言</h2>
+            <h2 id="前言-25">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-v5"><a class="header-anchor" href="#本日目標-v5">¶</a>本日目標</h2>
+<h2 id="本日目標-25">本日目標</h2>
 <p>利用 <code>flexbox</code>、<code>transition</code> 等 CSS 屬性，搭配 JS 監聽 <code>transitionend</code>、<code>click</code> 事件，最終實作出一個美觀的 Image Gallery。</p>
 <p><img src="https://i.imgur.com/buH9SwO.jpg" alt=""></p>
 <hr>
-<h2 id="解析程式碼-v5"><a class="header-anchor" href="#解析程式碼-v5">¶</a>解析程式碼</h2>
-<h3 id="HTML-部分-v4"><a class="header-anchor" href="#HTML-部分-v4">¶</a>HTML 部分</h3>
+<h2 id="解析程式碼-25">解析程式碼</h2>
+<h3 id="HTML-部分-22">HTML 部分</h3>
 <p>由最外層的<code>.panels</code>包覆住內部的5個<code>.panel</code>所形成的一個巢狀結構。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;panels&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;panel panel1&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Hey<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Let&#x27;s<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Dance<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;panel panel2&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Give<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Take<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Receive<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;panel panel3&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Experience<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>It<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Today<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;panel panel4&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Give<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>All<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>You can<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;panel panel5&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Life<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>In<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Motion<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="CSS-部分-v3"><a class="header-anchor" href="#CSS-部分-v3">¶</a>CSS 部分</h3>
+<h3 id="CSS-部分-7">CSS 部分</h3>
 <p>(僅說明影片中更動的部分)</p>
 <p>先將最外層的 <code>.panels</code> 顯示類型設定為 <code>flex</code>，它同時也作為一個 <code>flex-container</code> 包覆住內部的五個 <code>flex-items</code> 也就是 <code>.panel</code>。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.panels</span> &#123;</span><br><span class="line">      <span class="comment">/*其餘略過*/</span></span><br><span class="line">      <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -252,11 +252,11 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.panel</span><span class="selector-class">.open-active</span> &gt; *<span class="selector-pseudo">:first</span>-child&#123;</span><br><span class="line">      <span class="attribute">transform</span>: <span class="built_in">translateY</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.panel</span><span class="selector-class">.open-active</span> &gt; *<span class="selector-pseudo">:last-child</span>&#123;</span><br><span class="line">      <span class="attribute">transform</span>: <span class="built_in">translateY</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>.panel</code>開啟時，將內部文字放大為 40px 並將 <code>flex-container</code> 剩餘分配的位置變為原來的5倍。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.panel</span><span class="selector-class">.open</span> &#123;</span><br><span class="line">      <span class="attribute">font-size</span>: <span class="number">40px</span>;</span><br><span class="line">      <span class="attribute">flex</span>: <span class="number">5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="補充資料"><a class="header-anchor" href="#補充資料">¶</a>補充資料:</h4>
+<h4 id="補充資料-23">補充資料:</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex">CSS flex 屬性</a><br>
 <a target="_blank" rel="noopener" href="https://cythilya.github.io/2017/04/04/flexbox-basics/">圖解 Flexbox 基本屬性</a><br>
 <a target="_blank" rel="noopener" href="https://flexboxfroggy.com/">FLEXBOX FROGGY-學習 flexbox 的小遊戲</a></p>
-<h3 id="JS-部分-v4"><a class="header-anchor" href="#JS-部分-v4">¶</a>JS 部分</h3>
+<h3 id="JS-部分-24">JS 部分</h3>
 <p>取得所有的<code>.panel</code> 並放到 <code>NodeList</code> <code>'panels'</code> 中。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> panels = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.panel&#x27;</span>);</span><br></pre></td></tr></table></figure>
 <p>為 <code>panels</code> 中的每一個<code>.panel</code>都註冊兩個事件監聽器，當 <code>click</code> 或 <code>transitionend</code> 事件發生時，就分別以 <code>toggleOpen</code> 和 <code>toggleActive</code> 方法進行事件處理。</p>
@@ -264,10 +264,10 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p>點擊任意一個<code>.panel</code>，<code>toggleOpen()</code> 方法會替觸發事件的<code>.panel</code>依照情況的不同，新增或是移除<code>.open</code> 這個 class，若是觸發事件的<code>.panel</code>原本沒有<code>.open</code>則新增，有的話則移除<code>.open</code>。</p>
 <p>當 <code>transitionend</code> 事件發生，<code>toggleActive()</code> 會作出如同 <code>toggleOpen()</code> 一樣的判斷，決定新增還是移除<code>.open-active</code>這個 class。因為同時會被觸發的 <code>transitionend</code> 事件有很多個，我們決定在觸發 <code>transitionend</code> 事件的 CSS 屬性是 <code>flex</code> 時，才採取處理。為什麼不寫 <code>e.propertyName == 'flex-grow'</code> 是因為在 Safari 顯示的是 <code>flex</code> 而 Chrome、FireFox 顯示的是 <code>flex-grow</code>，為避免這個差異導致錯誤，我們可以使用 include(‘flex’)，當 propertyName 含有 <code>flex</code> 就進行事件處理。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toggleOpen</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.classList.toggle(<span class="string">&#x27;open&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toggleActive</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(e.propertyName.includes(<span class="string">&#x27;flex&#x27;</span>))&#123;</span><br><span class="line">        <span class="built_in">this</span>.classList.toggle(<span class="string">&#x27;open-active&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="補充資料-v2"><a class="header-anchor" href="#補充資料-v2">¶</a>補充資料:</h4>
+<h4 id="補充資料-24">補充資料:</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/classList">Element.classList</a></p>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/includes">String.prototype.includes()</a></p>
-<h2 id="實際效果請按此-v3"><a class="header-anchor" href="#實際效果請按此-v3">¶</a><a href="https://qi-xiang.github.io/iThelp2021_JS30/05%20-%20Flex%20Panel%20Gallery/index-START.html">實際效果請按此</a></h2>
+<h2 id="實際效果請按此-3"><a href="https://qi-xiang.github.io/iThelp2021_JS30/05%20-%20Flex%20Panel%20Gallery/index-START.html">實際效果請按此</a></h2>
 
         </div>
         <footer class="article-footer">
@@ -275,7 +275,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/05/ironman2021D5/" data-id="ckv1zr3xf0002ygtx9q345ja7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/05/ironman2021D5/" data-id="cl0pjvgod004eqotxbzpqegam" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -351,12 +351,12 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
         "genre": "2021 iThome 鐵人賽",
         "datePublished": "2021-09-05",
         "dateCreated": "2021-09-05",
-        "dateModified": "2022-03-08",
+        "dateModified": "2022-03-14",
         "url": "https://qi-xiang.github.io/2021/09/05/ironman2021D5/",
-        "description": "¶前言
+        "description": "前言
 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。
-另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的",
-        "wordCount": 870
+另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話",
+        "wordCount": 852
     }
 </script>
 
@@ -456,6 +456,26 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2022/03/14/Hexo/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/tg4DCNx.png)" alt="輕鬆玩轉 Hexo" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2022/03/14/Hexo/" class="title">輕鬆玩轉 Hexo</a></p>
+                            <p class="item-date"><time datetime="2022-03-13T17:11:55.000Z" itemprop="datePublished">2022-03-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2022/03/06/IP%E4%BD%8D%E5%9D%80%E8%A8%88%E7%AE%97-IPv4-%E9%81%A9%E7%94%A8/" class="thumbnail">
     
     
@@ -533,26 +553,6 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2022/01/26/%E9%97%9C%E6%96%BC%E6%88%91%E9%96%8B%E5%A7%8B%E5%AF%AB%E9%9B%BB%E5%AD%90%E7%AD%86%E8%A8%98%E9%80%99%E6%AA%94%E4%BA%8B/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://i.imgur.com/zvuzq0B.jpg)" alt="關於我開始寫電子筆記這檔事" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
-                            <p class="item-title"><a href="/2022/01/26/%E9%97%9C%E6%96%BC%E6%88%91%E9%96%8B%E5%A7%8B%E5%AF%AB%E9%9B%BB%E5%AD%90%E7%AD%86%E8%A8%98%E9%80%99%E6%AA%94%E4%BA%8B/" class="title">關於我開始寫電子筆記這檔事</a></p>
-                            <p class="item-date"><time datetime="2022-01-26T09:20:00.000Z" itemprop="datePublished">2022-01-26</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -562,7 +562,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分類</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">16</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">16</span></li></ul>
         </div>
     </div>
 
@@ -572,7 +572,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">標籤雲</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/BDC/" style="font-size: 14.29px;">BDC</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.86px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.71px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.43px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.86px;">原子習慣</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.43px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 11.43px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.14px;">財報狗挖好股精華</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.57px;">金魚也能學會寫網頁</a>
+            <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/BDC/" style="font-size: 14.29px;">BDC</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.86px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.71px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.43px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.86px;">原子習慣</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.43px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 11.43px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.14px;">財報狗挖好股精華</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.57px;">金魚也能學會寫網頁</a>
         </div>
     </div>
 

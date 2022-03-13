@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="JS30" />
     
-    <meta name="description" content="¶前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的">
+    <meta name="description" content="前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS30 全攻略 第4天">
 <meta property="og:url" content="https://qi-xiang.github.io/2021/09/04/ironman2021D4/index.html">
 <meta property="og:site_name" content="Xiang&#39;s Blog">
-<meta property="og:description" content="¶前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的">
+<meta property="og:description" content="前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://i.imgur.com/JGFzUzp.jpg">
 <meta property="article:published_time" content="2021-09-04T06:23:16.000Z">
-<meta property="article:modified_time" content="2022-03-08T15:24:10.056Z">
+<meta property="article:modified_time" content="2022-03-13T17:22:32.670Z">
 <meta property="article:author" content="Qi Xiang,Zhang">
 <meta property="article:tag" content="JS30">
 <meta name="twitter:card" content="summary">
@@ -194,7 +194,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2021/09/04/ironman2021D4/" class="article-date">
-     <time datetime="2022-03-08T15:24:10.056Z" itemprop="dateModified">2022-03-08</time>
+     <time datetime="2022-03-13T17:22:32.670Z" itemprop="dateModified">2022-03-14</time>
   </a>
 </div>
 
@@ -221,19 +221,19 @@
 
             
 
-            <h2 id="前言-v4"><a class="header-anchor" href="#前言-v4">¶</a>前言</h2>
+            <h2 id="前言-24">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-v4"><a class="header-anchor" href="#本日目標-v4">¶</a>本日目標</h2>
+<h2 id="本日目標-24">本日目標</h2>
 <p>練習一些 Array 常用的方法，包括 filter()、sort()、map()、reduce()。</p>
 <p><img src="https://i.imgur.com/JGFzUzp.jpg" alt=""></p>
-<h2 id="解析程式碼-v4"><a class="header-anchor" href="#解析程式碼-v4">¶</a>解析程式碼</h2>
-<h3 id="JS-部分-v3"><a class="header-anchor" href="#JS-部分-v3">¶</a>JS 部分</h3>
+<h2 id="解析程式碼-24">解析程式碼</h2>
+<h3 id="JS-部分-23">JS 部分</h3>
 <p>前七個練習題要使用的資料如下:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*JS*/</span></span><br><span class="line"><span class="comment">// Get your shorts on - this is an array workout!</span></span><br><span class="line"><span class="comment">// ## Array Cardio Day 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Some data we can work with</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> inventors = [</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Albert&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Einstein&#x27;</span>, <span class="attr">year</span>: <span class="number">1879</span>, <span class="attr">passed</span>: <span class="number">1955</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Isaac&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Newton&#x27;</span>, <span class="attr">year</span>: <span class="number">1643</span>, <span class="attr">passed</span>: <span class="number">1727</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Galileo&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Galilei&#x27;</span>, <span class="attr">year</span>: <span class="number">1564</span>, <span class="attr">passed</span>: <span class="number">1642</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Marie&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Curie&#x27;</span>, <span class="attr">year</span>: <span class="number">1867</span>, <span class="attr">passed</span>: <span class="number">1934</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Johannes&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Kepler&#x27;</span>, <span class="attr">year</span>: <span class="number">1571</span>, <span class="attr">passed</span>: <span class="number">1630</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Nicolaus&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Copernicus&#x27;</span>, <span class="attr">year</span>: <span class="number">1473</span>, <span class="attr">passed</span>: <span class="number">1543</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Max&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Planck&#x27;</span>, <span class="attr">year</span>: <span class="number">1858</span>, <span class="attr">passed</span>: <span class="number">1947</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Katherine&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Blodgett&#x27;</span>, <span class="attr">year</span>: <span class="number">1898</span>, <span class="attr">passed</span>: <span class="number">1979</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Ada&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Lovelace&#x27;</span>, <span class="attr">year</span>: <span class="number">1815</span>, <span class="attr">passed</span>: <span class="number">1852</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Sarah E.&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Goode&#x27;</span>, <span class="attr">year</span>: <span class="number">1855</span>, <span class="attr">passed</span>: <span class="number">1905</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Lise&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Meitner&#x27;</span>, <span class="attr">year</span>: <span class="number">1878</span>, <span class="attr">passed</span>: <span class="number">1968</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Hanna&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Hammarström&#x27;</span>, <span class="attr">year</span>: <span class="number">1829</span>, <span class="attr">passed</span>: <span class="number">1909</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> people = [</span><br><span class="line">    <span class="string">&#x27;Bernhard, Sandra&#x27;</span>, <span class="string">&#x27;Bethea, Erin&#x27;</span>, <span class="string">&#x27;Becker, Carl&#x27;</span>, <span class="string">&#x27;Bentsen, Lloyd&#x27;</span>, <span class="string">&#x27;Beckett, Samuel&#x27;</span>, <span class="string">&#x27;Blake, William&#x27;</span>, <span class="string">&#x27;Berger, Ric&#x27;</span>, <span class="string">&#x27;Beddoes, Mick&#x27;</span>, <span class="string">&#x27;Beethoven, Ludwig&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Belloc, Hilaire&#x27;</span>, <span class="string">&#x27;Begin, Menachem&#x27;</span>, <span class="string">&#x27;Bellow, Saul&#x27;</span>, <span class="string">&#x27;Benchley, Robert&#x27;</span>, <span class="string">&#x27;Blair, Robert&#x27;</span>, <span class="string">&#x27;Benenson, Peter&#x27;</span>, <span class="string">&#x27;Benjamin, Walter&#x27;</span>, <span class="string">&#x27;Berlin, Irving&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Benn, Tony&#x27;</span>, <span class="string">&#x27;Benson, Leana&#x27;</span>, <span class="string">&#x27;Bent, Silas&#x27;</span>, <span class="string">&#x27;Berle, Milton&#x27;</span>, <span class="string">&#x27;Berry, Halle&#x27;</span>, <span class="string">&#x27;Biko, Steve&#x27;</span>, <span class="string">&#x27;Beck, Glenn&#x27;</span>, <span class="string">&#x27;Bergman, Ingmar&#x27;</span>, <span class="string">&#x27;Black, Elk&#x27;</span>, <span class="string">&#x27;Berio, Luciano&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Berne, Eric&#x27;</span>, <span class="string">&#x27;Berra, Yogi&#x27;</span>, <span class="string">&#x27;Berry, Wendell&#x27;</span>, <span class="string">&#x27;Bevan, Aneurin&#x27;</span>, <span class="string">&#x27;Ben-Gurion, David&#x27;</span>, <span class="string">&#x27;Bevel, Ken&#x27;</span>, <span class="string">&#x27;Biden, Joseph&#x27;</span>, <span class="string">&#x27;Bennington, Chester&#x27;</span>, <span class="string">&#x27;Bierce, Ambrose&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Billings, Josh&#x27;</span>, <span class="string">&#x27;Birrell, Augustine&#x27;</span>, <span class="string">&#x27;Blair, Tony&#x27;</span>, <span class="string">&#x27;Beecher, Henry&#x27;</span>, <span class="string">&#x27;Biondo, Frank&#x27;</span></span><br><span class="line">];</span><br></pre></td></tr></table></figure>
-<h4 id="1-Filter-the-list-of-inventors-for-those-who-were-born-in-the-1500’s"><a class="header-anchor" href="#1-Filter-the-list-of-inventors-for-those-who-were-born-in-the-1500’s">¶</a>1. Filter the list of inventors for those who were born in the 1500’s</h4>
+<h4 id="1-Filter-the-list-of-inventors-for-those-who-were-born-in-the-1500’s">1. Filter the list of inventors for those who were born in the 1500’s</h4>
 <p><strong>Array.prototype.filter()</strong></p>
 <p><code>filter()</code> 方法會透過指定的函式運算，決定保留哪些資料並形成一個新的陣列。</p>
 <p>在 filter 裡 return true 代表要保留該筆資料，除此之外的資料都會被捨棄，我們沒必要再寫 else 去 return false。</p>
@@ -245,7 +245,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*JS*/</span></span><br><span class="line"><span class="keyword">const</span> fifteen = inventors.filter(<span class="function"><span class="params">inventor</span> =&gt;</span> (inventor.year &gt;= <span class="number">1500</span> &amp;&amp; inventor.year &lt; <span class="number">1600</span>));</span><br><span class="line"><span class="built_in">console</span>.table(fifteen);</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.imgur.com/UCO78qf.png" alt=""></p>
 <hr>
-<h4 id="2-Give-us-an-array-of-the-inventors-first-and-last-names"><a class="header-anchor" href="#2-Give-us-an-array-of-the-inventors-first-and-last-names">¶</a>2. Give us an array of the inventors first and last names</h4>
+<h4 id="2-Give-us-an-array-of-the-inventors-first-and-last-names">2. Give us an array of the inventors first and last names</h4>
 <p><strong>Array.prototype.map()</strong></p>
 <p><code>map()</code> 方法會建立一個和原陣列長度相同的陣列，其內容為原陣列的每一個元素經由指定的函式運算後所回傳的結果之集合。</p>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/map">map() 的詳細內容</a></p>
@@ -253,7 +253,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*JS*/</span></span><br><span class="line"><span class="keyword">const</span> fullNames = inventors.map(<span class="function"><span class="params">inventor</span> =&gt;</span> <span class="string">`<span class="subst">$&#123;inventor.first&#125;</span> <span class="subst">$&#123;inventor.last&#125;</span>`</span>); <span class="comment">/*Template literals*/</span></span><br><span class="line"><span class="built_in">console</span>.table(fullNames);</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.imgur.com/0GyEdf0.png" alt=""></p>
 <hr>
-<h4 id="3-Sort-the-inventors-by-birthdate-oldest-to-youngest"><a class="header-anchor" href="#3-Sort-the-inventors-by-birthdate-oldest-to-youngest">¶</a>3. Sort the inventors by birthdate, oldest to youngest</h4>
+<h4 id="3-Sort-the-inventors-by-birthdate-oldest-to-youngest">3. Sort the inventors by birthdate, oldest to youngest</h4>
 <p><strong>Array.prototype.sort()</strong></p>
 <p><code>sort()</code> 方法會對一個陣列中的所有元素進行排序，並回傳此陣列，預設是以字串的 Unicode 編碼進行排序。</p>
 <p>我們也可以指定一個 <span style="color:red;">compareFunction</span> ，用自訂的排序規則為陣列進行排序。</p>
@@ -265,7 +265,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ordered = inventors.sort(<span class="function">(<span class="params">a,b</span>) =&gt;</span> a.year &gt; b.year ? <span class="number">1</span> : -<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.table(ordered);</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.imgur.com/9YXz5cr.png" alt=""></p>
 <hr>
-<h4 id="4-How-many-years-did-all-the-inventors-live-all-together"><a class="header-anchor" href="#4-How-many-years-did-all-the-inventors-live-all-together">¶</a>4. How many years did all the inventors live all together?</h4>
+<h4 id="4-How-many-years-did-all-the-inventors-live-all-together">4. How many years did all the inventors live all together?</h4>
 <p><strong>Array.prototype.reduce()</strong></p>
 <p><code>reduce()</code> 方法將一個累加器(accumulator)及陣列中每項元素傳入函式中進行運算，將陣列化為單一的值。</p>
 <p>其中一種用法如下:</p>
@@ -274,13 +274,13 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> totalYears = inventors.reduce(<span class="function">(<span class="params">total,inventor</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> total + (inventor.passed - inventor.year);</span><br><span class="line">&#125;,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(totalYears);</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.imgur.com/agDSaFE.png" alt=""></p>
 <hr>
-<h4 id="5-Sort-the-inventors-by-years-lived"><a class="header-anchor" href="#5-Sort-the-inventors-by-years-lived">¶</a>5. Sort the inventors by years lived</h4>
+<h4 id="5-Sort-the-inventors-by-years-lived">5. Sort the inventors by years lived</h4>
 <p>以下，我們將這些發明家依照壽命的長短由大到小進行排序。<br>
 透過 passed - year，我們可以很簡單的算出每一位發明家的壽命。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> oldest = inventors.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> lastGuy = a.passed - a.year;</span><br><span class="line">    <span class="keyword">const</span> nextGuy = b.passed - b.year;</span><br><span class="line">    <span class="keyword">return</span> lastGuy &gt; nextGuy ? -<span class="number">1</span> : <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.table(oldest)</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.imgur.com/PbkuwNe.png" alt=""></p>
 <hr>
-<h4 id="6-Create-a-list-of-Boulevards-in-Paris-that-contain-‘de’-anywhere-in-the-name"><a class="header-anchor" href="#6-Create-a-list-of-Boulevards-in-Paris-that-contain-‘de’-anywhere-in-the-name">¶</a>6. Create a list of Boulevards in Paris that contain ‘de’ anywhere in the name</h4>
+<h4 id="6-Create-a-list-of-Boulevards-in-Paris-that-contain-‘de’-anywhere-in-the-name">6. Create a list of Boulevards in Paris that contain ‘de’ anywhere in the name</h4>
 <p>這題我們需要自行到 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris">https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris</a> 右鍵檢查進入 console 進行解題。</p>
 <p><strong>Node.textContent</strong></p>
 <p><code>Node.textContent</code> 可以取得節點或其後代的文字內容。</p>
@@ -295,7 +295,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> category = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.mw-category&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> links = <span class="built_in">Array</span>.from(category.querySelectorAll(<span class="string">&#x27;a&#x27;</span>));<span class="comment">/*NodeList*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> de = links.map(<span class="function"><span class="params">link</span> =&gt;</span> link.textContent).filter(<span class="function"><span class="params">streetName</span> =&gt;</span> streetName.includes(<span class="string">&#x27;de&#x27;</span>));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.table(de);</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.imgur.com/rPRFQ3U.png" alt=""></p>
 <hr>
-<h4 id="7-Sort-the-people-alphabetically-by-last-name"><a class="header-anchor" href="#7-Sort-the-people-alphabetically-by-last-name">¶</a>7. Sort the people alphabetically by last name</h4>
+<h4 id="7-Sort-the-people-alphabetically-by-last-name">7. Sort the people alphabetically by last name</h4>
 <p><strong>String.prototype.split()</strong></p>
 <p><code>split()</code>方法可以使用指定的分隔字元(separator)將一個<code>String</code>分割成串列。</p>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/split">split() 的詳細說明</a></p>
@@ -305,7 +305,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> alpha = people.sort(<span class="function">(<span class="params">lastOne,firstOne</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> [aLast,aFirst] = lastOne.split(<span class="string">&#x27;, &#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> [bLast,bFirst] = firstOne.split(<span class="string">&#x27;, &#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> aLast &gt; bLast ? <span class="number">1</span> : -<span class="number">1</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.imgur.com/w2saWoY.png" alt=""></p>
 <hr>
-<h4 id="8-Sum-up-the-instances-of-each-of-these"><a class="header-anchor" href="#8-Sum-up-the-instances-of-each-of-these">¶</a>8. Sum up the instances of each of these</h4>
+<h4 id="8-Sum-up-the-instances-of-each-of-these">8. Sum up the instances of each of these</h4>
 <p>資料內容:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> data = [<span class="string">&#x27;car&#x27;</span>, <span class="string">&#x27;car&#x27;</span>, <span class="string">&#x27;truck&#x27;</span>, <span class="string">&#x27;truck&#x27;</span>, <span class="string">&#x27;bike&#x27;</span>, <span class="string">&#x27;walk&#x27;</span>, <span class="string">&#x27;car&#x27;</span>, <span class="string">&#x27;van&#x27;</span>, <span class="string">&#x27;bike&#x27;</span>, <span class="string">&#x27;walk&#x27;</span>, <span class="string">&#x27;car&#x27;</span>, <span class="string">&#x27;van&#x27;</span>, <span class="string">&#x27;car&#x27;</span>, <span class="string">&#x27;truck&#x27;</span> ];</span><br></pre></td></tr></table></figure>
 <p>一開始賦予累加器(obj)的初始值(initial value)為空物件({})，因為最初所有的 item 都不存在於 obj 中，所以透過 if 判斷當 obj[item] 不存在時，就建立 obj[item] 並賦予初始值0。其後就可正常將 item 持續累加至正確的交通工具分類中(obj[item]++)。</p>
@@ -318,7 +318,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/04/ironman2021D4/" data-id="ckv1zpzwy0000ygtxc4vv4rhm" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/04/ironman2021D4/" data-id="cl0pjvgod004cqotx768beek0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -394,12 +394,12 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
         "genre": "2021 iThome 鐵人賽",
         "datePublished": "2021-09-04",
         "dateCreated": "2021-09-04",
-        "dateModified": "2022-03-08",
+        "dateModified": "2022-03-14",
         "url": "https://qi-xiang.github.io/2021/09/04/ironman2021D4/",
-        "description": "¶前言
+        "description": "前言
 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。
-另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的",
-        "wordCount": 1329
+另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話",
+        "wordCount": 1305
     }
 </script>
 
@@ -499,6 +499,26 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2022/03/14/Hexo/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/tg4DCNx.png)" alt="輕鬆玩轉 Hexo" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2022/03/14/Hexo/" class="title">輕鬆玩轉 Hexo</a></p>
+                            <p class="item-date"><time datetime="2022-03-13T17:11:55.000Z" itemprop="datePublished">2022-03-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2022/03/06/IP%E4%BD%8D%E5%9D%80%E8%A8%88%E7%AE%97-IPv4-%E9%81%A9%E7%94%A8/" class="thumbnail">
     
     
@@ -576,26 +596,6 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2022/01/26/%E9%97%9C%E6%96%BC%E6%88%91%E9%96%8B%E5%A7%8B%E5%AF%AB%E9%9B%BB%E5%AD%90%E7%AD%86%E8%A8%98%E9%80%99%E6%AA%94%E4%BA%8B/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://i.imgur.com/zvuzq0B.jpg)" alt="關於我開始寫電子筆記這檔事" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
-                            <p class="item-title"><a href="/2022/01/26/%E9%97%9C%E6%96%BC%E6%88%91%E9%96%8B%E5%A7%8B%E5%AF%AB%E9%9B%BB%E5%AD%90%E7%AD%86%E8%A8%98%E9%80%99%E6%AA%94%E4%BA%8B/" class="title">關於我開始寫電子筆記這檔事</a></p>
-                            <p class="item-date"><time datetime="2022-01-26T09:20:00.000Z" itemprop="datePublished">2022-01-26</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -605,7 +605,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分類</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">16</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">16</span></li></ul>
         </div>
     </div>
 
@@ -615,7 +615,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">標籤雲</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/BDC/" style="font-size: 14.29px;">BDC</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.86px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.71px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.43px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.86px;">原子習慣</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.43px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 11.43px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.14px;">財報狗挖好股精華</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.57px;">金魚也能學會寫網頁</a>
+            <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/BDC/" style="font-size: 14.29px;">BDC</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.86px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.71px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.43px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.86px;">原子習慣</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.43px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 11.43px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.14px;">財報狗挖好股精華</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.57px;">金魚也能學會寫網頁</a>
         </div>
     </div>
 

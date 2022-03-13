@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="JS30" />
     
-    <meta name="description" content="¶前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的">
+    <meta name="description" content="前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS30 全攻略 第15天">
 <meta property="og:url" content="https://qi-xiang.github.io/2021/09/15/ironman2021D15/index.html">
 <meta property="og:site_name" content="Xiang&#39;s Blog">
-<meta property="og:description" content="¶前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的">
+<meta property="og:description" content="前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://i.imgur.com/cEF4oDe.jpg">
 <meta property="article:published_time" content="2021-09-15T07:08:22.000Z">
-<meta property="article:modified_time" content="2022-03-08T15:26:18.855Z">
+<meta property="article:modified_time" content="2022-03-13T17:23:10.207Z">
 <meta property="article:author" content="Qi Xiang,Zhang">
 <meta property="article:tag" content="JS30">
 <meta name="twitter:card" content="summary">
@@ -194,7 +194,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2021/09/15/ironman2021D15/" class="article-date">
-     <time datetime="2022-03-08T15:26:18.855Z" itemprop="dateModified">2022-03-08</time>
+     <time datetime="2022-03-13T17:23:10.207Z" itemprop="dateModified">2022-03-14</time>
   </a>
 </div>
 
@@ -221,31 +221,31 @@
 
             
 
-            <h2 id="前言-v17"><a class="header-anchor" href="#前言-v17">¶</a>前言</h2>
+            <h2 id="前言-6">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-v17"><a class="header-anchor" href="#本日目標-v17">¶</a>本日目標</h2>
+<h2 id="本日目標-6">本日目標</h2>
 <p>將被新增到<code>menu</code>的項目儲存到<code>localStorage</code>中，使得後續刷新頁面時，可以從<code>localStorage</code>調用資料回復之前新增在<code>menu</code>的項目。</p>
 <p><img src="https://i.imgur.com/cEF4oDe.jpg" alt=""></p>
 <hr>
-<h2 id="解析程式碼-v16"><a class="header-anchor" href="#解析程式碼-v16">¶</a>解析程式碼</h2>
-<h3 id="HTML-部分-v11"><a class="header-anchor" href="#HTML-部分-v11">¶</a>HTML 部分</h3>
+<h2 id="解析程式碼-6">解析程式碼</h2>
+<h3 id="HTML-部分-4">HTML 部分</h3>
 <p>最外層的<code>.wrapper</code>代表的是整個的 menu，<code>.plates</code>則用來放入 menu 的內容項目。最後，<code>.add-items</code>是一個表單元素，裡面有一個文字輸入框(<code>&lt;input type=&quot;text&quot;&gt;&lt;/input&gt;</code>)用來填入要新增的項目名稱，還有一個用來加入項目到 menu 的 submit button(<code>&lt;input type=&quot;submit&quot;&gt;&lt;/input&gt;</code>)。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wrapper&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>LOCAL TAPAS<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;plates&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>Loading Tapas...<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">&quot;add-items&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;item&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;Item Name&quot;</span> <span class="attr">required</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;+ Add Item&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="JS-部分-v15"><a class="header-anchor" href="#JS-部分-v15">¶</a>JS 部分</h3>
+<h3 id="JS-部分-6">JS 部分</h3>
 <p>宣告常數<code>addItems</code>用來存放取得的整個 menu(<code>.add-items</code>)。</p>
 <p>宣告常數<code>itemsList</code>用來存放 menu 裡的所有項目(<code>.plates</code>)。</p>
 <p>宣告常數<code>items</code>為一個空陣列，用來存放我們每次在文字輸入框填入要新增到 menu 的 item。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> addItems = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.add-items&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> itemsList = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.plates&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> items = [];</span><br></pre></td></tr></table></figure>
-<h4 id="addItem"><a class="header-anchor" href="#addItem">¶</a><strong><code>addItem()</code></strong> :</h4>
+<h4 id="addItem"><strong><code>addItem()</code></strong> :</h4>
 <p>我們首先用<code>e.preventDefault()</code>避免每次提交新的內容進入<code>items</code>造成頁面的 reloading。</p>
 <p>宣告常數<code>text</code>用來存放在文字輸入框填入的項目名稱。</p>
 <p>建立物件<code>item</code>並賦予兩個屬性text(項目的名稱)、done(是否被勾選)，這裡我們原本可以用<code>text:text;</code>，但在 ES6 裡可以被簡寫為<code>text</code>。</p>
 <p>將建立出的物件放入(push)陣列<code>items</code>中，之後用<code>this.reset()</code>清掉在文字輸入框的文字以利下一次新增項目。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addItem</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    e.preventDefault();<span class="comment">//prevent page from reloading</span></span><br><span class="line">    <span class="keyword">const</span> text = <span class="built_in">this</span>.querySelector(<span class="string">&#x27;[name=&quot;item&quot;]&#x27;</span>).value; </span><br><span class="line">    <span class="keyword">const</span> item = &#123;</span><br><span class="line">      text, <span class="comment">//text: text</span></span><br><span class="line">      <span class="attr">done</span>: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    items.push(item);</span><br><span class="line">    <span class="built_in">this</span>.reset(); <span class="comment">//form element clear the input</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addItems.addEventListener(<span class="string">&#x27;submit&#x27;</span>,addItem);</span><br></pre></td></tr></table></figure>
-<h4 id="populateList"><a class="header-anchor" href="#populateList">¶</a><strong>populateList():</strong></h4>
+<h4 id="populateList"><strong>populateList():</strong></h4>
 <p>用來將<code>items</code>裡所有的<code>item</code>逐一轉換成 HTML 的格式，藉此更新 menu 上的項目。</p>
 <p>透過<code>map()</code>將陣列中的<code>item</code>(方法裡用<code>plate</code>代稱)，逐一用<code>&lt;li&gt;~&lt;li&gt;</code>的格式重新組合成一個有checkBox可以勾選的列表項目。</p>
 <p>因為<code>map()</code>回傳的是一個陣列，所以在最後用<code>join()</code>將陣列中的元素以空白作為間隔符號串聯成一個 HTML 格式的字串並修改列表(<code>ul</code>)裡的項目內容(<code>innerHTML</code>)。</p>
@@ -254,7 +254,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p><img src="https://i.imgur.com/ZQM5ZCx.jpg" alt=""></p>
 <p>但是將網頁重新整理(F5)，我們可以發現原來放到 menu 中的東西都不見了。那要怎麼保留我們之前在 menu 放入的項目呢? 相信 localStorage 可以幫我們這個忙。</p>
 <p><img src="https://i.imgur.com/r3xxMVT.jpg" alt=""></p>
-<h4 id="Window-localStorage"><a class="header-anchor" href="#Window-localStorage">¶</a><strong>Window.localStorage</strong></h4>
+<h4 id="Window-localStorage"><strong>Window.localStorage</strong></h4>
 <p><strong><code>localStorage</code></strong> 允許我們存取目前文件(<code>Document</code>)隸屬網域來源的<code>Storage</code> 物件，簡單來說我們可以用<code>key-value</code>(鍵-值)的方式來存取這個<code>Storage</code>物件的資料，localStorage存放的資料是沒有時間限制的(不會關閉網頁就不見)。另外，這邊的鍵-值都是以<code>字串</code>型態存放。</p>
 <p>實際在<code>localStorage</code>放資料(<code>localStorage.setItem()</code>):</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">localStorage</span>.setItem(<span class="string">&#x27;myCat&#x27;</span>, <span class="string">&#x27;Tom&#x27;</span>);</span><br></pre></td></tr></table></figure>
@@ -262,7 +262,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p><img src="https://i.imgur.com/LO4OmG5.png" alt=""></p>
 <p>資料真的被放到 Local Storage 裡面了，我們之後就可以用 Local Storage 的方法調用這些已存的資料。</p>
 <p><img src="https://i.imgur.com/KGxCHt7.png" alt=""></p>
-<h4 id="用-localStorage-存取資料"><a class="header-anchor" href="#用-localStorage-存取資料">¶</a><strong>用 localStorage 存取資料</strong></h4>
+<h4 id="用-localStorage-存取資料"><strong>用 localStorage 存取資料</strong></h4>
 <p><strong>items :</strong></p>
 <p>我們原本宣告常數<code>items</code>為一個空陣列，但是我們也可以改成如果<code>localStorage</code>有資料(<code>localStorage.getItem('items')</code>)就將其放入<code>items</code>。要注意<code>localStorage</code>放的資料是字串型態，所以還要藉助<code>JSON.parse()</code>把它還原成物件再傳遞給<code>items</code>。</p>
 <p><strong>addItem()</strong> :</p>
@@ -280,13 +280,13 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p>最後我們需要將變更後的<code>items</code>再次的放入<code>localStorage</code>中，要注意先用<code>JSON.stringify()</code>轉換成字串再放入，接著用<code>populateList()</code>去更新現在<code>menu</code>的內容就完成了。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toggleDone</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!e.target.matches(<span class="string">&#x27;input&#x27;</span>)) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">const</span> el = e.target;</span><br><span class="line">    <span class="keyword">const</span> index = el.dataset.index;</span><br><span class="line">    items[index].done = !items[index].done;</span><br><span class="line">    <span class="built_in">localStorage</span>.setItem(<span class="string">&#x27;items&#x27;</span>,<span class="built_in">JSON</span>.stringify(items));</span><br><span class="line">    populateList(items,itemsList);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">itemsList.addEventListener(<span class="string">&#x27;click&#x27;</span>,toggleDone);</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//create the actual html here</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">populateList</span>(<span class="params">plates = [], platesList</span>)</span>&#123; <span class="comment">//plates default: empty, prvent to crash javascript if you forget to pass it</span></span><br><span class="line">    platesList.innerHTML = plates.map(<span class="function">(<span class="params">plate,i</span>) =&gt;</span>&#123; <span class="comment">//i: index</span></span><br><span class="line">      <span class="keyword">return</span> <span class="string">`</span></span><br><span class="line"><span class="string">        &lt;li&gt;</span></span><br><span class="line"><span class="string">          &lt;input type=&quot;checkbox&quot; data-index=<span class="subst">$&#123;i&#125;</span> id=&quot;item<span class="subst">$&#123;i&#125;</span>&quot; <span class="subst">$&#123;plate.done ? <span class="string">&#x27;checked&#x27;</span> : <span class="string">&#x27;&#x27;</span>&#125;</span>&gt;</span></span><br><span class="line"><span class="string">          &lt;label for=&quot;item<span class="subst">$&#123;i&#125;</span>&quot;&gt;<span class="subst">$&#123;plate.text&#125;</span>&lt;/label&gt;</span></span><br><span class="line"><span class="string">        &lt;/li&gt;</span></span><br><span class="line"><span class="string">      `</span>;</span><br><span class="line">    &#125;).join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="補充資料-v14"><a class="header-anchor" href="#補充資料-v14">¶</a>補充資料:</h4>
+<h4 id="補充資料-7">補充資料:</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/map">Array.prototype.map()</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/API/Window/localStorage">Window.localStorage</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/API/Storage">Storage</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/API/Event/target">Event.target</a><br>
 <a target="_blank" rel="noopener" href="https://realdennis.medium.com/event-delegation-%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%B4%BE%E4%BB%8B%E7%B4%B9-%E8%88%87-%E8%A7%B8%E7%99%BC%E5%A7%94%E6%B4%BE%E7%9A%84%E5%9B%9E%E5%91%BC%E5%87%BD%E6%95%B8-2990921a5ba2">Event Delegation — 事件委派介紹 與 觸發委派的回呼函數</a></p>
-<h2 id="範例網頁請點此-v3"><a class="header-anchor" href="#範例網頁請點此-v3">¶</a><a href="https://qi-xiang.github.io/iThelp2021_JS30/15%20-%20LocalStorage/index-START.html">範例網頁請點此</a></h2>
+<h2 id="範例網頁請點此-2"><a href="https://qi-xiang.github.io/iThelp2021_JS30/15%20-%20LocalStorage/index-START.html">範例網頁請點此</a></h2>
 
         </div>
         <footer class="article-footer">
@@ -294,7 +294,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/15/ironman2021D15/" data-id="ckv21twzo0005u8txf52hdip4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/15/ironman2021D15/" data-id="cl0pjvgnw002tqotxa17ocg9a" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -370,12 +370,12 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
         "genre": "2021 iThome 鐵人賽",
         "datePublished": "2021-09-15",
         "dateCreated": "2021-09-15",
-        "dateModified": "2022-03-08",
+        "dateModified": "2022-03-14",
         "url": "https://qi-xiang.github.io/2021/09/15/ironman2021D15/",
-        "description": "¶前言
+        "description": "前言
 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。
-另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的",
-        "wordCount": 839
+另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話",
+        "wordCount": 817
     }
 </script>
 
@@ -475,6 +475,26 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2022/03/14/Hexo/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/tg4DCNx.png)" alt="輕鬆玩轉 Hexo" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2022/03/14/Hexo/" class="title">輕鬆玩轉 Hexo</a></p>
+                            <p class="item-date"><time datetime="2022-03-13T17:11:55.000Z" itemprop="datePublished">2022-03-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2022/03/06/IP%E4%BD%8D%E5%9D%80%E8%A8%88%E7%AE%97-IPv4-%E9%81%A9%E7%94%A8/" class="thumbnail">
     
     
@@ -552,26 +572,6 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2022/01/26/%E9%97%9C%E6%96%BC%E6%88%91%E9%96%8B%E5%A7%8B%E5%AF%AB%E9%9B%BB%E5%AD%90%E7%AD%86%E8%A8%98%E9%80%99%E6%AA%94%E4%BA%8B/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://i.imgur.com/zvuzq0B.jpg)" alt="關於我開始寫電子筆記這檔事" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
-                            <p class="item-title"><a href="/2022/01/26/%E9%97%9C%E6%96%BC%E6%88%91%E9%96%8B%E5%A7%8B%E5%AF%AB%E9%9B%BB%E5%AD%90%E7%AD%86%E8%A8%98%E9%80%99%E6%AA%94%E4%BA%8B/" class="title">關於我開始寫電子筆記這檔事</a></p>
-                            <p class="item-date"><time datetime="2022-01-26T09:20:00.000Z" itemprop="datePublished">2022-01-26</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -581,7 +581,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分類</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">16</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">16</span></li></ul>
         </div>
     </div>
 
@@ -591,7 +591,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">標籤雲</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/BDC/" style="font-size: 14.29px;">BDC</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.86px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.71px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.43px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.86px;">原子習慣</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.43px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 11.43px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.14px;">財報狗挖好股精華</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.57px;">金魚也能學會寫網頁</a>
+            <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/BDC/" style="font-size: 14.29px;">BDC</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.86px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.71px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.43px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.86px;">原子習慣</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.43px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 11.43px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.14px;">財報狗挖好股精華</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.57px;">金魚也能學會寫網頁</a>
         </div>
     </div>
 

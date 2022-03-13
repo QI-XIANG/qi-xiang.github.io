@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="JS30" />
     
-    <meta name="description" content="¶前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的">
+    <meta name="description" content="前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS30 全攻略 第19天">
 <meta property="og:url" content="https://qi-xiang.github.io/2021/09/19/ironman2021D19/index.html">
 <meta property="og:site_name" content="Xiang&#39;s Blog">
-<meta property="og:description" content="¶前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的">
+<meta property="og:description" content="前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://i.imgur.com/faymFXk.jpg">
 <meta property="article:published_time" content="2021-09-19T07:28:54.000Z">
-<meta property="article:modified_time" content="2022-03-08T15:26:50.143Z">
+<meta property="article:modified_time" content="2022-03-13T17:23:21.237Z">
 <meta property="article:author" content="Qi Xiang,Zhang">
 <meta property="article:tag" content="JS30">
 <meta name="twitter:card" content="summary">
@@ -194,7 +194,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2021/09/19/ironman2021D19/" class="article-date">
-     <time datetime="2022-03-08T15:26:50.143Z" itemprop="dateModified">2022-03-08</time>
+     <time datetime="2022-03-13T17:23:21.237Z" itemprop="dateModified">2022-03-14</time>
   </a>
 </div>
 
@@ -221,16 +221,16 @@
 
             
 
-            <h2 id="前言-v19"><a class="header-anchor" href="#前言-v19">¶</a>前言</h2>
+            <h2 id="前言-10">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-v19"><a class="header-anchor" href="#本日目標-v19">¶</a>本日目標</h2>
+<h2 id="本日目標-10">本日目標</h2>
 <p>取得使用者的鏡頭影像，藉此實作出網頁版的相機以及影像濾鏡效果。</p>
 <p><img src="https://i.imgur.com/faymFXk.jpg" alt=""></p>
 <hr>
-<h2 id="設定本地伺服器"><a class="header-anchor" href="#設定本地伺服器">¶</a>設定本地伺服器</h2>
+<h2 id="設定本地伺服器">設定本地伺服器</h2>
 <p>這次的範例會需要取得鏡頭的存取權限，而在取得過程必須是透過<code>https</code>或是<code>localhost</code>這類的<code>secure origin</code>才行，以下我們透過<code>npm install</code>和<code>npm start</code>架起自己的 little server (localhost)。</p>
 <p>如果發現下面的指令無效的話，表示沒有安裝Node.js，可以點這邊<a target="_blank" rel="noopener" href="https://nodejs.org/en/">下載 LTS 的版本</a>，都用預設的安裝就好。</p>
 <ul>
@@ -244,8 +244,8 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 </li>
 </ul>
 <hr>
-<h2 id="解析程式碼-v18"><a class="header-anchor" href="#解析程式碼-v18">¶</a>解析程式碼</h2>
-<h3 id="HTML-部分-v13"><a class="header-anchor" href="#HTML-部分-v13">¶</a>HTML 部分</h3>
+<h2 id="解析程式碼-10">解析程式碼</h2>
+<h3 id="HTML-部分-8">HTML 部分</h3>
 <p>div(<code>.controls</code>) : 裡面放置用來拍照的按鈕和調整綠幕效果的按鈕。</p>
 <p>canvas(<code>.photo</code>) : 用來放入鏡頭的影像，之後會搭配一些濾鏡。</p>
 <p>video(<code>.player</code>) : 固定在右上角的小影像視窗。</p>
@@ -253,7 +253,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p>audio(<code>.snap</code>) : 放入按下拍照按鈕時要撥放的音效。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;photobooth&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;controls&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&quot;takePhoto()&quot;</span>&gt;</span>Take Photo<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;rgb&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;rmin&quot;</span>&gt;</span>Red Min:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">min</span>=<span class="string">0</span> <span class="attr">max</span>=<span class="string">255</span> <span class="attr">name</span>=<span class="string">&quot;rmin&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;rmax&quot;</span>&gt;</span>Red Max:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">min</span>=<span class="string">0</span> <span class="attr">max</span>=<span class="string">255</span> <span class="attr">name</span>=<span class="string">&quot;rmax&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">          <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">          <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;gmin&quot;</span>&gt;</span>Green Min:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">min</span>=<span class="string">0</span> <span class="attr">max</span>=<span class="string">255</span> <span class="attr">name</span>=<span class="string">&quot;gmin&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;gmax&quot;</span>&gt;</span>Green Max:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">min</span>=<span class="string">0</span> <span class="attr">max</span>=<span class="string">255</span> <span class="attr">name</span>=<span class="string">&quot;gmax&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">          <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">          <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;bmin&quot;</span>&gt;</span>Blue Min:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">min</span>=<span class="string">0</span> <span class="attr">max</span>=<span class="string">255</span> <span class="attr">name</span>=<span class="string">&quot;bmin&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;bmax&quot;</span>&gt;</span>Blue Max:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">min</span>=<span class="string">0</span> <span class="attr">max</span>=<span class="string">255</span> <span class="attr">name</span>=<span class="string">&quot;bmax&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">class</span>=<span class="string">&quot;photo&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">video</span> <span class="attr">class</span>=<span class="string">&quot;player&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;strip&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">class</span>=<span class="string">&quot;snap&quot;</span> <span class="attr">src</span>=<span class="string">&quot;./snap.mp3&quot;</span> <span class="attr">hidden</span>&gt;</span><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://i.imgur.com/ti6B1FE.png" alt=""></p>
-<h3 id="JS-部分-v17"><a class="header-anchor" href="#JS-部分-v17">¶</a>JS 部分</h3>
+<h3 id="JS-部分-10">JS 部分</h3>
 <p>老樣子，我們要先取得所有要用到的元素。</p>
 <p><code>.player</code> 是小鏡頭畫面。<br>
 <code>canvas</code> 是可以套上濾鏡的大鏡頭畫面。<br>
@@ -261,18 +261,18 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <code>strip</code> 是放照片的容器。<br>
 <code>snap</code> 是拍照的音效。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> video = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.player&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.photo&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> ctx = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> strip = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.strip&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> snap = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.snap&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<h4 id="先來處理取得鏡頭影像的部分"><a class="header-anchor" href="#先來處理取得鏡頭影像的部分">¶</a>先來處理取得鏡頭影像的部分 :</h4>
+<h4 id="先來處理取得鏡頭影像的部分">先來處理取得鏡頭影像的部分 :</h4>
 <p><code>navigator.mediaDevices.getUserMedia()</code>，用來取得使用者的媒體裝置，因為我們只需要取得影像，所以指定<code>&#123;video:true,audio:false&#125;</code>不存取音訊，最後回傳一個<code>Promise</code>。</p>
 <p>我們用<code>then()</code>繼續進行處理，因為不能直接將取得的<code>MediaStream</code>指定為<code>video</code>的來源(它看不懂QQ)，還需要透過<code>window.URL.createObjectURL()</code>把<code>MediaStream</code>換成<code>video</code>可以理解的<code>URL</code>，然後<code>video.play()</code>開始播放影像。</p>
 <p>到這邊，我們還需要用<code>catch()</code>來處理例外發生的狀況，當無法順利取得媒體裝置或是媒體裝置不存在，就會在 console 上印出錯誤訊息。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getVideo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    navigator.mediaDevices.getUserMedia(&#123;<span class="attr">video</span>:<span class="literal">true</span>,<span class="attr">audio</span>:<span class="literal">false</span>&#125;)</span><br><span class="line">    .then(<span class="function"><span class="params">localMediaStream</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(localMediaStream);</span><br><span class="line">        video.src = <span class="built_in">window</span>.URL.createObjectURL(localMediaStream);</span><br><span class="line">        video.play();</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`OH NO!!!`</span>,err);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getVideo();</span><br></pre></td></tr></table></figure>
-<h4 id="把影像放到畫布-canvas-上"><a class="header-anchor" href="#把影像放到畫布-canvas-上">¶</a>把影像放到畫布(<code>canvas</code>)上 :</h4>
+<h4 id="把影像放到畫布-canvas-上">把影像放到畫布(<code>canvas</code>)上 :</h4>
 <p>為了讓畫布的大小和取得的影像大小一致，使用<code> video.videoWidth</code>、<code>video.videoHeight</code>取得影像的寬、長，然後修改畫布的寬(<code>canvas.width</code>)、長(<code>canvas.height</code>)。</p>
 <p><code>setInterval()</code>，設定每隔一段時間就把影像更新到畫布(這邊是設定16毫秒)。</p>
 <p><code>ctx.drawImage()</code>，把影像畫到畫布(canvas)上。</p>
 <p><code>video.addEventListener('canplay',paintToCanvas)</code>，如果影像現在是可以正常播放的話，就持續將影像輸出到畫布上。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">paintToCanvas</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> width = video.videoWidth;</span><br><span class="line">    <span class="keyword">const</span> height = video.videoHeight;</span><br><span class="line">    canvas.width = width;</span><br><span class="line">    canvas.height = height;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span>&#123;</span><br><span class="line">        ctx.drawImage(video,<span class="number">0</span>,<span class="number">0</span>,width,height);</span><br><span class="line">    &#125;,<span class="number">16</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">video.addEventListener(<span class="string">&#x27;canplay&#x27;</span>,paintToCanvas);</span><br></pre></td></tr></table></figure>
-<h4 id="按下Take-Photo時的快門音效、把擷取下來的圖片放入strip內供下載"><a class="header-anchor" href="#按下Take-Photo時的快門音效、把擷取下來的圖片放入strip內供下載">¶</a>按下<code>Take Photo</code>時的快門音效、把擷取下來的圖片放入<code>strip</code>內供下載 :</h4>
+<h4 id="按下Take-Photo時的快門音效、把擷取下來的圖片放入strip內供下載">按下<code>Take Photo</code>時的快門音效、把擷取下來的圖片放入<code>strip</code>內供下載 :</h4>
 <p><code>snap.currentTime = 0</code>，確保每一次都是從頭開始播放音效，<code>snap.play()</code>開始播放。</p>
 <p><code>canvas.toDataURL('image/jpeg')</code>將<code>canvas</code>上的影像轉換成<code>image/jpeg</code>格式的<code>URL</code>檔案連結。</p>
 <p><code>const link = document.createElement('a')</code>，在文件上新增一個<code>&lt;a&gt;</code>標籤。</p>
@@ -281,7 +281,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p><code>link.innerHTML</code> <code>=</code> <code>&lt;img src=&quot;$&#123;data&#125;&quot; alt=&quot;handsome man&quot; /&gt;</code>，在<code>&lt;a&gt;</code>內部放入我們取得的圖片，現在只要點擊圖片就會把圖片下載下來。</p>
 <p><code>strip.insertBefore(link,strip.firstChild)</code>，將整個<code>&lt;a&gt;&lt;img&gt;&lt;/a&gt;</code>(擷取的影像圖)插入到<code>.strip</code>裡面並且是第一個位置。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">takePhoto</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//Play the sound</span></span><br><span class="line">    snap.currentTime = <span class="number">0</span>;</span><br><span class="line">    snap.play();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> data = canvas.toDataURL(<span class="string">&#x27;image/jpeg&#x27;</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">    <span class="keyword">const</span> link = <span class="built_in">document</span>.createElement(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">    link.href = data;</span><br><span class="line">    link.setAttribute(<span class="string">&#x27;download&#x27;</span>,<span class="string">&#x27;handsome&#x27;</span>);</span><br><span class="line">    <span class="comment">//link.textContent = &#x27;Download Image&#x27;;</span></span><br><span class="line">    link.innerHTML = <span class="string">`&lt;img src=&quot;<span class="subst">$&#123;data&#125;</span>&quot; alt=&quot;handsome man&quot; /&gt;`</span>;</span><br><span class="line">    strip.insertBefore(link,strip.firstChild);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="影像的濾鏡效果"><a class="header-anchor" href="#影像的濾鏡效果">¶</a>影像的濾鏡效果 :</h4>
+<h4 id="影像的濾鏡效果">影像的濾鏡效果 :</h4>
 <p>不同的濾鏡效果其實只是將<code>CanvasRenderingContext2D.getImageData()</code>取得的畫布像素(pixels)數據以每四個為一組(R-G-B-A)的方式修改，然後再將修改完的像素用<code>CanvasRenderingContext2D.putImageData()</code>放回畫布。</p>
 <p><strong>1. 紅色濾鏡</strong></p>
 <p>增強紅色並減弱綠、藍色</p>
@@ -294,12 +294,12 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p>建立一個空物件<code>levels</code>，接著放入每一個 range 的名稱和數值。</p>
 <p>以每四個為一組的方式取得畫布像素的 R、G、B 數值，接著把顏色進行比對，舉紅色為例，如果像素的 R 值處在 rmin 和 rmax 之間，就把該像素的透明度設定為0(在畫面上消失)。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greenScreen</span>(<span class="params">pixels</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> levels = &#123;&#125;;</span><br><span class="line">  </span><br><span class="line">    <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.rgb input&#x27;</span>).forEach(<span class="function">(<span class="params">input</span>) =&gt;</span> &#123;</span><br><span class="line">      levels[input.name] = input.value;</span><br><span class="line">    &#125;);</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; pixels.data.length; i = i + <span class="number">4</span>) &#123;</span><br><span class="line">      red = pixels.data[i + <span class="number">0</span>];</span><br><span class="line">      green = pixels.data[i + <span class="number">1</span>];</span><br><span class="line">      blue = pixels.data[i + <span class="number">2</span>];</span><br><span class="line">      alpha = pixels.data[i + <span class="number">3</span>];</span><br><span class="line">  </span><br><span class="line">      <span class="keyword">if</span> (red &gt;= levels.rmin</span><br><span class="line">        &amp;&amp; green &gt;= levels.gmin</span><br><span class="line">        &amp;&amp; blue &gt;= levels.bmin</span><br><span class="line">        &amp;&amp; red &lt;= levels.rmax</span><br><span class="line">        &amp;&amp; green &lt;= levels.gmax</span><br><span class="line">        &amp;&amp; blue &lt;= levels.bmax) &#123;</span><br><span class="line">        <span class="comment">// take it out!</span></span><br><span class="line">        pixels.data[i + <span class="number">3</span>] = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">return</span> pixels;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="套用濾鏡"><a class="header-anchor" href="#套用濾鏡">¶</a>套用濾鏡 :</h4>
+<h4 id="套用濾鏡">套用濾鏡 :</h4>
 <p>(以套用紅色濾鏡為例，其他濾鏡也是同理)</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">paintToCanvas</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> width = video.videoWidth;</span><br><span class="line">    <span class="keyword">const</span> height = video.videoHeight;</span><br><span class="line">    canvas.width = width;</span><br><span class="line">    canvas.height = height;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span>&#123;</span><br><span class="line">        ctx.drawImage(video,<span class="number">0</span>,<span class="number">0</span>,width,height);</span><br><span class="line">      </span><br><span class="line">        <span class="comment">//take the pixels out</span></span><br><span class="line">        <span class="keyword">let</span> pixels = ctx.getImageData(<span class="number">0</span>,<span class="number">0</span>,width,height);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//mass with them</span></span><br><span class="line">        pixels = redEffect(pixels);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//put them back</span></span><br><span class="line">        ctx.putImageData(pixels,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    &#125;,<span class="number">16</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>這次的練習是目前為止最複雜的，連我自己本身也花了非常多的時間查資料，但仍然沒有辦法把細節交代清楚。</p>
 <p>所以大家可能要多花些精力在學習這次的課程內容上，大家加油~~~</p>
-<h4 id="補充資料-v16"><a class="header-anchor" href="#補充資料-v16">¶</a>補充資料:</h4>
+<h4 id="補充資料-11">補充資料:</h4>
 <p><a target="_blank" rel="noopener" href="https://medium.com/@Carmichaelize/enabling-the-microphone-camera-in-chrome-for-local-unsecure-origins-9c90c3149339">Enabling the Microphone/Camera in Chrome for (Local) Unsecure Origins</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator">Navigator</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/mediaDevices">Navigator.mediaDevices</a><br>
@@ -314,7 +314,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Statements/debugger">debugger</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/putImageData">CanvasRenderingContext2D.putImageData()</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/getImageData">CanvasRenderingContext2D.getImageData()</a></p>
-<h2 id="範例網頁請點此-v5"><a class="header-anchor" href="#範例網頁請點此-v5">¶</a><a href="https://qi-xiang.github.io/iThelp2021_JS30/19%20-%20Webcam%20Fun/index.html">範例網頁請點此</a></h2>
+<h2 id="範例網頁請點此-5"><a href="https://qi-xiang.github.io/iThelp2021_JS30/19%20-%20Webcam%20Fun/index.html">範例網頁請點此</a></h2>
 <p>ps. 這次的網頁比較特殊，如果打開鏡頭仍然無法看到效果的話，可能就要自己 fork 程式碼到本地端測試~</p>
 
         </div>
@@ -323,7 +323,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/19/ironman2021D19/" data-id="ckv22q64p000020txfe3g5n1t" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/19/ironman2021D19/" data-id="cl0pjvgo00036qotx9vrw5lvt" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -399,12 +399,12 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
         "genre": "2021 iThome 鐵人賽",
         "datePublished": "2021-09-19",
         "dateCreated": "2021-09-19",
-        "dateModified": "2022-03-08",
+        "dateModified": "2022-03-14",
         "url": "https://qi-xiang.github.io/2021/09/19/ironman2021D19/",
-        "description": "¶前言
+        "description": "前言
 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。
-另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的",
-        "wordCount": 1620
+另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話",
+        "wordCount": 1594
     }
 </script>
 
@@ -504,6 +504,26 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2022/03/14/Hexo/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/tg4DCNx.png)" alt="輕鬆玩轉 Hexo" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2022/03/14/Hexo/" class="title">輕鬆玩轉 Hexo</a></p>
+                            <p class="item-date"><time datetime="2022-03-13T17:11:55.000Z" itemprop="datePublished">2022-03-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2022/03/06/IP%E4%BD%8D%E5%9D%80%E8%A8%88%E7%AE%97-IPv4-%E9%81%A9%E7%94%A8/" class="thumbnail">
     
     
@@ -581,26 +601,6 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2022/01/26/%E9%97%9C%E6%96%BC%E6%88%91%E9%96%8B%E5%A7%8B%E5%AF%AB%E9%9B%BB%E5%AD%90%E7%AD%86%E8%A8%98%E9%80%99%E6%AA%94%E4%BA%8B/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://i.imgur.com/zvuzq0B.jpg)" alt="關於我開始寫電子筆記這檔事" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
-                            <p class="item-title"><a href="/2022/01/26/%E9%97%9C%E6%96%BC%E6%88%91%E9%96%8B%E5%A7%8B%E5%AF%AB%E9%9B%BB%E5%AD%90%E7%AD%86%E8%A8%98%E9%80%99%E6%AA%94%E4%BA%8B/" class="title">關於我開始寫電子筆記這檔事</a></p>
-                            <p class="item-date"><time datetime="2022-01-26T09:20:00.000Z" itemprop="datePublished">2022-01-26</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -610,7 +610,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分類</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">16</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">16</span></li></ul>
         </div>
     </div>
 
@@ -620,7 +620,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">標籤雲</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/BDC/" style="font-size: 14.29px;">BDC</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.86px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.71px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.43px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.86px;">原子習慣</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.43px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 11.43px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.14px;">財報狗挖好股精華</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.57px;">金魚也能學會寫網頁</a>
+            <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/BDC/" style="font-size: 14.29px;">BDC</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.86px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.71px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.43px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.86px;">原子習慣</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.43px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 11.43px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.14px;">財報狗挖好股精華</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.57px;">金魚也能學會寫網頁</a>
         </div>
     </div>
 

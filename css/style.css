@@ -378,7 +378,7 @@ code {
 #header-title .subtitle {
   font-size: 16px;
   font-style: italic;
-  line-height: 70px;
+  line-height: 60px;
   color: rgba(255,255,255,0.7);
   text-shadow: 0 1px rgba(0,0,0,0.2);
 }
@@ -1656,11 +1656,11 @@ a.article-title:hover {
   line-height: 22px;
 }
 #footer .logo {
-  width: 132px;
-  height: 48px;
-  -webkit-background-size: 132px 48px;
-  -moz-background-size: 132px 48px;
-  background-size: 132px 48px;
+  width: 256px;
+  height: 40px;
+  -webkit-background-size: 256px 40px;
+  -moz-background-size: 256px 40px;
+  background-size: 256px 40px;
 }
 i.icon {
   display: inline-block;
@@ -1840,53 +1840,94 @@ i.icon:before {
 .article-entry .highlight .line {
   height: 1.6em;
 }
+/*
+ * Agate by Taufik Nurrohman <https://github.com/tovic>
+ * ----------------------------------------------------
+ *
+ * #ade5fc
+ * #a2fca2
+ * #c6b4f0
+ * #d36363
+ * #fcc28c
+ * #fc9b9b
+ * #ffa
+ * #fff
+ * #333
+ * #62c8f3
+ * #888
+ *
+ */
 .highlight {
-  color: #a9b7c6;
-  background: #282b2e;
-}
-.highlight .code .number,
-.highlight .code .literal,
-.highlight .code .symbol,
-.highlight .code .bullet {
-  color: #6897bb;
-}
-.highlight .code .keyword,
-.highlight .code .selector-tag,
-.highlight .code .deletion {
-  color: #cc7832;
-}
-.highlight .code .variable,
-.highlight .code .template-variable,
-.highlight .code .link {
-  color: #629755;
-}
-.highlight .code .comment,
-.highlight .code .quote {
-  color: #808080;
-}
-.highlight .code .meta {
-  color: #bbb529;
-}
-.highlight .code .string,
-.highlight .code .attribute,
-.highlight .code .addition {
-  color: #6a8759;
-}
-.highlight .code .section,
-.highlight .code .title,
-.highlight .code .type {
-  color: #ffc66d;
+  color: #fff;
+  background: #333;
 }
 .highlight .code .name,
-.highlight .code .selector-id,
-.highlight .code .selector-class {
-  color: #e8bf6a;
+.highlight .code .strong {
+  font-weight: bold;
 }
+.highlight .code .code,
 .highlight .code .emphasis {
   font-style: italic;
 }
-.highlight .code .strong {
-  font-weight: bold;
+.highlight .code .tag {
+  color: #62c8f3;
+}
+.highlight .code .variable,
+.highlight .code .template-variable,
+.highlight .code .selector-id,
+.highlight .code .selector-class {
+  color: #ade5fc;
+}
+.highlight .code .string,
+.highlight .code .bullet {
+  color: #a2fca2;
+}
+.highlight .code .type,
+.highlight .code .title,
+.highlight .code .section,
+.highlight .code .attribute,
+.highlight .code .quote,
+.highlight .code .built_in,
+.highlight .code .builtin-name {
+  color: #ffa;
+}
+.highlight .code .number,
+.highlight .code .symbol,
+.highlight .code .bullet {
+  color: #d36363;
+}
+.highlight .code .keyword,
+.highlight .code .selector-tag,
+.highlight .code .literal {
+  color: #fcc28c;
+}
+.highlight .code .comment,
+.highlight .code .deletion,
+.highlight .code .code {
+  color: #888;
+}
+.highlight .code .regexp,
+.highlight .code .link {
+  color: #c6b4f0;
+}
+.highlight .code .meta {
+  color: #fc9b9b;
+}
+.highlight .code .deletion {
+  background-color: #fc9b9b;
+  color: #333;
+}
+.highlight .code .addition {
+  background-color: #a2fca2;
+  color: #333;
+}
+.highlight .code .highlight a {
+  color: inherit;
+}
+.highlight .code .highlight a:focus,
+.highlight .code .highlight a:hover {
+  color: inherit;
+  text-decoration: underline;
 }
 @media only screen and (min-width: 960px) {
   .nav-container-inner {
