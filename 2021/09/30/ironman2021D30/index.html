@@ -221,26 +221,26 @@
 
             
 
-            <h2 id="前言-23">前言</h2>
+            <h2 id="前言-30">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-23">本日目標</h2>
+<h2 id="本日目標-30">本日目標</h2>
 <p>最後一天要實作的內容是&quot;網頁版打地鼠&quot;。</p>
 <p><img src="https://i.imgur.com/HyjkkQU.gif" alt=""></p>
 <hr>
-<h2 id="解析程式碼-23">解析程式碼</h2>
-<h3 id="HTML-部分-21">HTML 部分</h3>
+<h2 id="解析程式碼-29">解析程式碼</h2>
+<h3 id="HTML-部分-24">HTML 部分</h3>
 <p><code>&lt;h1&gt;</code>是頁面的標題，旁邊的<code>&lt;span class=&quot;score&quot;&gt;</code>是打地鼠遊戲的記分板。</p>
 <p><code>&lt;button&gt;</code>在滑鼠點擊時，會呼叫<code>startGame()</code>方法，開始打地鼠遊戲。</p>
 <p><code>&lt;div class=&quot;game&quot;&gt;</code>是打地鼠遊戲的主體，內部有<code>&lt;dvi class=&quot;hole&quot;&gt;</code>共計六個洞，每個洞(<code>.hole</code>)都有一隻初始被隱藏的地鼠(<code>&lt;div class=&quot;mole&quot;&gt;</code>)。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Whack-a-mole! <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;score&quot;</span>&gt;</span>0<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&quot;startGame()&quot;</span>&gt;</span>Start!<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;game&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;hole hole1&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;mole&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;hole hole2&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;mole&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;hole hole3&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;mole&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;hole hole4&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;mole&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;hole hole5&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;mole&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;hole hole6&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;mole&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="CSS-部分-6">CSS 部分</h3>
+<h3 id="CSS-部分-7">CSS 部分</h3>
 <p>初始每一隻地鼠(<code>.mole</code>)都是採用絕對定位(<code>position:absolute</code>)，然後將<code>top</code>指定為<strong>100%</strong>，把地鼠(<code>.mole</code>)隱藏起來。</p>
 <p>在遊戲過程中，我們會為地洞(<code>.hole</code>)添加<code>.up</code>這個 CSS class 選擇器，讓地鼠探頭出來給我們打 XD。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.mole</span> &#123;</span><br><span class="line">  <span class="comment">/*上略...*/</span></span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="comment">/*下略...*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hole</span><span class="selector-class">.up</span> <span class="selector-class">.mole</span> &#123;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="JS-部分-22">JS 部分</h3>
+<h3 id="JS-部分-28">JS 部分</h3>
 <p>宣告常數<code>holes</code>取得所有的地洞(<code>.hole</code>)，資料型態是 NodeList。</p>
 <p>宣告常數<code>scoreBoard</code>取得頁面中顯示的分數(<code>.score</code>)。</p>
 <p>宣告常數<code>mole</code>取得所有的地鼠(<code>.mole</code>)，資料型態是 NodeList。</p>
@@ -270,7 +270,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p>在<code>bonk()</code>裡，首先判斷點擊是不是&quot;人為&quot;的，如果是使用者點擊觸發，則<code>e.isTrusted</code>會回傳<code>true</code>，而如果是用像是<code>script</code>之類的去觸發<code>click event</code>，則會回傳<code>false</code>並直接停止往下執行方法。</p>
 <p>接著，在每一次點擊成功後，把分數(<code>score</code>)加1並移除加到地鼠(<code>mole</code>)上的<code>.up</code>，讓地鼠回到洞中，之後更新頁面上的得分(<code>scoreBoard</code>)就完成了。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bonk</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!e.isTrusted) <span class="keyword">return</span>; <span class="comment">//cheater</span></span><br><span class="line">    score++;</span><br><span class="line">    <span class="built_in">this</span>.classList.remove(<span class="string">&#x27;up&#x27;</span>);</span><br><span class="line">    scoreBoard.textContent = score;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">moles.forEach(<span class="function"><span class="params">mole</span> =&gt;</span> mole.addEventListener(<span class="string">&#x27;click&#x27;</span>,bonk));</span><br></pre></td></tr></table></figure>
-<h4 id="補充資料-22">補充資料:</h4>
+<h4 id="補充資料-27">補充資料:</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Math/random">Math.random()</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Math/round">Math.round()</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Math/floor">Math.floor()</a><br>
@@ -287,7 +287,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/30/ironman2021D30/" data-id="cl0pjvgoc0048qotx3tvz6r40" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/30/ironman2021D30/" data-id="ckv22q64z000m20tx64ae98xi" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -468,6 +468,26 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2022/03/14/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%981/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/txgaLrR.jpg)" alt="商業分析資料探勘筆記 2/22~3/08" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2022/03/14/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%981/" class="title">商業分析資料探勘筆記 2/22~3/08</a></p>
+                            <p class="item-date"><time datetime="2022-03-14T09:14:12.000Z" itemprop="datePublished">2022-03-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2022/03/14/Hexo/" class="thumbnail">
     
     
@@ -545,26 +565,6 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2022/01/27/%E5%A5%87%E8%B9%9F%E4%BC%BC%E7%9A%84%E9%80%9A%E9%81%8E%E6%97%A5%E6%AA%A2N4/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://i.imgur.com/7YNmKp4.png)" alt="奇蹟似的通過日檢N4" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
-                            <p class="item-title"><a href="/2022/01/27/%E5%A5%87%E8%B9%9F%E4%BC%BC%E7%9A%84%E9%80%9A%E9%81%8E%E6%97%A5%E6%AA%A2N4/" class="title">奇蹟似的通過日檢N4</a></p>
-                            <p class="item-date"><time datetime="2022-01-26T17:40:00.000Z" itemprop="datePublished">2022-01-27</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -574,7 +574,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分類</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">16</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">16</span></li></ul>
         </div>
     </div>
 
@@ -584,7 +584,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">標籤雲</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/BDC/" style="font-size: 14.29px;">BDC</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.86px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.71px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.43px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.86px;">原子習慣</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.43px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 11.43px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.14px;">財報狗挖好股精華</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.57px;">金魚也能學會寫網頁</a>
+            <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/BDC/" style="font-size: 14.29px;">BDC</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.86px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.71px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.43px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.86px;">原子習慣</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 10px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.43px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 11.43px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.14px;">財報狗挖好股精華</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.57px;">金魚也能學會寫網頁</a>
         </div>
     </div>
 

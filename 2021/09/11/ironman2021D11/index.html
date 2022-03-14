@@ -221,17 +221,17 @@
 
             
 
-            <h2 id="前言-2">前言</h2>
+            <h2 id="前言-11">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-2">本日目標</h2>
+<h2 id="本日目標-11">本日目標</h2>
 <p>靈活運用 <code>video</code> 元素的相關屬性、方法，實作出一個擁有<code>快進快退</code>、<code>播放速度倍率</code>、<code>控制音量大小</code>、<code>拖拉時間軸</code>功能的簡易影片播放器。</p>
 <p><img src="https://i.imgur.com/BrzhAvi.png" alt=""></p>
 <hr>
-<h2 id="解析程式碼-2">解析程式碼</h2>
-<h3 id="HTML-部分-2">HTML 部分</h3>
+<h2 id="解析程式碼-10">解析程式碼</h2>
+<h3 id="HTML-部分-7">HTML 部分</h3>
 <p><code>.player</code> 代表整個影片播放器，包含<code>影片(.player__video)</code>、<code>播放控制列(.player__controls)</code>兩部分。</p>
 <p><code>播放控制列</code>內部又可細分為四個部分:</p>
 <h5 id="1-影片播放的時間軸-progress、-progress-filled">1. 影片播放的時間軸 : <code>.progress</code>、<code>.progress__filled</code></h5>
@@ -239,7 +239,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <h5 id="3-音量-播放速度倍率-player-slider">3. 音量/播放速度倍率 : <code>.player__slider</code></h5>
 <h5 id="4-快進-快退-player-button">4. 快進/快退 : <code>.player__button</code></h5>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;player&quot;</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">video</span> <span class="attr">class</span>=<span class="string">&quot;player__video viewer&quot;</span> <span class="attr">src</span>=<span class="string">&quot;652333414.mp4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line"></span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;player__controls&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;progress&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;progress__filled&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">&quot;player__button toggle&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Toggle Play&quot;</span>&gt;</span>►<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">name</span>=<span class="string">&quot;volume&quot;</span> <span class="attr">class</span>=<span class="string">&quot;player__slider&quot;</span> <span class="attr">min</span>=<span class="string">&quot;0&quot;</span> <span class="attr">max</span>=<span class="string">&quot;1&quot;</span> <span class="attr">step</span>=<span class="string">&quot;0.05&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">name</span>=<span class="string">&quot;playbackRate&quot;</span> <span class="attr">class</span>=<span class="string">&quot;player__slider&quot;</span> <span class="attr">min</span>=<span class="string">&quot;0.5&quot;</span> <span class="attr">max</span>=<span class="string">&quot;2&quot;</span> <span class="attr">step</span>=<span class="string">&quot;0.1&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">button</span> <span class="attr">data-skip</span>=<span class="string">&quot;-10&quot;</span> <span class="attr">class</span>=<span class="string">&quot;player__button&quot;</span>&gt;</span>« 10s<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">button</span> <span class="attr">data-skip</span>=<span class="string">&quot;25&quot;</span> <span class="attr">class</span>=<span class="string">&quot;player__button&quot;</span>&gt;</span>25s »<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="JS-部分-2">JS 部分</h3>
+<h3 id="JS-部分-9">JS 部分</h3>
 <p>首先，取得所有要用到 HTML 標籤並放到對應宣告的常數中。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*get element we need*/</span></span><br><span class="line"><span class="keyword">const</span> player = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.player&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> video = player.querySelector(<span class="string">&#x27;.viewer&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> progress = player.querySelector(<span class="string">&#x27;.progress&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> progressBar = player.querySelector(<span class="string">&#x27;.progress__filled&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> toggle = player.querySelector(<span class="string">&#x27;.toggle&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> skipButtons = player.querySelectorAll(<span class="string">&#x27;[data-skip]&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> ranges = player.querySelectorAll(<span class="string">&#x27;.player__slider&#x27;</span>);</span><br></pre></td></tr></table></figure>
 <p>下面我們將各個播放器的功能一個個拆出來做 :</p>
@@ -282,12 +282,12 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <h4 id="補充說明-2">補充說明:</h4>
 <p><code>HTMLVideoElement</code>繼承自<code>HTMLMediaElement</code>所以一些<code>video</code>元素的屬性都可以到<code>HTMLMediaElement</code>查詢。</p>
 <p>使用<code>HTMLElement.offsetWidth</code>所取得的元素(<code>element</code>)寬度包括透過 CSS 設定的<code>width、border、padding</code>等等…。</p>
-<h4 id="補充資料-3">補充資料:</h4>
+<h4 id="補充資料-8">補充資料:</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement">HTMLMediaElement</a></p>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset">HTMLElement.dataset</a></p>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetWidth">HTMLElement.offsetWidth</a></p>
 <p><a target="_blank" rel="noopener" href="https://kknews.cc/news/r3pzzr.html">JS一秒區分clientX,offsetX,screenX,pageX之間關係</a></p>
-<h2 id="範例網頁請按此"><a href="https://qi-xiang.github.io/iThelp2021_JS30/11%20-%20Custom%20Video%20Player/index.html">範例網頁請按此</a></h2>
+<h2 id="範例網頁請按此-3"><a href="https://qi-xiang.github.io/iThelp2021_JS30/11%20-%20Custom%20Video%20Player/index.html">範例網頁請按此</a></h2>
 
         </div>
         <footer class="article-footer">
@@ -295,7 +295,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/11/ironman2021D11/" data-id="cl0pjvgns002fqotx2upo2k7c" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/11/ironman2021D11/" data-id="ckv20xw3k0000q4tx3m6u15g0" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -476,6 +476,26 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2022/03/14/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%981/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/txgaLrR.jpg)" alt="商業分析資料探勘筆記 2/22~3/08" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2022/03/14/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%981/" class="title">商業分析資料探勘筆記 2/22~3/08</a></p>
+                            <p class="item-date"><time datetime="2022-03-14T09:14:12.000Z" itemprop="datePublished">2022-03-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2022/03/14/Hexo/" class="thumbnail">
     
     
@@ -553,26 +573,6 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2022/01/27/%E5%A5%87%E8%B9%9F%E4%BC%BC%E7%9A%84%E9%80%9A%E9%81%8E%E6%97%A5%E6%AA%A2N4/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://i.imgur.com/7YNmKp4.png)" alt="奇蹟似的通過日檢N4" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
-                            <p class="item-title"><a href="/2022/01/27/%E5%A5%87%E8%B9%9F%E4%BC%BC%E7%9A%84%E9%80%9A%E9%81%8E%E6%97%A5%E6%AA%A2N4/" class="title">奇蹟似的通過日檢N4</a></p>
-                            <p class="item-date"><time datetime="2022-01-26T17:40:00.000Z" itemprop="datePublished">2022-01-27</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -582,7 +582,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分類</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">16</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">16</span></li></ul>
         </div>
     </div>
 
@@ -592,7 +592,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">標籤雲</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/BDC/" style="font-size: 14.29px;">BDC</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.86px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.71px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.43px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.86px;">原子習慣</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.43px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 11.43px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.14px;">財報狗挖好股精華</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.57px;">金魚也能學會寫網頁</a>
+            <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/BDC/" style="font-size: 14.29px;">BDC</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.86px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.71px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.43px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.86px;">原子習慣</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 10px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.43px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 11.43px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.14px;">財報狗挖好股精華</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.57px;">金魚也能學會寫網頁</a>
         </div>
     </div>
 
