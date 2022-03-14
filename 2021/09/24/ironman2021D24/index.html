@@ -221,22 +221,22 @@
 
             
 
-            <h2 id="前言-24">前言</h2>
+            <h2 id="前言-16">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-24">本日目標</h2>
+<h2 id="本日目標-16">本日目標</h2>
 <p>今天我們要做的是置頂導覽列，當使用者拉下捲軸而視窗頂部碰到導覽列頂部時，若往後繼續下拉捲軸則將導覽列始終固定在最上方。</p>
 <p><img src="https://i.imgur.com/iHYtMDf.png" alt=""></p>
 <hr>
-<h2 id="解析程式碼-23">解析程式碼</h2>
-<h3 id="HTML-部分-18">HTML 部分</h3>
+<h2 id="解析程式碼-16">解析程式碼</h2>
+<h3 id="HTML-部分-14">HTML 部分</h3>
 <p><code>header</code>是網頁上方的標題。</p>
 <p><code>#main</code>是網頁的導覽列，包含<code>.logo</code>(初始隱藏)還有其他五個項目。</p>
 <p><code>.site-wrap</code>放的是一大堆假文還有圖片。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;header&gt;</span><br><span class="line">    &lt;h1&gt;A story about getting lost.&lt;/h1&gt;</span><br><span class="line">&lt;/header&gt;</span><br><span class="line"></span><br><span class="line">&lt;nav id=&quot;main&quot;&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &lt;li class=&quot;logo&quot;&gt;&lt;a href=&quot;#&quot;&gt;LOST.&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;About&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Images&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Locations&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Maps&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/nav&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;site-wrap&quot;&gt;</span><br><span class="line">    &lt;!--以下是假文還有圖片，為不佔空間所以省略--&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="JS-部分-22">JS 部分</h3>
+<h3 id="JS-部分-16">JS 部分</h3>
 <p>宣告常數<code>nav</code>取得網頁導覽列。<br>
 宣告常數<code>topOfNav</code>取得導覽列頂部離視窗最上方的距離。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nav = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#main&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> topOfNav = nav.offsetTop;</span><br></pre></td></tr></table></figure>
@@ -245,7 +245,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p>那為什麼我們還要特別設定<code>body</code>的<code>padding-top</code>呢? 因為在導覽列(<code>#main</code>)的 CSS 設定中，我們使用了<code>position: fixed;</code>，這樣就會造成導覽列(<code>#main</code>)原本佔的空間突然空出來，之後下方的<code>.site-wrap</code>看上面還有空間就會擠上來，但擠上來的速度過快，因此在視覺上就會出現詭異的彈跳。</p>
 <p>為避免這種狀況發生，我們可以在置頂導覽列的同時，指定<code>body</code>的<code>padding-top: nav.ofsetHeight;</code>，讓原本導覽列佔有的空間，被<code>padding-top</code>補上。不置頂導覽列的同時，理所當然我們就要將<code>body</code>的<code>padding-top</code>改回 0。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fixNav</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(topOfNav,<span class="built_in">window</span>.scrollY);</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">window</span>.scrollY &gt;= topOfNav)&#123;</span><br><span class="line">      <span class="built_in">document</span>.body.style.paddingTop = nav.offsetHeight + <span class="string">&#x27;px&#x27;</span>;</span><br><span class="line">      <span class="built_in">document</span>.body.classList.add(<span class="string">&#x27;fixed-nav&#x27;</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="built_in">document</span>.body.style.paddingTop = <span class="number">0</span>;</span><br><span class="line">      <span class="built_in">document</span>.body.classList.remove(<span class="string">&#x27;fixed-nav&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&#x27;scroll&#x27;</span>,fixNav);</span><br></pre></td></tr></table></figure>
-<h3 id="CSS-部分-5">CSS 部分</h3>
+<h3 id="CSS-部分-3">CSS 部分</h3>
 <p>下面是在<code>body</code>上有<code>.fixed-nav</code>這個 class 時的特殊設定。</p>
 <p>設定導覽列<code>position: fixed</code>，在預設上是固定在<code>left: 0;</code>、<code>top: 0;</code>的位置(視窗左上角)，然後加上一點陰影。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fixed-nav</span> <span class="selector-tag">nav</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -253,14 +253,14 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fixed-nav</span> <span class="selector-tag">li</span><span class="selector-class">.logo</span>&#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">500px</span>; <span class="comment">/*use width can&#x27;t show animation effect*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在置頂導覽列的同時，把下方的文章區塊略為放大。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fixed-nav</span> <span class="selector-class">.site-wrap</span>&#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="補充資料-21">補充資料:</h4>
+<h4 id="補充資料-16">補充資料:</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop">HTMLElement.offsetTop</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetHeight">HTMLElement.offsetHeight</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Element/classList">Element.classList</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform">CSS Transform</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Element/scroll_event">Element: scroll event</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollY">Window.scrollY</a></p>
-<h2 id="範例網頁請按此-7"><a href="https://qi-xiang.github.io/iThelp2021_JS30/24%20-%20Sticky%20Nav/index-START.html">範例網頁請按此</a></h2>
+<h2 id="範例網頁請按此-5"><a href="https://qi-xiang.github.io/iThelp2021_JS30/24%20-%20Sticky%20Nav/index-START.html">範例網頁請按此</a></h2>
 
         </div>
         <footer class="article-footer">
@@ -268,7 +268,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/24/ironman2021D24/" data-id="ckv22q64u000920tx5yj18gpv" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/24/ironman2021D24/" data-id="cl0qiwrqz003nrotxh0w2e8gm" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {

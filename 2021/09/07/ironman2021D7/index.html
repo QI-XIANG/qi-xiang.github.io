@@ -221,17 +221,17 @@
 
             
 
-            <h2 id="前言-7">前言</h2>
+            <h2 id="前言-27">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-7">本日目標</h2>
+<h2 id="本日目標-27">本日目標</h2>
 <p>練習使用JS Array 的 some()、every()、find()、findIndex()。</p>
 <p><img src="https://i.imgur.com/ZoF25pz.jpg" alt=""></p>
 <hr>
-<h2 id="解析程式碼-7">解析程式碼</h2>
-<h3 id="JS-部分-6">JS 部分</h3>
+<h2 id="解析程式碼-27">解析程式碼</h2>
+<h3 id="JS-部分-26">JS 部分</h3>
 <p>練習題使用到的資料:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> people = [</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&#x27;Wes&#x27;</span>, <span class="attr">year</span>: <span class="number">1988</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&#x27;Kait&#x27;</span>, <span class="attr">year</span>: <span class="number">1986</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&#x27;Irv&#x27;</span>, <span class="attr">year</span>: <span class="number">1970</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&#x27;Lux&#x27;</span>, <span class="attr">year</span>: <span class="number">2015</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> comments = [</span><br><span class="line">    &#123; <span class="attr">text</span>: <span class="string">&#x27;Love this!&#x27;</span>, <span class="attr">id</span>: <span class="number">523423</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">text</span>: <span class="string">&#x27;Super good&#x27;</span>, <span class="attr">id</span>: <span class="number">823423</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">text</span>: <span class="string">&#x27;You are the best&#x27;</span>, <span class="attr">id</span>: <span class="number">2039842</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">text</span>: <span class="string">&#x27;Ramen is my fav food ever&#x27;</span>, <span class="attr">id</span>: <span class="number">123523</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">text</span>: <span class="string">&#x27;Nice Nice Nice!&#x27;</span>, <span class="attr">id</span>: <span class="number">542328</span> &#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
 <h4 id="1-Is-at-least-one-person-19-or-older">1. Is at least one person 19 or older?</h4>
@@ -267,7 +267,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p>我們使用 findIndex() 尋找到第一個 comment id 是 823423 的元素並取得該元素的索引值(index)。</p>
 <p>透過 slice()將陣列進行切割，我們可以將找出的元素值從陣列中移除並宣告常數承接回傳的新陣列。(複習一下，前面說過<code>...</code>可以把陣列中的元素一個個地展開。)</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> index = comments.findIndex(<span class="function"><span class="params">comment</span> =&gt;</span> comment.id === <span class="number">823423</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(index);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> newComments = [</span><br><span class="line">    ...comments.slice(<span class="number">0</span>,index),</span><br><span class="line">    ...comments.slice(index + <span class="number">1</span>)</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.table(comments);</span><br><span class="line"><span class="built_in">console</span>.table(newComments);</span><br></pre></td></tr></table></figure>
-<h4 id="補充資料-4">補充資料:</h4>
+<h4 id="補充資料-26">補充資料:</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Equality_comparisons_and_sameness">相等比較 <code>===</code>、<code>==</code></a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/slice">Array.prototype.slice()</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex">Array.prototype.findIndex()</a><br>
@@ -282,7 +282,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/07/ironman2021D7/" data-id="ckv201spv0006ygtxc7ks4ryl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/07/ironman2021D7/" data-id="cl0qiwrri004krotx41rcclzj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {

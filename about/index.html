@@ -12,22 +12,10 @@
     <meta property="og:type" content="article"/>
     <meta property="og:image" content="facebook.gif"/>
     <title>My Homepage</title>
-    <script>
-      document.addEventListener('click', musicPlay);
-      function musicPlay() {
-        document.getElementById('music').play();
-        document.removeEventListener('click', musicPlay);
-      }
-    </script>
   </head>
   
  
   <body>
-    
-    <audio autoplay loop id="music">
-      <source src="music_homepage/green_piano.mp3" type="audio/mpeg">
-    </audio>
-    
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     
     <nav class="navbar navbar-expand-lg fixed-top navbar-light" style="background-color: #5569DC;">
@@ -41,6 +29,7 @@
             <p class="text-center font-italic education"><a class="nav-item nav-link" href="#education" style="color: white;font-weight: bold;font-size: 16px;font-family: serif;">Education & Experience</a></p>
             <p class="text-center font-italic skills"><a class="nav-item nav-link" href="#skills" style="color: white;font-weight: bold;font-size: 16px;font-family: serif;">Skills & Languages</a></p>
             <p class="text-center font-italic awards"><a class="nav-item nav-link" href="#awards" style="color: white;font-weight: bold;font-size: 16px;font-family: serif;">Awards & Interests</a></p>
+            <p class="text-center font-italic awards"><a class="nav-item nav-link" href="https://qi-xiang.github.io/" style="color: white;font-weight: bold;font-size: 16px;font-family: serif;">Personal Blog</a></p>
           </div>
         </div>
     </nav>
@@ -80,7 +69,7 @@
           </div>
         </div>
         <div class="jumbotron jumbotron-fluid col-12" style="display: flex;justify-content: center;padding-top: 0px;margin-bottom: 0px;padding-bottom: 0;">
-          <div class="container" id="fadeArea1">
+          <div class="container" data-aos="zoom-in" data-aos-duration="1000">
             <p style="font-size: 18px;line-height: 2em;letter-spacing: normal;font-family: sans-serif;margin: auto;color: #1c2349;">
               With a passion for computer science, web design, and all things programming, I have both the skill set and professional background
                necessary to dive deep into the programming world. As an upbeat, self-motivated team player with excellent communication, I envision
@@ -102,7 +91,7 @@
           </div>
         </div>
         <div class="jumbotron jumbotron-fluid col-12" style="display: flex;justify-content: center;padding-top: 0px;margin-bottom: 0px;">
-          <div class="container" id="fadeArea2">
+          <div class="container" data-aos="zoom-in" data-aos-duration="1000">
               <p style="font-size: 21px;line-height: 2em;letter-spacing: normal;font-family: sans-serif;margin: auto;color: #1c2349;">
                 <span style="font-size: 16px;font-family: sans-serif;color: rgb(28,35,73);">2019 - Present</span>
               </p>
@@ -129,7 +118,7 @@
           </div>
         </div>
         <div class="jumbotron jumbotron-fluid col-12" style="display: flex;justify-content: center;padding-top: 0px;margin-bottom: 0px;padding-bottom: 0;">
-          <div class="container" id="fadeArea3">
+          <div class="container" data-aos="zoom-in" data-aos-duration="1000">
             <p style="font-size: 21px;line-height: 2em;letter-spacing: normal;font-family: sans-serif;margin: auto;color: #1c2349;">
               <span style="font-size: 16px;font-family: sans-serif;color: rgb(28,35,73);">Mar. 2021 - Present</span>
             </p>
@@ -272,13 +261,17 @@
           </div>
         </div>
         <div class="jumbotron jumbotron-fluid col-12" style="display: flex;justify-content: center;padding-top: 0px;margin-bottom: 0px;padding-bottom: 80px;">
-          <div class="container" id="fadeArea4">
+          <div class="container" data-aos="zoom-in" data-aos-duration="1000">
             <p style="font-size: 21px;line-height: 2em;letter-spacing: normal;font-family: sans-serif;margin: auto;color: #1c2349;">
-              <pre style="font-size: 16px;font-family: sans-serif;color:#1C2349;line-height: 1.8em;opacity: 0.8;margin-top: 16px;">Mayor Prize, Taichung City</pre>
+              <pre style="font-size: 16px;font-family: sans-serif;color:#1C2349;line-height: 1.8em;opacity: 0.8;margin-top: 16px;">The 13th ITHELP Ironman Contest 2021</pre>
             </p>
             
             <p style="font-size: 21px;line-height: 2em;letter-spacing: normal;font-family: sans-serif;margin: auto;color: #1c2349;">
-              <pre style="font-size: 16px;font-family: sans-serif;color:#1C2349;line-height: 1.8em;opacity: 0.8;">NCU College of Management,<br>United Classes of Calculus 2019 Exam3  [21th place]</pre>
+              <pre style="font-size: 16px;font-family: sans-serif;color:#1C2349;line-height: 1.8em;opacity: 0.8;">Google Developers Android App Study Jam 2021</pre>
+            </p>
+            
+            <p>
+              <pre style="font-size: 16px;font-family: sans-serif;color:#1C2349;line-height: 1.8em;opacity: 0.8;">JLPT N4 Certificate</pre>
             </p>
 
             <p>
@@ -298,7 +291,7 @@
           </div>
         </div>
         <div class="jumbotron jumbotron-fluid col-12" style="display: flex;justify-content: center;padding-top: 0px;margin-bottom: 0px;padding-bottom: 80px;">
-          <div class="container" id="fadeArea5">
+          <div class="container" data-aos="zoom-in" data-aos-duration="1000">
             <p style="font-size: 21px;line-height: 2em;letter-spacing: normal;font-family: sans-serif;margin: auto;color: #1c2349;">
               <pre style="font-size: 16px;font-family: sans-serif;color:#1C2349;line-height: 1.8em;opacity: 0.8;margin-top: 16px;">Animation            Reading</pre>
             </p>
@@ -353,7 +346,7 @@
     <div class="container-fluid" style="background-color: #5569DC;">
       <div class="row" id="foot">
         <div id="footer" class="col-12 col-xl-12">
-          <footer class="font-italic" style="text-align: center;font-size: 14px;font-family: serif;color: white;padding: 10px 0px">&copy; 2021 By Qi-Xiang Zhang.<br>Proudly created with Bootstrap 4.</footer>
+          <footer class="font-italic" style="text-align: center;font-size: 14px;font-family: serif;color: white;padding: 10px 0px">&copy; 2021-2022 By Qi-Xiang Zhang.<br>Proudly created with Bootstrap 4.</footer>
         </div>
       </div>
     </div>
@@ -369,12 +362,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     <script src='./JS_homepage/FadeIn_Animation.js'></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   </body>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="CSS_homepage/rwd2.css">
   <link rel="stylesheet" href="CSS_homepage/style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script>
+    AOS.init();
+  </script>
   <script>
     //Get the button
     var mybutton = document.getElementById("myBtn");

@@ -221,20 +221,20 @@
 
             
 
-            <h2 id="前言-18">前言</h2>
+            <h2 id="前言-8">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-18">本日目標</h2>
+<h2 id="本日目標-8">本日目標</h2>
 <p>將陣列元素拿掉冠詞再進行排序，然後個別轉成 HTML 的格式放入清單中。(今天是複習回，相信只要有認真學習前面的課程內容，一定可以輕鬆完成的!!!)</p>
 <p><img src="https://i.imgur.com/AjWjXIn.jpg" alt=""></p>
 <hr>
-<h2 id="解析程式碼-17">解析程式碼</h2>
-<h3 id="HTML-部分-12">HTML 部分</h3>
+<h2 id="解析程式碼-8">解析程式碼</h2>
+<h3 id="HTML-部分-6">HTML 部分</h3>
 <p>嗯，就是一個空的清單。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;bands&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="JS-部分-16">JS 部分</h3>
+<h3 id="JS-部分-8">JS 部分</h3>
 <p>(ps. 這次基本上都是在複習之前<code>Array</code>的東西，所以就不再贅述<code>Array</code>方法的運用)</p>
 <p>我們要拿來做排序的陣列<code>bands</code>。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bands = [<span class="string">&#x27;The Plot in You&#x27;</span>, <span class="string">&#x27;The Devil Wears Prada&#x27;</span>, <span class="string">&#x27;Pierce the Veil&#x27;</span>, <span class="string">&#x27;Norma Jean&#x27;</span>, <span class="string">&#x27;The Bled&#x27;</span>, <span class="string">&#x27;Say Anything&#x27;</span>, <span class="string">&#x27;The Midway State&#x27;</span>, <span class="string">&#x27;We Came as Romans&#x27;</span>, <span class="string">&#x27;Counterparts&#x27;</span>, <span class="string">&#x27;Oh, Sleeper&#x27;</span>, <span class="string">&#x27;A Skylit Drive&#x27;</span>, <span class="string">&#x27;Anywhere But Here&#x27;</span>, <span class="string">&#x27;An Old Dog&#x27;</span>];</span><br></pre></td></tr></table></figure>
@@ -258,7 +258,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">&#x27;#bands&#x27;</span>).innerHTML = sortedBands.map(<span class="function"><span class="params">band</span> =&gt;</span> <span class="string">`&lt;li&gt;<span class="subst">$&#123;band&#125;</span>&lt;/li&gt;`</span>).join(<span class="string">&quot;&quot;</span>);</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.imgur.com/wfLPK4U.png" alt=""></p>
 <p>今天的內容基本上是在複習之前學過的東西，觀看 JS30 的教學影片時，可以考慮暫停影片，自己練習看看喔!</p>
-<h4 id="補充資料-15">補充資料:</h4>
+<h4 id="補充資料-9">補充資料:</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">Array.prototype.sort()</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map">Array.prototype.map()</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace">String.prototype.replace()</a><br>
@@ -273,7 +273,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/17/ironman2021D17/" data-id="ckv21twzp0007u8txemp445q1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/17/ironman2021D17/" data-id="cl0qiwrqp002zrotx90wcgbw8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {

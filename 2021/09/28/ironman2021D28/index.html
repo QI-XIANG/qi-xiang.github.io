@@ -221,20 +221,20 @@
 
             
 
-            <h2 id="前言-28">前言</h2>
+            <h2 id="前言-19">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-28">本日目標</h2>
+<h2 id="本日目標-19">本日目標</h2>
 <p>除了原本在<code>video</code>元素自帶的影片控制器(設定<code>controls</code>屬性)，我們可以另外實作一個調節影片速度的控制介面，這個介面可以用拖拉的方式改變影片的播放速度。</p>
 <p><img src="https://i.imgur.com/09wuxaN.jpg" alt=""></p>
 <hr>
-<h2 id="解析程式碼-27">解析程式碼</h2>
-<h3 id="HTML-部分-22">HTML 部分</h3>
+<h2 id="解析程式碼-19">解析程式碼</h2>
+<h3 id="HTML-部分-17">HTML 部分</h3>
 <p>div(<code>.wrapper</code>)是我們整個的影片播放器，下面可拆作兩部分，一個是 video(<code>.flex</code>)和自帶的預設控制介面(啟用<code>controls</code>)，另一個是我們這次要實作出的影片速度調節介面 div(<code>.speed</code>)。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wrapper&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">video</span> <span class="attr">class</span>=<span class="string">&quot;flex&quot;</span> <span class="attr">width</span>=<span class="string">&quot;765&quot;</span> <span class="attr">height</span>=<span class="string">&quot;430&quot;</span> <span class="attr">src</span>=<span class="string">&quot;http://clips.vorwaerts-gmbh.de/VfE_html5.mp4&quot;</span> <span class="attr">loop</span> <span class="attr">controls</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;speed&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;speed-bar&quot;</span>&gt;</span>1×<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="JS-部分-26">JS 部分</h3>
+<h3 id="JS-部分-19">JS 部分</h3>
 <p>首先，取得所有需要的元素 :</p>
 <ul>
 <li>宣告常數<code>speed</code>放入取得的速度調節介面(<code>.speed</code>)。</li>
@@ -253,13 +253,13 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p>最後修改<code>video</code>的<code>playbackRate</code>屬性就完成了。</p>
 <p>(播放速度太快或太慢均有可能導致影片部分聲音消失!!!)</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">speed.addEventListener(<span class="string">&#x27;mousemove&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="comment">/*上略...*/</span></span><br><span class="line">    <span class="keyword">const</span> height = <span class="built_in">Math</span>.round(percent*<span class="number">100</span>)+<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">    <span class="keyword">const</span> playbackRate = percent * (max-min) + min;</span><br><span class="line">    bar.style.height = height;</span><br><span class="line">    bar.textContent = playbackRate.toFixed(<span class="number">1</span>)+<span class="string">&#x27;x&#x27;</span>;</span><br><span class="line">    video.playbackRate = playbackRate;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="補充資料-25"><strong>補充資料</strong> :</h4>
+<h4 id="補充資料-19"><strong>補充資料</strong> :</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetTop">HTMLElement.offsetTop</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLMediaElement/playbackRate">HTMLMediaElement.playbackRate</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetHeight">HTMLElement.offsetHeight</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed">Number.prototype.toFixed()</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/round">Math.round()</a></p>
-<h2 id="範例網頁請點此-11"><a href="https://qi-xiang.github.io/iThelp2021_JS30/28%20-%20Video%20Speed%20Controller/index-START.html">範例網頁請點此</a></h2>
+<h2 id="範例網頁請點此-10"><a href="https://qi-xiang.github.io/iThelp2021_JS30/28%20-%20Video%20Speed%20Controller/index-START.html">範例網頁請點此</a></h2>
 <h2 id="觀看完整程式碼"><a target="_blank" rel="noopener" href="https://github.com/QI-XIANG/iThelp2021_JS30/blob/master/28%20-%20Video%20Speed%20Controller/index-FINISHED.html">觀看完整程式碼</a></h2>
 
         </div>
@@ -268,7 +268,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/28/ironman2021D28/" data-id="ckv22q64x000h20txab3bgfn5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/28/ironman2021D28/" data-id="cl0qiwrr3003vrotxecn2dwt8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {

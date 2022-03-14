@@ -221,19 +221,19 @@
 
             
 
-            <h2 id="前言-23">前言</h2>
+            <h2 id="前言-15">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-23">本日目標</h2>
+<h2 id="本日目標-15">本日目標</h2>
 <p>還記得在 Day 20 - Native Speech Recognition，我們使用了 Web Speech API 中語音識別(Speech recognition)的部分，而這次我們要使用的是語音合成(Speech synthesis)的部分。</p>
 <p>這次的主角是<code>Web Speech API</code>的<code>SpeechSynthesis</code>、<code>SpeechSynthesisUtterance</code>。</p>
 <p>在下面的範例，我們會利用 API 語音合成功能，讓網頁用不同的聲音讀出<code>textarea</code>裡面的文字。</p>
 <p><img src="https://i.imgur.com/HbCDT4B.png" alt=""></p>
 <hr>
-<h2 id="解析程式碼-22">解析程式碼</h2>
-<h3 id="HTML-部分-17">HTML 部分</h3>
+<h2 id="解析程式碼-15">解析程式碼</h2>
+<h3 id="HTML-部分-13">HTML 部分</h3>
 <p>select(<code>#voices</code>)是一個用來選擇要用什麼聲音讀出文字的選單。</p>
 <p>input(<code>[name=&quot;rate&quot;]</code>) 是用來調整讀字的速度。</p>
 <p>input(<code>[name=&quot;rate&quot;]</code>) 是用來調整讀字音高。</p>
@@ -241,7 +241,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p>button(<code>#stop</code>) 是停止讀的按鈕。</p>
 <p>button(<code>#speak</code>) 是開始讀的按鈕。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;voiceinator&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;h1&gt;The Voiceinator 5000&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">    &lt;select name=&quot;voice&quot; id=&quot;voices&quot;&gt;</span><br><span class="line">        &lt;option value=&quot;&quot;&gt;Select A Voice&lt;/option&gt;</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line"></span><br><span class="line">    &lt;label for=&quot;rate&quot;&gt;Rate:&lt;/label&gt;</span><br><span class="line">    &lt;input name=&quot;rate&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;3&quot; value=&quot;1&quot; step=&quot;0.1&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;label for=&quot;pitch&quot;&gt;Pitch:&lt;/label&gt;</span><br><span class="line"></span><br><span class="line">    &lt;input name=&quot;pitch&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;2&quot; step=&quot;0.1&quot;&gt;</span><br><span class="line">    &lt;textarea name=&quot;text&quot;&gt;Hello! I love JavaScript 👍&lt;/textarea&gt;</span><br><span class="line">    &lt;button id=&quot;stop&quot;&gt;Stop!&lt;/button&gt;</span><br><span class="line">    &lt;button id=&quot;speak&quot;&gt;Speak&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="JS-部分-21">JS 部分</h3>
+<h3 id="JS-部分-15">JS 部分</h3>
 <p>宣告常數 msg 並建立一個<code>SpeechSynthesisUtterance</code>物件，這個物件主要包含兩種資訊，一個是要讀出的內容(what to read)，另一個是要如何讀它(how to read)。</p>
 <p>宣告空陣列 voices，之後我們會放入由<code>SpeechSynthesis.getVoices()</code>取得的聲音種類陣列。</p>
 <p>後面的四個常數分別取得聲音種類選單、調整速度/音高的滑動桿、開始讀出文字按鈕、停止讀出文字按鈕。</p>
@@ -269,12 +269,12 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p>開始讀文字的按鈕比較簡單，只要註冊<code>click event listener</code>然用<code>toggle()</code>處理就好。</p>
 <p>認真要說的話，停止讀文字的按鈕也沒有難到哪裡，只是這邊我們不能直接用<code>... , toggle(false)</code>，而是要寫<code>... , ()=&gt;toggle(false)</code>才會有停止讀文字的效果。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">speakButton.addEventListener(<span class="string">&#x27;click&#x27;</span>,toggle);</span><br><span class="line">stopButton.addEventListener(<span class="string">&#x27;click&#x27;</span>,<span class="function">() =&gt;</span> toggle(<span class="literal">false</span>));</span><br></pre></td></tr></table></figure>
-<h4 id="補充資料-20">補充資料:</h4>
+<h4 id="補充資料-15">補充資料:</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API#speech_synthesis">Web Speech API</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis">SpeechSynthesis</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance">SpeechSynthesisUtterance</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisVoice">SpeechSynthesisVoice</a></p>
-<h2 id="範例網頁請按此-6"><a href="https://qi-xiang.github.io/iThelp2021_JS30/23%20-%20Speech%20Synthesis/index-START.html">範例網頁請按此</a></h2>
+<h2 id="範例網頁請按此-4"><a href="https://qi-xiang.github.io/iThelp2021_JS30/23%20-%20Speech%20Synthesis/index-START.html">範例網頁請按此</a></h2>
 
         </div>
         <footer class="article-footer">
@@ -282,7 +282,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/23/ironman2021D23/" data-id="ckv22q64t000720txhh862xb7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/23/ironman2021D23/" data-id="cl0qiwrqy003jrotx7jdc97ax" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {

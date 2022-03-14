@@ -221,17 +221,17 @@
 
             
 
-            <h2 id="前言-14">前言</h2>
+            <h2 id="前言-5">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-14">本日目標</h2>
+<h2 id="本日目標-5">本日目標</h2>
 <p>瞭解 JavaScript 的 <code>Passed by Value</code> 和 <code>Passed by Reference</code> 以及 Object 的 <code>shallow copy</code> 和 <code>deep copy</code>。</p>
 <p><img src="https://i.imgur.com/WbZ1431.jpg" alt=""></p>
 <hr>
-<h2 id="解析程式碼-13">解析程式碼</h2>
-<h3 id="JS-部分-12">JS 部分</h3>
+<h2 id="解析程式碼-5">解析程式碼</h2>
+<h3 id="JS-部分-5">JS 部分</h3>
 <h4 id="Passed-by-Value">Passed by Value</h4>
 <p>在 JavaScript 裡，如果變數的資料型態屬於 Primitive(原生型別)，則在傳遞變數時，採用的是 Passed by Value (傳遞值)。</p>
 <h5 id="常見的-Primitive">常見的 Primitive:</h5>
@@ -298,7 +298,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p>下面我們一樣修改子物件的屬性值，但這次的原物件子屬性值並沒有受到影響。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> wes = &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;Wes&#x27;</span>,</span><br><span class="line">      <span class="attr">age</span>: <span class="number">100</span>,</span><br><span class="line">      <span class="attr">social</span>: &#123;</span><br><span class="line">        <span class="attr">twitter</span>: <span class="string">&#x27;@wesbos&#x27;</span>,</span><br><span class="line">        <span class="attr">facebook</span>: <span class="string">&#x27;wesbos.developer&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// deep copy</span></span><br><span class="line"><span class="keyword">const</span> dev2 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(wes));<span class="comment">//先轉成string再換回object</span></span><br><span class="line">dev2.social.twitter = <span class="string">&#x27;@coolman&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(wes.social,dev2.social);</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.imgur.com/uUoIcIg.png" alt=""></p>
-<h4 id="補充資料-11">補充資料:</h4>
+<h4 id="補充資料-6">補充資料:</h4>
 <p><a target="_blank" rel="noopener" href="https://totoroliu.medium.com/javascript-var-let-const-%E5%B7%AE%E7%95%B0-e3d930521230">JavaScript: var, let, const 差異</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/concat">Array.prototype.concat()</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Spread_syntax">Spread syntax (…)</a><br>
@@ -313,7 +313,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/14/ironman2021D14/" data-id="ckv21twzg0000u8tx0rvihywp" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/14/ironman2021D14/" data-id="cl0qiwrqk002orotxf8ki70so" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
