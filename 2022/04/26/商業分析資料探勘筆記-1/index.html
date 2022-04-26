@@ -6,26 +6,26 @@
     
 
     
-    <title>遲來的鐵人賽心得 | Xiang&#39;s Blog</title>
+    <title>商業分析資料探勘筆記 | Xiang&#39;s Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="生活經驗分享" />
+    <meta name="keywords" content="商業分析資料探勘" />
     
-    <meta name="description" content="某人可能會遲到，但從不缺席 (沒x 失蹤很久了好嗎&#x3D;&#x3D;  故事原點 在正式參加鐵人賽之前，我從不知道有這個活動，或者也可以說沒有真正的逛過iT邦幫忙這個網站。第一次真正意義上讓我看到鐵人賽，是因為在學校上UNIX作業系統時遇到瓶頸，然後著急地到網路上尋找其他人學習恐龍書之後所寫的心得，緣分使然讓我在無意間看到&quot;小黑馬作業系統教室統整&quot;的鐵人賽系列文(已被下架QQ)，令我在重新">
+    <meta name="description" content="本文章純粹用來記錄當學期修課時所做的一些上課筆記，因為打成文字太費時間，所以只放上筆記的圖片。   👇 筆記第一部分    👇 Basket Analysis    👇 Association Rule 不能被延伸成通則，它只對找到規則的數據有解釋性    👇 除了 item count 外，還有其他因素可以被當作是找 Association Rule 的依據，例如: item pric">
 <meta property="og:type" content="article">
-<meta property="og:title" content="遲來的鐵人賽心得">
-<meta property="og:url" content="https://qi-xiang.github.io/2022/02/15/%E9%81%B2%E4%BE%86%E7%9A%84%E9%90%B5%E4%BA%BA%E8%B3%BD%E5%BF%83%E5%BE%97/index.html">
+<meta property="og:title" content="商業分析資料探勘筆記">
+<meta property="og:url" content="https://qi-xiang.github.io/2022/04/26/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98%E7%AD%86%E8%A8%98-1/index.html">
 <meta property="og:site_name" content="Xiang&#39;s Blog">
-<meta property="og:description" content="某人可能會遲到，但從不缺席 (沒x 失蹤很久了好嗎&#x3D;&#x3D;  故事原點 在正式參加鐵人賽之前，我從不知道有這個活動，或者也可以說沒有真正的逛過iT邦幫忙這個網站。第一次真正意義上讓我看到鐵人賽，是因為在學校上UNIX作業系統時遇到瓶頸，然後著急地到網路上尋找其他人學習恐龍書之後所寫的心得，緣分使然讓我在無意間看到&quot;小黑馬作業系統教室統整&quot;的鐵人賽系列文(已被下架QQ)，令我在重新">
+<meta property="og:description" content="本文章純粹用來記錄當學期修課時所做的一些上課筆記，因為打成文字太費時間，所以只放上筆記的圖片。   👇 筆記第一部分    👇 Basket Analysis    👇 Association Rule 不能被延伸成通則，它只對找到規則的數據有解釋性    👇 除了 item count 外，還有其他因素可以被當作是找 Association Rule 的依據，例如: item pric">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://i.imgur.com/Ind4xj0.jpg">
-<meta property="article:published_time" content="2022-02-15T12:05:00.000Z">
-<meta property="article:modified_time" content="2022-03-13T17:25:46.845Z">
+<meta property="og:image" content="https://i.imgur.com/K2OOTgL.jpg">
+<meta property="article:published_time" content="2022-04-26T09:52:45.000Z">
+<meta property="article:modified_time" content="2022-04-26T09:53:12.422Z">
 <meta property="article:author" content="Qi Xiang,Zhang">
-<meta property="article:tag" content="生活經驗分享">
+<meta property="article:tag" content="商業分析資料探勘">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.imgur.com/Ind4xj0.jpg">
+<meta name="twitter:image" content="https://i.imgur.com/K2OOTgL.jpg">
     
 
     
@@ -173,19 +173,19 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a>
+    <a class="page-title-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-遲來的鐵人賽心得" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-商業分析資料探勘筆記-1" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        遲來的鐵人賽心得
+        商業分析資料探勘筆記
         </h1>
     
 
@@ -196,16 +196,16 @@
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2022/02/15/%E9%81%B2%E4%BE%86%E7%9A%84%E9%90%B5%E4%BA%BA%E8%B3%BD%E5%BF%83%E5%BE%97/" class="article-date">
-       <time datetime="2022-02-15T12:05:00.000Z" itemprop="datePublished">2022-02-15</time>
+    <a href="/2022/04/26/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98%E7%AD%86%E8%A8%98-1/" class="article-date">
+       <time datetime="2022-04-26T09:52:45.000Z" itemprop="datePublished">2022-04-26</time>
     </a>
   </div>
 
 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2022/02/15/%E9%81%B2%E4%BE%86%E7%9A%84%E9%90%B5%E4%BA%BA%E8%B3%BD%E5%BF%83%E5%BE%97/" class="article-date">
-     <time datetime="2022-03-13T17:25:46.845Z" itemprop="dateModified">2022-03-14</time>
+  <a href="/2022/04/26/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98%E7%AD%86%E8%A8%98-1/" class="article-date">
+     <time datetime="2022-04-26T09:53:12.422Z" itemprop="dateModified">2022-04-26</time>
   </a>
 </div>
 
@@ -215,7 +215,7 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" rel="tag">生活經驗分享</a>
+        <a class="tag-link-link" href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" rel="tag">商業分析資料探勘</a>
     </div>
 
                 
@@ -233,32 +233,71 @@
             
 
             <blockquote>
-<p>某人可能會遲到，但從不缺席 (沒x 失蹤很久了好嗎==</p>
+<p>本文章純粹用來記錄當學期修課時所做的一些上課筆記，因為打成文字太費時間，所以只放上筆記的圖片。</p>
 </blockquote>
-<h2 id="故事原點">故事原點</h2>
-<p>在正式參加鐵人賽之前，我從不知道有這個活動，或者也可以說沒有真正的逛過iT邦幫忙這個網站。第一次真正意義上讓我看到鐵人賽，是因為在學校上UNIX作業系統時遇到瓶頸，然後著急地到網路上尋找其他人學習恐龍書之後所寫的心得，緣分使然讓我在無意間看到&quot;<strong>小黑馬作業系統教室統整</strong>&quot;的鐵人賽系列文(已被下架QQ)，令我在重新拾回學習信心同時，也在心中浮現下次的鐵人賽參賽計畫(2021第13屆)。</p>
 <ul>
-<li>恐龍書 (圖源: <a target="_blank" rel="noopener" href="https://cdnec.sanmin.com.tw/product_images/957/957483793.jpg">三民網路書店</a>)<br>
-<img src="https://i.imgur.com/Ind4xj0.jpg" alt=""></li>
+<li>👇 筆記第一部分</li>
 </ul>
-<p>由於是初次參加鐵人賽，我選擇報名的是&quot;<strong>自我挑戰組</strong>&quot;。(或許是因為覺得相對自由的關係?) 在想這30天要寫些什麼的時候，我最原始的想法是想寫我開始接觸網頁的心得，像是網頁三本柱以及前期踩的坑之類的，但後來看到有人分享 <strong>JS30</strong> 的課程心得，又因為它剛好就是30天的課程，當下我就確定要寫&quot;<strong>JS30學習日記</strong>&quot;系列文。</p>
-<hr>
-<h2 id="故事伊始">故事伊始</h2>
-<p>在鐵人賽正式開賽(2021-09-01)之前，我有思考過該不該寫稿起來放(後來在鐵人賽開賽後沒幾天，我就看到有人在文章中說他已經寫完30天的文章。自爆XD)，考慮到時間安排彈性的問題，我在開賽前屯了10篇左右的稿子。</p>
-<p>當然不是說我每天晚上12:00剛過，就上來丟篇文章打卡這麼簡單，如果各位大大、前輩們有稍微看過我寫的系列文，就會發現我JS真的很菜，非常依賴在網路上查各種算是&quot;<strong>常識</strong>&quot;的資料(我自己認為是這樣)，查資料的時間甚至比我看課程影片+寫學習心得的時間還要長哈哈。</p>
-<hr>
-<h2 id="故事途中">故事途中</h2>
-<p>前期每天就在準時上來發心得文(確認發表前我都會再確認一次內容，盡量讓文章不要出現錯字)、寫之後的文章內容、觀看教學影片以及查大量的資料中平靜地度過。</p>
-<p>而故事的轉折點，發生在開學之後課業(大學生ing~)與鐵人賽的事情剛好重疊在一起，我開始只能用相對零碎的時間來寫鐵人賽的系列文。</p>
-<hr>
-<h2 id="故事轉折">故事轉折</h2>
-<p>對我這個大學生而言，開學第一週都在思考整學期的課程安排，要怎麼選到可以帶走東西的課是每學期都有的挑戰，我會非常仔細地看課程大綱還有之前的課程評價等等來參考，當然有些萬惡的必修課仍無法避免XD。</p>
-<p>想當然耳，跟前面說的一樣只能用零碎的時間繼續維持每天發文，過程中也曾經想要放棄，但畢竟就剩幾天就可以完賽，心裡浮現的那份不甘願促使我要繼續往前進。</p>
-<p>我也稍微能夠體會為什麼有些優質系列文會無法挑戰成功，因為真的會有很多突發狀況讓人沒有時間寫完，一篇優質的文章或許只要短短不到10分鐘就能快速閱讀完畢，但作者卻要花數倍時間來寫和整理相關資料。</p>
-<hr>
-<h2 id="故事尾聲">故事尾聲</h2>
-<p>在Stack Overflow、前人的JS30課程筆記、MDN Web Docs的大力支援下，&quot;JS30學習日記&quot;系列文就這樣順利地完成了。儘管因為開學，比較後面的文章有寫得比較隨便，但完賽的那個瞬間，真的帶給我滿滿的感動與成就感。除此之外，瀏覽次數、Like數、訂閱數的跳動，都讓我有被人認同的感覺。</p>
-<p>最後真的非常感謝網路上的各位前輩們~ (更新於2022/02/28)</p>
+<p><img src="https://i.imgur.com/K2OOTgL.jpg" alt=""></p>
+<ul>
+<li>👇 Basket Analysis</li>
+</ul>
+<p><img src="https://i.imgur.com/P1ntMOV.jpg" alt=""></p>
+<ul>
+<li>👇 Association Rule 不能被延伸成通則，它只對找到規則的數據有解釋性</li>
+</ul>
+<p><img src="https://i.imgur.com/jNzsJCO.jpg" alt=""></p>
+<ul>
+<li>👇 除了 item count 外，還有其他因素可以被當作是找 Association Rule 的依據，例如: item price</li>
+</ul>
+<p><img src="https://i.imgur.com/UCSv9Z8.jpg" alt=""></p>
+<ul>
+<li>👇 Association Rule 可以用在 Basket Analysis、Recommend System 等等…</li>
+</ul>
+<p><img src="https://i.imgur.com/XcEnAuL.jpg" alt=""></p>
+<ul>
+<li>👇 筆記第二部分</li>
+</ul>
+<p><img src="https://i.imgur.com/7HKiPjr.jpg" alt=""></p>
+<blockquote>
+<p>Sequence Rule 可以說是 Association Rule，它不同的地方在於擁有 item order 的概念，A -&gt; C 跟 C -&gt; A 選出的 subset 會有差異。</p>
+</blockquote>
+<ul>
+<li>👇 Sequence Rule Item Count</li>
+</ul>
+<p><img src="https://i.imgur.com/nPO7gnj.jpg" alt=""></p>
+<ul>
+<li>👇 Session 內的 items 有順序性</li>
+</ul>
+<p><img src="https://i.imgur.com/uicoMnb.jpg" alt=""></p>
+<ul>
+<li>👇 是否要在意順序，會算出不同的 Confidence</li>
+</ul>
+<p><img src="https://i.imgur.com/e2qRbHA.jpg" alt=""></p>
+<ul>
+<li>👇 貝氏分類，下面是後設機率</li>
+</ul>
+<p><img src="https://i.imgur.com/Jk1y13B.jpg" alt=""></p>
+<ul>
+<li>👇 <code>P(C)</code> 是先驗機率，C 是變數表示分類的 class</li>
+</ul>
+<p><img src="https://i.imgur.com/6G2Gh6i.jpg" alt=""></p>
+<ul>
+<li>👇 事件獨立的公式推導</li>
+</ul>
+<p><img src="https://i.imgur.com/Qms4DBN.jpg" alt=""></p>
+<ul>
+<li>👇 聯合機率可由條件機率算出</li>
+</ul>
+<p><img src="https://i.imgur.com/KVzWtXE.jpg" alt=""></p>
+<ul>
+<li>👇 複雜的公式…</li>
+</ul>
+<p><img src="https://i.imgur.com/9ilsF2N.jpg" alt=""></p>
+<blockquote>
+<p>Navie Bayes 假設證據獨立，但證據之間未必沒有關聯，所以有可能 double count the evidences，影響計算出的機率 👇</p>
+</blockquote>
+<p><img src="https://i.imgur.com/btUCnMf.jpg" alt=""></p>
 
         </div>
         <footer class="article-footer">
@@ -266,7 +305,7 @@
 
 
 
-    <a data-url="https://qi-xiang.github.io/2022/02/15/%E9%81%B2%E4%BE%86%E7%9A%84%E9%90%B5%E4%BA%BA%E8%B3%BD%E5%BF%83%E5%BE%97/" data-id="cl0qiwrtl007grotxa0yi8m0s" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2022/04/26/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98%E7%AD%86%E8%A8%98-1/" data-id="cl2fz0eb70000q4txch0idfg3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -336,20 +375,32 @@
             "@type": "Person",
             "name": "Qi Xiang,Zhang"
         },
-        "headline": "遲來的鐵人賽心得",
-        "image": "https://qi-xiang.github.iohttps://i.imgur.com/Ind4xj0.jpg",
-        "keywords": "生活經驗分享",
-        "genre": "2021 iThome 鐵人賽",
-        "datePublished": "2022-02-15",
-        "dateCreated": "2022-02-15",
-        "dateModified": "2022-03-14",
-        "url": "https://qi-xiang.github.io/2022/02/15/遲來的鐵人賽心得/",
+        "headline": "商業分析資料探勘筆記",
+        "image": "https://qi-xiang.github.iohttps://i.imgur.com/K2OOTgL.jpg",
+        "keywords": "商業分析資料探勘",
+        "genre": "技術類文章",
+        "datePublished": "2022-04-26",
+        "dateCreated": "2022-04-26",
+        "dateModified": "2022-04-26",
+        "url": "https://qi-xiang.github.io/2022/04/26/商業分析資料探勘筆記-1/",
         "description": "
-某人可能會遲到，但從不缺席 (沒x 失蹤很久了好嗎==
+本文章純粹用來記錄當學期修課時所做的一些上課筆記，因為打成文字太費時間，所以只放上筆記的圖片。
 
-故事原點
-在正式參加鐵人賽之前，我從不知道有這個活動，或者也可以說沒有真正的逛過iT邦幫忙這個網站。第一次真正意義上讓我看到鐵人賽，是因為在學校上UNIX作業系統時遇到瓶頸，然後著急地到網路上尋找其他人學習恐龍書之後所寫的心得，緣分使然讓我在無意間看到&quot;小黑馬作業系統教室統整&quot;的鐵人賽系列文(已被下架QQ)，令我在重新",
-        "wordCount": 20
+
+👇 筆記第一部分
+
+
+
+👇 Basket Analysis
+
+
+
+👇 Association Rule 不能被延伸成通則，它只對找到規則的數據有解釋性
+
+
+
+👇 除了 item count 外，還有其他因素可以被當作是找 Association Rule 的依據，例如: item pric",
+        "wordCount": 95
     }
 </script>
 
@@ -414,20 +465,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2022/02/25/%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            建置簡單 Line 聊天機器人
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2022/01/27/%E5%A5%87%E8%B9%9F%E4%BC%BC%E7%9A%84%E9%80%9A%E9%81%8E%E6%97%A5%E6%AA%A2N4/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2022/04/21/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98%E7%AD%86%E8%A8%98/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">奇蹟似的通過日檢N4</p>
+        <p class="article-nav-title">商業分析資料探勘筆記 4/19</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -624,7 +665,7 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://qi-xiang.github.io/2022/02/15/%E9%81%B2%E4%BE%86%E7%9A%84%E9%90%B5%E4%BA%BA%E8%B3%BD%E5%BF%83%E5%BE%97/';
+    var disqus_url = 'https://qi-xiang.github.io/2022/04/26/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98%E7%AD%86%E8%A8%98-1/';
     
     (function() {
     var dsq = document.createElement('script');
