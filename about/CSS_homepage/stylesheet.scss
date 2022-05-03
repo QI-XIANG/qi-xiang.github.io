@@ -1,111 +1,6 @@
+@import "mixins";
+
 $primary_color1: #5569DC;
-
-@mixin primary_font1 {
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    font-family: serif;
-}
-
-@mixin primary_font2 {
-    font-weight: bold;
-    line-height: 0.5em;
-    font-family: serif;
-    color: white;
-    font-size: 18px;
-}
-
-@mixin  contact-me-font {
-    text-align: center;
-    font-family:serif;
-    color: #1C2349;
-}
-
-@mixin footer-font {
-    text-align: center;
-    font-size: 14px;
-    font-family: serif;
-    color: white;
-    padding: 10px 0px
-}
-
-@mixin self-intro{
-    font-size: 18px;
-    line-height: 2em;
-    letter-spacing: normal;
-    font-family: sans-serif;
-    margin: auto;
-    color: #1c2349;
-    opacity: 0.8;
-}
-
-@mixin main-content-header{
-    font-size: 32px;
-    font-family: serif;
-    color: $primary_color1;
-}
-
-@mixin main-content-block {
-    display: flex;
-    justify-content: center;
-    padding-top: 0px;
-    margin-bottom: 0px;
-    padding-bottom: 0;
-}
-
-@mixin main-content-subheader{
-    font-size: 16px;
-    font-family: sans-serif;
-    color: $primary_color1;
-    opacity: 0.8;
-    letter-spacing:0.15em
-}
-
-@mixin main-content-lineheight {
-    font-size: 21px;
-    line-height: 2em;
-    letter-spacing: normal;
-    font-family: sans-serif;
-    margin: auto;
-    color: #1c2349;
-}
-
-@mixin main-content-lineheight-title {
-    font-size: 16px;
-    font-family: sans-serif;
-    color: rgb(28,35,73);
-}
-
-@mixin main-content-lightheight-content {
-    font-size: 16px;
-    font-family: sans-serif;
-    color:#1C2349;
-    line-height: 1.8em;
-    opacity: 0.8;
-}
-
-@mixin progress-bar-label{
-    width:12em;
-    float: left;
-    margin-top: calc(1rem - 4px);
-    margin-right: 3.5em;
-}
-
-@mixin block-padding-setting {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0px;
-    padding-bottom: 5px;
-    padding-top: 80px;
-}
-
-@mixin  contact-me-block {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0px;
-    padding-bottom: 5px;
-    padding-top: 0px !important;
-}
 
 /*NavBar Section*/
 .navbar{
@@ -141,14 +36,18 @@ $primary_color1: #5569DC;
 }
 
 /*Main Content*/
+
+/*Main Content 1-6 header*/
 h1.main-content-header{
     @include main-content-header();
 }
 
+/*Main Content 1-6 subheader*/
 p.main-content-subheader{
     @include main-content-subheader();
 }
 
+/*Main Content 2、3、5、6 content lineheight*/
 div.main-content-lineheight{
     @include main-content-lineheight();
     span.main-content-lineheight-title{
@@ -163,6 +62,12 @@ div.main-content-block{
     @include main-content-block();
 }
 
+/*Main Content 1 content*/
+p.self-intro{
+    @include self-intro();
+}
+
+/*Progress Bar*/
 
 .progress-bar-label{
     @include main-content-lightheight-content;
@@ -201,7 +106,5 @@ div.contact-me-2-block,div.contact-me-3-block{
     @include contact-me-block();
 }
 
-p.self-intro{
-    @include self-intro();
-}
+
    
