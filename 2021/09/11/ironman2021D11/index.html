@@ -78,7 +78,7 @@
     
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+</head>
 
 <body>
     <div id="wrap">
@@ -232,16 +232,16 @@
 
             
 
-            <h2 id="前言-4">前言</h2>
+            <h2 id="前言-3">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-4">本日目標</h2>
+<h2 id="本日目標-3">本日目標</h2>
 <p>靈活運用 <code>video</code> 元素的相關屬性、方法，實作出一個擁有<code>快進快退</code>、<code>播放速度倍率</code>、<code>控制音量大小</code>、<code>拖拉時間軸</code>功能的簡易影片播放器。</p>
 <p><img src="https://i.imgur.com/BrzhAvi.png" alt=""></p>
 <hr>
-<h2 id="解析程式碼-4">解析程式碼</h2>
+<h2 id="解析程式碼-3">解析程式碼</h2>
 <h3 id="HTML-部分-3">HTML 部分</h3>
 <p><code>.player</code> 代表整個影片播放器，包含<code>影片(.player__video)</code>、<code>播放控制列(.player__controls)</code>兩部分。</p>
 <p><code>播放控制列</code>內部又可細分為四個部分:</p>
@@ -250,7 +250,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <h5 id="3-音量-播放速度倍率-player-slider">3. 音量/播放速度倍率 : <code>.player__slider</code></h5>
 <h5 id="4-快進-快退-player-button">4. 快進/快退 : <code>.player__button</code></h5>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;player&quot;</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">video</span> <span class="attr">class</span>=<span class="string">&quot;player__video viewer&quot;</span> <span class="attr">src</span>=<span class="string">&quot;652333414.mp4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line"></span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;player__controls&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;progress&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;progress__filled&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">&quot;player__button toggle&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Toggle Play&quot;</span>&gt;</span>►<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">name</span>=<span class="string">&quot;volume&quot;</span> <span class="attr">class</span>=<span class="string">&quot;player__slider&quot;</span> <span class="attr">min</span>=<span class="string">&quot;0&quot;</span> <span class="attr">max</span>=<span class="string">&quot;1&quot;</span> <span class="attr">step</span>=<span class="string">&quot;0.05&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">name</span>=<span class="string">&quot;playbackRate&quot;</span> <span class="attr">class</span>=<span class="string">&quot;player__slider&quot;</span> <span class="attr">min</span>=<span class="string">&quot;0.5&quot;</span> <span class="attr">max</span>=<span class="string">&quot;2&quot;</span> <span class="attr">step</span>=<span class="string">&quot;0.1&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">button</span> <span class="attr">data-skip</span>=<span class="string">&quot;-10&quot;</span> <span class="attr">class</span>=<span class="string">&quot;player__button&quot;</span>&gt;</span>« 10s<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">button</span> <span class="attr">data-skip</span>=<span class="string">&quot;25&quot;</span> <span class="attr">class</span>=<span class="string">&quot;player__button&quot;</span>&gt;</span>25s »<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="JS-部分-4">JS 部分</h3>
+<h3 id="JS-部分-3">JS 部分</h3>
 <p>首先，取得所有要用到 HTML 標籤並放到對應宣告的常數中。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*get element we need*/</span></span><br><span class="line"><span class="keyword">const</span> player = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.player&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> video = player.querySelector(<span class="string">&#x27;.viewer&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> progress = player.querySelector(<span class="string">&#x27;.progress&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> progressBar = player.querySelector(<span class="string">&#x27;.progress__filled&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> toggle = player.querySelector(<span class="string">&#x27;.toggle&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> skipButtons = player.querySelectorAll(<span class="string">&#x27;[data-skip]&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> ranges = player.querySelectorAll(<span class="string">&#x27;.player__slider&#x27;</span>);</span><br></pre></td></tr></table></figure>
 <p>下面我們將各個播放器的功能一個個拆出來做 :</p>
@@ -293,12 +293,12 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <h4 id="補充說明-2">補充說明:</h4>
 <p><code>HTMLVideoElement</code>繼承自<code>HTMLMediaElement</code>所以一些<code>video</code>元素的屬性都可以到<code>HTMLMediaElement</code>查詢。</p>
 <p>使用<code>HTMLElement.offsetWidth</code>所取得的元素(<code>element</code>)寬度包括透過 CSS 設定的<code>width、border、padding</code>等等…。</p>
-<h4 id="補充資料-5">補充資料:</h4>
+<h4 id="補充資料-4">補充資料:</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement">HTMLMediaElement</a></p>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset">HTMLElement.dataset</a></p>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetWidth">HTMLElement.offsetWidth</a></p>
 <p><a target="_blank" rel="noopener" href="https://kknews.cc/news/r3pzzr.html">JS一秒區分clientX,offsetX,screenX,pageX之間關係</a></p>
-<h2 id="範例網頁請按此-2"><a href="https://qi-xiang.github.io/iThelp2021_JS30/11%20-%20Custom%20Video%20Player/index.html">範例網頁請按此</a></h2>
+<h2 id="範例網頁請按此"><a href="https://qi-xiang.github.io/iThelp2021_JS30/11%20-%20Custom%20Video%20Player/index.html">範例網頁請按此</a></h2>
 
         </div>
         <footer class="article-footer">
@@ -306,7 +306,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/11/ironman2021D11/" data-id="cl0qiwrqj002lrotxhpc949ba" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/11/ironman2021D11/" data-id="cl2pl6jft003e88txhizv1pj7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {

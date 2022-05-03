@@ -78,7 +78,7 @@
     
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+</head>
 
 <body>
     <div id="wrap">
@@ -263,7 +263,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.panel</span><span class="selector-class">.open-active</span> &gt; *<span class="selector-pseudo">:first</span>-child&#123;</span><br><span class="line">      <span class="attribute">transform</span>: <span class="built_in">translateY</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.panel</span><span class="selector-class">.open-active</span> &gt; *<span class="selector-pseudo">:last-child</span>&#123;</span><br><span class="line">      <span class="attribute">transform</span>: <span class="built_in">translateY</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>.panel</code>開啟時，將內部文字放大為 40px 並將 <code>flex-container</code> 剩餘分配的位置變為原來的5倍。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.panel</span><span class="selector-class">.open</span> &#123;</span><br><span class="line">      <span class="attribute">font-size</span>: <span class="number">40px</span>;</span><br><span class="line">      <span class="attribute">flex</span>: <span class="number">5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="補充資料-23">補充資料:</h4>
+<h4 id="補充資料-24">補充資料:</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex">CSS flex 屬性</a><br>
 <a target="_blank" rel="noopener" href="https://cythilya.github.io/2017/04/04/flexbox-basics/">圖解 Flexbox 基本屬性</a><br>
 <a target="_blank" rel="noopener" href="https://flexboxfroggy.com/">FLEXBOX FROGGY-學習 flexbox 的小遊戲</a></p>
@@ -275,7 +275,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p>點擊任意一個<code>.panel</code>，<code>toggleOpen()</code> 方法會替觸發事件的<code>.panel</code>依照情況的不同，新增或是移除<code>.open</code> 這個 class，若是觸發事件的<code>.panel</code>原本沒有<code>.open</code>則新增，有的話則移除<code>.open</code>。</p>
 <p>當 <code>transitionend</code> 事件發生，<code>toggleActive()</code> 會作出如同 <code>toggleOpen()</code> 一樣的判斷，決定新增還是移除<code>.open-active</code>這個 class。因為同時會被觸發的 <code>transitionend</code> 事件有很多個，我們決定在觸發 <code>transitionend</code> 事件的 CSS 屬性是 <code>flex</code> 時，才採取處理。為什麼不寫 <code>e.propertyName == 'flex-grow'</code> 是因為在 Safari 顯示的是 <code>flex</code> 而 Chrome、FireFox 顯示的是 <code>flex-grow</code>，為避免這個差異導致錯誤，我們可以使用 include(‘flex’)，當 propertyName 含有 <code>flex</code> 就進行事件處理。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toggleOpen</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.classList.toggle(<span class="string">&#x27;open&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toggleActive</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(e.propertyName.includes(<span class="string">&#x27;flex&#x27;</span>))&#123;</span><br><span class="line">        <span class="built_in">this</span>.classList.toggle(<span class="string">&#x27;open-active&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="補充資料-24">補充資料:</h4>
+<h4 id="補充資料-25">補充資料:</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/classList">Element.classList</a></p>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/includes">String.prototype.includes()</a></p>
 <h2 id="實際效果請按此-3"><a href="https://qi-xiang.github.io/iThelp2021_JS30/05%20-%20Flex%20Panel%20Gallery/index-START.html">實際效果請按此</a></h2>
@@ -286,7 +286,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/05/ironman2021D5/" data-id="cl0qiwrrf004drotx1s7rdkgk" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/05/ironman2021D5/" data-id="cl2pl6jgi005888tx9gd73y1m" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {

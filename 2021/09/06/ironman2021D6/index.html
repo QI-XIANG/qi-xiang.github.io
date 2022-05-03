@@ -78,7 +78,7 @@
     
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+</head>
 
 <body>
     <div id="wrap">
@@ -232,17 +232,17 @@
 
             
 
-            <h2 id="前言-26">前言</h2>
+            <h2 id="前言-28">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;"><code>No Frameworks</code>、<code>No Compilers</code>、<code>No Libraries</code>、<code>No Boilerplate</code></span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-26">本日目標</h2>
+<h2 id="本日目標-28">本日目標</h2>
 <p>利用 <code>Fetch API</code> 取得 <code>JSON</code> 格式的資料，隨著輸入關鍵字的不同，將特定資料篩選出來並呈現在網頁上。</p>
 <p><img src="https://i.imgur.com/HEYpoby.png" alt=""></p>
 <hr>
-<h2 id="解析程式碼-26">解析程式碼</h2>
-<h3 id="JS-部分-25">JS 部分</h3>
+<h2 id="解析程式碼-28">解析程式碼</h2>
+<h3 id="JS-部分-27">JS 部分</h3>
 <p>將要取得的資料來源網址放入 <code>endpoint</code>中，並建立一個空的<code>city</code>陣列。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> endpoint = <span class="string">&#x27;https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> cities = [];<span class="comment">/*empty array*/</span></span><br></pre></td></tr></table></figure>
 <p><code>fetch()</code> 是 <code>Fetch API</code> 的一個方法，主要用於發出資料的 <code>request</code> 並回傳 <code>Promise</code>，有點類似於<code>XMLHttpRequest</code>，但在使用上較有彈性。</p>
@@ -262,7 +262,7 @@ style="color:red;"><code>No Frameworks</code>、<code>No Compilers</code>、<cod
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">displayMatches</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> matchArray = findMatches(<span class="built_in">this</span>.value,cities);</span><br><span class="line">    <span class="keyword">const</span> html = matchArray.map(<span class="function"><span class="params">place</span> =&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> regex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="built_in">this</span>.value, <span class="string">&#x27;gi&#x27;</span>);</span><br><span class="line">        <span class="keyword">const</span> cityName = place.city.replace(regex,<span class="string">`&lt;span class=&quot;hl&quot;&gt;<span class="subst">$&#123;<span class="built_in">this</span>.value&#125;</span>&lt;/span&gt;`</span>);</span><br><span class="line">        <span class="keyword">const</span> stateName = place.state.replace(regex,<span class="string">`&lt;span class=&quot;hl&quot;&gt;<span class="subst">$&#123;<span class="built_in">this</span>.value&#125;</span>&lt;/span&gt;`</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`</span></span><br><span class="line"><span class="string">            &lt;li&gt;</span></span><br><span class="line"><span class="string">              &lt;span class=&quot;name&quot;&gt;<span class="subst">$&#123;cityName&#125;</span>, <span class="subst">$&#123;stateName&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">              &lt;span class=&quot;ppulation&quot;&gt;<span class="subst">$&#123;numberWithCommas(place.population)&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">            &lt;/li&gt; </span></span><br><span class="line"><span class="string">          `</span></span><br><span class="line">    &#125;).join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">    suggestions.innerHTML = html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>分別宣告常數 <code>searchInput</code>、<code>suggestions</code> 並取得 <code>.search</code>、<code>.suggestions</code>標籤。最後為搜尋欄(<code>searchInput</code>) 註冊<code>change</code>和<code>keyup</code>事件，當欄位數值發生改變或放開鍵盤的那個剎那都會觸發事件，兩個事件都是以 <code>displayMatches()</code> 進行事件處理。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> searchInput = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.search&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> suggestions = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.suggestions&#x27;</span>);</span><br><span class="line"></span><br><span class="line">searchInput.addEventListener(<span class="string">&#x27;change&#x27;</span>,displayMatches)</span><br><span class="line">searchInput.addEventListener(<span class="string">&#x27;keyup&#x27;</span>,displayMatches);</span><br></pre></td></tr></table></figure>
-<h4 id="補充資料-25">補充資料:</h4>
+<h4 id="補充資料-27">補充資料:</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch">使用 Fetch</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/then">Promise.prototype.then()</a><br>
@@ -278,7 +278,7 @@ style="color:red;"><code>No Frameworks</code>、<code>No Compilers</code>、<cod
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/06/ironman2021D6/" data-id="cl0qiwrrh004hrotx0eogh66d" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/06/ironman2021D6/" data-id="cl2pl6jgm005h88txaehu9m5s" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {

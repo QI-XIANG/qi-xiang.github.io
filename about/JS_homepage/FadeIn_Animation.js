@@ -1,3 +1,4 @@
+/*已經被AOS取代*/
 $(document).ready(function(){
     $("#fadeArea1 p").hide()
     $("#fadeArea2 pre").hide()

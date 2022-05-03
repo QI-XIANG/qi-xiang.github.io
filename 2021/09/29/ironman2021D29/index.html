@@ -78,7 +78,7 @@
     
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+</head>
 
 <body>
     <div id="wrap">
@@ -232,25 +232,25 @@
 
             
 
-            <h2 id="前言-20">前言</h2>
+            <h2 id="前言-23">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-20">本日目標</h2>
+<h2 id="本日目標-23">本日目標</h2>
 <p>製作網頁版的倒數計時器，透過點按網頁上的按鈕快速設定倒數計時器或是在輸入框內輸入要設定倒數的分鐘數。</p>
 <p>在這裡順便說明什麼是<a target="_blank" rel="noopener" href="http://vanilla-js.com/"><code>Vanilla JS</code></a>，<code>Vanilla JS</code>是一個快速、輕量化、跨平台的 JavaScript 框架。</p>
 <p><img src="https://i.imgur.com/apO3rm3.png" alt=""></p>
 <hr>
-<h2 id="解析程式碼-20">解析程式碼</h2>
-<h3 id="HTML-部分-18">HTML 部分</h3>
+<h2 id="解析程式碼-23">解析程式碼</h2>
+<h3 id="HTML-部分-21">HTML 部分</h3>
 <p><code>.timer</code>是倒數計時器的本體，以下又可分成兩大部分，<code>.timer__controls</code>是其下設置倒數計時器的控制列，<code>.display</code>是其下用來展示剩餘時間和倒數結束時間的容器。</p>
 <p>此外，可以發現在每一個<code>button</code>元素上，都有設定<code>data-time</code>屬性，這個屬性用來幫我們快速地設置倒數計時器且單位是以秒計算。</p>
 <p><code>#custom</code>內部放置一個文字輸入框，在使用者輸入數字按下 enter 後，這個數字會被拿來設定倒數計時器並以分鐘作為單位。</p>
 <p><code>.display__time-left</code>用來放置正在倒數的時間(分:秒)。<br>
 <code>display__end-time</code>用來放置倒數結束的時間。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;timer&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;timer__controls&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">data-time</span>=<span class="string">&quot;20&quot;</span> <span class="attr">class</span>=<span class="string">&quot;timer__button&quot;</span>&gt;</span>20 Secs<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">data-time</span>=<span class="string">&quot;300&quot;</span> <span class="attr">class</span>=<span class="string">&quot;timer__button&quot;</span>&gt;</span>Work 5<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">data-time</span>=<span class="string">&quot;900&quot;</span> <span class="attr">class</span>=<span class="string">&quot;timer__button&quot;</span>&gt;</span>Quick 15<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">data-time</span>=<span class="string">&quot;1200&quot;</span> <span class="attr">class</span>=<span class="string">&quot;timer__button&quot;</span>&gt;</span>Snack 20<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">data-time</span>=<span class="string">&quot;3600&quot;</span> <span class="attr">class</span>=<span class="string">&quot;timer__button&quot;</span>&gt;</span>Lunch Break<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">form</span> <span class="attr">name</span>=<span class="string">&quot;customForm&quot;</span> <span class="attr">id</span>=<span class="string">&quot;custom&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;minutes&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;Enter Minutes&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;display&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">&quot;display__time-left&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;display__end-time&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="JS-部分-20">JS 部分</h3>
+<h3 id="JS-部分-22">JS 部分</h3>
 <p>宣告變數<code>countdown</code>，待會用來指定成後面<code>setInterval()</code>的間隔代碼(Interval ID)。</p>
 <p>宣告常數<code>timeDisplay</code>取得用來放置倒數時間的元素。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> countdown;</span><br><span class="line"><span class="keyword">const</span> timeDisplay = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.display__time-left&#x27;</span>);</span><br></pre></td></tr></table></figure>
@@ -283,7 +283,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p>最後要來處理文字輸入框的部分，在<code>form</code>元素上註冊<code>submit event listener</code>以後面的<code>function()</code>作為<code>event handler</code>。</p>
 <p>因為<code>submit</code>表單時會重新整理網頁，所以在第一行寫<code>e.preventDefault()</code>防止網頁重新整理。接著宣告常數<code>mins</code>承接來自<code>&lt;input name=&quot;minutes&quot;&gt;</code>的分鐘數(value)，然後再把分鐘數乘上60換成秒傳入<code>timer()</code>，成功設定倒數計時器。最後一行的<code>this.reset()</code>用來重置表單元素。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.customForm.addEventListener(<span class="string">&#x27;submit&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">    <span class="keyword">const</span> mins = <span class="built_in">this</span>.minutes.value;</span><br><span class="line">    <span class="built_in">console</span>.log(mins);</span><br><span class="line">    timer(mins * <span class="number">60</span>);</span><br><span class="line">    <span class="built_in">this</span>.reset();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="補充資料-20">補充資料:</h4>
+<h4 id="補充資料-22">補充資料:</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Date/now">Date.now()</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/API/setInterval">WindowOrWorkerGlobalScope.setInterval()</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/clearInterval">clearInterval()</a><br>
@@ -293,7 +293,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getMinutes">Date.prototype.getMinutes()</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset">HTMLElement.dataset</a></p>
 <h2 id="範例網頁"><a href="https://qi-xiang.github.io/iThelp2021_JS30/29%20-%20Countdown%20Timer/index.html">範例網頁</a></h2>
-<h2 id="完整程式碼請點此"><a target="_blank" rel="noopener" href="https://github.com/QI-XIANG/iThelp2021_JS30/blob/master/29%20-%20Countdown%20Timer/scripts-START.js">完整程式碼請點此</a></h2>
+<h2 id="完整程式碼請點此-3"><a target="_blank" rel="noopener" href="https://github.com/QI-XIANG/iThelp2021_JS30/blob/master/29%20-%20Countdown%20Timer/scripts-START.js">完整程式碼請點此</a></h2>
 
         </div>
         <footer class="article-footer">
@@ -301,7 +301,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/29/ironman2021D29/" data-id="cl0qiwrr5003zrotx9l21ajgi" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/29/ironman2021D29/" data-id="cl2pl6jgf005288txcuj93qcs" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {

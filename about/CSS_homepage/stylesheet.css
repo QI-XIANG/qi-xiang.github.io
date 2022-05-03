@@ -1,0 +1,169 @@
+/*NavBar Section*/
+.navbar {
+  background-color: #5569DC;
+}
+
+.navbar p .navbar-brand {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: serif;
+}
+
+.navbar .navbar-nav-p a.nav-item {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: serif;
+}
+
+/*Simple Intro*/
+.intro-card {
+  outline: none;
+  border: none;
+}
+
+.intro-card .card-text {
+  font-weight: bold;
+  line-height: 0.5em;
+  font-family: serif;
+  color: white;
+  font-size: 18px;
+}
+
+.simple-intro {
+  background-color: #5569DC;
+  outline: none;
+  border: none;
+  padding: 0px;
+}
+
+/*Main Content*/
+h1.main-content-header {
+  font-size: 32px;
+  font-family: serif;
+  color: #5569DC;
+}
+
+p.main-content-subheader {
+  font-size: 16px;
+  font-family: sans-serif;
+  color: #5569DC;
+  opacity: 0.8;
+  letter-spacing: 0.15em;
+}
+
+div.main-content-lineheight {
+  font-size: 21px;
+  line-height: 2em;
+  letter-spacing: normal;
+  font-family: sans-serif;
+  margin: auto;
+  color: #1c2349;
+}
+
+div.main-content-lineheight span.main-content-lineheight-title {
+  font-size: 16px;
+  font-family: sans-serif;
+  color: #1c2349;
+}
+
+div.main-content-lineheight p.main-content-lightheight-content {
+  font-size: 16px;
+  font-family: sans-serif;
+  color: #1C2349;
+  line-height: 1.8em;
+  opacity: 0.8;
+}
+
+div.main-content-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0;
+}
+
+.progress-bar-label {
+  font-size: 16px;
+  font-family: sans-serif;
+  color: #1C2349;
+  line-height: 1.8em;
+  opacity: 0.8;
+  width: 12em;
+  float: left;
+  margin-top: calc(1rem - 4px);
+  margin-right: 3.5em;
+}
+
+p.contact-me-1 {
+  text-align: center;
+  font-family: serif;
+  color: #1C2349;
+  opacity: 0.9;
+  line-height: normal;
+  letter-spacing: normal;
+  font-size: 32px;
+}
+
+p.contact-me-2 {
+  text-align: center;
+  font-family: serif;
+  color: #1C2349;
+  font-size: 20px;
+  line-height: 1.8em;
+  letter-spacing: 0.02em;
+  margin: 0px 24px;
+  padding: 0px;
+}
+
+.footer {
+  background-color: #5569DC;
+}
+
+.footer footer.footer-content {
+  text-align: center;
+  font-size: 14px;
+  font-family: serif;
+  color: white;
+  padding: 10px 0px;
+}
+
+div.block-padding-setting {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 0px;
+  padding-bottom: 5px;
+  padding-top: 80px;
+}
+
+div.contact-me-2-block, div.contact-me-3-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 0px;
+  padding-bottom: 5px;
+  padding-top: 0px !important;
+}
+
+p.self-intro {
+  font-size: 18px;
+  line-height: 2em;
+  letter-spacing: normal;
+  font-family: sans-serif;
+  margin: auto;
+  color: #1c2349;
+  opacity: 0.8;
+}
+/*# sourceMappingURL=stylesheet.css.map */

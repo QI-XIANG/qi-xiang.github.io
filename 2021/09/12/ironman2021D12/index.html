@@ -78,7 +78,7 @@
     
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+</head>
 
 <body>
     <div id="wrap">
@@ -232,21 +232,21 @@
 
             
 
-            <h2 id="前言-3">前言</h2>
+            <h2 id="前言-4">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-3">本日目標</h2>
+<h2 id="本日目標-4">本日目標</h2>
 <p>預先設定一組<code>secretCode</code>，如果在視窗畫面內輸入的文字與<code>secretCode</code>相同則在視窗畫面加上圖案。</p>
 <p><img src="https://i.imgur.com/Xc8wySc.jpg" alt=""><br>
 (ps.背景圖是後來改的，原版是空白畫面。)</p>
 <hr>
-<h2 id="解析程式碼-3">解析程式碼</h2>
+<h2 id="解析程式碼-4">解析程式碼</h2>
 <p>這次我們需要藉助網路上別人寫好的 JavaScript API，讓他幫忙在每次視窗畫面中輸入文字等於<code>secretCode</code>時，在視窗畫面上新增一個生動的圖案。</p>
 <p><a target="_blank" rel="noopener" href="https://www.cornify.com/js/cornify.js">觀看完整的 JavaScript API 內容</a></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://www.cornify.com/js/cornify.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="JS-部分-3">JS 部分</h3>
+<h3 id="JS-部分-4">JS 部分</h3>
 <p>宣告常數 <code>pressed</code> 為一個空陣列，用來存放我們在視窗畫面所輸入的值。</p>
 <p>宣告常數<code>secretCode</code>作為預設的文字密碼。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> pressed = [];</span><br><span class="line"><span class="keyword">const</span> secretCode = <span class="string">&#x27;saber&#x27;</span>;</span><br></pre></td></tr></table></figure>
@@ -258,10 +258,10 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&#x27;keyup&#x27;</span>,<span class="function">(<span class="params">e</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.key);</span><br><span class="line">    pressed.push(e.key);</span><br><span class="line">    pressed.splice(-secretCode.length - <span class="number">1</span>,pressed.length - secretCode.length);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>最後，我們利用 if 判斷用<code>pressed.join('')</code>串聯出的字串是否有包含<code>secretCode</code>，如果有包含就在<code>console</code>印出<code>DING DING!</code>並呼叫 API 中的<code>cornify_add()</code>在視窗畫面裡加上圖片。我們也可以再補上<code>console.log(pressed);</code>，查看目前<code>pressed</code>陣列內的元素。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&#x27;keyup&#x27;</span>,<span class="function">(<span class="params">e</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">/***省略***/</span></span><br><span class="line">    <span class="comment">/***省略***/</span></span><br><span class="line">    <span class="keyword">if</span>(pressed.join(<span class="string">&#x27;&#x27;</span>).includes(secretCode))&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;DING DING!&#x27;</span>);</span><br><span class="line">      cornify_add();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(pressed);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="補充資料-4">補充資料:</h4>
+<h4 id="補充資料-5">補充資料:</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/API/Document/keyup_event">keyup事件</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/splice">Array.prototype.splice()</a></p>
-<h2 id="範例網頁請按此"><a href="https://qi-xiang.github.io/iThelp2021_JS30/12%20-%20Key%20Sequence%20Detection/index-START.html">範例網頁請按此</a></h2>
+<h2 id="範例網頁請按此-2"><a href="https://qi-xiang.github.io/iThelp2021_JS30/12%20-%20Key%20Sequence%20Detection/index-START.html">範例網頁請按此</a></h2>
 
         </div>
         <footer class="article-footer">
@@ -269,7 +269,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/12/ironman2021D12/" data-id="cl0qiwrqi002irotxbp0o97km" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/12/ironman2021D12/" data-id="cl2pl6jfu003h88tx7q5945sy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {

@@ -78,7 +78,7 @@
     
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+</head>
 
 <body>
     <div id="wrap">
@@ -232,21 +232,21 @@
 
             
 
-            <h2 id="前言-18">前言</h2>
+            <h2 id="前言-22">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-18">本日目標</h2>
+<h2 id="本日目標-22">本日目標</h2>
 <p>今天我們要實作的內容是當使用者hover in 或 out 導覽列時，展開顯示下方的連結、文字內容並搭配上 CSS 的動畫效果。</p>
 <p><img src="https://i.imgur.com/ASRwy0k.jpg" alt=""></p>
 <hr>
-<h2 id="解析程式碼-18">解析程式碼</h2>
-<h3 id="HTML-部分-16">HTML 部分</h3>
+<h2 id="解析程式碼-22">解析程式碼</h2>
+<h3 id="HTML-部分-20">HTML 部分</h3>
 <p><code>&lt;h2&gt;&lt;/h2&gt;</code>用來模擬<code>&lt;nav&gt;&lt;/nav&gt;</code>不是 HTML 最上面元素的情況。</p>
 <p><code>&lt;nav&gt;&lt;/nav&gt;(.top)</code>是我們的導覽列，其中包含作項目內容背景用途的<code>&lt;div&gt;&lt;/dvi&gt;(.dropDownBackground)</code>，以及項目列表<code>&lt;ul&gt;&lt;/ul&gt;(.cool)</code>和項目內容<code>&lt;li&gt;&lt;/li&gt;</code>，其中每一個項目的內容除了<code>&lt;a&gt;&lt;/a&gt;</code>標題連結有顯示外，剩餘資訊<code>.dropdown</code>的部分都被預設隱藏。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>Cool<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">&quot;top&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;dropdownBackground&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;arrow&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;cool&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>About Me<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;dropdown dropdown1&quot;</span>&gt;</span></span><br><span class="line">          <span class="comment">&lt;!--省略--&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Courses<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;dropdown courses&quot;</span>&gt;</span></span><br><span class="line">          <span class="comment">&lt;!--省略--&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>Other Links<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;dropdown dropdown3&quot;</span>&gt;</span></span><br><span class="line">          <span class="comment">&lt;!--省略--&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="CSS-部分-4">CSS 部分</h3>
+<h3 id="CSS-部分-6">CSS 部分</h3>
 <ul>
 <li>
 <p><strong><code>.dropdown</code></strong> : 分別設定<code>opacity: 0;</code>、<code>display: none;</code>預設隱藏<code>.dropdown</code>，然後用<code>transition</code>監控 CSS 屬性值的變化，達成 CSS 動畫的效果。</p>
@@ -269,7 +269,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 </li>
 </ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.dropdownBackground</span> &#123;</span><br><span class="line">    <span class="comment">/*省略...*/</span></span><br><span class="line">    <span class="attribute">opacity</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.dropdownBackground</span><span class="selector-class">.open</span> &#123; <span class="comment">/*show the background*/</span></span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="JS-部分-18">JS 部分</h3>
+<h3 id="JS-部分-21">JS 部分</h3>
 <p>首先取得所有必要的網頁元素，包括項目列表下的每個<code>&lt;li&gt;</code>、作為列表項目內容背景的<code>.dropdownBackground</code>以及導覽列<code>.top</code>。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> triggers = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.cool &gt; li&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> background = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.dropdownBackground&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> nav = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.top&#x27;</span>);</span><br></pre></td></tr></table></figure>
 <p>為項目列表中的每個<code>&lt;li&gt;</code>都分別註冊<code>mouseenter event listener</code>(hover in 觸發)和<code>mouseleave event listener</code>(hover out 觸發)，然後各自以<code>handleEnter()</code>和<code>handleLeave</code>作事件處理。</p>
@@ -287,12 +287,12 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p>那為什麼我們還需要取得導覽列<code>nav</code>的座標呢? 因為在 nav 不是 HTML 文件裡的第一個元素時，如果只單單用<code>.dropdown</code>的<code>left</code>、<code>top</code>進行項目內容背景的位置設定，會發現到背景被稍微往下擠了一點，被往下擠的大小剛好可以用導覽列<code>nav</code>的位置來作修正，分別將指定的<code>left</code>、<code>top</code>減去<code>nav</code>的<code>left</code>、<code>top</code>就好。</p>
 <p>我們將大小、位置等等資訊整合在物件<code>coords</code>裡，之後再個別利用<code>coords</code>裡的指定值去修改項目內容背景的 CSS 屬性就完成了。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleEnter</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="comment">// 上略...</span></span><br><span class="line">    <span class="comment">// set position of the background</span></span><br><span class="line">    <span class="keyword">const</span> dropDown = <span class="built_in">this</span>.querySelector(<span class="string">&#x27;.dropdown&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> dropDownCoords = dropDown.getBoundingClientRect();</span><br><span class="line">    <span class="keyword">const</span> navCoords = nav.getBoundingClientRect();</span><br><span class="line">    <span class="built_in">console</span>.log(dropDownCoords);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> coords = &#123;</span><br><span class="line">      <span class="attr">height</span>: dropDownCoords.height,</span><br><span class="line">      <span class="attr">width</span>: dropDownCoords.width,</span><br><span class="line">      <span class="attr">top</span>: dropDownCoords.top - navCoords.top,</span><br><span class="line">      <span class="attr">left</span>: dropDownCoords.left - navCoords.left</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    background.style.setProperty(<span class="string">&#x27;width&#x27;</span>,<span class="string">`<span class="subst">$&#123;coords.width&#125;</span>px`</span>);</span><br><span class="line">    background.style.setProperty(<span class="string">&#x27;height&#x27;</span>,<span class="string">`<span class="subst">$&#123;coords.height&#125;</span>px`</span>);</span><br><span class="line">    background.style.setProperty(<span class="string">&#x27;transform&#x27;</span>,<span class="string">`translate(<span class="subst">$&#123;coords.left&#125;</span>px,<span class="subst">$&#123;coords.top&#125;</span>px)`</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="補充資料-18"><strong>補充資料</strong> :</h4>
+<h4 id="補充資料-21"><strong>補充資料</strong> :</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/mouseenter_event">mouseenter</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/mouseleave_event">mouseleave</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect">Element.getBoundingClientRect()</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/CSSStyleDeclaration/setProperty">CSSStyleDeclaration.setProperty()</a></p>
-<h2 id="範例網頁請點此-9"><a href="https://qi-xiang.github.io/iThelp2021_JS30/26%20-%20Stripe%20Follow%20Along%20Nav/index-START.html">範例網頁請點此</a></h2>
+<h2 id="範例網頁請點此-12"><a href="https://qi-xiang.github.io/iThelp2021_JS30/26%20-%20Stripe%20Follow%20Along%20Nav/index-START.html">範例網頁請點此</a></h2>
 <h2 id="完整程式碼"><a target="_blank" rel="noopener" href="https://github.com/QI-XIANG/JavaScript30/blob/master/26%20-%20Stripe%20Follow%20Along%20Nav/index-FINISHED.html">完整程式碼</a></h2>
 
         </div>
@@ -301,7 +301,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/26/ironman2021D26/" data-id="cl0qiwrr2003trotx7nukaa9k" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/26/ironman2021D26/" data-id="cl2pl6jge004z88txc0wpa76n" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {

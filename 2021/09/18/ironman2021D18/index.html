@@ -78,7 +78,7 @@
     
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+</head>
 
 <body>
     <div id="wrap">
@@ -232,21 +232,21 @@
 
             
 
-            <h2 id="前言-9">前言</h2>
+            <h2 id="前言-12">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-9">本日目標</h2>
+<h2 id="本日目標-12">本日目標</h2>
 <p>今天也是複習回，主要是拿來重新複習下 Array 的<code>map()</code>和<code>reduce()</code>的用法。我們的最終目標是算出影片的長度總和並以時、分、秒呈現在 console裡。</p>
 <p><img src="https://i.imgur.com/ZXuWirV.jpg" alt=""></p>
 <hr>
-<h2 id="解析程式碼-9">解析程式碼</h2>
-<h3 id="HTML-部分-7">HTML 部分</h3>
+<h2 id="解析程式碼-12">解析程式碼</h2>
+<h3 id="HTML-部分-10">HTML 部分</h3>
 <p>以下是我們要用來計算影片總時數的清單，其中<code>data-time</code>屬性值標示出影片的長度。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;videos&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-time</span>=<span class="string">&quot;5:43&quot;</span>&gt;</span></span><br><span class="line">      Video 1</span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-time</span>=<span class="string">&quot;2:33&quot;</span>&gt;</span></span><br><span class="line">      Video 2</span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-time</span>=<span class="string">&quot;3:45&quot;</span>&gt;</span></span><br><span class="line">      Video 3</span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-time</span>=<span class="string">&quot;0:47&quot;</span>&gt;</span></span><br><span class="line">      Video 4</span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-time</span>=<span class="string">&quot;5:21&quot;</span>&gt;</span></span><br><span class="line">      Video 5</span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--以下省略--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://i.imgur.com/g6uJeTB.png" alt=""></p>
-<h3 id="JS-部分-9">JS 部分</h3>
+<h3 id="JS-部分-12">JS 部分</h3>
 <p>一開始，我們宣告常數<code>timeNodes</code>用來放我們取得的所有清單項目(<code>&lt;li&gt;~&lt;/li&gt;</code>)，因為之後會用到 Array 的<code>reduce()</code>、<code>map()</code>，這裡就順便把<code>NodeList</code>用<code>Array.from()</code>轉換成 Array。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> timeNodes = <span class="built_in">Array</span>.from(<span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;[data-time]&#x27;</span>));</span><br></pre></td></tr></table></figure>
 <p>宣告常數<code>seconds</code>存入所有影片的秒數總和。</p>
@@ -271,7 +271,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p>接下來，把得到的總秒數換成時、分、秒的形式就完成本日的目標囉!</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> secondsLeft = seconds;</span><br><span class="line"><span class="comment">//Math.floor() 回傳小於等於所給數字的最大整數</span></span><br><span class="line"><span class="keyword">const</span> hours = <span class="built_in">Math</span>.floor(secondsLeft / <span class="number">3600</span>);</span><br><span class="line">secondsLeft = secondsLeft % <span class="number">3600</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> mins = <span class="built_in">Math</span>.floor(secondsLeft / <span class="number">60</span>);</span><br><span class="line">secondsLeft = secondsLeft % <span class="number">60</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(hours, mins, secondsLeft);</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.imgur.com/9q9rvFE.png" alt=""></p>
-<h4 id="補充資料-10">補充資料:</h4>
+<h4 id="補充資料-12">補充資料:</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/from">Array.from()</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat">parseFloat()</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/map">Array.prototype.map()</a><br>
@@ -284,7 +284,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/18/ironman2021D18/" data-id="cl0qiwrqq0031rotx9kbodg3i" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/18/ironman2021D18/" data-id="cl2pl6jg3004588tx4rbm1r0m" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {

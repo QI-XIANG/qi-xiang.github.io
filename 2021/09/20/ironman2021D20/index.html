@@ -78,7 +78,7 @@
     
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+</head>
 
 <body>
     <div id="wrap">
@@ -232,12 +232,12 @@
 
             
 
-            <h2 id="前言-12">前言</h2>
+            <h2 id="前言-11">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-12">本日目標</h2>
+<h2 id="本日目標-11">本日目標</h2>
 <p>利用 Web Speech API 取得使用者的麥克風存取權限進行語音辨識，然後把識別出的內容寫到網頁上。</p>
 <p><img src="https://i.imgur.com/QrXvfTk.jpg" alt=""></p>
 <hr>
@@ -256,11 +256,11 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 </ul>
 <p>這樣有比用 NPM 來得輕鬆很多吧~~~</p>
 <hr>
-<h2 id="解析程式碼-12">解析程式碼</h2>
-<h3 id="HTML-部分-10">HTML 部分</h3>
+<h2 id="解析程式碼-11">解析程式碼</h2>
+<h3 id="HTML-部分-9">HTML 部分</h3>
 <p>div(<code>.words</code>) 用來放經過語音辨識後所產生的文字段落(<code>&lt;p&gt;~&lt;/p&gt;</code>)。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;words&quot;</span> <span class="attr">contenteditable</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="JS-部分-12">JS 部分</h3>
+<h3 id="JS-部分-11">JS 部分</h3>
 <p><code>SpeechRecognition</code>本身是一個在 browser 之下的 <code>global variable</code>，但是因為瀏覽器支援性的問題，我們在 Chrome 必須使用帶有前綴字的<code>webkitSpeechRecognition</code>。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.SpeechRecognition = <span class="built_in">window</span>.SpeechRecognition || <span class="built_in">window</span>.webkitSpeechRecognition;</span><br></pre></td></tr></table></figure>
 <p>首先建立一個<code>SpeechRecognition</code>物件<code>recognition</code>來幫我們做語音辨識。</p>
@@ -293,7 +293,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p>最後，我們還可以加點有趣的東西，當語音辨識到特定內容，就在 console 上印出提示。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">recognition.addEventListener(<span class="string">&#x27;result&#x27;</span>,<span class="function"><span class="params">e</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">//上略...//</span></span><br><span class="line">    <span class="keyword">if</span>(transcript.includes(<span class="string">&#x27;rainning day&#x27;</span>))&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;It is a bad weather.&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(transcript);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.imgur.com/H1DT0ZZ.png" alt=""></p>
-<h4 id="補充資料-12">補充資料:</h4>
+<h4 id="補充資料-11">補充資料:</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API">使用 Web Speech API</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition">SpeechRecognition</a></p>
 <h2 id="範例網頁請點此-6"><a href="https://qi-xiang.github.io/iThelp2021_JS30/20%20-%20Speech%20Detection/index-START.html">範例網頁請點此</a></h2>
@@ -304,7 +304,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/20/ironman2021D20/" data-id="cl0qiwrqu003brotx2epq9igt" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/20/ironman2021D20/" data-id="cl2pl6jg2004288txbrmm6uub" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {

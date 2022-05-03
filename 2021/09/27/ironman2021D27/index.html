@@ -78,7 +78,7 @@
     
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+</head>
 
 <body>
     <div id="wrap">
@@ -232,20 +232,20 @@
 
             
 
-            <h2 id="前言-21">前言</h2>
+            <h2 id="前言-17">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-21">本日目標</h2>
+<h2 id="本日目標-17">本日目標</h2>
 <p>實作出能夠按住滑鼠左右拖曳的水平捲軸。</p>
 <p><img src="https://i.imgur.com/YCTGP9z.jpg" alt=""></p>
 <hr>
-<h2 id="解析程式碼-21">解析程式碼</h2>
-<h3 id="HTML-部分-19">HTML 部分</h3>
+<h2 id="解析程式碼-17">解析程式碼</h2>
+<h3 id="HTML-部分-15">HTML 部分</h3>
 <p>捲軸(<code>div.items</code>)由內部的25個<code>div.item</code>共同組成。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;items&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item1&quot;</span>&gt;</span>01<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item2&quot;</span>&gt;</span>02<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item3&quot;</span>&gt;</span>03<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--中間省略...--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item23&quot;</span>&gt;</span>23<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item24&quot;</span>&gt;</span>24<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item25&quot;</span>&gt;</span>25<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="JS-部分-21">JS 部分</h3>
+<h3 id="JS-部分-17">JS 部分</h3>
 <p>宣告常數<code>slider</code>取得捲軸(<code>div.items</code>)元素。</p>
 <p>宣告變數<code>isDown</code>作為判斷滑鼠是否有被按住的 flag，給定預設值是 false。</p>
 <p>宣告變數<code>startX</code>用來放入之後取得的移動起始點座標。</p>
@@ -268,13 +268,13 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p>最後，為了讓移動時更加順暢，把先前取得的 scrollLeft 減去 walk，指定捲軸移動的位置和距離大小，這裡一定要用減的，因為移動方向和算出來的值剛好差負號。</p>
 <p>舉例來說按住滑鼠向左拉，此時的捲軸應該要往右(+)移動，但算出的 walk 會是負的，所以要再加上<code>-</code>號修正。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">slider.addEventListener(<span class="string">&#x27;mousemove&#x27;</span>, <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//省略...</span></span><br><span class="line">    <span class="keyword">const</span> x = e.pageX - slider.offsetLeft;</span><br><span class="line">    <span class="keyword">const</span> walk = (x - startX)*<span class="number">3</span>;</span><br><span class="line">    slider.scrollLeft = scrollLeft - walk;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="補充資料-21"><strong>補充資料</strong> :</h4>
+<h4 id="補充資料-17"><strong>補充資料</strong> :</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollLeft">Element.scrollLeft</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetLeft">HTMLElement.offsetLeft</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/MouseEvent/pageX">MouseEvent.pageX</a><br>
 <a target="_blank" rel="noopener" href="https://kknews.cc/zh-tw/news/r3pzzr.html">JS一秒區分clientX,offsetX,screenX,pageX之間關係</a></p>
-<h2 id="範例網頁請點此-11"><a href="https://qi-xiang.github.io/iThelp2021_JS30/27%20-%20Click%20and%20Drag/index-START.html">範例網頁請點此</a></h2>
-<h2 id="完整程式碼請點此-2"><a target="_blank" rel="noopener" href="https://github.com/QI-XIANG/iThelp2021_JS30/blob/master/27%20-%20Click%20and%20Drag/index-FINISHED.html">完整程式碼請點此</a></h2>
+<h2 id="範例網頁請點此-9"><a href="https://qi-xiang.github.io/iThelp2021_JS30/27%20-%20Click%20and%20Drag/index-START.html">範例網頁請點此</a></h2>
+<h2 id="完整程式碼請點此"><a target="_blank" rel="noopener" href="https://github.com/QI-XIANG/iThelp2021_JS30/blob/master/27%20-%20Click%20and%20Drag/index-FINISHED.html">完整程式碼請點此</a></h2>
 
         </div>
         <footer class="article-footer">
@@ -282,7 +282,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/27/ironman2021D27/" data-id="cl0qiwrr60041rotxddb0cis1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/27/ironman2021D27/" data-id="cl2pl6jg8004k88tx74kvgayb" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {

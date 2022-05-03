@@ -78,7 +78,7 @@
     
 
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+</head>
 
 <body>
     <div id="wrap">
@@ -232,24 +232,24 @@
 
             
 
-            <h2 id="前言-17">前言</h2>
+            <h2 id="前言-18">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-17">本日目標</h2>
+<h2 id="本日目標-18">本日目標</h2>
 <p>瞭解<code>addEventListener</code>中事件的捕捉、傳遞(<code>Event Bubbling/Capturing</code>)以及一次性的事件監聽(<code>Once</code>)。</p>
 <p><img src="https://i.imgur.com/tFf5qcq.jpg" alt=""></p>
 <hr>
-<h2 id="解析程式碼-17">解析程式碼</h2>
-<h3 id="HTML-部分-15">HTML 部分</h3>
+<h2 id="解析程式碼-18">解析程式碼</h2>
+<h3 id="HTML-部分-16">HTML 部分</h3>
 <p>建立三層的<code>div</code>做為測試<code>event listener</code>的物件。</p>
 <p>div(<code>.one</code>) : 淡紫色<br>
 div(<code>.two</code>) : 淡粉色<br>
 div(<code>.three</code>) : 橘色</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;one&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;two&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;three&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://i.imgur.com/asuvjfy.png" alt=""></p>
-<h3 id="JS-部分-17">JS 部分</h3>
+<h3 id="JS-部分-18">JS 部分</h3>
 <ul>
 <li><strong>Event Bubbling</strong></li>
 </ul>
@@ -293,7 +293,7 @@ div(<code>.three</code>) : 橘色</p>
 <p>此時點擊<code>button</code>，視窗會顯示提示訊息，但若在未 reload 頁面的情況下二次點擊<code>button</code>，會發現視窗不再顯示提示訊息，也就是<code>button</code>失效了。</p>
 <p><img src="https://i.imgur.com/NHqCr2V.png" alt=""></p>
 <p>這個效果可以放在提交表單的按鈕上，用來防止使用者重複提交表單。</p>
-<h4 id="補充資料-17">補充資料 :</h4>
+<h4 id="補充資料-18">補充資料 :</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">EventTarget.addEventListener()</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation">Event.stopPropagation()</a><br>
 <a target="_blank" rel="noopener" href="https://shubo.io/event-bubbling-event-capturing-event-delegation/">[教學] 瀏覽器事件：Event Bubbling, Event Capturing 及 Event Delegation</a></p>
@@ -305,7 +305,7 @@ div(<code>.three</code>) : 橘色</p>
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/25/ironman2021D25/" data-id="cl0qiwrr1003protx8wyldq6t" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/25/ironman2021D25/" data-id="cl2pl6jg9004n88txdk6u4gan" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
