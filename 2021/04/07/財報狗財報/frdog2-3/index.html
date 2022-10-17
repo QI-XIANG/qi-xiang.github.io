@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>財報狗教你挖好股 [2.安全性分析-自由現金流] | Xiang&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="財報狗挖好股精華" />
+    
+    <meta name="description" content="是賺錢還是燒錢?自由現金流告訴你  一家公司獲利很高，且賺回來的現金充沛，是否就可以構成買進的理由呢? 還不夠! 得看看這家公司留下多少錢給股東  首選能存現金的公司，避開高資本支出&quot;慘&quot;業   公司賺的現金多，但如果燒錢(資本支出高)更兇，那最終留給股東的現金終究是少得可憐。如果長期入不敷出、吃光老本，將促使企業長期向外舉債，讓企業財務風險上升，或是股本膨脹稀釋獲利，對於投資">
+<meta property="og:type" content="article">
+<meta property="og:title" content="財報狗教你挖好股 [2.安全性分析-自由現金流]">
+<meta property="og:url" content="https://qi-xiang.github.io/2021/04/07/%E8%B2%A1%E5%A0%B1%E7%8B%97%E8%B2%A1%E5%A0%B1/frdog2-3/index.html">
+<meta property="og:site_name" content="Xiang&#39;s Blog">
+<meta property="og:description" content="是賺錢還是燒錢?自由現金流告訴你  一家公司獲利很高，且賺回來的現金充沛，是否就可以構成買進的理由呢? 還不夠! 得看看這家公司留下多少錢給股東  首選能存現金的公司，避開高資本支出&quot;慘&quot;業   公司賺的現金多，但如果燒錢(資本支出高)更兇，那最終留給股東的現金終究是少得可憐。如果長期入不敷出、吃光老本，將促使企業長期向外舉債，讓企業財務風險上升，或是股本膨脹稀釋獲利，對於投資">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/dpjYwDy.jpg">
+<meta property="article:published_time" content="2021-04-07T12:18:11.000Z">
+<meta property="article:modified_time" content="2022-03-13T17:25:05.534Z">
+<meta property="article:author" content="Qi Xiang,Zhang">
+<meta property="article:tag" content="財報狗挖好股精華">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/dpjYwDy.jpg">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
+
+    
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Titillium+Web:wght@200&display=swap.css">
+
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">首頁</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://qi-xiang.github.io/Personal_Page/">關於</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="輸入關鍵字..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '頁面',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-財報狗財報/frdog2-3" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        財報狗教你挖好股 [2.安全性分析-自由現金流]
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/04/07/%E8%B2%A1%E5%A0%B1%E7%8B%97%E8%B2%A1%E5%A0%B1/frdog2-3/" class="article-date">
+       <time datetime="2021-04-07T12:18:11.000Z" itemprop="datePublished">2021-04-07</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/04/07/%E8%B2%A1%E5%A0%B1%E7%8B%97%E8%B2%A1%E5%A0%B1/frdog2-3/" class="article-date">
+     <time datetime="2022-03-13T17:25:05.534Z" itemprop="dateModified">2022-03-14</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" rel="tag">財報狗挖好股精華</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h2 id="是賺錢還是燒錢-自由現金流告訴你">是賺錢還是燒錢?自由現金流告訴你</h2>
+<blockquote>
+<p>一家公司獲利很高，且賺回來的現金充沛，是否就可以構成買進的理由呢? 還不夠! 得看看這家公司留下多少錢給股東</p>
+</blockquote>
+<h3 id="首選能存現金的公司，避開高資本支出-慘-業">首選能存現金的公司，避開高資本支出&quot;慘&quot;業</h3>
+<ul>
+<li>
+<p>公司賺的現金多，但如果燒錢(資本支出高)更兇，那最終留給股東的現金終究是少得可憐。如果長期入不敷出、吃光老本，將促使企業長期向外舉債，讓企業財務風險上升，或是股本膨脹稀釋獲利，對於投資人來說不是好事。</p>
+</li>
+<li>
+<p>面版、DRAM、LED、太陽能，為何被稱為四大&quot;慘&quot;業? 因為他們都是相當燒錢的產業，這些產業的擴廠、擴增產線等相關資本支出極高，往往在資金尚未回收時，就被迫投資下一代技術。如此年復一年，資金缺口越來越大，體質越來越差，公司就有倒閉可能。</p>
+</li>
+<li>
+<p>容易留下現金的公司，在遇到需求暴增的大好機會，就能利用自有資金大舉擴廠，不須對外大幅舉債增資，使得體質保守穩健；在沒有更好的投資機會時，也能有多餘現金配出高現金股利給股東。</p>
+</li>
+</ul>
+<blockquote>
+<p>燒錢不兇、能存下現金的公司，通常會是投資首選。</p>
+</blockquote>
+<h3 id="3條件檢視自由現金流，判斷燒錢兇不兇">3條件檢視自由現金流，判斷燒錢兇不兇</h3>
+<blockquote>
+<p>自由現金流(紀錄在現金流量表上) = 營業現金流入(公司本身營運帶回的現金) - 投資現金流出(擴廠、購併等…)。這些剩餘現金可以用來還債、再投資、或轉成股利發還股東等…，全憑公司&quot;自由&quot;運用。</p>
+</blockquote>
+<ul>
+<li>觀察自由現金流的方法、條件
+<ul>
+<li>1.避開短期季節性資金應用差異，應以&quot;年度數據&quot;作為主要觀察。</li>
+<li>2.近8年自由現金流量，其中至少4~5年以上為正值</li>
+<li>3.近8年現金流量，總和為正值</li>
+</ul>
+</li>
+</ul>
+<h3 id="DRAM獲利趕不上擴廠，自由現金長期不足">DRAM獲利趕不上擴廠，自由現金長期不足</h3>
+<ul>
+<li>
+<p>以DRAM大廠南亞科為例，觀察2005年到2012年的自由現金流量，可以發現:</p>
+<ul>
+<li>8年自由現金流量中，其中6年為負值。</li>
+<li>8年自由現金流量，總和約-1,307億元，為負值。</li>
+</ul>
+</li>
+<li>
+<p>DRAM產業的高資本支出特性，使得南亞科資金需求極大，但其在全球供應市佔率低，造成獲利不足以支應不斷的擴廠需求。由於自由現金流長期不足，南亞科只能向外舉債增資。</p>
+</li>
+</ul>
+<blockquote>
+<p>現金就像企業的&quot;血液&quot;，自由現金流長期流出公司，就像血液不斷流失般，只能靠&quot;輸血維生&quot;，這種企業體質相當地不健康。</p>
+</blockquote>
+<h3 id="台股獲利王發了股利少了現金，也是燒錢公司">台股獲利王發了股利少了現金，也是燒錢公司</h3>
+<ul>
+<li>
+<p>以面版大廠宸鴻光電TPK-KY為例，公司在2008年上市，觀察2008年到2012年這5年的自由現金流量狀況，可以發現:</p>
+<ul>
+<li>5年自由現金流量，其中3年為負值。</li>
+<li>5年自由現金流量，總和約為-197億元，為負值。</li>
+</ul>
+</li>
+<li>
+<p>自由現金流的流出持續擴大，代表公司賺來的錢根本不夠燒。但宸鴻光電在2011年仍然配出每股20元的高現金股利(總計51億元現金股利)，公司在2011年靠自身營運，只賺回179億7,800萬元營業現金流入，扣除資本支出後，自由現金流出為負值。</p>
+</li>
+<li>
+<p>到底宸鴻光電發放的現金從何而來? 觀察公司借貸狀況，發現2012年短期借款多了近59億元，長期借款新增近11億元。(借錢發高額現金股利)</p>
+</li>
+<li>
+<p>在公司急需現金的狀況下，若不配發高現金股利，宸鴻光電的借款或許可以降低，使財務結構更穩健，但公司賺這麼多錢，若不發放現金股利，股東可能會抱怨，最終公司選擇發放現金股利。</p>
+</li>
+</ul>
+<blockquote>
+<p>看完宸鴻光電的例子，可以了解到&quot;不只獲利有虛實之分，連現金股利也有虛實差異&quot;，倘若投資人重視公司發放現金股利的能力，就應該重視自由現金流量，因為充沛的現金流入，才是高現金股利的源頭。</p>
+</blockquote>
+<h3 id="資本支出有成效，就能帶回正向現金流">資本支出有成效，就能帶回正向現金流</h3>
+<ul>
+<li>
+<p>以亞洲最大烘焙設備製造商新麥為例，觀察公司2004年到2011年的自由現金流量狀況，可以發現:</p>
+<ul>
+<li>8年自由現金流量，僅3年為負值。</li>
+<li>8年自由現金流量，總和5億4,300萬元，為正值。</li>
+</ul>
+</li>
+<li>
+<p>從新麥的例子可以得知，公司有資本支出是必然的，只要在未來的3~4年皆能帶回更多現金，就是成功的投資。</p>
+</li>
+</ul>
+<blockquote>
+<p>在觀察現金流量時，宜注意長期表現，而非注重短期(1~3年)就下定論!</p>
+</blockquote>
+<h4 id="Written-By-Qi-Xiang-2021-04-07">Written By Qi-Xiang 2021/04/07</h4>
+<p><img src="https://i.imgur.com/dpjYwDy.jpg" alt=""></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://qi-xiang.github.io/2021/04/07/%E8%B2%A1%E5%A0%B1%E7%8B%97%E8%B2%A1%E5%A0%B1/frdog2-3/" data-id="cl9cn03zw007t60txc8xd4a3g" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Qi Xiang,Zhang"
+        },
+        "headline": "財報狗教你挖好股 [2.安全性分析-自由現金流]",
+        "image": "https://qi-xiang.github.iohttps://i.imgur.com/dpjYwDy.jpg",
+        "keywords": "財報狗挖好股精華",
+        "genre": "生活類文章",
+        "datePublished": "2021-04-07",
+        "dateCreated": "2021-04-07",
+        "dateModified": "2022-03-14",
+        "url": "https://qi-xiang.github.io/2021/04/07/財報狗財報/frdog2-3/",
+        "description": "是賺錢還是燒錢?自由現金流告訴你
+
+一家公司獲利很高，且賺回來的現金充沛，是否就可以構成買進的理由呢? 還不夠! 得看看這家公司留下多少錢給股東
+
+首選能存現金的公司，避開高資本支出&quot;慘&quot;業
+
+
+公司賺的現金多，但如果燒錢(資本支出高)更兇，那最終留給股東的現金終究是少得可憐。如果長期入不敷出、吃光老本，將促使企業長期向外舉債，讓企業財務風險上升，或是股本膨脹稀釋獲利，對於投資",
+        "wordCount": 21
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>追蹤 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/profile.php?id=100004441091584" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/qi-xiang-zhang-499625210/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://stackoverflow.com/users/17213183/xiang?tab=profile" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/QI-XIANG" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2021/04/11/CH3/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            BDC CH3: Physical Layer
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2021/04/06/%E8%B2%A1%E5%A0%B1%E7%8B%97%E8%B2%A1%E5%A0%B1/frdog2-2/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">財報狗教你挖好股 [2.安全性分析-營業現金流]</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/09/20/ironman2022D5/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/3Up9tZI.png)" alt="【Day 05】 建立 Django App" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/09/20/ironman2022D5/" class="title">【Day 05】 建立 Django App</a></p>
+                            <p class="item-date"><time datetime="2022-09-19T16:20:35.000Z" itemprop="datePublished">2022-09-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/09/19/ironman2022D4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/3Up9tZI.png)" alt="【Day 04】 建立 Django Project" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/09/19/ironman2022D4/" class="title">【Day 04】 建立 Django Project</a></p>
+                            <p class="item-date"><time datetime="2022-09-18T16:20:35.000Z" itemprop="datePublished">2022-09-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/09/18/ironman2022D3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/CuWg4pS.png)" alt="【Day 03】 Django 環境設定" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/09/18/ironman2022D3/" class="title">【Day 03】 Django 環境設定</a></p>
+                            <p class="item-date"><time datetime="2022-09-17T16:20:35.000Z" itemprop="datePublished">2022-09-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/09/17/ironman2022D2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/SeLdeVv.png)" alt="【Day 02】 Django 簡介" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/09/17/ironman2022D2/" class="title">【Day 02】 Django 簡介</a></p>
+                            <p class="item-date"><time datetime="2022-09-16T16:20:35.000Z" itemprop="datePublished">2022-09-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/09/16/ironman2022D1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/SeLdeVv.png)" alt="【Day 01】 Django 初學之旅-啟程LA" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/09/16/ironman2022D1/" class="title">【Day 01】 Django 初學之旅-啟程LA</a></p>
+                            <p class="item-date"><time datetime="2022-09-15T16:20:35.000Z" itemprop="datePublished">2022-09-16</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">52</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">17</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/BDC/" style="font-size: 14.44px;">BDC</a> <a href="/tags/CSS-Flex-Box/" style="font-size: 16.67px;">CSS Flex Box</a> <a href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/" style="font-size: 13.33px;">Django 初心者之旅</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.22px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.56px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.11px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.22px;">原子習慣</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 15.56px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.11px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 17.78px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.78px;">財報狗挖好股精華</a> <a href="/tags/%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 11.11px;">資料探勘</a> <a href="/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/" style="font-size: 10px;">資料視覺化</a> <a href="/tags/%E8%B3%87%E7%AE%A1%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/" style="font-size: 10px;">資管畢業專題</a> <a href="/tags/%E8%B3%87%E8%A8%8A%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AD%98/" style="font-size: 10px;">資訊科普知識</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.89px;">金魚也能學會寫網頁</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/QI-XIANG">My Github</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 Qi Xiang,Zhang</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://qi-xiang.github.io/2021/04/07/%E8%B2%A1%E5%A0%B1%E7%8B%97%E8%B2%A1%E5%A0%B1/frdog2-3/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

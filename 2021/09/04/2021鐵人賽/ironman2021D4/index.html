@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>JS30 全攻略 第4天 | Xiang&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="JS30" />
+    
+    <meta name="description" content="前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS30 全攻略 第4天">
+<meta property="og:url" content="https://qi-xiang.github.io/2021/09/04/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D4/index.html">
+<meta property="og:site_name" content="Xiang&#39;s Blog">
+<meta property="og:description" content="前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/JGFzUzp.jpg">
+<meta property="article:published_time" content="2021-09-04T06:23:16.000Z">
+<meta property="article:modified_time" content="2022-03-13T17:22:32.670Z">
+<meta property="article:author" content="Qi Xiang,Zhang">
+<meta property="article:tag" content="JS30">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/JGFzUzp.jpg">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
+
+    
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Titillium+Web:wght@200&display=swap.css">
+
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">首頁</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://qi-xiang.github.io/Personal_Page/">關於</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="輸入關鍵字..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '頁面',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-2021鐵人賽/ironman2021D4" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        JS30 全攻略 第4天
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/09/04/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D4/" class="article-date">
+       <time datetime="2021-09-04T06:23:16.000Z" itemprop="datePublished">2021-09-04</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/09/04/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D4/" class="article-date">
+     <time datetime="2022-03-13T17:22:32.670Z" itemprop="dateModified">2022-03-14</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/JS30/" rel="tag">JS30</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h2 id="前言-24">前言</h2>
+<p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
+style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
+<p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
+<hr>
+<h2 id="本日目標-24">本日目標</h2>
+<p>練習一些 Array 常用的方法，包括 filter()、sort()、map()、reduce()。</p>
+<p><img src="https://i.imgur.com/JGFzUzp.jpg" alt=""></p>
+<h2 id="解析程式碼-24">解析程式碼</h2>
+<h3 id="JS-部分-23">JS 部分</h3>
+<p>前七個練習題要使用的資料如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*JS*/</span></span><br><span class="line"><span class="comment">// Get your shorts on - this is an array workout!</span></span><br><span class="line"><span class="comment">// ## Array Cardio Day 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Some data we can work with</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> inventors = [</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Albert&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Einstein&#x27;</span>, <span class="attr">year</span>: <span class="number">1879</span>, <span class="attr">passed</span>: <span class="number">1955</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Isaac&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Newton&#x27;</span>, <span class="attr">year</span>: <span class="number">1643</span>, <span class="attr">passed</span>: <span class="number">1727</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Galileo&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Galilei&#x27;</span>, <span class="attr">year</span>: <span class="number">1564</span>, <span class="attr">passed</span>: <span class="number">1642</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Marie&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Curie&#x27;</span>, <span class="attr">year</span>: <span class="number">1867</span>, <span class="attr">passed</span>: <span class="number">1934</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Johannes&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Kepler&#x27;</span>, <span class="attr">year</span>: <span class="number">1571</span>, <span class="attr">passed</span>: <span class="number">1630</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Nicolaus&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Copernicus&#x27;</span>, <span class="attr">year</span>: <span class="number">1473</span>, <span class="attr">passed</span>: <span class="number">1543</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Max&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Planck&#x27;</span>, <span class="attr">year</span>: <span class="number">1858</span>, <span class="attr">passed</span>: <span class="number">1947</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Katherine&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Blodgett&#x27;</span>, <span class="attr">year</span>: <span class="number">1898</span>, <span class="attr">passed</span>: <span class="number">1979</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Ada&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Lovelace&#x27;</span>, <span class="attr">year</span>: <span class="number">1815</span>, <span class="attr">passed</span>: <span class="number">1852</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Sarah E.&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Goode&#x27;</span>, <span class="attr">year</span>: <span class="number">1855</span>, <span class="attr">passed</span>: <span class="number">1905</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Lise&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Meitner&#x27;</span>, <span class="attr">year</span>: <span class="number">1878</span>, <span class="attr">passed</span>: <span class="number">1968</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">first</span>: <span class="string">&#x27;Hanna&#x27;</span>, <span class="attr">last</span>: <span class="string">&#x27;Hammarström&#x27;</span>, <span class="attr">year</span>: <span class="number">1829</span>, <span class="attr">passed</span>: <span class="number">1909</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> people = [</span><br><span class="line">    <span class="string">&#x27;Bernhard, Sandra&#x27;</span>, <span class="string">&#x27;Bethea, Erin&#x27;</span>, <span class="string">&#x27;Becker, Carl&#x27;</span>, <span class="string">&#x27;Bentsen, Lloyd&#x27;</span>, <span class="string">&#x27;Beckett, Samuel&#x27;</span>, <span class="string">&#x27;Blake, William&#x27;</span>, <span class="string">&#x27;Berger, Ric&#x27;</span>, <span class="string">&#x27;Beddoes, Mick&#x27;</span>, <span class="string">&#x27;Beethoven, Ludwig&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Belloc, Hilaire&#x27;</span>, <span class="string">&#x27;Begin, Menachem&#x27;</span>, <span class="string">&#x27;Bellow, Saul&#x27;</span>, <span class="string">&#x27;Benchley, Robert&#x27;</span>, <span class="string">&#x27;Blair, Robert&#x27;</span>, <span class="string">&#x27;Benenson, Peter&#x27;</span>, <span class="string">&#x27;Benjamin, Walter&#x27;</span>, <span class="string">&#x27;Berlin, Irving&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Benn, Tony&#x27;</span>, <span class="string">&#x27;Benson, Leana&#x27;</span>, <span class="string">&#x27;Bent, Silas&#x27;</span>, <span class="string">&#x27;Berle, Milton&#x27;</span>, <span class="string">&#x27;Berry, Halle&#x27;</span>, <span class="string">&#x27;Biko, Steve&#x27;</span>, <span class="string">&#x27;Beck, Glenn&#x27;</span>, <span class="string">&#x27;Bergman, Ingmar&#x27;</span>, <span class="string">&#x27;Black, Elk&#x27;</span>, <span class="string">&#x27;Berio, Luciano&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Berne, Eric&#x27;</span>, <span class="string">&#x27;Berra, Yogi&#x27;</span>, <span class="string">&#x27;Berry, Wendell&#x27;</span>, <span class="string">&#x27;Bevan, Aneurin&#x27;</span>, <span class="string">&#x27;Ben-Gurion, David&#x27;</span>, <span class="string">&#x27;Bevel, Ken&#x27;</span>, <span class="string">&#x27;Biden, Joseph&#x27;</span>, <span class="string">&#x27;Bennington, Chester&#x27;</span>, <span class="string">&#x27;Bierce, Ambrose&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Billings, Josh&#x27;</span>, <span class="string">&#x27;Birrell, Augustine&#x27;</span>, <span class="string">&#x27;Blair, Tony&#x27;</span>, <span class="string">&#x27;Beecher, Henry&#x27;</span>, <span class="string">&#x27;Biondo, Frank&#x27;</span></span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<h4 id="1-Filter-the-list-of-inventors-for-those-who-were-born-in-the-1500’s">1. Filter the list of inventors for those who were born in the 1500’s</h4>
+<p><strong>Array.prototype.filter()</strong></p>
+<p><code>filter()</code> 方法會透過指定的函式運算，決定保留哪些資料並形成一個新的陣列。</p>
+<p>在 filter 裡 return true 代表要保留該筆資料，除此之外的資料都會被捨棄，我們沒必要再寫 else 去 return false。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">filter() 的詳細內容</a></p>
+<p>以下我們透過 filter() 過濾&quot;出生於16世紀的發明家&quot;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*JS*/</span></span><br><span class="line"><span class="keyword">const</span> fifteen = inventors.filter(<span class="function"><span class="keyword">function</span>(<span class="params">inventor</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(inventor.year &gt;= <span class="number">1500</span> &amp;&amp; inventor.year &lt; <span class="number">1600</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">//keep it in the new array</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)<span class="comment">/*除了有回傳true之外的東西都會被丟掉，不必再用else return false*/</span></span><br></pre></td></tr></table></figure>
+<p>更簡潔的寫法:</p>
+<p>console.table()，可以將 Array 以表格的形式呈現出來。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*JS*/</span></span><br><span class="line"><span class="keyword">const</span> fifteen = inventors.filter(<span class="function"><span class="params">inventor</span> =&gt;</span> (inventor.year &gt;= <span class="number">1500</span> &amp;&amp; inventor.year &lt; <span class="number">1600</span>));</span><br><span class="line"><span class="built_in">console</span>.table(fifteen);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/UCO78qf.png" alt=""></p>
+<hr>
+<h4 id="2-Give-us-an-array-of-the-inventors-first-and-last-names">2. Give us an array of the inventors first and last names</h4>
+<p><strong>Array.prototype.map()</strong></p>
+<p><code>map()</code> 方法會建立一個和原陣列長度相同的陣列，其內容為原陣列的每一個元素經由指定的函式運算後所回傳的結果之集合。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/map">map() 的詳細內容</a></p>
+<p>以下我們使用 map() 方法，將發明家的 first name 和 last name 結合在一起，形成一個新的陣列。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*JS*/</span></span><br><span class="line"><span class="keyword">const</span> fullNames = inventors.map(<span class="function"><span class="params">inventor</span> =&gt;</span> <span class="string">`<span class="subst">$&#123;inventor.first&#125;</span> <span class="subst">$&#123;inventor.last&#125;</span>`</span>); <span class="comment">/*Template literals*/</span></span><br><span class="line"><span class="built_in">console</span>.table(fullNames);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/0GyEdf0.png" alt=""></p>
+<hr>
+<h4 id="3-Sort-the-inventors-by-birthdate-oldest-to-youngest">3. Sort the inventors by birthdate, oldest to youngest</h4>
+<p><strong>Array.prototype.sort()</strong></p>
+<p><code>sort()</code> 方法會對一個陣列中的所有元素進行排序，並回傳此陣列，預設是以字串的 Unicode 編碼進行排序。</p>
+<p>我們也可以指定一個 <span style="color:red;">compareFunction</span> ，用自訂的排序規則為陣列進行排序。</p>
+<p>compareFunction(a, b)，回傳值小於0時，a 會被排在 b 的前面，反之若回傳值大於0時，a 會被排在 b 的後面。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">sort() 的詳細內容</a></p>
+<p>以下我們使用 sort()，將較早出生的發明家排在前面的位置。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ordered = inventors.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a.year &gt; b.year)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>; <span class="comment">/*a 往後排*/</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>; <span class="comment">/*a 往前排*/</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>更簡潔的寫法:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ordered = inventors.sort(<span class="function">(<span class="params">a,b</span>) =&gt;</span> a.year &gt; b.year ? <span class="number">1</span> : -<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.table(ordered);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/9YXz5cr.png" alt=""></p>
+<hr>
+<h4 id="4-How-many-years-did-all-the-inventors-live-all-together">4. How many years did all the inventors live all together?</h4>
+<p><strong>Array.prototype.reduce()</strong></p>
+<p><code>reduce()</code> 方法將一個累加器(accumulator)及陣列中每項元素傳入函式中進行運算，將陣列化為單一的值。</p>
+<p>其中一種用法如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.reduce(<span class="function">(<span class="params">accumulator,currentValue</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> accumulator + currentValue;</span><br><span class="line"> &#125;,initialValue); <span class="comment">/*initialValue 是 accumulator 的初始值*/</span></span><br></pre></td></tr></table></figure>
+<p><a href="">reduce() 的詳細內容</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> totalYears = inventors.reduce(<span class="function">(<span class="params">total,inventor</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> total + (inventor.passed - inventor.year);</span><br><span class="line">&#125;,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(totalYears);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/agDSaFE.png" alt=""></p>
+<hr>
+<h4 id="5-Sort-the-inventors-by-years-lived">5. Sort the inventors by years lived</h4>
+<p>以下，我們將這些發明家依照壽命的長短由大到小進行排序。<br>
+透過 passed - year，我們可以很簡單的算出每一位發明家的壽命。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> oldest = inventors.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> lastGuy = a.passed - a.year;</span><br><span class="line">    <span class="keyword">const</span> nextGuy = b.passed - b.year;</span><br><span class="line">    <span class="keyword">return</span> lastGuy &gt; nextGuy ? -<span class="number">1</span> : <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.table(oldest)</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/PbkuwNe.png" alt=""></p>
+<hr>
+<h4 id="6-Create-a-list-of-Boulevards-in-Paris-that-contain-‘de’-anywhere-in-the-name">6. Create a list of Boulevards in Paris that contain ‘de’ anywhere in the name</h4>
+<p>這題我們需要自行到 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris">https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris</a> 右鍵檢查進入 console 進行解題。</p>
+<p><strong>Node.textContent</strong></p>
+<p><code>Node.textContent</code> 可以取得節點或其後代的文字內容。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/API/Node/textContent">textContent 的詳細內容</a></p>
+<p><strong>Array.prototype.includes()</strong></p>
+<p><code>includes()</code> 方法會判斷陣列是否包含特定的元素，並以此來回傳 <code>true</code> 或 <code>false</code>。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/includes">includes() 的詳細內容</a></p>
+<p><strong>Array.from()</strong></p>
+<p><code>Array.from()</code> 方法會從類陣列（array-like，例如: NodeList）或是可迭代（iterable）物件建立一個新的 <code>Array</code> 實體。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/from">from() 的詳細內容</a></p>
+<p>首先，我們取得包覆所有巴黎大道名稱的最上層 div 標籤(.mw-category)。接著，取得在其之下的所有連結(a)。最後，使用 map() 方法以所有連結的內部文字組成新陣列並透過 filter() 過濾出包含(include)'de’的所有大道名稱。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> category = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.mw-category&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> links = <span class="built_in">Array</span>.from(category.querySelectorAll(<span class="string">&#x27;a&#x27;</span>));<span class="comment">/*NodeList*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> de = links.map(<span class="function"><span class="params">link</span> =&gt;</span> link.textContent).filter(<span class="function"><span class="params">streetName</span> =&gt;</span> streetName.includes(<span class="string">&#x27;de&#x27;</span>));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.table(de);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/rPRFQ3U.png" alt=""></p>
+<hr>
+<h4 id="7-Sort-the-people-alphabetically-by-last-name">7. Sort the people alphabetically by last name</h4>
+<p><strong>String.prototype.split()</strong></p>
+<p><code>split()</code>方法可以使用指定的分隔字元(separator)將一個<code>String</code>分割成串列。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/split">split() 的詳細說明</a></p>
+<p>以下，用<code>, </code>(逗號和空格)作為分隔字元將 first name、last name 切開並放入一個陣列中，接下來就可以依照 aLast、bLast 的 Unicode 進行 last name 的排序(由小到大)。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> alpha = people.sort(<span class="function"><span class="keyword">function</span>(<span class="params">lastOne,firstOne</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> [aLast,aFirst] = lastOne.split(<span class="string">&#x27;, &#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> [bLast,bFirst] = firstOne.split(<span class="string">&#x27;, &#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> aLast &gt; bLast ? <span class="number">1</span> : -<span class="number">1</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>另一種寫法:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> alpha = people.sort(<span class="function">(<span class="params">lastOne,firstOne</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> [aLast,aFirst] = lastOne.split(<span class="string">&#x27;, &#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> [bLast,bFirst] = firstOne.split(<span class="string">&#x27;, &#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> aLast &gt; bLast ? <span class="number">1</span> : -<span class="number">1</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/w2saWoY.png" alt=""></p>
+<hr>
+<h4 id="8-Sum-up-the-instances-of-each-of-these">8. Sum up the instances of each of these</h4>
+<p>資料內容:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> data = [<span class="string">&#x27;car&#x27;</span>, <span class="string">&#x27;car&#x27;</span>, <span class="string">&#x27;truck&#x27;</span>, <span class="string">&#x27;truck&#x27;</span>, <span class="string">&#x27;bike&#x27;</span>, <span class="string">&#x27;walk&#x27;</span>, <span class="string">&#x27;car&#x27;</span>, <span class="string">&#x27;van&#x27;</span>, <span class="string">&#x27;bike&#x27;</span>, <span class="string">&#x27;walk&#x27;</span>, <span class="string">&#x27;car&#x27;</span>, <span class="string">&#x27;van&#x27;</span>, <span class="string">&#x27;car&#x27;</span>, <span class="string">&#x27;truck&#x27;</span> ];</span><br></pre></td></tr></table></figure>
+<p>一開始賦予累加器(obj)的初始值(initial value)為空物件({})，因為最初所有的 item 都不存在於 obj 中，所以透過 if 判斷當 obj[item] 不存在時，就建立 obj[item] 並賦予初始值0。其後就可正常將 item 持續累加至正確的交通工具分類中(obj[item]++)。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> transportation = data.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">obj,item</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!obj[item])&#123;</span><br><span class="line">        obj[item] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    obj[item]++;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;,&#123;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.table(transportation);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/TmFxsSk.png" alt=""></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://qi-xiang.github.io/2021/09/04/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D4/" data-id="cl9cn03zl006u60tx0lqx4e6b" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Qi Xiang,Zhang"
+        },
+        "headline": "JS30 全攻略 第4天",
+        "image": "https://qi-xiang.github.iohttps://i.imgur.com/JGFzUzp.jpg",
+        "keywords": "JS30",
+        "genre": "2021 iThome 鐵人賽",
+        "datePublished": "2021-09-04",
+        "dateCreated": "2021-09-04",
+        "dateModified": "2022-03-14",
+        "url": "https://qi-xiang.github.io/2021/09/04/2021鐵人賽/ironman2021D4/",
+        "description": "前言
+JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。
+另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話",
+        "wordCount": 1305
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>追蹤 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/profile.php?id=100004441091584" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/qi-xiang-zhang-499625210/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://stackoverflow.com/users/17213183/xiang?tab=profile" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/QI-XIANG" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2021/09/05/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D5/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            JS30 全攻略 第5天
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2021/09/03/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D3/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">JS30 全攻略 第3天</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/09/20/ironman2022D5/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/3Up9tZI.png)" alt="【Day 05】 建立 Django App" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/09/20/ironman2022D5/" class="title">【Day 05】 建立 Django App</a></p>
+                            <p class="item-date"><time datetime="2022-09-19T16:20:35.000Z" itemprop="datePublished">2022-09-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/09/19/ironman2022D4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/3Up9tZI.png)" alt="【Day 04】 建立 Django Project" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/09/19/ironman2022D4/" class="title">【Day 04】 建立 Django Project</a></p>
+                            <p class="item-date"><time datetime="2022-09-18T16:20:35.000Z" itemprop="datePublished">2022-09-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/09/18/ironman2022D3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/CuWg4pS.png)" alt="【Day 03】 Django 環境設定" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/09/18/ironman2022D3/" class="title">【Day 03】 Django 環境設定</a></p>
+                            <p class="item-date"><time datetime="2022-09-17T16:20:35.000Z" itemprop="datePublished">2022-09-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/09/17/ironman2022D2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/SeLdeVv.png)" alt="【Day 02】 Django 簡介" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/09/17/ironman2022D2/" class="title">【Day 02】 Django 簡介</a></p>
+                            <p class="item-date"><time datetime="2022-09-16T16:20:35.000Z" itemprop="datePublished">2022-09-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/09/16/ironman2022D1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/SeLdeVv.png)" alt="【Day 01】 Django 初學之旅-啟程LA" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/09/16/ironman2022D1/" class="title">【Day 01】 Django 初學之旅-啟程LA</a></p>
+                            <p class="item-date"><time datetime="2022-09-15T16:20:35.000Z" itemprop="datePublished">2022-09-16</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">52</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">17</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/BDC/" style="font-size: 14.44px;">BDC</a> <a href="/tags/CSS-Flex-Box/" style="font-size: 16.67px;">CSS Flex Box</a> <a href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/" style="font-size: 13.33px;">Django 初心者之旅</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.22px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.56px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.11px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.22px;">原子習慣</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 15.56px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.11px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 17.78px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.78px;">財報狗挖好股精華</a> <a href="/tags/%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 11.11px;">資料探勘</a> <a href="/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/" style="font-size: 10px;">資料視覺化</a> <a href="/tags/%E8%B3%87%E7%AE%A1%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/" style="font-size: 10px;">資管畢業專題</a> <a href="/tags/%E8%B3%87%E8%A8%8A%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AD%98/" style="font-size: 10px;">資訊科普知識</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.89px;">金魚也能學會寫網頁</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/QI-XIANG">My Github</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 Qi Xiang,Zhang</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://qi-xiang.github.io/2021/09/04/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D4/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

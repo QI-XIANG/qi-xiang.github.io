@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>金魚也能學會寫網頁-框架篇 | Xiang&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="金魚也能學會寫網頁" />
+    
+    <meta name="description" content="據說金魚只有七秒的記憶力，那有沒有辦法讓金魚也能快速建置個人網頁呢? 答案是有的!! Bootstrap是一個前端的網頁框架，框架內有各種已寫好的網頁元件，你只要做3件事，複製、貼上、拼拼圖(Component)，就能做出一個基本的前端網頁。👍  💡Hint: 文章內所使用的版本是 Bootstrap v4.6.x  ⏳ Setting Environment  如果你已經有用習慣的網頁編寫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="金魚也能學會寫網頁-框架篇">
+<meta property="og:url" content="https://qi-xiang.github.io/2021/07/27/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81-%E6%A1%86%E6%9E%B6%E7%AF%87/index.html">
+<meta property="og:site_name" content="Xiang&#39;s Blog">
+<meta property="og:description" content="據說金魚只有七秒的記憶力，那有沒有辦法讓金魚也能快速建置個人網頁呢? 答案是有的!! Bootstrap是一個前端的網頁框架，框架內有各種已寫好的網頁元件，你只要做3件事，複製、貼上、拼拼圖(Component)，就能做出一個基本的前端網頁。👍  💡Hint: 文章內所使用的版本是 Bootstrap v4.6.x  ⏳ Setting Environment  如果你已經有用習慣的網頁編寫">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://www.ficode.co.uk/wp-content/uploads/2018/02/bootstrap-4-new-features.jpg">
+<meta property="article:published_time" content="2021-07-27T04:43:00.000Z">
+<meta property="article:modified_time" content="2022-03-13T17:26:32.511Z">
+<meta property="article:author" content="Qi Xiang,Zhang">
+<meta property="article:tag" content="金魚也能學會寫網頁">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.ficode.co.uk/wp-content/uploads/2018/02/bootstrap-4-new-features.jpg">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
+
+    
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Titillium+Web:wght@200&display=swap.css">
+
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">首頁</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://qi-xiang.github.io/Personal_Page/">關於</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="輸入關鍵字..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '頁面',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-金魚也能學會寫網頁/金魚也能學會寫網頁-框架篇" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        金魚也能學會寫網頁-框架篇
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/07/27/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81-%E6%A1%86%E6%9E%B6%E7%AF%87/" class="article-date">
+       <time datetime="2021-07-27T04:43:00.000Z" itemprop="datePublished">2021-07-27</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/07/27/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81-%E6%A1%86%E6%9E%B6%E7%AF%87/" class="article-date">
+     <time datetime="2022-03-13T17:26:32.511Z" itemprop="dateModified">2022-03-14</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" rel="tag">金魚也能學會寫網頁</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <blockquote>
+<p>據說金魚只有七秒的記憶力，那有沒有辦法讓金魚也能快速建置個人網頁呢? 答案是有的!!<br>
+<strong>Bootstrap</strong>是一個前端的網頁框架，框架內有各種已寫好的網頁元件，你只要做3件事，複製、貼上、拼拼圖(Component)，就能做出一個基本的前端網頁。👍</p>
+</blockquote>
+<p><strong>💡Hint:</strong> 文章內所使用的版本是 Bootstrap v4.6.x</p>
+<p><img src="https://www.ficode.co.uk/wp-content/uploads/2018/02/bootstrap-4-new-features.jpg" alt=""></p>
+<h2 id="⏳-Setting-Environment">⏳ Setting Environment</h2>
+<blockquote>
+<p>如果你已經有用習慣的網頁編寫工具，可以選擇略過此部分，下面以VS Code為例</p>
+</blockquote>
+<p><img src="https://live.staticflickr.com/65535/49897062223_68f28bb074_b.jpg" alt=""></p>
+<h3 id="💡-Step-1-下載並安裝-VS-Code-2">💡 Step 1: 下載並安裝 VS Code</h3>
+<p><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">Download VS Code</a><br>
+👉基本上按照預設一直點下一步就行</p>
+<h3 id="💡-Step-2-設定-VS-Code-環境-2">💡 Step 2: 設定 VS Code 環境</h3>
+<ol>
+<li>設定Ctrl+滑鼠滾輪的程式碼縮放功能、自動儲存</li>
+</ol>
+<p><img src="https://i.imgur.com/FXlMRLN.jpg" alt=""></p>
+<p><img src="https://i.imgur.com/jXUUNDt.jpg" alt=""></p>
+<ol start="2">
+<li>安裝Live Server套件</li>
+</ol>
+<p><img src="https://i.imgur.com/PI4GRhT.jpg" alt=""></p>
+<h3 id="💡-Step-3-使用快捷鍵建立基本架構-2">💡 Step 3: 使用快捷鍵建立基本架構</h3>
+<ol>
+<li>開啟欲存放檔案的資料夾</li>
+<li>右鍵新增.html檔案</li>
+<li>在檔案內輸入 !+Enter 或 !+Tab 自動生成基本架構(如下方程式碼區塊)</li>
+</ol>
+<p><img src="https://i.imgur.com/8yafGOa.jpg" alt=""></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="💡-Step-4-使用-Live-Server-檢視網頁-2">💡 Step 4: 使用 Live Server 檢視網頁</h3>
+<ol>
+<li>點擊右下角 Go Live，此時瀏覽器應自動開啟並顯示網頁</li>
+</ol>
+<p><img src="https://i.imgur.com/dU4cSXV.jpg" alt=""></p>
+<p>💡 <strong>Hint:</strong> 1.若在右下角沒看到 Live Server，請在程式碼區塊內按滑鼠右鍵，點擊 Open with Live Server。 2.網頁預設路徑: 127.0.0.1:5500。</p>
+<h2 id=""><img src="https://i.imgur.com/zkY3dpf.jpg" alt=""></h2>
+<h2 id="-2"><img src="https://i.imgur.com/OBMzFCl.jpg" alt=""></h2>
+<h2 id="-3"><img src="https://i.imgur.com/gooctgT.jpg" alt=""></h2>
+<h4 id="👇-檢視你的網頁-2">👇 檢視你的網頁!</h4>
+<p><img src="https://i.imgur.com/YD7ryJL.jpg" alt=""></p>
+<blockquote>
+<p>成功完成基本環境設定! 😆</p>
+</blockquote>
+<hr>
+<h2 id="📝-Getting-Started">📝 Getting Started</h2>
+<h3 id="💡-Step-1-複製Bootstrap-Template到你的編輯器中">💡 Step 1: 複製Bootstrap Template到你的編輯器中</h3>
+<h4 id="Starter-template"><a target="_blank" rel="noopener" href="https://getbootstrap.com/docs/4.6/getting-started/introduction/">Starter template</a></h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;!-- Required meta tags --&gt;</span><br><span class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Bootstrap CSS --&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css&quot; integrity=&quot;sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l&quot; crossorigin=&quot;anonymous&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;title&gt;Hello, world!&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;h1&gt;Hello, world!&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Optional JavaScript; choose one of the two! --&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) --&gt;</span><br><span class="line">    &lt;script src=&quot;https://code.jquery.com/jquery-3.5.1.slim.min.js&quot; integrity=&quot;sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js&quot; integrity=&quot;sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Option 2: Separate Popper and Bootstrap JS --&gt;</span><br><span class="line">    &lt;!--</span><br><span class="line">    &lt;script src=&quot;https://code.jquery.com/jquery-3.5.1.slim.min.js&quot; integrity=&quot;sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js&quot; integrity=&quot;sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js&quot; integrity=&quot;sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;</span><br><span class="line">    --&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="👇複製貼上模板程式碼後，網頁畫面如下">👇複製貼上模板程式碼後，網頁畫面如下:</h4>
+<p><img src="https://i.imgur.com/zCkIbgh.jpg" alt=""></p>
+<blockquote>
+<p>接下來就是發揮拼圖的實力啦~XD ((ps.純白地獄真D可怕😨</p>
+</blockquote>
+<h3 id="💡-Step-2-將適合的Bootstrap-Component原始碼放入你的網頁中">💡 Step 2: 將適合的Bootstrap Component原始碼放入你的網頁中</h3>
+<p>👉 <a target="_blank" rel="noopener" href="https://getbootstrap.com/docs/4.6/components">你的拼圖底加(Bootstrap Components)</a></p>
+<p><img src="https://i.imgur.com/kalvx3E.jpg" alt=""></p>
+<h4 id="👇-1-以網頁導覽列-nav-bar-為例">👇 1. 以網頁導覽列 (nav bar) 為例</h4>
+<p><img src="https://i.imgur.com/DS2AToT.jpg" alt=""><br>
+<br><br>
+<img src="https://i.imgur.com/PtLeRFv.jpg" alt=""></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav class=&quot;navbar navbar-expand-lg navbar-light bg-light&quot;&gt;</span><br><span class="line">  &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Navbar&lt;/a&gt;</span><br><span class="line">  &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#navbarNavAltMarkup&quot; aria-controls=&quot;navbarNavAltMarkup&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;</span><br><span class="line">    &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;</span><br><span class="line">  &lt;/button&gt;</span><br><span class="line">  &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarNavAltMarkup&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;navbar-nav&quot;&gt;</span><br><span class="line">      &lt;a class=&quot;nav-link active&quot; href=&quot;#&quot;&gt;Home &lt;span class=&quot;sr-only&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;</span><br><span class="line">      &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Features&lt;/a&gt;</span><br><span class="line">      &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Pricing&lt;/a&gt;</span><br><span class="line">      &lt;a class=&quot;nav-link disabled&quot; href=&quot;#&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/nav&gt;</span><br></pre></td></tr></table></figure>
+<p>💡<strong>Hint:</strong> Bootstrap 已經預先定義元件的屬性，所以我們可以不用list-based的形式建立導覽列。</p>
+<blockquote>
+<p><strong>Because we use classes for our navs, you can avoid the list-based approach entirely if you like. —Bootstrap</strong></p>
+</blockquote>
+<h4 id="👇-2-複製到template">👇 2. 複製到template</h4>
+<p><img src="https://i.imgur.com/9mP7Mcr.jpg" alt=""></p>
+<h4 id="👇-3-Component在瀏覽器的外觀">👇 3. Component在瀏覽器的外觀</h4>
+<p><img src="https://i.imgur.com/z7Zfwit.jpg" alt=""></p>
+<blockquote>
+<p>相信做到這邊，你已經迫不及待的想開始拼出一個網頁了吧!<br>接下來我將介紹Bootstrap的Layout配置。😄</p>
+</blockquote>
+<hr>
+<h2 id="📝-Layout">📝 Layout</h2>
+<blockquote>
+<p>Components and options for laying out your Bootstrap project, including wrapping containers, a powerful grid system, a flexible media object, and responsive utility classes. — Bootstrap</p>
+</blockquote>
+<p><strong>💡Hint:</strong> 在Bootstrap裡，Container是用來放置Components的容器，同時它也關係到網頁在不同尺寸裝置上的外觀。</p>
+<h3 id="⭐-主要有3種不同的Container-CSS-Class">⭐ 主要有3種不同的Container (CSS Class) :</h3>
+<ul>
+<li>.container
+<ul>
+<li>根據螢幕寬度利用媒體查詢 (Media Query) ，設定變化的斷點，階段性的改變寬度，當改變瀏覽器的大小，頁面將一個階段一個階段變化。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;container&quot;&gt;</span><br><span class="line">  &lt;!-- Content here --&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>.container-fluid
+<ul>
+<li>不考慮螢幕寬度，始終將寬度設定為auto，當縮放瀏覽器時，保持全屏大小(100%的寬度)。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;container-fluid&quot;&gt;</span><br><span class="line">  ...</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>.container-{breakpoint}
+<ul>
+<li>透過Bootstrap寫好的 Media Query 調整頁面</li>
+<li>如: .container-sm</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;container-sm&quot;&gt;100% wide until small breakpoint&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;container-md&quot;&gt;100% wide until medium breakpoint&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;container-lg&quot;&gt;100% wide until large breakpoint&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;container-xl&quot;&gt;100% wide until extra large breakpoint&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="👇-container-breakpoint-細節">👇 .container-{breakpoint} 細節</h4>
+<p><img src="https://i.imgur.com/uDrezwA.jpg" alt=""></p>
+<blockquote>
+<p>介紹完Container後，緊接著介紹Bootstrap的欄位配置 — Grid System 😉</p>
+</blockquote>
+<hr>
+<h2 id="📝-Grid-System">📝 Grid System</h2>
+<blockquote>
+<p>Use our powerful mobile-first flexbox grid to build layouts of all shapes and sizes thanks to a twelve column system, five default responsive tiers, Sass variables and mixins, and dozens of predefined classes. — Bootstrap</p>
+</blockquote>
+<p><strong>💡Hint:</strong> Bootstrap 以 Grid System 規範網頁的版面配置 (列 - 欄) ，而1列在Bootstrap中被預設劃分為12欄。</p>
+<h3 id="⭐-Setting-Row-Column">⭐ Setting Row &amp; Column</h3>
+<h4 id="👇-不設定的col-size情況下，3欄均分12個欄位大小-3-X-4">👇 不設定的col-size情況下，3欄均分12個欄位大小 (3 X 4)</h4>
+<p><img src="https://i.imgur.com/E0AqIDx.jpg" alt=""></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;container&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;row&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;col&quot;&gt;</span><br><span class="line">      One of three columns</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;col&quot;&gt;</span><br><span class="line">      One of three columns</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;col&quot;&gt;</span><br><span class="line">      One of three columns</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="⭐More-Details">⭐More Details</h3>
+<h4 id="⬇️-兩種主要col設定方式-full-size-12">⬇️ 兩種主要col設定方式 (full size: 12):</h4>
+<ul>
+<li>col-size 主動配置欄位大小</li>
+</ul>
+<p><img src="https://i.imgur.com/4l3chiI.jpg" alt=""></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;container&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;row&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;col&quot;&gt;col&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;col&quot;&gt;col&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;col&quot;&gt;col&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;col&quot;&gt;col&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;row&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;col-8&quot;&gt;col-8&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;col-4&quot;&gt;col-4&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!-- 只寫.col時，會根據.col的數量均分12欄 --&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>col-{breakpoint}-size 根據螢幕大小調整欄位配置</li>
+</ul>
+<p><img src="https://i.imgur.com/nS3isxH.jpg" alt=""></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;container&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;row&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;col-sm-8&quot;&gt;col-sm-8&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;col-sm-4&quot;&gt;col-sm-4&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;row&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;col-sm&quot;&gt;col-sm&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;col-sm&quot;&gt;col-sm&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;col-sm&quot;&gt;col-sm&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>💡Hint:</strong> 關於breakpoint的設定，請參照上方的 .container-{breakpoint} 細節。</p>
+<blockquote>
+<p>最後，讓我們動手拼出一個網頁吧! GOGOGO~ 👊</p>
+</blockquote>
+<hr>
+<h2 id="📝-Web-Page-Implementation">📝 Web Page Implementation</h2>
+<h3 id="💡-Step-1-尋找要用到的Component放到Starter-Template">💡 Step 1: 尋找要用到的<a target="_blank" rel="noopener" href="https://getbootstrap.com/docs/4.6/components/">Component</a>放到Starter Template</h3>
+<h4 id="我的規劃">我的規劃:</h4>
+<ul>
+<li>Nav Bar</li>
+</ul>
+<p><img src="https://i.imgur.com/p0pkmcq.png" alt=""></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav class=&quot;navbar navbar-expand-lg navbar-light bg-light&quot;&gt;</span><br><span class="line">  &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Navbar&lt;/a&gt;</span><br><span class="line">  &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#navbarTogglerDemo02&quot; aria-controls=&quot;navbarTogglerDemo02&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;</span><br><span class="line">    &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;</span><br><span class="line">  &lt;/button&gt;</span><br><span class="line"></span><br><span class="line">  &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarTogglerDemo02&quot;&gt;</span><br><span class="line">    &lt;ul class=&quot;navbar-nav mr-auto mt-2 mt-lg-0&quot;&gt;</span><br><span class="line">      &lt;li class=&quot;nav-item active&quot;&gt;</span><br><span class="line">        &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Home &lt;span class=&quot;sr-only&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line">      &lt;li class=&quot;nav-item&quot;&gt;</span><br><span class="line">        &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line">      &lt;li class=&quot;nav-item&quot;&gt;</span><br><span class="line">        &lt;a class=&quot;nav-link disabled&quot; href=&quot;#&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">    &lt;form class=&quot;form-inline my-2 my-lg-0&quot;&gt;</span><br><span class="line">      &lt;input class=&quot;form-control mr-sm-2&quot; type=&quot;search&quot; placeholder=&quot;Search&quot;&gt;</span><br><span class="line">      &lt;button class=&quot;btn btn-outline-success my-2 my-sm-0&quot; type=&quot;submit&quot;&gt;Search&lt;/button&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/nav&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Carousel (原版沒有圖片，可以自行設定)</li>
+</ul>
+<p><img src="https://i.imgur.com/sBy3F67.png" alt=""></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;carouselExampleCaptions&quot; class=&quot;carousel slide&quot; data-ride=&quot;carousel&quot;&gt;</span><br><span class="line">  &lt;ol class=&quot;carousel-indicators&quot;&gt;</span><br><span class="line">    &lt;li data-target=&quot;#carouselExampleCaptions&quot; data-slide-to=&quot;0&quot; class=&quot;active&quot;&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li data-target=&quot;#carouselExampleCaptions&quot; data-slide-to=&quot;1&quot;&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li data-target=&quot;#carouselExampleCaptions&quot; data-slide-to=&quot;2&quot;&gt;&lt;/li&gt;</span><br><span class="line">  &lt;/ol&gt;</span><br><span class="line">  &lt;div class=&quot;carousel-inner&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;carousel-item active&quot;&gt;</span><br><span class="line">      &lt;img src=&quot;https://picsum.photos/1200/300?random=18https://picsum.photos/1200/300?random=18&quot; class=&quot;d-block w-100&quot; alt=&quot;...&quot;&gt;</span><br><span class="line">      &lt;div class=&quot;carousel-caption d-none d-md-block&quot;&gt;</span><br><span class="line">        &lt;h5&gt;First slide label&lt;/h5&gt;</span><br><span class="line">        &lt;p&gt;Some representative placeholder content for the first slide.&lt;/p&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;carousel-item&quot;&gt;</span><br><span class="line">      &lt;img src=&quot;https://picsum.photos/1200/300?random=19&quot; class=&quot;d-block w-100&quot; alt=&quot;...&quot;&gt;</span><br><span class="line">      &lt;div class=&quot;carousel-caption d-none d-md-block&quot;&gt;</span><br><span class="line">        &lt;h5&gt;Second slide label&lt;/h5&gt;</span><br><span class="line">        &lt;p&gt;Some representative placeholder content for the second slide.&lt;/p&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;carousel-item&quot;&gt;</span><br><span class="line">      &lt;img src=&quot;https://picsum.photos/1200/300?random=20&quot; class=&quot;d-block w-100&quot; alt=&quot;...&quot;&gt;</span><br><span class="line">      &lt;div class=&quot;carousel-caption d-none d-md-block&quot;&gt;</span><br><span class="line">        &lt;h5&gt;Third slide label&lt;/h5&gt;</span><br><span class="line">        &lt;p&gt;Some representative placeholder content for the third slide.&lt;/p&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;a class=&quot;carousel-control-prev&quot; href=&quot;#carouselExampleCaptions&quot; role=&quot;button&quot; data-slide=&quot;prev&quot;&gt;</span><br><span class="line">    &lt;span class=&quot;carousel-control-prev-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;</span><br><span class="line">    &lt;span class=&quot;sr-only&quot;&gt;Previous&lt;/span&gt;</span><br><span class="line">  &lt;/a&gt;</span><br><span class="line">  &lt;a class=&quot;carousel-control-next&quot; href=&quot;#carouselExampleCaptions&quot; role=&quot;button&quot; data-slide=&quot;next&quot;&gt;</span><br><span class="line">    &lt;span class=&quot;carousel-control-next-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;</span><br><span class="line">    &lt;span class=&quot;sr-only&quot;&gt;Next&lt;/span&gt;</span><br><span class="line">  &lt;/a&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Breadcrumb</li>
+</ul>
+<p><img src="https://i.imgur.com/Jlh7bCw.png" alt=""></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav aria-label=&quot;breadcrumb&quot;&gt;</span><br><span class="line">  &lt;ol class=&quot;breadcrumb&quot;&gt;</span><br><span class="line">    &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Library&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li class=&quot;breadcrumb-item active&quot; aria-current=&quot;page&quot;&gt;Data&lt;/li&gt;</span><br><span class="line">  &lt;/ol&gt;</span><br><span class="line">&lt;/nav&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>List Group</li>
+</ul>
+<p><img src="https://i.imgur.com/BvG4VZd.png" alt=""></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul class=&quot;list-group&quot;&gt;</span><br><span class="line">  &lt;li class=&quot;list-group-item active&quot; aria-current=&quot;true&quot;&gt;An active item&lt;/li&gt;</span><br><span class="line">  &lt;li class=&quot;list-group-item&quot;&gt;A second item&lt;/li&gt;</span><br><span class="line">  &lt;li class=&quot;list-group-item&quot;&gt;A third item&lt;/li&gt;</span><br><span class="line">  &lt;li class=&quot;list-group-item&quot;&gt;A fourth item&lt;/li&gt;</span><br><span class="line">  &lt;li class=&quot;list-group-item&quot;&gt;And a fifth one&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Image Gallery (自行設計的Component)</li>
+</ul>
+<p><img src="https://i.imgur.com/5Rg0PBi.png" alt=""></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;col-12 col-md-9&quot;&gt;</span><br><span class="line">    &lt;h1&gt;title&lt;/h1&gt;</span><br><span class="line">    &lt;p&gt;List groups are a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.&lt;/p&gt;</span><br><span class="line">    &lt;div class=&quot;row item-group&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;col-12 col-md-3&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;item&quot;&gt;</span><br><span class="line">                &lt;img class=&quot;img-fluid&quot; src=&quot;https://picsum.photos/300/200?random=8&quot;&gt;</span><br><span class="line">                &lt;h3&gt;title&lt;/h3&gt;</span><br><span class="line">                &lt;p&gt;List groups are a flexible and powerful component for displaying&lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;col-12 col-md-3&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;item&quot;&gt;</span><br><span class="line">                &lt;img class=&quot;img-fluid&quot; src=&quot;https://picsum.photos/300/200?random=2&quot;&gt;</span><br><span class="line">                &lt;h3&gt;title&lt;/h3&gt;</span><br><span class="line">                &lt;p&gt;List groups are a flexible and powerful component for displaying&lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;col-12 col-md-3&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;item&quot;&gt;</span><br><span class="line">                &lt;img class=&quot;img-fluid&quot; src=&quot;https://picsum.photos/300/200?random=4&quot;&gt;</span><br><span class="line">                &lt;h3&gt;title&lt;/h3&gt;</span><br><span class="line">                &lt;p&gt;List groups are a flexible and powerful component for displaying&lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;col-12 col-md-3&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;item&quot;&gt;</span><br><span class="line">                &lt;img class=&quot;img-fluid&quot; src=&quot;https://picsum.photos/300/200?random=5&quot;&gt;</span><br><span class="line">                &lt;h3&gt;title&lt;/h3&gt;</span><br><span class="line">                &lt;p&gt;List groups are a flexible and powerful component for displaying&lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;col-12 col-md-3&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;item&quot;&gt;</span><br><span class="line">                &lt;img class=&quot;img-fluid&quot; src=&quot;https://picsum.photos/300/200?random=38&quot;&gt;</span><br><span class="line">                &lt;h3&gt;title&lt;/h3&gt;</span><br><span class="line">                &lt;p&gt;List groups are a flexible and powerful component for displaying&lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;col-12 col-md-3&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;item&quot;&gt;</span><br><span class="line">                &lt;img class=&quot;img-fluid&quot; src=&quot;https://picsum.photos/300/200?random=32&quot;&gt;</span><br><span class="line">                &lt;h3&gt;title&lt;/h3&gt;</span><br><span class="line">                &lt;p&gt;List groups are a flexible and powerful component for displaying&lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;col-12 col-md-3&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;item&quot;&gt;</span><br><span class="line">                &lt;img class=&quot;img-fluid&quot; src=&quot;https://picsum.photos/300/200?random=34&quot;&gt;</span><br><span class="line">                &lt;h3&gt;title&lt;/h3&gt;</span><br><span class="line">                &lt;p&gt;List groups are a flexible and powerful component for displaying&lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;col-12 col-md-3&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;item&quot;&gt;</span><br><span class="line">                &lt;img class=&quot;img-fluid&quot; src=&quot;https://picsum.photos/300/200?random=35&quot;&gt;</span><br><span class="line">                &lt;h3&gt;title&lt;/h3&gt;</span><br><span class="line">                &lt;p&gt;List groups are a flexible and powerful component for displaying&lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Pagination</li>
+</ul>
+<p><img src="https://i.imgur.com/nyDoC7G.png" alt=""></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav aria-label=&quot;Page navigation example&quot;&gt;</span><br><span class="line">  &lt;ul class=&quot;pagination justify-content-center&quot;&gt;</span><br><span class="line">    &lt;li class=&quot;page-item&quot;&gt;</span><br><span class="line">      &lt;a class=&quot;page-link&quot; href=&quot;#&quot; aria-label=&quot;Previous&quot;&gt;</span><br><span class="line">        &lt;span aria-hidden=&quot;true&quot;&gt;&amp;laquo;&lt;/span&gt;</span><br><span class="line">      &lt;/a&gt;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">    &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;li class=&quot;page-item&quot;&gt;</span><br><span class="line">      &lt;a class=&quot;page-link&quot; href=&quot;#&quot; aria-label=&quot;Next&quot;&gt;</span><br><span class="line">        &lt;span aria-hidden=&quot;true&quot;&gt;&amp;raquo;&lt;/span&gt;</span><br><span class="line">      &lt;/a&gt;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">  &lt;/ul&gt;</span><br><span class="line">&lt;/nav&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Footer (自行設計的Component)</li>
+</ul>
+<p><img src="https://i.imgur.com/wVEWk8p.png" alt=""></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;container-fluid main-footer text-center&quot;&gt;</span><br><span class="line">    &amp;copy; copyright by QI-XIANG 2021</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="💡-Step-2-將-Component-依序放進-Starter-Template">💡 Step 2: 將 Component 依序放進 <a target="_blank" rel="noopener" href="https://getbootstrap.com/docs/4.6/getting-started/introduction/">Starter Template</a></h3>
+<h4 id="👇-結果如下">👇 結果如下:</h4>
+<p><img src="https://i.imgur.com/dt2fBfL.jpg" alt=""></p>
+<blockquote>
+<p>看起來還不錯，但還可以再做些調整，讓網頁更加美觀。😏</p>
+</blockquote>
+<h3 id="💡-Step-3-Optional-網頁細部調整">💡 Step 3 (Optional): 網頁細部調整</h3>
+<h4 id="👇-請將下方程式碼複製到新檔案中">👇 請將下方程式碼複製到新檔案中</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br></pre></td><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;!-- Required meta tags --&gt;</span><br><span class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Bootstrap CSS --&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css&quot; integrity=&quot;sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l&quot; crossorigin=&quot;anonymous&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;title&gt;Hello, world!&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line"></span><br><span class="line">    &lt;nav class=&quot;navbar navbar-expand-lg navbar-light bg-light&quot;&gt;</span><br><span class="line">        &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Navbar&lt;/a&gt;</span><br><span class="line">        &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#navbarTogglerDemo02&quot; aria-controls=&quot;navbarTogglerDemo02&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;</span><br><span class="line">          &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;</span><br><span class="line">        &lt;/button&gt;</span><br><span class="line">      </span><br><span class="line">        &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarTogglerDemo02&quot;&gt;</span><br><span class="line">          &lt;ul class=&quot;navbar-nav mr-auto mt-2 mt-lg-0&quot;&gt;</span><br><span class="line">            &lt;li class=&quot;nav-item active&quot;&gt;</span><br><span class="line">              &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Home &lt;span class=&quot;sr-only&quot;&gt;(current)&lt;/span&gt;&lt;/a&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">            &lt;li class=&quot;nav-item&quot;&gt;</span><br><span class="line">              &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Link&lt;/a&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">            &lt;li class=&quot;nav-item&quot;&gt;</span><br><span class="line">              &lt;a class=&quot;nav-link disabled&quot; href=&quot;#&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;Disabled&lt;/a&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">          &lt;/ul&gt;</span><br><span class="line">          &lt;form class=&quot;form-inline my-2 my-lg-0&quot;&gt;</span><br><span class="line">            &lt;input class=&quot;form-control mr-sm-2&quot; type=&quot;search&quot; placeholder=&quot;Search&quot;&gt;</span><br><span class="line">            &lt;button class=&quot;btn btn-outline-success my-2 my-sm-0&quot; type=&quot;submit&quot;&gt;Search&lt;/button&gt;</span><br><span class="line">          &lt;/form&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/nav&gt;</span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">    &lt;div id=&quot;carouselExampleCaptions&quot; class=&quot;carousel slide&quot; data-ride=&quot;carousel&quot;&gt;</span><br><span class="line">        &lt;ol class=&quot;carousel-indicators&quot;&gt;</span><br><span class="line">          &lt;li data-target=&quot;#carouselExampleCaptions&quot; data-slide-to=&quot;0&quot; class=&quot;active&quot;&gt;&lt;/li&gt;</span><br><span class="line">          &lt;li data-target=&quot;#carouselExampleCaptions&quot; data-slide-to=&quot;1&quot;&gt;&lt;/li&gt;</span><br><span class="line">          &lt;li data-target=&quot;#carouselExampleCaptions&quot; data-slide-to=&quot;2&quot;&gt;&lt;/li&gt;</span><br><span class="line">        &lt;/ol&gt;</span><br><span class="line">        &lt;div class=&quot;carousel-inner&quot;&gt;</span><br><span class="line">          &lt;div class=&quot;carousel-item active&quot;&gt;</span><br><span class="line">            &lt;img src=&quot;https://picsum.photos/1200/300?random=18&quot; class=&quot;d-block w-100&quot; alt=&quot;...&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;carousel-caption d-none d-md-block&quot;&gt;</span><br><span class="line">              &lt;h5&gt;First slide label&lt;/h5&gt;</span><br><span class="line">              &lt;p&gt;Some representative placeholder content for the first slide.&lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line">          &lt;div class=&quot;carousel-item&quot;&gt;</span><br><span class="line">            &lt;img src=&quot;https://picsum.photos/1200/300?random=19&quot; class=&quot;d-block w-100&quot; alt=&quot;...&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;carousel-caption d-none d-md-block&quot;&gt;</span><br><span class="line">              &lt;h5&gt;Second slide label&lt;/h5&gt;</span><br><span class="line">              &lt;p&gt;Some representative placeholder content for the second slide.&lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line">          &lt;div class=&quot;carousel-item&quot;&gt;</span><br><span class="line">            &lt;img src=&quot;https://picsum.photos/1200/300?random=20&quot; class=&quot;d-block w-100&quot; alt=&quot;...&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;carousel-caption d-none d-md-block&quot;&gt;</span><br><span class="line">              &lt;h5&gt;Third slide label&lt;/h5&gt;</span><br><span class="line">              &lt;p&gt;Some representative placeholder content for the third slide.&lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;a class=&quot;carousel-control-prev&quot; href=&quot;#carouselExampleCaptions&quot; role=&quot;button&quot; data-slide=&quot;prev&quot;&gt;</span><br><span class="line">          &lt;span class=&quot;carousel-control-prev-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;</span><br><span class="line">          &lt;span class=&quot;sr-only&quot;&gt;Previous&lt;/span&gt;</span><br><span class="line">        &lt;/a&gt;</span><br><span class="line">        &lt;a class=&quot;carousel-control-next&quot; href=&quot;#carouselExampleCaptions&quot; role=&quot;button&quot; data-slide=&quot;next&quot;&gt;</span><br><span class="line">          &lt;span class=&quot;carousel-control-next-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;</span><br><span class="line">          &lt;span class=&quot;sr-only&quot;&gt;Next&lt;/span&gt;</span><br><span class="line">        &lt;/a&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;nav aria-label=&quot;breadcrumb&quot;&gt;</span><br><span class="line">        &lt;ol class=&quot;breadcrumb&quot;&gt;</span><br><span class="line">          &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">          &lt;li class=&quot;breadcrumb-item&quot;&gt;&lt;a href=&quot;#&quot;&gt;Library&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">          &lt;li class=&quot;breadcrumb-item active&quot; aria-current=&quot;page&quot;&gt;Data&lt;/li&gt;</span><br><span class="line">        &lt;/ol&gt;</span><br><span class="line">    &lt;/nav&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;row&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;col-12 col-md-3&quot;&gt;</span><br><span class="line">                &lt;div class=&quot;list-group&quot;&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action active&quot; aria-current=&quot;true&quot;&gt;The current link item&lt;/a&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action&quot;&gt;A second link item&lt;/a&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action&quot;&gt;A third link item&lt;/a&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action&quot;&gt;A fourth link item&lt;/a&gt;</span><br><span class="line">                    &lt;a href=&quot;#&quot; class=&quot;list-group-item list-group-item-action disabled&quot; tabindex=&quot;-1&quot; aria-disabled=&quot;true&quot;&gt;A disabled link item&lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;col-12 col-md-9&quot;&gt;</span><br><span class="line">                &lt;h1&gt;title&lt;/h1&gt;</span><br><span class="line">                &lt;p&gt;List groups are a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.&lt;/p&gt;</span><br><span class="line">                &lt;div class=&quot;row item-group&quot;&gt;</span><br><span class="line">                    &lt;div class=&quot;col-12 col-md-3&quot;&gt;</span><br><span class="line">                        &lt;div class=&quot;item&quot;&gt;</span><br><span class="line">                            &lt;img class=&quot;img-fluid&quot; src=&quot;https://picsum.photos/300/200?random=8&quot;&gt;</span><br><span class="line">                            &lt;h3&gt;title&lt;/h3&gt;</span><br><span class="line">                            &lt;p&gt;List groups are a flexible and powerful component for displaying&lt;/p&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;col-12 col-md-3&quot;&gt;</span><br><span class="line">                        &lt;div class=&quot;item&quot;&gt;</span><br><span class="line">                            &lt;img class=&quot;img-fluid&quot; src=&quot;https://picsum.photos/300/200?random=2&quot;&gt;</span><br><span class="line">                            &lt;h3&gt;title&lt;/h3&gt;</span><br><span class="line">                            &lt;p&gt;List groups are a flexible and powerful component for displaying&lt;/p&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;col-12 col-md-3&quot;&gt;</span><br><span class="line">                        &lt;div class=&quot;item&quot;&gt;</span><br><span class="line">                            &lt;img class=&quot;img-fluid&quot; src=&quot;https://picsum.photos/300/200?random=4&quot;&gt;</span><br><span class="line">                            &lt;h3&gt;title&lt;/h3&gt;</span><br><span class="line">                            &lt;p&gt;List groups are a flexible and powerful component for displaying&lt;/p&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;col-12 col-md-3&quot;&gt;</span><br><span class="line">                        &lt;div class=&quot;item&quot;&gt;</span><br><span class="line">                            &lt;img class=&quot;img-fluid&quot; src=&quot;https://picsum.photos/300/200?random=5&quot;&gt;</span><br><span class="line">                            &lt;h3&gt;title&lt;/h3&gt;</span><br><span class="line">                            &lt;p&gt;List groups are a flexible and powerful component for displaying&lt;/p&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;col-12 col-md-3&quot;&gt;</span><br><span class="line">                        &lt;div class=&quot;item&quot;&gt;</span><br><span class="line">                            &lt;img class=&quot;img-fluid&quot; src=&quot;https://picsum.photos/300/200?random=38&quot;&gt;</span><br><span class="line">                            &lt;h3&gt;title&lt;/h3&gt;</span><br><span class="line">                            &lt;p&gt;List groups are a flexible and powerful component for displaying&lt;/p&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;col-12 col-md-3&quot;&gt;</span><br><span class="line">                        &lt;div class=&quot;item&quot;&gt;</span><br><span class="line">                            &lt;img class=&quot;img-fluid&quot; src=&quot;https://picsum.photos/300/200?random=32&quot;&gt;</span><br><span class="line">                            &lt;h3&gt;title&lt;/h3&gt;</span><br><span class="line">                            &lt;p&gt;List groups are a flexible and powerful component for displaying&lt;/p&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;col-12 col-md-3&quot;&gt;</span><br><span class="line">                        &lt;div class=&quot;item&quot;&gt;</span><br><span class="line">                            &lt;img class=&quot;img-fluid&quot; src=&quot;https://picsum.photos/300/200?random=34&quot;&gt;</span><br><span class="line">                            &lt;h3&gt;title&lt;/h3&gt;</span><br><span class="line">                            &lt;p&gt;List groups are a flexible and powerful component for displaying&lt;/p&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;col-12 col-md-3&quot;&gt;</span><br><span class="line">                        &lt;div class=&quot;item&quot;&gt;</span><br><span class="line">                            &lt;img class=&quot;img-fluid&quot; src=&quot;https://picsum.photos/300/200?random=35&quot;&gt;</span><br><span class="line">                            &lt;h3&gt;title&lt;/h3&gt;</span><br><span class="line">                            &lt;p&gt;List groups are a flexible and powerful component for displaying&lt;/p&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;nav aria-label=&quot;Page navigation example&quot;&gt;</span><br><span class="line">        &lt;ul class=&quot;pagination justify-content-center&quot;&gt;</span><br><span class="line">          &lt;li class=&quot;page-item&quot;&gt;</span><br><span class="line">            &lt;a class=&quot;page-link&quot; href=&quot;#&quot; aria-label=&quot;Previous&quot;&gt;</span><br><span class="line">              &lt;span aria-hidden=&quot;true&quot;&gt;&amp;laquo;&lt;/span&gt;</span><br><span class="line">            &lt;/a&gt;</span><br><span class="line">          &lt;/li&gt;</span><br><span class="line">          &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">          &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">          &lt;li class=&quot;page-item&quot;&gt;&lt;a class=&quot;page-link&quot; href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">          &lt;li class=&quot;page-item&quot;&gt;</span><br><span class="line">            &lt;a class=&quot;page-link&quot; href=&quot;#&quot; aria-label=&quot;Next&quot;&gt;</span><br><span class="line">              &lt;span aria-hidden=&quot;true&quot;&gt;&amp;raquo;&lt;/span&gt;</span><br><span class="line">            &lt;/a&gt;</span><br><span class="line">          &lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/nav&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div class=&quot;container-fluid main-footer text-center&quot;&gt;</span><br><span class="line">        &amp;copy; copyright by QI-XIANG 2021</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Optional JavaScript; choose one of the two! --&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) --&gt;</span><br><span class="line">    &lt;script src=&quot;https://code.jquery.com/jquery-3.5.1.slim.min.js&quot; integrity=&quot;sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js&quot; integrity=&quot;sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Option 2: Separate Popper and Bootstrap JS --&gt;</span><br><span class="line">    &lt;!--</span><br><span class="line">    &lt;script src=&quot;https://code.jquery.com/jquery-3.5.1.slim.min.js&quot; integrity=&quot;sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js&quot; integrity=&quot;sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js&quot; integrity=&quot;sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;</span><br><span class="line">    --&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">    &lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">        .main-footer&#123;</span><br><span class="line">            padding: 20px 0;</span><br><span class="line">            background-color: #000;</span><br><span class="line">            color: white;</span><br><span class="line">        &#125;</span><br><span class="line">        .item-group .item img&#123;</span><br><span class="line">            width: 100%; /* 在螢幕小的裝置上讓圖片滿版 */</span><br><span class="line">        &#125;</span><br><span class="line">        .item-group .item&#123;</span><br><span class="line">            text-align: center;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;  </span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="👇-結果如下-2">👇 結果如下:</h4>
+<p><img src="https://i.imgur.com/NGysz0h.jpg" alt=""></p>
+<blockquote>
+<p>調整後是不是變得有點專業呢? 😃</p>
+</blockquote>
+<hr>
+<h2 id="📝-Conclusion">📝 Conclusion</h2>
+<h3 id="💡-小結論">💡 小結論</h3>
+<p><strong>Bootstrap</strong>可以節省設計每個網頁區塊的時間，藉由<strong>Bootstrap</strong>預先定義的 <strong>.class</strong>，我們可以很快的調整區塊的一些屬性。但如果想要更客製化網頁的話，還是要套用到自己寫的<strong>CSS</strong>，此時要注意不要<strong>過度</strong>使用 <strong>!important</strong> 強制更改<strong>Bootstrap</strong>預先定義的<strong>CSS</strong>。<br></p>
+<p>在學完 <strong>框架 (Framework)</strong> 的基礎知識後，相信你對寫網頁開始有那麼一點感興趣吧?😂在網頁的世界裡充斥著非常豐富的技術知識，例如: <strong>SEO</strong>、<strong>AJAX</strong>、<strong>Web Security</strong>等…，網頁這片無盡的大海，正在前方等著各位去探索!</p>
+<hr>
+<h2 id="🚀-BONUS-1-Lorem-Picsum-產生假圖">🚀 BONUS 1: Lorem Picsum ( 產生假圖 )</h2>
+<blockquote>
+<p>說明:<br>
+寫網頁有時會遇到需要測試圖片的狀況，這時候假圖/隨機圖產生器就很重要了。Lorem Picsum 這個網站提供各式測試用圖片，你可以透過修改網址的方式，產生不同大小、外觀的圖片。</p>
+</blockquote>
+<h3 id="💡-Lorem-Picsum">💡 <a target="_blank" rel="noopener" href="https://picsum.photos/">Lorem Picsum</a></h3>
+<p><img src="https://i.imgur.com/LICn2Cy.jpg" alt=""></p>
+<hr>
+<h2 id="🚀-BONUS-2-CSS-Box-Model-盒子模型">🚀 BONUS 2: CSS Box Model ( 盒子模型 )</h2>
+<blockquote>
+<p>定義:<br>
+The CSS box model describes the rectangular boxes that are generated for elements in the document tree and laid out according to the visual formatting model.<br>
+簡單來說平常寫的<code>&lt;p&gt;lorem...&lt;/p&gt;</code>，就可以看做是一個Box，而Box Model則規範Box在瀏覽器上的長相。</p>
+</blockquote>
+<p><img src="https://codinglead.github.io/images/box-model.png" alt="Box Model"></p>
+<blockquote>
+<p>在Chrome裡滑鼠右鍵 檢查 (F12)，可以在右方(Styles)看到如下畫面</p>
+</blockquote>
+<p><img src="https://i.imgur.com/YF5Od7S.jpg" alt=""></p>
+<ul>
+<li>Margin: box 的外部距離區域</li>
+<li>Border: box 的邊界</li>
+<li>Padding: box content 外的填充區域</li>
+<li>Content: Content實際的寬 X 高</li>
+</ul>
+<p><strong>💡Hint:</strong> Chrome提供的檢查功能可以提升我們在網頁設計上的效率，比如:你寫出的網頁在不同尺寸的裝置上顯示的版面差異，方便我們做進一步的RWD (Responsive Web Design) 規劃。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://qi-xiang.github.io/2021/07/27/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81-%E6%A1%86%E6%9E%B6%E7%AF%87/" data-id="cl9cn040z00c360txglpzfz5y" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Qi Xiang,Zhang"
+        },
+        "headline": "金魚也能學會寫網頁-框架篇",
+        "image": "https://qi-xiang.github.iohttps://www.ficode.co.uk/wp-content/uploads/2018/02/bootstrap-4-new-features.jpg",
+        "keywords": "金魚也能學會寫網頁",
+        "genre": "技術類文章",
+        "datePublished": "2021-07-27",
+        "dateCreated": "2021-07-27",
+        "dateModified": "2022-03-14",
+        "url": "https://qi-xiang.github.io/2021/07/27/金魚也能學會寫網頁/金魚也能學會寫網頁-框架篇/",
+        "description": "
+據說金魚只有七秒的記憶力，那有沒有辦法讓金魚也能快速建置個人網頁呢? 答案是有的!!
+Bootstrap是一個前端的網頁框架，框架內有各種已寫好的網頁元件，你只要做3件事，複製、貼上、拼拼圖(Component)，就能做出一個基本的前端網頁。👍
+
+💡Hint: 文章內所使用的版本是 Bootstrap v4.6.x
+
+⏳ Setting Environment
+
+如果你已經有用習慣的網頁編寫",
+        "wordCount": 6390
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>追蹤 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/profile.php?id=100004441091584" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/qi-xiang-zhang-499625210/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://stackoverflow.com/users/17213183/xiang?tab=profile" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/QI-XIANG" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2021/07/29/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81-HTML%E8%B6%85%E5%85%A5%E9%96%80/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            金魚也能學會寫網頁-HTML超入門
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2021/07/02/%E8%B2%A1%E5%A0%B1%E7%8B%97%E8%B2%A1%E5%A0%B1/frdog3-2/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">財報狗教你挖好股 [3.價值評估-股價淨值比]</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/09/20/ironman2022D5/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/3Up9tZI.png)" alt="【Day 05】 建立 Django App" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/09/20/ironman2022D5/" class="title">【Day 05】 建立 Django App</a></p>
+                            <p class="item-date"><time datetime="2022-09-19T16:20:35.000Z" itemprop="datePublished">2022-09-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/09/19/ironman2022D4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/3Up9tZI.png)" alt="【Day 04】 建立 Django Project" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/09/19/ironman2022D4/" class="title">【Day 04】 建立 Django Project</a></p>
+                            <p class="item-date"><time datetime="2022-09-18T16:20:35.000Z" itemprop="datePublished">2022-09-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/09/18/ironman2022D3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/CuWg4pS.png)" alt="【Day 03】 Django 環境設定" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/09/18/ironman2022D3/" class="title">【Day 03】 Django 環境設定</a></p>
+                            <p class="item-date"><time datetime="2022-09-17T16:20:35.000Z" itemprop="datePublished">2022-09-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/09/17/ironman2022D2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/SeLdeVv.png)" alt="【Day 02】 Django 簡介" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/09/17/ironman2022D2/" class="title">【Day 02】 Django 簡介</a></p>
+                            <p class="item-date"><time datetime="2022-09-16T16:20:35.000Z" itemprop="datePublished">2022-09-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/09/16/ironman2022D1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/SeLdeVv.png)" alt="【Day 01】 Django 初學之旅-啟程LA" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/09/16/ironman2022D1/" class="title">【Day 01】 Django 初學之旅-啟程LA</a></p>
+                            <p class="item-date"><time datetime="2022-09-15T16:20:35.000Z" itemprop="datePublished">2022-09-16</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">52</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">17</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/BDC/" style="font-size: 14.44px;">BDC</a> <a href="/tags/CSS-Flex-Box/" style="font-size: 16.67px;">CSS Flex Box</a> <a href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/" style="font-size: 13.33px;">Django 初心者之旅</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.22px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.56px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.11px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.22px;">原子習慣</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 15.56px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.11px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 17.78px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.78px;">財報狗挖好股精華</a> <a href="/tags/%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 11.11px;">資料探勘</a> <a href="/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/" style="font-size: 10px;">資料視覺化</a> <a href="/tags/%E8%B3%87%E7%AE%A1%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/" style="font-size: 10px;">資管畢業專題</a> <a href="/tags/%E8%B3%87%E8%A8%8A%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AD%98/" style="font-size: 10px;">資訊科普知識</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.89px;">金魚也能學會寫網頁</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/QI-XIANG">My Github</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 Qi Xiang,Zhang</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://qi-xiang.github.io/2021/07/27/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81-%E6%A1%86%E6%9E%B6%E7%AF%87/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

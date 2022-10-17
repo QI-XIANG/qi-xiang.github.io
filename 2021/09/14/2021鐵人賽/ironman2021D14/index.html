@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>JS30 全攻略 第14天 | Xiang&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="JS30" />
+    
+    <meta name="description" content="前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS30 全攻略 第14天">
+<meta property="og:url" content="https://qi-xiang.github.io/2021/09/14/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D14/index.html">
+<meta property="og:site_name" content="Xiang&#39;s Blog">
+<meta property="og:description" content="前言 JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。 另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/WbZ1431.jpg">
+<meta property="article:published_time" content="2021-09-14T07:08:17.000Z">
+<meta property="article:modified_time" content="2022-03-13T17:23:08.149Z">
+<meta property="article:author" content="Qi Xiang,Zhang">
+<meta property="article:tag" content="JS30">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/WbZ1431.jpg">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
+
+    
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Titillium+Web:wght@200&display=swap.css">
+
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">首頁</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://qi-xiang.github.io/Personal_Page/">關於</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="輸入關鍵字..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '頁面',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-2021鐵人賽/ironman2021D14" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        JS30 全攻略 第14天
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/09/14/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D14/" class="article-date">
+       <time datetime="2021-09-14T07:08:17.000Z" itemprop="datePublished">2021-09-14</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/09/14/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D14/" class="article-date">
+     <time datetime="2022-03-13T17:23:08.149Z" itemprop="dateModified">2022-03-14</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/JS30/" rel="tag">JS30</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h2 id="前言-5">前言</h2>
+<p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
+style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
+<p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
+<hr>
+<h2 id="本日目標-5">本日目標</h2>
+<p>瞭解 JavaScript 的 <code>Passed by Value</code> 和 <code>Passed by Reference</code> 以及 Object 的 <code>shallow copy</code> 和 <code>deep copy</code>。</p>
+<p><img src="https://i.imgur.com/WbZ1431.jpg" alt=""></p>
+<hr>
+<h2 id="解析程式碼-5">解析程式碼</h2>
+<h3 id="JS-部分-5">JS 部分</h3>
+<h4 id="Passed-by-Value">Passed by Value</h4>
+<p>在 JavaScript 裡，如果變數的資料型態屬於 Primitive(原生型別)，則在傳遞變數時，採用的是 Passed by Value (傳遞值)。</p>
+<h5 id="常見的-Primitive">常見的 Primitive:</h5>
+<ul>
+<li>String</li>
+<li>Number</li>
+<li>BigInt</li>
+<li>Boolean</li>
+<li>Symbol</li>
+</ul>
+<p>在下面的兩個例子，我們分別將<code>age</code>、<code>name</code>傳遞給<code>age2</code>、<code>name2</code>，之後改變<code>age2</code>、<code>name2</code>的數值。結果原本的<code>age</code>、<code>name</code>均不會受到影響，因為在傳遞過程是 <strong>Passed by Value</strong>，將原本存於<code>age</code>、<code>name</code>的值複製一份給<code>age2</code>、<code>name2</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> age = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">let</span> age2 = age;</span><br><span class="line"><span class="built_in">console</span>.log(age,age2);</span><br><span class="line"></span><br><span class="line">age = <span class="number">200</span>;</span><br><span class="line"><span class="built_in">console</span>.log(age,age2);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&#x27;Mes&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> name2 = name;</span><br><span class="line"><span class="built_in">console</span>.log(name,name2);</span><br><span class="line"></span><br><span class="line">name = <span class="string">&#x27;wesley&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(name,name2);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/7VVyXzr.png" alt=""></p>
+<ul>
+<li>簡易概念圖</li>
+</ul>
+<p><img src="https://i.imgur.com/IGtwPRS.png" alt=""></p>
+<h4 id="Passed-by-Reference">Passed by Reference</h4>
+<p>在 JavaScript 裡，如果變數的資料型態屬於 Object(物件型別)，則在傳遞變數時，採用的是 <strong>Passed by Reference</strong> (傳遞位址)。</p>
+<p>常見的 Object:</p>
+<ul>
+<li>Array</li>
+<li>Object</li>
+</ul>
+<p>下面的例子，我們將陣列 <code>players</code> 傳遞給常數 <code>team</code>，之後將<code>team[3]</code>(Poppy)改成<code>Lux</code>，再把兩個陣列都印到 console，會發現到兩個陣列的第四個位置都被修改成新的值(Lux)。</p>
+<p>這是因為物件在傳遞的過程中採取的是 <strong>Passed by Reference</strong>，也就是將物件在記憶體上的位置傳遞給另一個物件(兩者共享同一個記憶體位置)，所以只要更改其中一方，另一方也會受到影響。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> players = [<span class="string">&#x27;Wes&#x27;</span>,<span class="string">&#x27;Sarah&#x27;</span>,<span class="string">&#x27;Ryan&#x27;</span>,<span class="string">&#x27;Poppy&#x27;</span>];</span><br><span class="line"><span class="keyword">const</span> team = players;</span><br><span class="line"><span class="built_in">console</span>.log(players,team);</span><br><span class="line">    </span><br><span class="line">team[<span class="number">3</span>] = <span class="string">&#x27;Lux&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(players,team);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/bGctsjK.png" alt=""></p>
+<p>如果想修改陣列的值又不影響另一個陣列的話，我們可以使用<code>slice()</code>來複製陣列並回傳新陣列(擁有自己的記憶體空間)。</p>
+<p>下面的例子，我們呼叫<code>players.slice()</code>將陣列<code>players</code>完整的複製一份到新陣列中並傳遞給<code>team2</code>，之後再修改<code>team2</code>的第四個位置，這次我們發現到原來的陣列<code>players</code>並沒有被修改到。</p>
+<p><strong>注意:<code>slice()</code>進行的是<code>shallow copy</code>(淺複製)!!!</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> team2 = players.slice()</span><br><span class="line">team2[<span class="number">3</span>] = <span class="string">&#x27;Lux&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(players,team2)</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/hRcOCXI.png" alt=""></p>
+<p>其他修改陣列的值又不影響另一個陣列的方法有:</p>
+<ul>
+<li>concat() : 將多個陣列進行串聯和<code>slice()</code>一樣會回傳串聯後的新陣列。</li>
+<li>Spread : 將陣列中的元素展開並逐個放到新陣列中。</li>
+<li>Array.from() : 建立一個新的 Array 實體。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> team3 = [].concat(players);</span><br><span class="line"></span><br><span class="line"><span class="comment">//use the new ES6 Spread</span></span><br><span class="line"><span class="keyword">const</span> team4 = [...players];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> team5 = <span class="built_in">Array</span>.from(players);</span><br></pre></td></tr></table></figure>
+<p>另一個例子，我們宣告物件<code>person</code>並把它傳遞給<code>captain</code>，在<code>captain</code>上新增<code>number: 90</code>後將兩個物件都印到 consle，此時會發現在<code>captain</code>新增的<code>number: 90</code>，也會被加到<code>person</code>上。會這樣是因為物件在傳遞過程是 <strong>Passed by Reference</strong>，兩物件同時指向一個記憶體空間。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;Wes Bos&#x27;</span>,</span><br><span class="line">      <span class="attr">age</span>: <span class="number">80</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> captain = person;</span><br><span class="line">captain.number = <span class="number">99</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person,captain);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/A0zKq1v.png" alt=""></p>
+<p>如果不想修改到另一個物件的話，我們可以使用<code>Object.assign(target, ...sources)</code>來複製一個或多個物件的屬性到另一個目標物件，最後回傳目標物件。</p>
+<p>下面我們利用<code>Object.assign(&#123;&#125;,person,&#123;number: 99,age:12&#125;);</code>，將物件<code>person</code>和<code>&#123;number:99,age:12&#125;</code>的屬性複製到目標物件({ })。</p>
+<p>如果複製的多個物件的屬性有重複，以後面物件的屬性為準進行合併。舉例來說<code>age</code>是重複出現的屬性，最後複製屬性值時，要以後面出現的<code>age:12</code>為準合併物件。</p>
+<p><strong>注意 : <code>Object.assign()</code>做的是 shallow copy(淺複製)，如果要複製的物件屬性包含子物件，就會複製到子物件的參照(reference)!!!。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;Wes Bos&#x27;</span>,</span><br><span class="line">      <span class="attr">age</span>: <span class="number">80</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> cap2 = <span class="built_in">Object</span>.assign(&#123;&#125;,person,&#123;<span class="attr">number</span>: <span class="number">99</span>,<span class="attr">age</span>:<span class="number">12</span>&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(person,cap2);</span><br></pre></td></tr></table></figure>
+<p>原來的<code>person</code>並沒有被改動到。</p>
+<p><img src="https://i.imgur.com/hxETBx3.png" alt=""></p>
+<ul>
+<li>簡單概念圖</li>
+</ul>
+<p><img src="https://i.imgur.com/APVV1UP.png" alt=""></p>
+<h4 id="Shallow-Copy-Deep-Copy">Shallow Copy &amp; Deep Copy</h4>
+<p>前面我們有提到，<code>Object.assign()</code>做的是 shallow copy(淺複製)，若要複製的物件屬性包含子物件，就會複製到子物件的參照。</p>
+<p>所以只要去改動新物件的子物件屬性值，就會連帶影響原本複製的物件子屬性值。</p>
+<p>下面我們用<code>Object.assign()</code>複製來源物件(<code>wes</code>)的屬性到目標物件({})，再將目標物件傳遞給<code>dev</code>物件，要留意<code>wes</code>的屬性包含子物件屬性(<code>social</code>)。</p>
+<p>例子中我們修改複製來的物件屬性(<code>name</code>)和子物件屬性(<code>social.twitter</code>)，之後把<code>wes</code>、<code>dev</code>物件印到 console 會發現複製的來源物件<code>wes</code>的屬性(<code>name</code>)不受影響，但<code>wes</code>的子物件屬性(<code>social.twitter</code>)卻被影響。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> wes = &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;Wes&#x27;</span>,</span><br><span class="line">      <span class="attr">age</span>: <span class="number">100</span>,</span><br><span class="line">      <span class="attr">social</span>: &#123;</span><br><span class="line">        <span class="attr">twitter</span>: <span class="string">&#x27;@wesbos&#x27;</span>,</span><br><span class="line">        <span class="attr">facebook</span>: <span class="string">&#x27;wesbos.developer&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//shallow copy</span></span><br><span class="line"><span class="keyword">const</span> dev = <span class="built_in">Object</span>.assign(&#123;&#125;,wes);</span><br><span class="line">dev.name = <span class="string">&#x27;Wesley&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(wes,dev);</span><br><span class="line"></span><br><span class="line">dev.social.twitter = <span class="string">&#x27;@coolman&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(wes.social,dev.social);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/etJyOi7.png" alt=""></p>
+<p>如果不想改動複製來源物件的子屬性值(<code>social.twitter</code>)，我們可以將要複製的物件用<code>JSON.stringify()</code>先轉換成 JSON String(因為是Primitive，所以是 Passed by Value)，再用<code>JSON.parse()</code>把它還原成物件再回傳給<code>dev2</code>。</p>
+<p>下面我們一樣修改子物件的屬性值，但這次的原物件子屬性值並沒有受到影響。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> wes = &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;Wes&#x27;</span>,</span><br><span class="line">      <span class="attr">age</span>: <span class="number">100</span>,</span><br><span class="line">      <span class="attr">social</span>: &#123;</span><br><span class="line">        <span class="attr">twitter</span>: <span class="string">&#x27;@wesbos&#x27;</span>,</span><br><span class="line">        <span class="attr">facebook</span>: <span class="string">&#x27;wesbos.developer&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// deep copy</span></span><br><span class="line"><span class="keyword">const</span> dev2 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(wes));<span class="comment">//先轉成string再換回object</span></span><br><span class="line">dev2.social.twitter = <span class="string">&#x27;@coolman&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(wes.social,dev2.social);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/uUoIcIg.png" alt=""></p>
+<h4 id="補充資料-7">補充資料:</h4>
+<p><a target="_blank" rel="noopener" href="https://totoroliu.medium.com/javascript-var-let-const-%E5%B7%AE%E7%95%B0-e3d930521230">JavaScript: var, let, const 差異</a><br>
+<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/concat">Array.prototype.concat()</a><br>
+<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Spread_syntax">Spread syntax (…)</a><br>
+<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/from">Array.from()</a><br>
+<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign()</a><br>
+<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify">JSON.stringify()</a><br>
+<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse">JSON.parse()</a></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://qi-xiang.github.io/2021/09/14/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D14/" data-id="cl9cn03z2005760txbn2k1h9o" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Qi Xiang,Zhang"
+        },
+        "headline": "JS30 全攻略 第14天",
+        "image": "https://qi-xiang.github.iohttps://i.imgur.com/WbZ1431.jpg",
+        "keywords": "JS30",
+        "genre": "2021 iThome 鐵人賽",
+        "datePublished": "2021-09-14",
+        "dateCreated": "2021-09-14",
+        "dateModified": "2022-03-14",
+        "url": "https://qi-xiang.github.io/2021/09/14/2021鐵人賽/ironman2021D14/",
+        "description": "前言
+JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 No Frameworks、No Compilers、No Libraries、No Boilerplate 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。
+另外，Wes Bos 也很無私地在 Github 上公開了所有 JS 30 課程的程式碼，有興趣的話",
+        "wordCount": 618
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>追蹤 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/profile.php?id=100004441091584" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/qi-xiang-zhang-499625210/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://stackoverflow.com/users/17213183/xiang?tab=profile" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/QI-XIANG" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2021/09/15/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D15/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            JS30 全攻略 第15天
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2021/09/13/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D13/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">JS30 全攻略 第13天</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/09/20/ironman2022D5/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/3Up9tZI.png)" alt="【Day 05】 建立 Django App" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/09/20/ironman2022D5/" class="title">【Day 05】 建立 Django App</a></p>
+                            <p class="item-date"><time datetime="2022-09-19T16:20:35.000Z" itemprop="datePublished">2022-09-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/09/19/ironman2022D4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/3Up9tZI.png)" alt="【Day 04】 建立 Django Project" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/09/19/ironman2022D4/" class="title">【Day 04】 建立 Django Project</a></p>
+                            <p class="item-date"><time datetime="2022-09-18T16:20:35.000Z" itemprop="datePublished">2022-09-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/09/18/ironman2022D3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/CuWg4pS.png)" alt="【Day 03】 Django 環境設定" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/09/18/ironman2022D3/" class="title">【Day 03】 Django 環境設定</a></p>
+                            <p class="item-date"><time datetime="2022-09-17T16:20:35.000Z" itemprop="datePublished">2022-09-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/09/17/ironman2022D2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/SeLdeVv.png)" alt="【Day 02】 Django 簡介" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/09/17/ironman2022D2/" class="title">【Day 02】 Django 簡介</a></p>
+                            <p class="item-date"><time datetime="2022-09-16T16:20:35.000Z" itemprop="datePublished">2022-09-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/09/16/ironman2022D1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/SeLdeVv.png)" alt="【Day 01】 Django 初學之旅-啟程LA" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
+                            <p class="item-title"><a href="/2022/09/16/ironman2022D1/" class="title">【Day 01】 Django 初學之旅-啟程LA</a></p>
+                            <p class="item-date"><time datetime="2022-09-15T16:20:35.000Z" itemprop="datePublished">2022-09-16</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">52</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">17</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/BDC/" style="font-size: 14.44px;">BDC</a> <a href="/tags/CSS-Flex-Box/" style="font-size: 16.67px;">CSS Flex Box</a> <a href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/" style="font-size: 13.33px;">Django 初心者之旅</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.22px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15.56px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.11px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.22px;">原子習慣</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 15.56px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.11px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 17.78px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.78px;">財報狗挖好股精華</a> <a href="/tags/%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 11.11px;">資料探勘</a> <a href="/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/" style="font-size: 10px;">資料視覺化</a> <a href="/tags/%E8%B3%87%E7%AE%A1%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/" style="font-size: 10px;">資管畢業專題</a> <a href="/tags/%E8%B3%87%E8%A8%8A%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AD%98/" style="font-size: 10px;">資訊科普知識</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.89px;">金魚也能學會寫網頁</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/QI-XIANG">My Github</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 Qi Xiang,Zhang</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://qi-xiang.github.io/2021/09/14/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D14/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
