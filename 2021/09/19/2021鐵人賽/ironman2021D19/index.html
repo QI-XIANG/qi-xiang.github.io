@@ -78,7 +78,7 @@
     
 
 
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
     <div id="wrap">
@@ -236,12 +236,12 @@
 
             
 
-            <h2 id="前言-10">前言</h2>
+            <h2 id="前言-11">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-10">本日目標</h2>
+<h2 id="本日目標-11">本日目標</h2>
 <p>取得使用者的鏡頭影像，藉此實作出網頁版的相機以及影像濾鏡效果。</p>
 <p><img src="https://i.imgur.com/faymFXk.jpg" alt=""></p>
 <hr>
@@ -259,8 +259,8 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 </li>
 </ul>
 <hr>
-<h2 id="解析程式碼-10">解析程式碼</h2>
-<h3 id="HTML-部分-8">HTML 部分</h3>
+<h2 id="解析程式碼-11">解析程式碼</h2>
+<h3 id="HTML-部分-9">HTML 部分</h3>
 <p>div(<code>.controls</code>) : 裡面放置用來拍照的按鈕和調整綠幕效果的按鈕。</p>
 <p>canvas(<code>.photo</code>) : 用來放入鏡頭的影像，之後會搭配一些濾鏡。</p>
 <p>video(<code>.player</code>) : 固定在右上角的小影像視窗。</p>
@@ -268,7 +268,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p>audio(<code>.snap</code>) : 放入按下拍照按鈕時要撥放的音效。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;photobooth&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;controls&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&quot;takePhoto()&quot;</span>&gt;</span>Take Photo<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;rgb&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;rmin&quot;</span>&gt;</span>Red Min:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">min</span>=<span class="string">0</span> <span class="attr">max</span>=<span class="string">255</span> <span class="attr">name</span>=<span class="string">&quot;rmin&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;rmax&quot;</span>&gt;</span>Red Max:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">min</span>=<span class="string">0</span> <span class="attr">max</span>=<span class="string">255</span> <span class="attr">name</span>=<span class="string">&quot;rmax&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">          <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">          <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;gmin&quot;</span>&gt;</span>Green Min:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">min</span>=<span class="string">0</span> <span class="attr">max</span>=<span class="string">255</span> <span class="attr">name</span>=<span class="string">&quot;gmin&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;gmax&quot;</span>&gt;</span>Green Max:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">min</span>=<span class="string">0</span> <span class="attr">max</span>=<span class="string">255</span> <span class="attr">name</span>=<span class="string">&quot;gmax&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">          <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">          <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;bmin&quot;</span>&gt;</span>Blue Min:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">min</span>=<span class="string">0</span> <span class="attr">max</span>=<span class="string">255</span> <span class="attr">name</span>=<span class="string">&quot;bmin&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;bmax&quot;</span>&gt;</span>Blue Max:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">min</span>=<span class="string">0</span> <span class="attr">max</span>=<span class="string">255</span> <span class="attr">name</span>=<span class="string">&quot;bmax&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">class</span>=<span class="string">&quot;photo&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">video</span> <span class="attr">class</span>=<span class="string">&quot;player&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;strip&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">class</span>=<span class="string">&quot;snap&quot;</span> <span class="attr">src</span>=<span class="string">&quot;./snap.mp3&quot;</span> <span class="attr">hidden</span>&gt;</span><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://i.imgur.com/ti6B1FE.png" alt=""></p>
-<h3 id="JS-部分-10">JS 部分</h3>
+<h3 id="JS-部分-11">JS 部分</h3>
 <p>老樣子，我們要先取得所有要用到的元素。</p>
 <p><code>.player</code> 是小鏡頭畫面。<br>
 <code>canvas</code> 是可以套上濾鏡的大鏡頭畫面。<br>
@@ -338,7 +338,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/19/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D19/" data-id="cl9cnl2wg00628gtxbf8o3bd9" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/19/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D19/" data-id="cl9cnprcm005x24tx31an8adj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
