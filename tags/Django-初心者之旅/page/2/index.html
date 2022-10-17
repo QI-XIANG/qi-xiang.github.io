@@ -194,17 +194,17 @@
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2022/09/20/ironman2022D5/" class="thumbnail">
+        <a href="/2022/10/05/ironman2022D20/" class="thumbnail">
     
     
-        <span style="background-image:url(https://i.imgur.com/3Up9tZI.png)" alt="【Day 05】 建立 Django App" class="thumbnail-image"></span>
+        <span style="background-image:url(https://i.imgur.com/V7GmkHF.png)" alt="【Day 20】 Django Template Tags 補充篇(1) – If &amp; Logical Operators" class="thumbnail-image"></span>
     
     
         
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://qi-xiang.github.io/2022/09/20/ironman2022D5/">0</span>
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://qi-xiang.github.io/2022/10/05/ironman2022D20/">0</span>
     
 </span>
 
@@ -217,24 +217,20 @@
             <div class="category">
             <a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a>
             </div>
-            <div class="date"><time datetime="2022-09-19T16:20:35.000Z" itemprop="datePublished">2022-09-20</time></div>
+            <div class="date"><time datetime="2022-10-04T16:20:35.000Z" itemprop="datePublished">2022-10-05</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2022/09/20/ironman2022D5/">【Day 05】 建立 Django App</a>
+        <a href="/2022/10/05/ironman2022D20/">【Day 20】 Django Template Tags 補充篇(1) – If &amp; Logical Operators</a>
         </h1>
     
 
         <p class="article-excerpt">
-            這次我們要學習如何建立Django App，之後會讓它變成一個顯示Hello World!的網頁。那什麼是Django App呢?
-Django App
-每個App都是一個Web Application，它可以是網站的首頁、註冊表單、操作資料庫的儀表板等等，一切端看設計者的需求而有不同面貌。
-建立 Django App
-
-
-打開CMD並切換到虛擬環境(python venv)的資料夾路徑下
-(實際
+            接下來的幾天都會是對Template Tags的補充內容，有些東西可能前面有使用過，這邊可以當作再一次的複習。為避免看起來內容水分有點重，比較簡單的內容都會被塞到同一篇，沒直接跳過這些看起來簡單的內容是為了呼應系列文的初心兩個字，我希望能將Django的入門起點拉得越低越好。
+測試環境
+開始測試補充篇的各種原始碼之前，我們要先建好一個用來顯示執行結果的測試網頁。
+(忘記怎麼啟動python虛擬環境
         </p>
     </div>
 </article>
@@ -247,17 +243,17 @@ Django App
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2022/09/19/ironman2022D4/" class="thumbnail">
+        <a href="/2022/10/04/ironman2022D19/" class="thumbnail">
     
     
-        <span style="background-image:url(https://i.imgur.com/3Up9tZI.png)" alt="【Day 04】 建立 Django Project" class="thumbnail-image"></span>
+        <span style="background-image:url(https://i.imgur.com/3Up9tZI.png)" alt="【Day 19】 網頁更新資料庫資料表紀錄 (下)" class="thumbnail-image"></span>
     
     
         
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://qi-xiang.github.io/2022/09/19/ironman2022D4/">0</span>
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://qi-xiang.github.io/2022/10/04/ironman2022D19/">0</span>
     
 </span>
 
@@ -270,34 +266,18 @@ Django App
             <div class="category">
             <a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a>
             </div>
-            <div class="date"><time datetime="2022-09-18T16:20:35.000Z" itemprop="datePublished">2022-09-19</time></div>
+            <div class="date"><time datetime="2022-10-03T16:20:35.000Z" itemprop="datePublished">2022-10-04</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2022/09/19/ironman2022D4/">【Day 04】 建立 Django Project</a>
+        <a href="/2022/10/04/ironman2022D19/">【Day 19】 網頁更新資料庫資料表紀錄 (下)</a>
         </h1>
     
 
         <p class="article-excerpt">
-            還記得昨天我們建立的那個名為myproject的venv資料夾嗎?
-接下來我們就要把第一個Django Project建在裡面囉!
-建立第一個 Django Project
-
-
-首先打開CMD並切換到venv的資料夾路徑下
-(路徑不一定是這樣，視個人建立的路徑而定)
-
-
-
-執行activate.bat啟動虛擬環境
- 1Scripts\activate.bat
-
-啟動虛擬環境後結果如下:
-
-
-
-繼續
+            接續昨天的內容，今天要來實作送出表單(Submit)去更新資料表資料的功能，不過在此之前，先讓我們回顧一下昨天表單的原始碼。
+123456789101112&lt;h1&gt;Update member&lt;/h1&gt;&lt;form action=&quot;updaterecord/&#123;&#123; mymember.id &#125;&#125;&quot; method=&q
         </p>
     </div>
 </article>
@@ -314,17 +294,17 @@ Django App
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2022/09/18/ironman2022D3/" class="thumbnail">
+        <a href="/2022/10/03/ironman2022D18/" class="thumbnail">
     
     
-        <span style="background-image:url(https://i.imgur.com/CuWg4pS.png)" alt="【Day 03】 Django 環境設定" class="thumbnail-image"></span>
+        <span style="background-image:url(https://i.imgur.com/TJe1VMw.jpg)" alt="【Day 18】 網頁更新資料庫資料表紀錄 (上)" class="thumbnail-image"></span>
     
     
         
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://qi-xiang.github.io/2022/09/18/ironman2022D3/">0</span>
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://qi-xiang.github.io/2022/10/03/ironman2022D18/">0</span>
     
 </span>
 
@@ -337,30 +317,22 @@ Django App
             <div class="category">
             <a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a>
             </div>
-            <div class="date"><time datetime="2022-09-17T16:20:35.000Z" itemprop="datePublished">2022-09-18</time></div>
+            <div class="date"><time datetime="2022-10-02T16:20:35.000Z" itemprop="datePublished">2022-10-03</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2022/09/18/ironman2022D3/">【Day 03】 Django 環境設定</a>
+        <a href="/2022/10/03/ironman2022D18/">【Day 18】 網頁更新資料庫資料表紀錄 (上)</a>
         </h1>
     
 
         <p class="article-excerpt">
-            工欲善其事，必先利其器。
-開始用Django框架寫網站前，我們必須先安裝它的開發環境。
-我們需要安裝/設定的東西如下 :
+            目前我們學會如何實作在網頁上新增、刪除資料表資料的功能，接下來會學到如何實作在網頁上更新資料表資料的功能，為避免內容過多，所以會分成上下2個部分，各自獨立寫成文章。
+那具體來說，我們今天到底會做些什麼呢?
 
-Python
-PIP
-Virtual Environment
-Django
-
-Python
-Django 是 Python 的框架，理所當然要先裝Python才能開始使用囉。
-如果不知道有沒有安裝過的話，可以先在CMD輸入以下指令確認 :
-1python --version
-
+在members資料夾的index.html新增連向更新資料表資料的表單連結
+在members資料夾下建立更新資料表資料的表單update.html
+修改members資料夾的views.py
         </p>
     </div>
 </article>
@@ -373,17 +345,17 @@ Django 是 Python 的框架，理所當然要先裝Python才能開始使用囉�
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2022/09/17/ironman2022D2/" class="thumbnail">
+        <a href="/2022/10/02/ironman2022D17/" class="thumbnail">
     
     
-        <span style="background-image:url(https://i.imgur.com/SeLdeVv.png)" alt="【Day 02】 Django 簡介" class="thumbnail-image"></span>
+        <span style="background-image:url(https://i.imgur.com/3Up9tZI.png)" alt="【Day 17】 網頁刪除資料庫資料表紀錄" class="thumbnail-image"></span>
     
     
         
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://qi-xiang.github.io/2022/09/17/ironman2022D2/">0</span>
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://qi-xiang.github.io/2022/10/02/ironman2022D17/">0</span>
     
 </span>
 
@@ -396,21 +368,24 @@ Django 是 Python 的框架，理所當然要先裝Python才能開始使用囉�
             <div class="category">
             <a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a>
             </div>
-            <div class="date"><time datetime="2022-09-16T16:20:35.000Z" itemprop="datePublished">2022-09-17</time></div>
+            <div class="date"><time datetime="2022-10-01T16:20:35.000Z" itemprop="datePublished">2022-10-02</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2022/09/17/ironman2022D2/">【Day 02】 Django 簡介</a>
+        <a href="/2022/10/02/ironman2022D17/">【Day 17】 網頁刪除資料庫資料表紀錄</a>
         </h1>
     
 
         <p class="article-excerpt">
-            Django 是什麼?
-簡單來說，Django 就是一個 python 的框架，主要功用是讓人能輕鬆用 python 建立網站。
-個人覺得 Django 有一個很棒的地方，那就是它預先將複雜的處理過程，包裝成一個個的套件和方法，多數情況下只要引用它們就好。因此，可以把心思放在設計版面或其他事，而不必去糾結要怎麼寫複雜的 python 程式碼來完善網頁功能。
-Django 核心架構
-大學上程式課比較
+            延續【Day 15】完成在網頁上新增紀錄(Record)到資料表的功能，今天我們要來實作在網頁上點擊按鈕後，即時在資料表刪除對應欄位的資料。我們今天總共會需要動到3個檔案，它們分別是 :
+
+members/templates/index.html
+members/views.py
+members/urls.py
+
+修改 Templates
+我們需要在表格的每列資料後方新增1欄，用來放置刪除該列資料
         </p>
     </div>
 </article>
@@ -427,17 +402,17 @@ Django 核心架構
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2022/09/16/ironman2022D1/" class="thumbnail">
+        <a href="/2022/10/01/ironman2022D16/" class="thumbnail">
     
     
-        <span style="background-image:url(https://i.imgur.com/SeLdeVv.png)" alt="【Day 01】 Django 初學之旅-啟程LA" class="thumbnail-image"></span>
+        <span style="background-image:url(https://i.imgur.com/aI9J1GS.png)" alt="【Day 16】 Django Template Tags 番外篇 – CSRF Token" class="thumbnail-image"></span>
     
     
         
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://qi-xiang.github.io/2022/09/16/ironman2022D1/">0</span>
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://qi-xiang.github.io/2022/10/01/ironman2022D16/">0</span>
     
 </span>
 
@@ -450,24 +425,279 @@ Django 核心架構
             <div class="category">
             <a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a>
             </div>
-            <div class="date"><time datetime="2022-09-15T16:20:35.000Z" itemprop="datePublished">2022-09-16</time></div>
+            <div class="date"><time datetime="2022-09-30T16:20:35.000Z" itemprop="datePublished">2022-10-01</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2022/09/16/ironman2022D1/">【Day 01】 Django 初學之旅-啟程LA</a>
+        <a href="/2022/10/01/ironman2022D16/">【Day 16】 Django Template Tags 番外篇 – CSRF Token</a>
         </h1>
     
 
         <p class="article-excerpt">
-            
-想不到要怎麼寫開場白，那就用QA來快速帶過吧! (ps. 寫開場白也不好水啊啊啊~)
+            還記得我們在前面表單的原始碼出現的&#123;% csrf_token %&#125;嗎? 今天會來稍微介紹它是用來做什麼的? 沒有它會發生什麼?它解決了什麼問題?
+CSRF ? CSRF Token ?
+CSRF
+它的全名是Cross Site Request Forgery，中文名稱是跨站請求偽造，是一種常見的網路攻擊手段。該攻擊手段利用的是使用者對於瀏覽器的信任，使用者登入網路應用程式通常採
+        </p>
+    </div>
+</article>
+    
 
-Q: 為什麼學Django?
-起初是看到大學班上有人用Django建自己的部落格，那時候真的覺得很酷超想學。
-現在算是在實現當初的想法吧! (但其實我後來跑去用Hexo建自己的部落格XDD)
-Q: 為什麼要在W3Schools學?
-這是因為教授有時候上課時間不足，某些地方就只能輕輕帶過或直接不講，他很常說要自
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2022/09/30/ironman2022D15/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/3Up9tZI.png)" alt="【Day 15】 網頁新增紀錄到資料庫資料表 (下)" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://qi-xiang.github.io/2022/09/30/ironman2022D15/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a>
+            </div>
+            <div class="date"><time datetime="2022-09-29T16:20:35.000Z" itemprop="datePublished">2022-09-30</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2022/09/30/ironman2022D15/">【Day 15】 網頁新增紀錄到資料庫資料表 (下)</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            接續昨天的內容，我們今天要來實做表單送出並新增資料到資料表的功能。
+先來複習我們昨天表單的原始碼 :
+123456789101112&lt;h1&gt;Add member&lt;/h1&gt;&lt;form action=&quot;addrecord/&quot; method=&quot;post&quot;&gt;&#123;% csrf_token %&#125;First Name:
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2022/09/29/ironman2022D14/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/XZNLhTH.png)" alt="【Day 14】 網頁新增紀錄到資料庫資料表 (上)" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://qi-xiang.github.io/2022/09/29/ironman2022D14/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a>
+            </div>
+            <div class="date"><time datetime="2022-09-28T16:20:35.000Z" itemprop="datePublished">2022-09-29</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2022/09/29/ironman2022D14/">【Day 14】 網頁新增紀錄到資料庫資料表 (上)</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            在開始前先複習我們之前做過什麼?
+
+在資料庫建立Members資料表
+用Python Shell在資料表新增5筆資料
+以表格的形式在瀏覽器畫面上呈現資料表資料
+
+今天我們要做的是在網頁中以提交表單的方式新增資料紀錄(Record)到資料庫資料表上，並且能夠在新增後看到目前所有的資料表紀錄。
+由於內容比較多，所以我選擇將它切成上、下兩個部分做說明，而為了文章閱讀的連貫性，個人非常建議上、下兩篇文章都
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2022/09/28/ironman2022D13/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/JaQMGGM.png)" alt="【Day 13】 Django Records in Template" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://qi-xiang.github.io/2022/09/28/ironman2022D13/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a>
+            </div>
+            <div class="date"><time datetime="2022-09-27T16:20:35.000Z" itemprop="datePublished">2022-09-28</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2022/09/28/ironman2022D13/">【Day 13】 Django Records in Template</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            剛看到標題可能會不知道今天要幹嘛，我們今天要接續Day 09的內容，把從資料庫資料表取得的資料，用表格的形式在畫面上呈現出來。
+複習一下我們在Day 09最後呈現的網頁 :
+
+接下來要分3部分開始實作囉!
+
+注意! 要先在members/templates新增1個index.html(新增就好先不動它)。
+
+修改 View
+這次我們一樣要去修改members/views.py的index方法，把它
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2022/09/27/ironman2022D12/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/SeLdeVv.png)" alt="【Day 12】 Django Template Tags &amp; Variables" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://qi-xiang.github.io/2022/09/27/ironman2022D12/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a>
+            </div>
+            <div class="date"><time datetime="2022-09-26T16:20:35.000Z" itemprop="datePublished">2022-09-27</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2022/09/27/ironman2022D12/">【Day 12】 Django Template Tags &amp; Variables</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            為了避免之後看到它們出現的時候會充滿疑惑，這邊先稍微介紹Django Template Tags &amp; Variables的用法和格式，我們今天不會去實際運用它們，所以就當成補充資料輕鬆地看看就好。
+Template Tags
+在Django的Templates(.html)裡面，其實可以藉由Template Tags的幫忙，讓我們能撰寫如同python一般的程式邏輯，包括常見的If判斷、F
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2022/09/26/ironman2022D11/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/VixUVaQ.png)" alt="【Day 11】 Django Models 番外篇(2) – Migrations" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://qi-xiang.github.io/2022/09/26/ironman2022D11/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a>
+            </div>
+            <div class="date"><time datetime="2022-09-25T16:20:35.000Z" itemprop="datePublished">2022-09-26</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2022/09/26/ironman2022D11/">【Day 11】 Django Models 番外篇(2) – Migrations</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            每個寫過程式的人，或多或少都接觸過Git，它是一個非常好用的版本控制工具，而在Django的資料庫，其實也存在版本控制的相關指令，接下來就讓我們一起看看吧!
+makemigrations
+剛建好1個Django App或對models.py進行修改，都會需要執行這個指令，執行後它會自動與現行資料庫的版本比較差異，接著產生1個migrations的檔案，代表要變更的內容。對照到Git的話，就有點像是
         </p>
     </div>
 </article>
@@ -480,8 +710,8 @@ Q: 為什麼要在W3Schools學?
 
 
     <nav id="page-nav">
-        <span class="pages">第 2 頁，共 2 頁</span>
-        <a class="extend prev" rel="prev" href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/">&laquo;</a><a class="page-number" href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/">1</a><span class="page-number current">2</span>
+        <span class="pages">第 2 頁，共 3 頁</span>
+        <a class="extend prev" rel="prev" href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/">&laquo;</a><a class="page-number" href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/">1</a><span class="page-number current">2</span><a class="page-number" href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/page/3/">3</a><a class="extend next" rel="next" href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/page/3/">&raquo;</a>
     </nav>
 
 
@@ -543,10 +773,10 @@ Q: 為什麼要在W3Schools學?
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2022/09/30/ironman2022D15/" class="thumbnail">
+                            <a href="/2022/10/15/ironman2022D30/" class="thumbnail">
     
     
-        <span style="background-image:url(https://i.imgur.com/3Up9tZI.png)" alt="【Day 15】 網頁新增紀錄到資料庫資料表 (下)" class="thumbnail-image"></span>
+        <span style="background-image:url(https://i.imgur.com/SgCc12d.jpg)" alt="【Day 30】 Django 網站部署篇 - PythonAnywhere" class="thumbnail-image"></span>
     
     
 </a>
@@ -555,18 +785,18 @@ Q: 為什麼要在W3Schools學?
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
-                            <p class="item-title"><a href="/2022/09/30/ironman2022D15/" class="title">【Day 15】 網頁新增紀錄到資料庫資料表 (下)</a></p>
-                            <p class="item-date"><time datetime="2022-09-29T16:20:35.000Z" itemprop="datePublished">2022-09-30</time></p>
+                            <p class="item-title"><a href="/2022/10/15/ironman2022D30/" class="title">【Day 30】 Django 網站部署篇 - PythonAnywhere</a></p>
+                            <p class="item-date"><time datetime="2022-10-14T16:20:35.000Z" itemprop="datePublished">2022-10-15</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2022/09/29/ironman2022D14/" class="thumbnail">
+                            <a href="/2022/10/14/ironman2022D29/" class="thumbnail">
     
     
-        <span style="background-image:url(https://i.imgur.com/XZNLhTH.png)" alt="【Day 14】 網頁新增紀錄到資料庫資料表 (上)" class="thumbnail-image"></span>
+        <span style="background-image:url(https://i.imgur.com/C2vje2H.png)" alt="【Day 29】 Django 網頁美化篇 - Ctrl+C/V 的魔法" class="thumbnail-image"></span>
     
     
 </a>
@@ -575,18 +805,18 @@ Q: 為什麼要在W3Schools學?
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
-                            <p class="item-title"><a href="/2022/09/29/ironman2022D14/" class="title">【Day 14】 網頁新增紀錄到資料庫資料表 (上)</a></p>
-                            <p class="item-date"><time datetime="2022-09-28T16:20:35.000Z" itemprop="datePublished">2022-09-29</time></p>
+                            <p class="item-title"><a href="/2022/10/14/ironman2022D29/" class="title">【Day 29】 Django 網頁美化篇 - Ctrl+C/V 的魔法</a></p>
+                            <p class="item-date"><time datetime="2022-10-13T16:20:35.000Z" itemprop="datePublished">2022-10-14</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2022/09/28/ironman2022D13/" class="thumbnail">
+                            <a href="/2022/10/13/ironman2022D28/" class="thumbnail">
     
     
-        <span style="background-image:url(https://i.imgur.com/JaQMGGM.png)" alt="【Day 13】 Django Records in Template" class="thumbnail-image"></span>
+        <span style="background-image:url(https://i.imgur.com/3QS3KH2.png)" alt="【Day 28】 Django QuerySet 補充篇(2) - Filter &amp; Order By" class="thumbnail-image"></span>
     
     
 </a>
@@ -595,18 +825,18 @@ Q: 為什麼要在W3Schools學?
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
-                            <p class="item-title"><a href="/2022/09/28/ironman2022D13/" class="title">【Day 13】 Django Records in Template</a></p>
-                            <p class="item-date"><time datetime="2022-09-27T16:20:35.000Z" itemprop="datePublished">2022-09-28</time></p>
+                            <p class="item-title"><a href="/2022/10/13/ironman2022D28/" class="title">【Day 28】 Django QuerySet 補充篇(2) - Filter &amp; Order By</a></p>
+                            <p class="item-date"><time datetime="2022-10-12T16:20:35.000Z" itemprop="datePublished">2022-10-13</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2022/09/27/ironman2022D12/" class="thumbnail">
+                            <a href="/2022/10/12/ironman2022D27/" class="thumbnail">
     
     
-        <span style="background-image:url(https://i.imgur.com/SeLdeVv.png)" alt="【Day 12】 Django Template Tags &amp; Variables" class="thumbnail-image"></span>
+        <span style="background-image:url(https://i.imgur.com/ANZ09Tk.png)" alt="【Day 27】 Django QuerySet 補充篇(1) - Introduction &amp; Get Data" class="thumbnail-image"></span>
     
     
 </a>
@@ -615,18 +845,18 @@ Q: 為什麼要在W3Schools學?
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
-                            <p class="item-title"><a href="/2022/09/27/ironman2022D12/" class="title">【Day 12】 Django Template Tags &amp; Variables</a></p>
-                            <p class="item-date"><time datetime="2022-09-26T16:20:35.000Z" itemprop="datePublished">2022-09-27</time></p>
+                            <p class="item-title"><a href="/2022/10/12/ironman2022D27/" class="title">【Day 27】 Django QuerySet 補充篇(1) - Introduction &amp; Get Data</a></p>
+                            <p class="item-date"><time datetime="2022-10-11T16:20:35.000Z" itemprop="datePublished">2022-10-12</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2022/09/26/ironman2022D11/" class="thumbnail">
+                            <a href="/2022/10/11/ironman2022D26/" class="thumbnail">
     
     
-        <span style="background-image:url(https://i.imgur.com/VixUVaQ.png)" alt="【Day 11】 Django Models 番外篇(2) – Migrations" class="thumbnail-image"></span>
+        <span style="background-image:url(https://i.imgur.com/6MloEn3.png)" alt="【Day 26】 Django 客製化 404 頁面" class="thumbnail-image"></span>
     
     
 </a>
@@ -635,8 +865,8 @@ Q: 為什麼要在W3Schools學?
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
-                            <p class="item-title"><a href="/2022/09/26/ironman2022D11/" class="title">【Day 11】 Django Models 番外篇(2) – Migrations</a></p>
-                            <p class="item-date"><time datetime="2022-09-25T16:20:35.000Z" itemprop="datePublished">2022-09-26</time></p>
+                            <p class="item-title"><a href="/2022/10/11/ironman2022D26/" class="title">【Day 26】 Django 客製化 404 頁面</a></p>
+                            <p class="item-date"><time datetime="2022-10-10T16:20:35.000Z" itemprop="datePublished">2022-10-11</time></p>
                         </div>
                     </li>
                 
@@ -649,7 +879,7 @@ Q: 為什麼要在W3Schools學?
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分類</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">52</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">17</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">52</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">17</span></li></ul>
         </div>
     </div>
 
@@ -659,7 +889,7 @@ Q: 為什麼要在W3Schools學?
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">標籤雲</h3>
         <div class="widget tagcloud">
-            <a href="/tags/BDC/" style="font-size: 13.33px;">BDC</a> <a href="/tags/CSS-Flex-Box/" style="font-size: 15.56px;">CSS Flex Box</a> <a href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/" style="font-size: 18.89px;">Django 初心者之旅</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.22px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 14.44px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.11px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.22px;">原子習慣</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 14.44px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.11px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 16.67px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 16.67px;">財報狗挖好股精華</a> <a href="/tags/%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 11.11px;">資料探勘</a> <a href="/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/" style="font-size: 10px;">資料視覺化</a> <a href="/tags/%E8%B3%87%E7%AE%A1%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/" style="font-size: 10px;">資管畢業專題</a> <a href="/tags/%E8%B3%87%E8%A8%8A%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AD%98/" style="font-size: 10px;">資訊科普知識</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 17.78px;">金魚也能學會寫網頁</a>
+            <a href="/tags/BDC/" style="font-size: 13.75px;">BDC</a> <a href="/tags/CSS-Flex-Box/" style="font-size: 16.25px;">CSS Flex Box</a> <a href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/" style="font-size: 20px;">Django 初心者之旅</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.5px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.25px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.5px;">原子習慣</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 15px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.25px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 17.5px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.5px;">財報狗挖好股精華</a> <a href="/tags/%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 11.25px;">資料探勘</a> <a href="/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/" style="font-size: 10px;">資料視覺化</a> <a href="/tags/%E8%B3%87%E7%AE%A1%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/" style="font-size: 10px;">資管畢業專題</a> <a href="/tags/%E8%B3%87%E8%A8%8A%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AD%98/" style="font-size: 10px;">資訊科普知識</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.75px;">金魚也能學會寫網頁</a>
         </div>
     </div>
 

@@ -236,16 +236,16 @@
 
             
 
-            <h2 id="前言-13">前言</h2>
+            <h2 id="前言-12">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-13">本日目標</h2>
+<h2 id="本日目標-12">本日目標</h2>
 <p>取得使用者的位置資訊，實作出簡易的羅盤和速度表。</p>
 <p><img src="https://i.imgur.com/l2pPOWj.png" alt=""></p>
 <hr>
-<h2 id="設定本地伺服器-3">設定本地伺服器</h2>
+<h2 id="設定本地伺服器-2">設定本地伺服器</h2>
 <p>這次的範例會需要取得位置的存取權限，而在取得過程必須是透過<code>https</code>或是<code>localhost</code>這類的<code>secure origin</code>才行，以下我們透過<code>npm install</code>和<code>npm start</code>架起自己的 little server (localhost)。</p>
 <p>如果發現下面的指令無效的話，表示沒有安裝Node.js，可以點這邊<a target="_blank" rel="noopener" href="https://nodejs.org/en/">下載 LTS 的版本</a>，都用預設的安裝就好。</p>
 <ul>
@@ -260,11 +260,11 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 </ul>
 <p>這次不用 VisualStudio 的 Go Live Server，是因為它沒有提供 external server url，也讓行動裝置沒辦法直接用來測試。</p>
 <hr>
-<h2 id="解析程式碼-13">解析程式碼</h2>
-<h3 id="HTML-部分-11">HTML 部分</h3>
+<h2 id="解析程式碼-12">解析程式碼</h2>
+<h3 id="HTML-部分-10">HTML 部分</h3>
 <p>總體而言只有兩個重點，一個是羅盤的 svg(<code>.arrow</code>) 圖，另一個是速度表(<code>.speed</code>)。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">class</span>=<span class="string">&quot;arrow&quot;</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="attr">xmlns:xlink</span>=<span class="string">&quot;http://www.w3.org/1999/xlink&quot;</span> <span class="attr">version</span>=<span class="string">&quot;1.1&quot;</span> <span class="attr">x</span>=<span class="string">&quot;0px&quot;</span> <span class="attr">y</span>=<span class="string">&quot;0px&quot;</span> <span class="attr">viewBox</span>=<span class="string">&quot;0 0 64 64&quot;</span> <span class="attr">enable-background</span>=<span class="string">&quot;new 0 0 64 64&quot;</span> <span class="attr">xml:space</span>=<span class="string">&quot;preserve&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">g</span>&gt;</span><span class="tag">&lt;<span class="name">path</span> <span class="attr">fill</span>=<span class="string">&quot;#ffffff&quot;</span> <span class="attr">d</span>=<span class="string">&quot;M32,1.824C15.361,1.824,1.825,15.361,1.825,32c0,16.639,13.537,30.176,30.175,30.176   S62.175,48.639,62.175,32C62.175,15.361,48.639,1.824,32,1.824z M29.715,3.988h1.12l2.333,3.807V3.988h1.069v5.701h-1.155   l-2.298-3.718v3.718h-1.069V3.988z M9.323,33.917H8.102l-1.136-4.262l-1.132,4.262H4.587l-1.361-5.701h1.178l0.859,3.916   l1.042-3.916h1.369l0.999,3.982l0.875-3.982h1.159L9.323,33.917z M33.995,59.828c-0.181,0.285-0.438,0.497-0.77,0.636   c-0.332,0.139-0.745,0.208-1.241,0.208c-0.721,0-1.274-0.167-1.661-0.5c-0.386-0.333-0.617-0.819-0.692-1.456l1.12-0.109   c0.067,0.376,0.204,0.652,0.41,0.828c0.206,0.176,0.484,0.264,0.834,0.264c0.371,0,0.65-0.078,0.838-0.235   c0.188-0.157,0.282-0.34,0.282-0.55c0-0.135-0.04-0.25-0.119-0.344c-0.079-0.095-0.217-0.177-0.414-0.247   c-0.135-0.047-0.442-0.13-0.922-0.249c-0.617-0.153-1.05-0.341-1.299-0.564c-0.35-0.314-0.525-0.696-0.525-1.147   c0-0.29,0.082-0.562,0.247-0.815c0.165-0.253,0.402-0.445,0.712-0.577c0.31-0.132,0.684-0.198,1.122-0.198   c0.716,0,1.254,0.157,1.616,0.471c0.362,0.314,0.552,0.733,0.57,1.256l-1.151,0.051c-0.049-0.293-0.155-0.504-0.317-0.632   c-0.162-0.128-0.405-0.193-0.729-0.193c-0.334,0-0.596,0.069-0.786,0.206c-0.122,0.088-0.183,0.206-0.183,0.354   c0,0.135,0.057,0.25,0.171,0.346c0.145,0.122,0.498,0.249,1.058,0.381c0.56,0.132,0.974,0.269,1.243,0.41   c0.268,0.141,0.478,0.334,0.63,0.58c0.152,0.245,0.227,0.548,0.227,0.908C34.267,59.237,34.176,59.543,33.995,59.828z M32,52.795   c-11.466,0-20.795-9.329-20.795-20.795c0-11.466,9.329-20.795,20.795-20.795S52.795,20.534,52.795,32   C52.795,43.466,43.466,52.795,32,52.795z M55.014,33.917v-5.701h4.227v0.965h-3.076v1.264h2.862v0.96h-2.862v1.552h3.185v0.961   H55.014z&quot;</span>/&gt;</span><span class="tag">&lt;<span class="name">g</span>&gt;</span><span class="tag">&lt;<span class="name">path</span> <span class="attr">fill</span>=<span class="string">&quot;#000000&quot;</span> <span class="attr">d</span>=<span class="string">&quot;M48.904,31.863c-4.074-1.358-8.148-2.717-12.226-4.066c-0.265-0.087-0.399-0.223-0.486-0.486    c-1.349-4.077-2.708-8.151-4.066-12.226c-0.029-0.087-0.074-0.169-0.132-0.3c-0.054,0.152-0.09,0.245-0.122,0.34    c-1.352,4.053-2.707,8.104-4.048,12.161c-0.096,0.292-0.246,0.428-0.532,0.522c-4.056,1.342-8.108,2.696-12.16,4.049    c-0.097,0.032-0.189,0.074-0.344,0.137c0.172,0.06,0.267,0.093,0.362,0.125c4.074,1.358,8.148,2.717,12.224,4.072    c0.204,0.068,0.337,0.158,0.412,0.386c1.243,3.757,2.498,7.511,3.75,11.265c0.144,0.432,0.291,0.862,0.463,1.373    c0.068-0.185,0.108-0.285,0.142-0.386c1.349-4.042,2.701-8.083,4.04-12.128c0.094-0.284,0.231-0.438,0.523-0.534    c4.056-1.341,8.108-2.696,12.161-4.048c0.099-0.033,0.195-0.076,0.347-0.137C49.067,31.925,48.987,31.891,48.904,31.863z     M37.475,32.038c-1.316,0.439-2.631,0.879-3.947,1.314c-0.095,0.031-0.139,0.081-0.17,0.173c-0.434,1.313-0.873,2.625-1.311,3.937    c-0.012,0.033-0.024,0.066-0.046,0.126c-0.056-0.166-0.104-0.306-0.15-0.446c-0.407-1.219-0.814-2.437-1.218-3.657    c-0.025-0.074-0.068-0.104-0.134-0.125c-1.323-0.44-2.646-0.881-3.968-1.322c-0.031-0.01-0.062-0.022-0.118-0.041    c0.05-0.02,0.081-0.034,0.112-0.045c1.315-0.439,2.631-0.879,3.947-1.314c0.093-0.03,0.142-0.075,0.173-0.17    c0.435-1.316,0.875-2.632,1.314-3.947c0.01-0.031,0.022-0.062,0.039-0.11c0.019,0.042,0.033,0.069,0.043,0.097    c0.441,1.323,0.882,2.645,1.321,3.969c0.028,0.085,0.072,0.129,0.158,0.158c1.324,0.438,2.646,0.879,3.969,1.32    c0.027,0.009,0.053,0.02,0.1,0.038C37.538,32.013,37.507,32.027,37.475,32.038z&quot;</span>/&gt;</span><span class="tag">&lt;<span class="name">path</span> <span class="attr">fill</span>=<span class="string">&quot;#000000&quot;</span> <span class="attr">d</span>=<span class="string">&quot;M24.436,27.633c-1.069-2.137-2.119-4.237-3.216-6.43c2.189,1.094,4.292,2.145,6.433,3.216    c-0.359,0.713-0.706,1.404-1.057,2.091c-0.023,0.045-0.078,0.082-0.127,0.106C25.807,26.949,25.143,27.28,24.436,27.633z&quot;</span>/&gt;</span><span class="tag">&lt;<span class="name">path</span> <span class="attr">fill</span>=<span class="string">&quot;#000000&quot;</span> <span class="attr">d</span>=<span class="string">&quot;M39.573,27.632c-0.696-0.348-1.351-0.673-2.002-1.005c-0.076-0.038-0.155-0.104-0.193-0.177    c-0.338-0.661-0.666-1.326-1.019-2.033c2.121-1.061,4.228-2.115,6.43-3.217C41.69,23.399,40.635,25.509,39.573,27.632z&quot;</span>/&gt;</span><span class="tag">&lt;<span class="name">path</span> <span class="attr">fill</span>=<span class="string">&quot;#000000&quot;</span> <span class="attr">d</span>=<span class="string">&quot;M24.436,36.339c0.712,0.357,1.394,0.698,2.074,1.043c0.046,0.024,0.088,0.073,0.113,0.121    c0.339,0.671,0.674,1.345,1.028,2.051c-2.126,1.063-4.232,2.117-6.43,3.216C22.317,40.577,23.37,38.472,24.436,36.339z&quot;</span>/&gt;</span><span class="tag">&lt;<span class="name">path</span> <span class="attr">fill</span>=<span class="string">&quot;#000000&quot;</span> <span class="attr">d</span>=<span class="string">&quot;M36.358,39.555c0.354-0.707,0.688-1.38,1.028-2.05c0.028-0.056,0.084-0.111,0.14-0.139    c0.67-0.339,1.343-0.674,2.047-1.026c1.066,2.131,2.118,4.235,3.215,6.43C40.601,41.676,38.503,40.628,36.358,39.555z&quot;</span>/&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">g</span>&gt;</span><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">&quot;speed&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;speed-value&quot;</span>&gt;</span>0<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;units&quot;</span>&gt;</span>KM/H<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="JS-部分-13">JS 部分</h3>
+<h3 id="JS-部分-12">JS 部分</h3>
 <p>宣告常數<code>arrow</code>用來放取得的 Svg 羅盤圖片。<br>
 宣告常數<code>speed</code>用來放自速度表(<code>.speed</code>)取得的速度(<code>.speed-value</code>)。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arrow = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.arrow&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> speed = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.speed-value&#x27;</span>);</span><br></pre></td></tr></table></figure>
@@ -282,7 +282,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/API/Navigator/geolocation">Navigator.geolocation</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/API/Geolocation">Geolocation</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/API/Geolocation/watchPosition">Geolocation.watchPosition()</a></p>
-<h2 id="範例網頁請點此-7"><a href="https://qi-xiang.github.io/iThelp2021_JS30/21%20-%20Geolocation/index-START.html">範例網頁請點此</a></h2>
+<h2 id="範例網頁請點此-6"><a href="https://qi-xiang.github.io/iThelp2021_JS30/21%20-%20Geolocation/index-START.html">範例網頁請點此</a></h2>
 
         </div>
         <footer class="article-footer">
@@ -290,7 +290,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/21/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D21/" data-id="cl9cnprcq006324txbw0d7p01" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/21/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D21/" data-id="cl9ctrmc6007c00tx4d4i4qgp" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -471,10 +471,10 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2022/09/30/ironman2022D15/" class="thumbnail">
+                            <a href="/2022/10/15/ironman2022D30/" class="thumbnail">
     
     
-        <span style="background-image:url(https://i.imgur.com/3Up9tZI.png)" alt="【Day 15】 網頁新增紀錄到資料庫資料表 (下)" class="thumbnail-image"></span>
+        <span style="background-image:url(https://i.imgur.com/SgCc12d.jpg)" alt="【Day 30】 Django 網站部署篇 - PythonAnywhere" class="thumbnail-image"></span>
     
     
 </a>
@@ -483,18 +483,18 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
-                            <p class="item-title"><a href="/2022/09/30/ironman2022D15/" class="title">【Day 15】 網頁新增紀錄到資料庫資料表 (下)</a></p>
-                            <p class="item-date"><time datetime="2022-09-29T16:20:35.000Z" itemprop="datePublished">2022-09-30</time></p>
+                            <p class="item-title"><a href="/2022/10/15/ironman2022D30/" class="title">【Day 30】 Django 網站部署篇 - PythonAnywhere</a></p>
+                            <p class="item-date"><time datetime="2022-10-14T16:20:35.000Z" itemprop="datePublished">2022-10-15</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2022/09/29/ironman2022D14/" class="thumbnail">
+                            <a href="/2022/10/14/ironman2022D29/" class="thumbnail">
     
     
-        <span style="background-image:url(https://i.imgur.com/XZNLhTH.png)" alt="【Day 14】 網頁新增紀錄到資料庫資料表 (上)" class="thumbnail-image"></span>
+        <span style="background-image:url(https://i.imgur.com/C2vje2H.png)" alt="【Day 29】 Django 網頁美化篇 - Ctrl+C/V 的魔法" class="thumbnail-image"></span>
     
     
 </a>
@@ -503,18 +503,18 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
-                            <p class="item-title"><a href="/2022/09/29/ironman2022D14/" class="title">【Day 14】 網頁新增紀錄到資料庫資料表 (上)</a></p>
-                            <p class="item-date"><time datetime="2022-09-28T16:20:35.000Z" itemprop="datePublished">2022-09-29</time></p>
+                            <p class="item-title"><a href="/2022/10/14/ironman2022D29/" class="title">【Day 29】 Django 網頁美化篇 - Ctrl+C/V 的魔法</a></p>
+                            <p class="item-date"><time datetime="2022-10-13T16:20:35.000Z" itemprop="datePublished">2022-10-14</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2022/09/28/ironman2022D13/" class="thumbnail">
+                            <a href="/2022/10/13/ironman2022D28/" class="thumbnail">
     
     
-        <span style="background-image:url(https://i.imgur.com/JaQMGGM.png)" alt="【Day 13】 Django Records in Template" class="thumbnail-image"></span>
+        <span style="background-image:url(https://i.imgur.com/3QS3KH2.png)" alt="【Day 28】 Django QuerySet 補充篇(2) - Filter &amp; Order By" class="thumbnail-image"></span>
     
     
 </a>
@@ -523,18 +523,18 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
-                            <p class="item-title"><a href="/2022/09/28/ironman2022D13/" class="title">【Day 13】 Django Records in Template</a></p>
-                            <p class="item-date"><time datetime="2022-09-27T16:20:35.000Z" itemprop="datePublished">2022-09-28</time></p>
+                            <p class="item-title"><a href="/2022/10/13/ironman2022D28/" class="title">【Day 28】 Django QuerySet 補充篇(2) - Filter &amp; Order By</a></p>
+                            <p class="item-date"><time datetime="2022-10-12T16:20:35.000Z" itemprop="datePublished">2022-10-13</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2022/09/27/ironman2022D12/" class="thumbnail">
+                            <a href="/2022/10/12/ironman2022D27/" class="thumbnail">
     
     
-        <span style="background-image:url(https://i.imgur.com/SeLdeVv.png)" alt="【Day 12】 Django Template Tags &amp; Variables" class="thumbnail-image"></span>
+        <span style="background-image:url(https://i.imgur.com/ANZ09Tk.png)" alt="【Day 27】 Django QuerySet 補充篇(1) - Introduction &amp; Get Data" class="thumbnail-image"></span>
     
     
 </a>
@@ -543,18 +543,18 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
-                            <p class="item-title"><a href="/2022/09/27/ironman2022D12/" class="title">【Day 12】 Django Template Tags &amp; Variables</a></p>
-                            <p class="item-date"><time datetime="2022-09-26T16:20:35.000Z" itemprop="datePublished">2022-09-27</time></p>
+                            <p class="item-title"><a href="/2022/10/12/ironman2022D27/" class="title">【Day 27】 Django QuerySet 補充篇(1) - Introduction &amp; Get Data</a></p>
+                            <p class="item-date"><time datetime="2022-10-11T16:20:35.000Z" itemprop="datePublished">2022-10-12</time></p>
                         </div>
                     </li>
                 
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2022/09/26/ironman2022D11/" class="thumbnail">
+                            <a href="/2022/10/11/ironman2022D26/" class="thumbnail">
     
     
-        <span style="background-image:url(https://i.imgur.com/VixUVaQ.png)" alt="【Day 11】 Django Models 番外篇(2) – Migrations" class="thumbnail-image"></span>
+        <span style="background-image:url(https://i.imgur.com/6MloEn3.png)" alt="【Day 26】 Django 客製化 404 頁面" class="thumbnail-image"></span>
     
     
 </a>
@@ -563,8 +563,8 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
-                            <p class="item-title"><a href="/2022/09/26/ironman2022D11/" class="title">【Day 11】 Django Models 番外篇(2) – Migrations</a></p>
-                            <p class="item-date"><time datetime="2022-09-25T16:20:35.000Z" itemprop="datePublished">2022-09-26</time></p>
+                            <p class="item-title"><a href="/2022/10/11/ironman2022D26/" class="title">【Day 26】 Django 客製化 404 頁面</a></p>
+                            <p class="item-date"><time datetime="2022-10-10T16:20:35.000Z" itemprop="datePublished">2022-10-11</time></p>
                         </div>
                     </li>
                 
@@ -577,7 +577,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分類</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">52</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">17</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">52</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">17</span></li></ul>
         </div>
     </div>
 
@@ -587,7 +587,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">標籤雲</h3>
         <div class="widget tagcloud">
-            <a href="/tags/BDC/" style="font-size: 13.33px;">BDC</a> <a href="/tags/CSS-Flex-Box/" style="font-size: 15.56px;">CSS Flex Box</a> <a href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/" style="font-size: 18.89px;">Django 初心者之旅</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.22px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 14.44px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.11px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.22px;">原子習慣</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 14.44px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.11px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 16.67px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 16.67px;">財報狗挖好股精華</a> <a href="/tags/%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 11.11px;">資料探勘</a> <a href="/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/" style="font-size: 10px;">資料視覺化</a> <a href="/tags/%E8%B3%87%E7%AE%A1%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/" style="font-size: 10px;">資管畢業專題</a> <a href="/tags/%E8%B3%87%E8%A8%8A%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AD%98/" style="font-size: 10px;">資訊科普知識</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 17.78px;">金魚也能學會寫網頁</a>
+            <a href="/tags/BDC/" style="font-size: 13.75px;">BDC</a> <a href="/tags/CSS-Flex-Box/" style="font-size: 16.25px;">CSS Flex Box</a> <a href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/" style="font-size: 20px;">Django 初心者之旅</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.5px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.25px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.5px;">原子習慣</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 15px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.25px;">生活經驗分享</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 17.5px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.5px;">財報狗挖好股精華</a> <a href="/tags/%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 11.25px;">資料探勘</a> <a href="/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/" style="font-size: 10px;">資料視覺化</a> <a href="/tags/%E8%B3%87%E7%AE%A1%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/" style="font-size: 10px;">資管畢業專題</a> <a href="/tags/%E8%B3%87%E8%A8%8A%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AD%98/" style="font-size: 10px;">資訊科普知識</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.75px;">金魚也能學會寫網頁</a>
         </div>
     </div>
 
