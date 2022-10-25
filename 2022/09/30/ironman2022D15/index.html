@@ -241,7 +241,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;Add member&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;form action=&quot;addrecord/&quot; method=&quot;post&quot;&gt;</span><br><span class="line">&#123;% csrf_token %&#125;</span><br><span class="line">First Name:&lt;br&gt;</span><br><span class="line">&lt;input name=&quot;first&quot;&gt;</span><br><span class="line">&lt;br&gt;&lt;br&gt;</span><br><span class="line">Last Name:&lt;br&gt;</span><br><span class="line">&lt;input name=&quot;last&quot;&gt;</span><br><span class="line">&lt;br&gt;&lt;br&gt;</span><br><span class="line">&lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
 <p>在我們提交表單後，資料會被<code>POST</code>到<code>member/add/addrecord/</code>這個路徑，然後準備做下一步的處理，而要如何處理收到的資料，依靠的還是<code>URLs</code>和<code>Views</code>的配合。</p>
 <p>我們接下來需要先在<code>members</code>的<code>views.py</code>新增收到對路徑<code>member/add/addrecord/</code>請求的處理方法，然後在<code>urls.py</code>裡，新增相應的路徑用來正確指向、設定處理路徑請求的<code>view</code>方法和給定路徑別名。</p>
-<h2 id="修改-Views-2">修改 Views</h2>
+<h2 id="修改-Views-3">修改 Views</h2>
 <p>在<code>members/views.py</code>裡面新增<code>addrecord</code>方法用來處理表單送出後產生的請求並把收到的資料新增到資料表上。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">from django.http import HttpResponse, HttpResponseRedirect #1</span><br><span class="line">from django.template import loader</span><br><span class="line">from django.urls import reverse #2</span><br><span class="line">from .models import Members</span><br><span class="line"></span><br><span class="line">def index(request):</span><br><span class="line">  mymembers = Members.objects.all().values()</span><br><span class="line">  template = loader.get_template(&#x27;index.html&#x27;)</span><br><span class="line">  context = &#123;</span><br><span class="line">    &#x27;mymembers&#x27;: mymembers,</span><br><span class="line">  &#125;</span><br><span class="line">  return HttpResponse(template.render(context, request))</span><br><span class="line">  </span><br><span class="line">def add(request):</span><br><span class="line">  template = loader.get_template(&#x27;add.html&#x27;)</span><br><span class="line">  return HttpResponse(template.render(&#123;&#125;, request))</span><br><span class="line"></span><br><span class="line">#本次新增的內容</span><br><span class="line">def addrecord(request):</span><br><span class="line">  x = request.POST[&#x27;first&#x27;] #3</span><br><span class="line">  y = request.POST[&#x27;last&#x27;] #4</span><br><span class="line">  member = Members(firstname=x, lastname=y) #5</span><br><span class="line">  member.save() #6</span><br><span class="line">  return HttpResponseRedirect(reverse(&#x27;index&#x27;)) #7</span><br></pre></td></tr></table></figure>
 <ol>
@@ -268,14 +268,14 @@
 </li>
 </ol>
 <p>修改完<code>Views</code>接著修改<code>URLs</code>，讓<code>Django</code>能正確處理對<code>members/add/addrecord</code>的請求。</p>
-<h2 id="修改-URLs-2">修改 URLs</h2>
+<h2 id="修改-URLs-3">修改 URLs</h2>
 <p>在<code>members/urls.py</code>的<code>urlpatterns</code>裡面，新增到<code>add/addrecord</code>的路徑、指定處理請求的<code>view</code>方法和設定路徑別名。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from django.urls import path</span><br><span class="line">from . import views</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">  path(&#x27;&#x27;, views.index, name=&#x27;index&#x27;),</span><br><span class="line">  path(&#x27;add/&#x27;, views.add, name=&#x27;add&#x27;),</span><br><span class="line">  path(&#x27;add/addrecord/&#x27;, views.addrecord, name=&#x27;addrecord&#x27;), #1</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <ol>
 <li>設定到<code>members/add/addrecord</code>的路徑，以<code>members/views.py</code>的<code>addrecord</code>處理請求並給定路徑別名<code>addrecord</code></li>
 </ol>
 <p>修改完<code>URLs</code>後，表單便可找到處理資料的路徑，接下來看看成果吧!</p>
-<h2 id="啟動-Server-檢視成果-3">啟動 Server 檢視成果</h2>
+<h2 id="啟動-Server-檢視成果-4">啟動 Server 檢視成果</h2>
 <ol>
 <li>
 <p>打開<code>CMD</code>並切換到虛擬環境(<code>python venv</code>)的資料夾路徑下</p>
@@ -314,7 +314,7 @@
 <blockquote>
 <p>這樣就學會如何在網頁上新增資料表紀錄(Record)囉! 明天會是對 CSRF Token 做簡略補充的番外篇。</p>
 </blockquote>
-<h3 id="補充資料-4">補充資料</h3>
+<h3 id="補充資料-5">補充資料</h3>
 <p><a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.1/ref/request-response/">Django Documentation - Request and response objects</a><br>
 <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.1/ref/urlresolvers/#django.urls.reverse">Django Documentation - django.urls.reverse </a></p>
 
@@ -324,7 +324,7 @@
 
 
 
-    <a data-url="https://qi-xiang.github.io/2022/09/30/ironman2022D15/" data-id="cl9llawk5002pgwtx5gmuc7hl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2022/09/30/ironman2022D15/" data-id="cl9of2ys60030v8tx35ap3tjf" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -505,6 +505,26 @@
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2022/10/26/%E7%B5%B1%E8%A8%88%E5%AD%B8Lec04-07/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/UYmfGIF.jpg)" alt="統計學 Lec 04-07 筆記 (開放式課程)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2022/10/26/%E7%B5%B1%E8%A8%88%E5%AD%B8Lec04-07/" class="title">統計學 Lec 04-07 筆記 (開放式課程)</a></p>
+                            <p class="item-date"><time datetime="2022-10-25T16:43:21.000Z" itemprop="datePublished">2022-10-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2022/10/24/%E7%B5%B1%E8%A8%88%E5%AD%B8Lec01-03/" class="thumbnail">
     
     
@@ -582,26 +602,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2022/10/12/ironman2022D27/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://i.imgur.com/ANZ09Tk.png)" alt="【Day 27】 Django QuerySet 補充篇(1) - Introduction &amp; Get Data" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a></p>
-                            <p class="item-title"><a href="/2022/10/12/ironman2022D27/" class="title">【Day 27】 Django QuerySet 補充篇(1) - Introduction &amp; Get Data</a></p>
-                            <p class="item-date"><time datetime="2022-10-11T16:20:35.000Z" itemprop="datePublished">2022-10-12</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -611,7 +611,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分類</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">53</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">17</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">54</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">17</span></li></ul>
         </div>
     </div>
 
@@ -621,7 +621,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">標籤雲</h3>
         <div class="widget tagcloud">
-            <a href="/tags/BDC/" style="font-size: 13.75px;">BDC</a> <a href="/tags/CSS-Flex-Box/" style="font-size: 16.25px;">CSS Flex Box</a> <a href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/" style="font-size: 20px;">Django 初心者之旅</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.5px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.25px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.5px;">原子習慣</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 15px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.25px;">生活經驗分享</a> <a href="/tags/%E7%B5%B1%E8%A8%88%E5%AD%B8/" style="font-size: 10px;">統計學</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 17.5px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.5px;">財報狗挖好股精華</a> <a href="/tags/%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 11.25px;">資料探勘</a> <a href="/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/" style="font-size: 10px;">資料視覺化</a> <a href="/tags/%E8%B3%87%E7%AE%A1%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/" style="font-size: 10px;">資管畢業專題</a> <a href="/tags/%E8%B3%87%E8%A8%8A%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AD%98/" style="font-size: 10px;">資訊科普知識</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.75px;">金魚也能學會寫網頁</a>
+            <a href="/tags/BDC/" style="font-size: 13.75px;">BDC</a> <a href="/tags/CSS-Flex-Box/" style="font-size: 16.25px;">CSS Flex Box</a> <a href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/" style="font-size: 20px;">Django 初心者之旅</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 20px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12.5px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11.25px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12.5px;">原子習慣</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 15px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11.25px;">生活經驗分享</a> <a href="/tags/%E7%B5%B1%E8%A8%88%E5%AD%B8/" style="font-size: 11.25px;">統計學</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 17.5px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17.5px;">財報狗挖好股精華</a> <a href="/tags/%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 11.25px;">資料探勘</a> <a href="/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/" style="font-size: 10px;">資料視覺化</a> <a href="/tags/%E8%B3%87%E7%AE%A1%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/" style="font-size: 10px;">資管畢業專題</a> <a href="/tags/%E8%B3%87%E8%A8%8A%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AD%98/" style="font-size: 10px;">資訊科普知識</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18.75px;">金魚也能學會寫網頁</a>
         </div>
     </div>
 
