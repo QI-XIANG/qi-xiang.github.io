@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://i.imgur.com/HEYpoby.png">
 <meta property="article:published_time" content="2021-09-06T06:27:37.000Z">
-<meta property="article:modified_time" content="2022-03-13T17:22:37.512Z">
+<meta property="article:modified_time" content="2022-03-13T17:22:38.000Z">
 <meta property="article:author" content="Qi Xiang,Zhang">
 <meta property="article:tag" content="JS30">
 <meta name="twitter:card" content="summary">
@@ -209,7 +209,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2021/09/06/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D6/" class="article-date">
-     <time datetime="2022-03-13T17:22:37.512Z" itemprop="dateModified">2022-03-14</time>
+     <time datetime="2022-03-13T17:22:38.000Z" itemprop="dateModified">2022-03-14</time>
   </a>
 </div>
 
@@ -266,7 +266,7 @@ style="color:red;"><code>No Frameworks</code>、<code>No Compilers</code>、<cod
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">displayMatches</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> matchArray = findMatches(<span class="built_in">this</span>.value,cities);</span><br><span class="line">    <span class="keyword">const</span> html = matchArray.map(<span class="function"><span class="params">place</span> =&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">const</span> regex = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="built_in">this</span>.value, <span class="string">&#x27;gi&#x27;</span>);</span><br><span class="line">        <span class="keyword">const</span> cityName = place.city.replace(regex,<span class="string">`&lt;span class=&quot;hl&quot;&gt;<span class="subst">$&#123;<span class="built_in">this</span>.value&#125;</span>&lt;/span&gt;`</span>);</span><br><span class="line">        <span class="keyword">const</span> stateName = place.state.replace(regex,<span class="string">`&lt;span class=&quot;hl&quot;&gt;<span class="subst">$&#123;<span class="built_in">this</span>.value&#125;</span>&lt;/span&gt;`</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`</span></span><br><span class="line"><span class="string">            &lt;li&gt;</span></span><br><span class="line"><span class="string">              &lt;span class=&quot;name&quot;&gt;<span class="subst">$&#123;cityName&#125;</span>, <span class="subst">$&#123;stateName&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">              &lt;span class=&quot;ppulation&quot;&gt;<span class="subst">$&#123;numberWithCommas(place.population)&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">            &lt;/li&gt; </span></span><br><span class="line"><span class="string">          `</span></span><br><span class="line">    &#125;).join(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">    suggestions.innerHTML = html;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>分別宣告常數 <code>searchInput</code>、<code>suggestions</code> 並取得 <code>.search</code>、<code>.suggestions</code>標籤。最後為搜尋欄(<code>searchInput</code>) 註冊<code>change</code>和<code>keyup</code>事件，當欄位數值發生改變或放開鍵盤的那個剎那都會觸發事件，兩個事件都是以 <code>displayMatches()</code> 進行事件處理。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> searchInput = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.search&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> suggestions = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.suggestions&#x27;</span>);</span><br><span class="line"></span><br><span class="line">searchInput.addEventListener(<span class="string">&#x27;change&#x27;</span>,displayMatches)</span><br><span class="line">searchInput.addEventListener(<span class="string">&#x27;keyup&#x27;</span>,displayMatches);</span><br></pre></td></tr></table></figure>
-<h4 id="補充資料-28">補充資料:</h4>
+<h4 id="補充資料-29">補充資料:</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch">使用 Fetch</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/then">Promise.prototype.then()</a><br>
@@ -274,7 +274,7 @@ style="color:red;"><code>No Frameworks</code>、<code>No Compilers</code>、<cod
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Spread_syntax">Spread syntax (…)</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp()</a><br>
 <a target="_blank" rel="noopener" href="https://medium.com/@yitailin/%E6%AF%94%E8%BC%83-keydown-keypress-keyup-%E7%9A%84%E5%B7%AE%E7%95%B0-4e873ba17e81">比較 keydown, keypress, keyup 的差異</a></p>
-<h2 id="實際效果請按此-3"><a href="https://qi-xiang.github.io/iThelp2021_JS30/06%20-%20Type%20Ahead/index-START.html">實際效果請按此</a></h2>
+<h2 id="實際效果請按此-4"><a href="https://qi-xiang.github.io/iThelp2021_JS30/06%20-%20Type%20Ahead/index-START.html">實際效果請按此</a></h2>
 
         </div>
         <footer class="article-footer">
@@ -282,7 +282,7 @@ style="color:red;"><code>No Frameworks</code>、<code>No Compilers</code>、<cod
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/06/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D6/" data-id="clb3ozgcr009ckstx0occ71xq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/06/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D6/" data-id="clddha8b100973kmv4tm2axtd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -463,6 +463,46 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2023/01/27/21thCentury21Class-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/W1nftqV.png)" alt="《21 世紀的 21 堂課》：〈第 20 章 意義〉 書摘" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
+                            <p class="item-title"><a href="/2023/01/27/21thCentury21Class-1/" class="title">《21 世紀的 21 堂課》：〈第 20 章 意義〉 書摘</a></p>
+                            <p class="item-date"><time datetime="2023-01-26T19:07:44.000Z" itemprop="datePublished">2023-01-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/01/27/hello-world/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/42o42DV.jpg)" alt="Hexo 官方教學" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2023/01/27/hello-world/" class="title">Hexo 官方教學</a></p>
+                            <p class="item-date"><time datetime="2023-01-26T18:45:36.010Z" itemprop="datePublished">2023-01-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2022/11/30/%E7%B5%B1%E8%A8%88%E5%AD%B8Lec10-11/" class="thumbnail">
     
     
@@ -520,46 +560,6 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2022/10/26/%E7%B5%B1%E8%A8%88%E5%AD%B8Lec04-07/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://i.imgur.com/UYmfGIF.jpg)" alt="統計學 Lec 04-07 筆記 (開放式課程)" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
-                            <p class="item-title"><a href="/2022/10/26/%E7%B5%B1%E8%A8%88%E5%AD%B8Lec04-07/" class="title">統計學 Lec 04-07 筆記 (開放式課程)</a></p>
-                            <p class="item-date"><time datetime="2022-10-25T16:43:21.000Z" itemprop="datePublished">2022-10-26</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2022/10/24/%E7%B5%B1%E8%A8%88%E5%AD%B8Lec01-03/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://i.imgur.com/vyqZN0Z.jpg)" alt="統計學 Lec 01-03 筆記 (開放式課程)" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
-                            <p class="item-title"><a href="/2022/10/24/%E7%B5%B1%E8%A8%88%E5%AD%B8Lec01-03/" class="title">統計學 Lec 01-03 筆記 (開放式課程)</a></p>
-                            <p class="item-date"><time datetime="2022-10-23T16:43:21.000Z" itemprop="datePublished">2022-10-24</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -569,7 +569,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分類</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">56</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">17</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">56</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">18</span></li></ul>
         </div>
     </div>
 
@@ -579,7 +579,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">標籤雲</h3>
         <div class="widget tagcloud">
-            <a href="/tags/BDC/" style="font-size: 14px;">BDC</a> <a href="/tags/CSS-Flex-Box/" style="font-size: 16px;">CSS Flex Box</a> <a href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/" style="font-size: 20px;">Django 初心者之旅</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 19px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11px;">區塊鏈</a> <a href="/tags/%E5%8E%9F%E5%AD%90%E7%BF%92%E6%85%A3/" style="font-size: 12px;">原子習慣</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 15px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11px;">生活經驗分享</a> <a href="/tags/%E7%B5%B1%E8%A8%88%E5%AD%B8/" style="font-size: 13px;">統計學</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 17px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17px;">財報狗挖好股精華</a> <a href="/tags/%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 11px;">資料探勘</a> <a href="/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/" style="font-size: 10px;">資料視覺化</a> <a href="/tags/%E8%B3%87%E7%AE%A1%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/" style="font-size: 10px;">資管畢業專題</a> <a href="/tags/%E8%B3%87%E8%A8%8A%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AD%98/" style="font-size: 10px;">資訊科普知識</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18px;">金魚也能學會寫網頁</a>
+            <a href="/tags/BDC/" style="font-size: 14px;">BDC</a> <a href="/tags/CSS-Flex-Box/" style="font-size: 16px;">CSS Flex Box</a> <a href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/" style="font-size: 20px;">Django 初心者之旅</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 19px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11px;">區塊鏈</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 15px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%9B%B8%E7%B1%8D%E6%91%98%E8%A6%81/" style="font-size: 13px;">書籍摘要</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11px;">生活經驗分享</a> <a href="/tags/%E7%B5%B1%E8%A8%88%E5%AD%B8/" style="font-size: 13px;">統計學</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 17px;">網頁基礎</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17px;">財報狗挖好股精華</a> <a href="/tags/%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 11px;">資料探勘</a> <a href="/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/" style="font-size: 10px;">資料視覺化</a> <a href="/tags/%E8%B3%87%E7%AE%A1%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/" style="font-size: 10px;">資管畢業專題</a> <a href="/tags/%E8%B3%87%E8%A8%8A%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AD%98/" style="font-size: 10px;">資訊科普知識</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18px;">金魚也能學會寫網頁</a>
         </div>
     </div>
 
@@ -616,7 +616,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                 <h1 class="logo-wrap">
                     <a href="/" class="logo"></a>
                 </h1>
-                <p>&copy; 2022 Qi Xiang,Zhang</p>
+                <p>&copy; 2023 Qi Xiang,Zhang</p>
                 
                 <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
                 
