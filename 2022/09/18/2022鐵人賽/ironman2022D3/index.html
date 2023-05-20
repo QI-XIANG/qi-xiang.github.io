@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>【Day 03】 Django 環境設定 | Xiang&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Django 初心者之旅" />
+    
+    <meta name="description" content="工欲善其事，必先利其器。 開始用Django框架寫網站前，我們必須先安裝它的開發環境。 我們需要安裝&#x2F;設定的東西如下 :  Python PIP Virtual Environment Django  Python Django 是 Python 的框架，理所當然要先裝Python才能開始使用囉。 如果不知道有沒有安裝過的話，可以先在CMD輸入以下指令確認 : 1python --version">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Day 03】 Django 環境設定">
+<meta property="og:url" content="https://qi-xiang.github.io/2022/09/18/2022%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2022D3/index.html">
+<meta property="og:site_name" content="Xiang&#39;s Blog">
+<meta property="og:description" content="工欲善其事，必先利其器。 開始用Django框架寫網站前，我們必須先安裝它的開發環境。 我們需要安裝&#x2F;設定的東西如下 :  Python PIP Virtual Environment Django  Python Django 是 Python 的框架，理所當然要先裝Python才能開始使用囉。 如果不知道有沒有安裝過的話，可以先在CMD輸入以下指令確認 : 1python --version">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/CuWg4pS.png">
+<meta property="article:published_time" content="2022-09-17T16:20:35.000Z">
+<meta property="article:modified_time" content="2022-10-17T10:30:48.000Z">
+<meta property="article:author" content="Qi Xiang,Zhang">
+<meta property="article:tag" content="Django 初心者之旅">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/CuWg4pS.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
+
+    
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Titillium+Web:wght@200&display=swap.css">
+
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">首頁</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://qi-xiang.github.io/PersonalPage2023/">關於</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="輸入關鍵字..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '頁面',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-2022鐵人賽/ironman2022D3" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        【Day 03】 Django 環境設定
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2022/09/18/2022%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2022D3/" class="article-date">
+       <time datetime="2022-09-17T16:20:35.000Z" itemprop="datePublished">2022-09-18</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2022/09/18/2022%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2022D3/" class="article-date">
+     <time datetime="2022-10-17T10:30:48.000Z" itemprop="dateModified">2022-10-17</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/" rel="tag">Django 初心者之旅</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>工欲善其事，必先利其器。<br>
+開始用<code>Django</code>框架寫網站前，我們必須先安裝它的開發環境。</p>
+<p>我們需要安裝/設定的東西如下 :</p>
+<ul>
+<li>Python</li>
+<li>PIP</li>
+<li>Virtual Environment</li>
+<li>Django</li>
+</ul>
+<h2 id="Python">Python</h2>
+<p><code>Django</code> 是 <code>Python</code> 的框架，理所當然要先裝<code>Python</code>才能開始使用囉。<br>
+如果不知道有沒有安裝過的話，可以先在<code>CMD</code>輸入以下指令確認 :</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python --version</span><br></pre></td></tr></table></figure>
+<p>有安裝<code>Python</code>的話，<code>CMD</code>會印出安裝的<code>Python</code>版本，像下面圖片這樣。</p>
+<p><img src="https://i.imgur.com/CuWg4pS.png" alt=""></p>
+<p>如果沒有顯示版本，請至<a target="_blank" rel="noopener" href="https://www.python.org/downloads/">Python官網</a>下載並安裝。<br>
+我自己的習慣是不會安裝最新版本，而是往前安裝1個版本，盡量去找<code>stable version</code>安裝。</p>
+<h2 id="PIP">PIP</h2>
+<p><code>PIP</code> 是 <code>Python</code> 的套件管理工具(package manager)，之後我們會用到它來下載<code>Django</code>。<br>
+不過<code>PIP</code>在<code>Python 3.4</code>後，就已經在安裝<code>Python</code>的同時也安裝了，不用再自行安裝。</p>
+<p>確認<code>PIP</code>的版本可以在<code>CMD</code>輸入以下指令:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip --version</span><br></pre></td></tr></table></figure>
+<p>有安裝的話，會在<code>CMD</code>看到<code>PIP</code>版本和安裝的路徑，像下面這樣。</p>
+<p><img src="https://i.imgur.com/2zdQ8AC.png" alt=""></p>
+<h2 id="Virtual-Environment">Virtual Environment</h2>
+<p>每個<code>Virtual Environment</code>都是1個獨立的<code>Python</code>執行環境，剛建立<code>venv</code>的時候，會產生一個<code>venv</code>的資料夾，在外面安裝多少套件都跟這個新建<code>venv</code>的<code>Python</code>執行環境無關。</p>
+<p>但其實建立<code>venv</code>與否並不影響後面可不可以使用<code>Django</code>，只是非常建議在<code>venv</code>裡面使用<code>Django</code>。至於為什麼要建立<code>venv</code>呢? 大學上課時的說法是為了避免套件衝突。</p>
+<p>下面我們試著建立一個名為<code>myproject</code>的<code>venv</code>，切換到喜歡的路徑並在<code>CMD</code>輸入以下指令 :</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">py -m venv myproject</span><br></pre></td></tr></table></figure>
+<p>按下Enter之後，可以看到我們建立了1個資料夾</p>
+<p><img src="https://i.imgur.com/2zquQLQ.png" alt=""></p>
+<p>資料夾裡面長這樣 :</p>
+<p><img src="https://i.imgur.com/ZEg22nH.png" alt=""></p>
+<p>每次要在<code>venv</code>下載套件、使用<code>Django</code>的時候，我們都需要去啟動<code>venv</code>，要啟動<code>venv</code>必須去執行上面<code>Scripts</code>資料夾裡面的<code>activate.bat</code>檔。</p>
+<p>在<code>CMD</code>輸入指令執行<code>activate.bat</code>:<br>
+(執行路徑不一定是下面這個，只要能正確執行到<code>activate.bat</code>就行)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myproject\Scripts\activate.bat</span><br></pre></td></tr></table></figure>
+<p>看到類似下圖這樣，表示成功啟動<code>venv</code>，括號內的是<code>venv</code>資料夾名稱。</p>
+<p><img src="https://i.imgur.com/JJEWbrX.png" alt=""></p>
+<p>如果覺得每次都要啟動<code>venv</code>很煩，可以考慮下載<a target="_blank" rel="noopener" href="https://www.anaconda.com/">Anaconda</a>，就可以透過圖形介面建立並管理<code>venv</code>喔!</p>
+<h2 id="Django">Django</h2>
+<p>最後是安裝主角<code>Django</code>，接續剛剛啟動<code>venv</code>進到的地方，在那裡輸入以下指令 :</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">py -m pip install Django</span><br></pre></td></tr></table></figure>
+<p>看到類似下圖這樣就安裝完囉。</p>
+<p><img src="https://i.imgur.com/ikdWHCp.png" alt=""></p>
+<p>想確認安裝的<code>Django</code>版本可以輸入以下指令 :</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">django-admin --version</span><br></pre></td></tr></table></figure>
+<p>顯示<code>Django</code>版本如下 :</p>
+<p><img src="https://i.imgur.com/W1dDJBB.png" alt=""></p>
+<p>完成上面的安裝/設定，接下來就可以開始使用<code>Django</code>寫網站囉!</p>
+<blockquote>
+<p>ps. 想從<code>venv</code>退出的話，在<code>CMD</code>輸入<code>deactivate</code>或執行<code>Scripts</code>資料夾的<code>deactivate.bat</code>就可以了。</p>
+</blockquote>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://qi-xiang.github.io/2022/09/18/2022%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2022D3/" data-id="clhw7mp6y00avbwtx9uo66fxa" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Qi Xiang,Zhang"
+        },
+        "headline": "【Day 03】 Django 環境設定",
+        "image": "https://qi-xiang.github.iohttps://i.imgur.com/CuWg4pS.png",
+        "keywords": "Django 初心者之旅",
+        "genre": "2022 iThome 鐵人賽",
+        "datePublished": "2022-09-18",
+        "dateCreated": "2022-09-18",
+        "dateModified": "2022-10-17",
+        "url": "https://qi-xiang.github.io/2022/09/18/2022鐵人賽/ironman2022D3/",
+        "description": "工欲善其事，必先利其器。
+開始用Django框架寫網站前，我們必須先安裝它的開發環境。
+我們需要安裝/設定的東西如下 :
+
+Python
+PIP
+Virtual Environment
+Django
+
+Python
+Django 是 Python 的框架，理所當然要先裝Python才能開始使用囉。
+如果不知道有沒有安裝過的話，可以先在CMD輸入以下指令確認 :
+1python --version
+",
+        "wordCount": 88
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>追蹤 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/profile.php?id=100004441091584" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/qi-xiang-zhang-499625210/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://stackoverflow.com/users/17213183/xiang?tab=profile" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/QI-XIANG" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2022/09/19/2022%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2022D4/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            【Day 04】 建立 Django Project
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2022/09/17/2022%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2022D2/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">【Day 02】 Django 簡介</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/05/20/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/stock-2881-TA-20230520/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://hackmd.io/_uploads/SkhuAbBrn.png)" alt="富邦金(2881) 指標類技術分析 2023.05.20" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2023/05/20/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/stock-2881-TA-20230520/" class="title">富邦金(2881) 指標類技術分析 2023.05.20</a></p>
+                            <p class="item-date"><time datetime="2023-05-19T16:17:28.000Z" itemprop="datePublished">2023-05-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/04/27/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-05/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/JtQam0D.png)" alt="SVG 自學微筆記(05) - 在圖上加文字" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2023/04/27/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-05/" class="title">SVG 自學微筆記(05) - 在圖上加文字</a></p>
+                            <p class="item-date"><time datetime="2023-04-26T16:06:14.000Z" itemprop="datePublished">2023-04-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/03/01/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-04/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/uP51cF1.png)" alt="SVG 自學微筆記(04) - 繪製多邊形、折線" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2023/03/01/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-04/" class="title">SVG 自學微筆記(04) - 繪製多邊形、折線</a></p>
+                            <p class="item-date"><time datetime="2023-02-28T16:06:14.000Z" itemprop="datePublished">2023-03-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/28/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-03/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/HNLQpiw.png)" alt="SVG 自學微筆記(03) - 繪製圓形、橢圓形 &amp; 線段" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2023/02/28/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-03/" class="title">SVG 自學微筆記(03) - 繪製圓形、橢圓形 &amp; 線段</a></p>
+                            <p class="item-date"><time datetime="2023-02-28T15:59:22.000Z" itemprop="datePublished">2023-02-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/02/27/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-02/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/FKglnxX.png)" alt="SVG 自學微筆記(02) - 繪製矩形 &amp; 補充說明" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2023/02/27/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-02/" class="title">SVG 自學微筆記(02) - 繪製矩形 &amp; 補充說明</a></p>
+                            <p class="item-date"><time datetime="2023-02-27T15:59:22.000Z" itemprop="datePublished">2023-02-27</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">62</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">18</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/BDC/" style="font-size: 14px;">BDC</a> <a href="/tags/CSS-Flex-Box/" style="font-size: 16px;">CSS Flex Box</a> <a href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/" style="font-size: 20px;">Django 初心者之旅</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 19px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11px;">區塊鏈</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 15px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%9B%B8%E7%B1%8D%E6%91%98%E8%A6%81/" style="font-size: 13px;">書籍摘要</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11px;">生活經驗分享</a> <a href="/tags/%E7%B5%B1%E8%A8%88%E5%AD%B8/" style="font-size: 13px;">統計學</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 17px;">網頁基礎</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E6%8A%80%E8%A1%93%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票技術分析</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17px;">財報狗挖好股精華</a> <a href="/tags/%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 11px;">資料探勘</a> <a href="/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/" style="font-size: 14px;">資料視覺化</a> <a href="/tags/%E8%B3%87%E7%AE%A1%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/" style="font-size: 10px;">資管畢業專題</a> <a href="/tags/%E8%B3%87%E8%A8%8A%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AD%98/" style="font-size: 10px;">資訊科普知識</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18px;">金魚也能學會寫網頁</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/QI-XIANG">My Github</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 Qi Xiang,Zhang</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://qi-xiang.github.io/2022/09/18/2022%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2022D3/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
