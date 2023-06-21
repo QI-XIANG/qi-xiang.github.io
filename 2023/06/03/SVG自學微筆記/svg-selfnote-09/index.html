@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>SVG 自學微筆記(09) - 路徑 | Xiang&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="資料視覺化" />
+    
+    <meta name="description" content="SVG 自學微筆記完! (๑´ㅂ&#96;๑)   學習資源: W3Schools、其他網路資料  說到SVG中最複雜的東西，路徑(Path)絕對是一個大魔王，它有太多的commands可以用來定義路徑。透過Path雖然可以繪製效果不錯的SVG圖形，但是要自己定義一個個坐標點，再去把它們完美的串連在一起，實在是件非常困難的事。 W3Schools的SVG Path教學在最後提到，因為Path太複雜的關係">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SVG 自學微筆記(09) - 路徑">
+<meta property="og:url" content="https://qi-xiang.github.io/2023/06/03/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-09/index.html">
+<meta property="og:site_name" content="Xiang&#39;s Blog">
+<meta property="og:description" content="SVG 自學微筆記完! (๑´ㅂ&#96;๑)   學習資源: W3Schools、其他網路資料  說到SVG中最複雜的東西，路徑(Path)絕對是一個大魔王，它有太多的commands可以用來定義路徑。透過Path雖然可以繪製效果不錯的SVG圖形，但是要自己定義一個個坐標點，再去把它們完美的串連在一起，實在是件非常困難的事。 W3Schools的SVG Path教學在最後提到，因為Path太複雜的關係">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/mq9bHys.png">
+<meta property="article:published_time" content="2023-06-02T18:23:56.000Z">
+<meta property="article:modified_time" content="2023-06-21T18:28:52.000Z">
+<meta property="article:author" content="Qi Xiang,Zhang">
+<meta property="article:tag" content="資料視覺化">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/mq9bHys.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
+
+    
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Titillium+Web:wght@200&display=swap.css">
+
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">首頁</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://qi-xiang.github.io/PersonalPage2023/">關於</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="輸入關鍵字..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '頁面',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-SVG自學微筆記/svg-selfnote-09" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        SVG 自學微筆記(09) - 路徑
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2023/06/03/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-09/" class="article-date">
+       <time datetime="2023-06-02T18:23:56.000Z" itemprop="datePublished">2023-06-03</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2023/06/03/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-09/" class="article-date">
+     <time datetime="2023-06-21T18:28:52.000Z" itemprop="dateModified">2023-06-22</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/" rel="tag">資料視覺化</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <blockquote>
+<p>SVG 自學微筆記完! (๑´ㅂ`๑)</p>
+</blockquote>
+<blockquote>
+<p>學習資源: <a target="_blank" rel="noopener" href="https://www.w3schools.com/graphics/svg_intro.asp">W3Schools</a>、其他網路資料</p>
+</blockquote>
+<p>說到SVG中最複雜的東西，路徑(Path)絕對是一個大魔王，它有太多的commands可以用來定義路徑。透過Path雖然可以繪製效果不錯的SVG圖形，但是要自己定義一個個坐標點，再去把它們完美的串連在一起，實在是件非常困難的事。</p>
+<p>W3Schools的SVG Path教學在最後提到，因為Path太複雜的關係，建議使用SVG Editor做圖形的設計，而非自己動手刻SVG的Path。儘管如此，稍微了解如何使用Path也能幫助看懂SVG圖形背後的邏輯與規則。</p>
+<h2 id="SVG-路徑">SVG: 路徑</h2>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>意義(英)</th>
+<th>意義(中)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M</td>
+<td>moveto</td>
+<td>移動路徑初始點</td>
+</tr>
+<tr>
+<td>L</td>
+<td>lineto</td>
+<td>從當前點連線到另一點</td>
+</tr>
+<tr>
+<td>H</td>
+<td>horizontal lineto</td>
+<td>從當前點水平連線到相同y坐標的一點</td>
+</tr>
+<tr>
+<td>V</td>
+<td>vertical lineto</td>
+<td>從當前點垂直連線到相同x坐標的一點</td>
+</tr>
+<tr>
+<td>C</td>
+<td>curveto</td>
+<td>從當前點畫貝茲曲線到指定點 (畫最基礎的貝茲曲線)</td>
+</tr>
+<tr>
+<td>S</td>
+<td>smooth curveto</td>
+<td>從當前點畫貝茲曲線到指定點 (與C同時使用，用處是鏡射前一個控制點)</td>
+</tr>
+<tr>
+<td>Q</td>
+<td>quadratic Bézier curve</td>
+<td>從當前點畫二次貝茲曲線到指定點 (共用控制點)</td>
+</tr>
+<tr>
+<td>T</td>
+<td>smooth quadratic Bézier curveto</td>
+<td>從當前點畫二次貝茲曲線到指定點  (與Q同時使用，用處是鏡射前一個共用控制點)</td>
+</tr>
+<tr>
+<td>A</td>
+<td>elliptical Arc</td>
+<td>畫橢圓圓弧</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>closepath</td>
+<td>關閉路徑</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>要繪製貝茲曲線需要使用到&quot;控制點&quot;這個東西，至於控制點又是什麼呢? 簡單來說，可以把控制點視為控制曲線彎曲程度的點。</li>
+<li>SVG Path的Commands有大小寫之分，大寫代表絕對位置(absolutely positioned)，小寫則是相對位置(relatively positioned)。以<code>M 100 0 L 100 150</code>和<code>M 100 0 l 0 150</code>為例，兩者都是從(100,0)連線到(100,150)，相對位置與絕對位置不同，它是以前一點做為出發位置並相對移動多少，可以想成在x、y上做加法計算。</li>
+</ol>
+<h3 id="範例1-基礎線">範例1 - 基礎線</h3>
+<ul>
+<li>
+<p>M (moveto)</p>
+<ul>
+<li>有2個可以帶入的參數x、y</li>
+<li>移動起始點的座標</li>
+</ul>
+</li>
+<li>
+<p>L (lineto)</p>
+<ul>
+<li>有2個可以帶入的參數x、y</li>
+<li>從上一點連線到當前這一點</li>
+</ul>
+</li>
+<li>
+<p>Z (closepath)</p>
+<ul>
+<li>沒有參數</li>
+<li>關閉路徑，沒關閉路徑的話，描邊(Stroke)會有破洞</li>
+</ul>
+</li>
+</ul>
+<p><strong>有關閉路徑:</strong></p>
+<p><img src="https://i.imgur.com/mq9bHys.png" alt=""></p>
+<p>移動初始點到(50,50)，然後連線到(200,200)，再連線到(50,200)，最後關閉路徑。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;500&quot;</span> <span class="attr">height</span>=<span class="string">&quot;500&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;M 50 50 L 200 200 L 50 200 Z&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;pink&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;4&quot;</span> &gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>沒關閉路徑:</strong></p>
+<p><img src="https://i.imgur.com/BndRCD9.png" alt=""></p>
+<p>移動初始點到(50,50)，然後連線到(200,200)，再連線到(50,200)，最後不關閉路徑。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;500&quot;</span> <span class="attr">height</span>=<span class="string">&quot;500&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;M 50 50 L 200 200 L 50 200&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;pink&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;4&quot;</span> &gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="範例2-水平線、鉛直線">範例2 - 水平線、鉛直線</h3>
+<ul>
+<li>H
+<ul>
+<li>有1個可帶入參數x</li>
+<li>從上一點水平連線到當前的x坐標</li>
+</ul>
+</li>
+<li>V
+<ul>
+<li>有1個可帶入參數y</li>
+<li>從上一點垂直連線到當前的y坐標</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/NOxSRuH.png" alt=""></p>
+<p>藍色水平線，移動初始點到(50,50)，然後水平連線到(200,50)。<br>
+紅色鉛直線，移動初始點到(100,60)，然後垂直連線到(100,200)。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;500&quot;</span> <span class="attr">height</span>=<span class="string">&quot;500&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;M 50 50 H 200&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;blue&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;4&quot;</span> &gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;M 100 60 V 200&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;red&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;4&quot;</span> &gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="範例3-曲線、平滑曲線-C、S不共用控制點">範例3 - 曲線、平滑曲線 (C、S不共用控制點)</h3>
+<ul>
+<li>
+<p>C</p>
+<ul>
+<li>有6個可以帶入的參數x1、y1、x2、y2、x、y</li>
+<li>x1、y1是貝茲曲線的第一個控制點</li>
+<li>x2、y2是貝茲曲線的第二個控制點</li>
+<li>x、y是曲線的終點</li>
+</ul>
+<p><img src="https://i.imgur.com/2S3zytO.png" alt=""><br>
+(圖片取自<a target="_blank" rel="noopener" href="https://www.oxxostudio.tw/articles/201406/svg-04-path-1.html">SVG 研究之路 (4) - Path 基礎篇</a>)</p>
+</li>
+</ul>
+<p>要畫出曲線，我們會需要透過控制點幫忙把曲線的彎曲弧度&quot;拉&quot;出來，上圖有2個控制點分別是(40,40)和(60,40)，曲線始於(0,0)在(100,0)結束。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;500&quot;</span> <span class="attr">height</span>=<span class="string">&quot;500&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;M 0 0 C 40 40 60 40 100 0&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;blue&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>S</p>
+<ul>
+<li>通常與C同時做使用</li>
+<li>有4個可以帶入的參數x2、y2、x、y</li>
+<li>x1、y1是鏡射前一個控制點 (以相同斜率產生，不必帶入參數)</li>
+<li>x2、y2是貝茲曲線的第二個控制點</li>
+<li>x、y是曲線的終點</li>
+</ul>
+<p><img src="https://i.imgur.com/5aB2wGJ.png" alt=""><br>
+(圖片取自<a target="_blank" rel="noopener" href="https://www.oxxostudio.tw/articles/201406/svg-04-path-1.html">SVG 研究之路 (4) - Path 基礎篇</a>)</p>
+</li>
+</ul>
+<p>要畫出曲線，我們會需要透過控制點幫忙把曲線的彎曲弧度&quot;拉&quot;出來，透過S可以只設定第二個控制點，而第一個控制點可以直接鏡射C的第二個控制點。</p>
+<p>上圖使用C產生(0,0)到(100,0)的曲線，並使用S產生(100,0)到(200,0)的曲線，S那邊我們只給(150,-40)這個控制點，另外的控制點則直接複製(鏡射)前個控制點(60,40)的斜率產生，鏡射產生的控制點為(140,-40)。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;500&quot;</span> <span class="attr">height</span>=<span class="string">&quot;500&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;M 0 0 C 40 40 60 40 100 0 S150 -40 200 0&quot;</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">stroke</span>=<span class="string">&quot;blue&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="範例4-二次曲線、平滑曲線-Q、T共用控制點">範例4 - 二次曲線、平滑曲線 (Q、T共用控制點)</h3>
+<ul>
+<li>
+<p>Q</p>
+<ul>
+<li>可以想成共用控制點的C</li>
+<li>因為共用控制點，所以只需要一個控制點</li>
+<li>有4個可以帶入的參數x1、y1、x、y</li>
+<li>x1、y1是貝茲曲線的第一個控制點(共用)</li>
+<li>x、y是曲線的終點</li>
+</ul>
+<p><img src="https://i.imgur.com/PyufhHr.png" alt=""><br>
+(圖片取自<a target="_blank" rel="noopener" href="https://www.oxxostudio.tw/articles/201406/svg-04-path-1.html">SVG 研究之路 (4) - Path 基礎篇</a>)</p>
+</li>
+</ul>
+<p>與前面畫出曲線都要用到二個控制點不同，使用Q我們可以指定一個共用的控制點就得以畫出曲線。上圖我們將(50,50)定為共用控制點，曲線始於(0,0)在(100,0)結束。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;500&quot;</span> <span class="attr">height</span>=<span class="string">&quot;500&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;M 0 0 Q 50 50 100 0&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;blue&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>T</p>
+<ul>
+<li>可以想成共用控制點的S</li>
+<li>因為共用控制點，所以只需要一個控制點</li>
+<li>有2個可以帶入的參數x、y</li>
+<li>x1、y1是鏡射前一個共用控制點 (以相同斜率產生，不必帶入參數)</li>
+<li>x、y是曲線的終點</li>
+</ul>
+<p><img src="https://i.imgur.com/OZRMIDV.png" alt=""><br>
+(圖片取自<a target="_blank" rel="noopener" href="https://www.oxxostudio.tw/articles/201406/svg-04-path-1.html">SVG 研究之路 (4) - Path 基礎篇</a>)</p>
+</li>
+</ul>
+<p>T和S有十分相似的地方，它們都會鏡射前一個控制點，可以減少自訂控制點的數量。而兩者間的不同之處在於，T是共用控制點，而控制點是複製(鏡射)前一個共用控制點(50,50)斜率產生，鏡射產生的共用控制點為(150,-50)</p>
+<pre><code class="language-html=">&lt;svg width=&quot;500&quot; height=&quot;500&quot;&gt;
+    &lt;path d=&quot;M 0 0 Q 50 50 100 0 T 200 0&quot; 
+    stroke=&quot;blue&quot; fill=&quot;transparent&quot;&gt;&lt;/path&gt;
+&lt;/svg&gt;
+</code></pre>
+<p><strong>A</strong>比上面所有的指令都還要複雜，有興趣可以看這篇文章<a target="_blank" rel="noopener" href="https://www.oxxostudio.tw/articles/201406/svg-05-path-2.html">SVG 研究之路 (5) - Path 進階篇</a>或其他資料自行研究，這邊就不再細說。</p>
+<h2 id="SVG-編輯器">SVG: 編輯器</h2>
+<p>相信看完上面的所有內容，應該絕大多數人都不想自己用Path去刻SVG圖形吧? 這個時候，我們可以借助網路上各種大大小小的SVG Editor，透過GUI拖拉產生圖形的方式，使用網站自動產生的SVG原始碼，而不必花時間完全搞懂上面這些指令在做什麼。不過使用網路上的資源固然方便，也別忽略潛藏的資安風險!</p>
+<p><a target="_blank" rel="noopener" href="https://boxy-svg.com/app">Boxy SVG Editor</a> 就是我在網路上隨便找到的一個SVG編輯器，在畫布裡面編輯圖形，下面的視窗就會自動產生SVG Path的原始碼供參考。</p>
+<p><img src="https://i.imgur.com/bPXz9JI.png" alt=""></p>
+<p>之後可能會出番外篇，用短篇說說我為什麼開始接觸、學習SVG。</p>
+<h2 id="參考資料-7">參考資料</h2>
+<p><a target="_blank" rel="noopener" href="https://www.w3schools.com/graphics/svg_path.asp">SVG Path - W3Schools</a><br>
+<a target="_blank" rel="noopener" href="https://www.oxxostudio.tw/articles/201406/svg-04-path-1.html">SVG 研究之路 (4) - Path 基礎篇</a><br>
+<a target="_blank" rel="noopener" href="https://www.oxxostudio.tw/articles/201406/svg-05-path-2.html">SVG 研究之路 (5) - Path 進階篇</a></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://qi-xiang.github.io/2023/06/03/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-09/" data-id="clj61ukhm009ub8mv4ed4dli1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Qi Xiang,Zhang"
+        },
+        "headline": "SVG 自學微筆記(09) - 路徑",
+        "image": "https://qi-xiang.github.iohttps://i.imgur.com/mq9bHys.png",
+        "keywords": "資料視覺化",
+        "genre": "技術類文章",
+        "datePublished": "2023-06-03",
+        "dateCreated": "2023-06-03",
+        "dateModified": "2023-06-22",
+        "url": "https://qi-xiang.github.io/2023/06/03/SVG自學微筆記/svg-selfnote-09/",
+        "description": "
+SVG 自學微筆記完! (๑´ㅂ`๑)
+
+
+學習資源: W3Schools、其他網路資料
+
+說到SVG中最複雜的東西，路徑(Path)絕對是一個大魔王，它有太多的commands可以用來定義路徑。透過Path雖然可以繪製效果不錯的SVG圖形，但是要自己定義一個個坐標點，再去把它們完美的串連在一起，實在是件非常困難的事。
+W3Schools的SVG Path教學在最後提到，因為Path太複雜的關係",
+        "wordCount": 458
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>追蹤 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/profile.php?id=100004441091584" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/qi-xiang-zhang-499625210/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://stackoverflow.com/users/17213183/xiang?tab=profile" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/QI-XIANG" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2023/05/28/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-08/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">SVG 自學微筆記(08) - 線性&amp;放射漸層</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/06/03/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-09/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/mq9bHys.png)" alt="SVG 自學微筆記(09) - 路徑" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2023/06/03/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-09/" class="title">SVG 自學微筆記(09) - 路徑</a></p>
+                            <p class="item-date"><time datetime="2023-06-02T18:23:56.000Z" itemprop="datePublished">2023-06-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/05/28/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-08/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/8PWiAPm.png)" alt="SVG 自學微筆記(08) - 線性&amp;放射漸層" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2023/05/28/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-08/" class="title">SVG 自學微筆記(08) - 線性&amp;放射漸層</a></p>
+                            <p class="item-date"><time datetime="2023-05-27T18:23:56.000Z" itemprop="datePublished">2023-05-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/05/26/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-07/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/vAWaLEv.png)" alt="SVG 自學微筆記(07) - 圖形濾鏡" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2023/05/26/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-07/" class="title">SVG 自學微筆記(07) - 圖形濾鏡</a></p>
+                            <p class="item-date"><time datetime="2023-05-25T18:23:56.000Z" itemprop="datePublished">2023-05-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/05/24/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-06/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/IkCZSiG.png)" alt="SVG 自學微筆記(06) - 線段的特性" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2023/05/24/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-06/" class="title">SVG 自學微筆記(06) - 線段的特性</a></p>
+                            <p class="item-date"><time datetime="2023-05-23T18:23:56.000Z" itemprop="datePublished">2023-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/05/20/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/stock-2881-TA-20230520/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://hackmd.io/_uploads/SkhuAbBrn.png)" alt="富邦金(2881) 指標類技術分析 2023.05.20" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2023/05/20/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/stock-2881-TA-20230520/" class="title">富邦金(2881) 指標類技術分析 2023.05.20</a></p>
+                            <p class="item-date"><time datetime="2023-05-19T16:17:28.000Z" itemprop="datePublished">2023-05-20</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">66</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">18</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/BDC/" style="font-size: 14px;">BDC</a> <a href="/tags/CSS-Flex-Box/" style="font-size: 16px;">CSS Flex Box</a> <a href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/" style="font-size: 20px;">Django 初心者之旅</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 19px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11px;">區塊鏈</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 15px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%9B%B8%E7%B1%8D%E6%91%98%E8%A6%81/" style="font-size: 13px;">書籍摘要</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11px;">生活經驗分享</a> <a href="/tags/%E7%B5%B1%E8%A8%88%E5%AD%B8/" style="font-size: 13px;">統計學</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 17px;">網頁基礎</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E6%8A%80%E8%A1%93%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票技術分析</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17px;">財報狗挖好股精華</a> <a href="/tags/%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 11px;">資料探勘</a> <a href="/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/" style="font-size: 18px;">資料視覺化</a> <a href="/tags/%E8%B3%87%E7%AE%A1%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/" style="font-size: 10px;">資管畢業專題</a> <a href="/tags/%E8%B3%87%E8%A8%8A%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AD%98/" style="font-size: 10px;">資訊科普知識</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18px;">金魚也能學會寫網頁</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/QI-XIANG">My Github</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2023 Qi Xiang,Zhang</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://qi-xiang.github.io/2023/06/03/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-09/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

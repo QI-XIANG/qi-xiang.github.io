@@ -236,22 +236,22 @@
 
             
 
-            <h2 id="前言-18">前言</h2>
+            <h2 id="前言-13">前言</h2>
 <p>JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡單應用課程，課程主打 <span
 style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate</span> 在30天的30部教學影片裡，建立30個JavaScript的有趣小東西。</p>
 <p>另外，Wes Bos 也很無私地在 <a target="_blank" rel="noopener" href="https://github.com/wesbos/JavaScript30">Github</a> 上公開了所有 JS 30 課程的程式碼，有興趣的話可以去 fork 或下載。</p>
 <hr>
-<h2 id="本日目標-18">本日目標</h2>
+<h2 id="本日目標-13">本日目標</h2>
 <p>今天我們要做的是置頂導覽列，當使用者拉下捲軸而視窗頂部碰到導覽列頂部時，若往後繼續下拉捲軸則將導覽列始終固定在最上方。</p>
 <p><img src="https://i.imgur.com/iHYtMDf.png" alt=""></p>
 <hr>
-<h2 id="解析程式碼-18">解析程式碼</h2>
-<h3 id="HTML-部分-16">HTML 部分</h3>
+<h2 id="解析程式碼-13">解析程式碼</h2>
+<h3 id="HTML-部分-11">HTML 部分</h3>
 <p><code>header</code>是網頁上方的標題。</p>
 <p><code>#main</code>是網頁的導覽列，包含<code>.logo</code>(初始隱藏)還有其他五個項目。</p>
 <p><code>.site-wrap</code>放的是一大堆假文還有圖片。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;header&gt;</span><br><span class="line">    &lt;h1&gt;A story about getting lost.&lt;/h1&gt;</span><br><span class="line">&lt;/header&gt;</span><br><span class="line"></span><br><span class="line">&lt;nav id=&quot;main&quot;&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &lt;li class=&quot;logo&quot;&gt;&lt;a href=&quot;#&quot;&gt;LOST.&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;About&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Images&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Locations&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Maps&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/nav&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;site-wrap&quot;&gt;</span><br><span class="line">    &lt;!--以下是假文還有圖片，為不佔空間所以省略--&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="JS-部分-18">JS 部分</h3>
+<h3 id="JS-部分-13">JS 部分</h3>
 <p>宣告常數<code>nav</code>取得網頁導覽列。<br>
 宣告常數<code>topOfNav</code>取得導覽列頂部離視窗最上方的距離。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nav = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#main&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> topOfNav = nav.offsetTop;</span><br></pre></td></tr></table></figure>
@@ -260,7 +260,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <p>那為什麼我們還要特別設定<code>body</code>的<code>padding-top</code>呢? 因為在導覽列(<code>#main</code>)的 CSS 設定中，我們使用了<code>position: fixed;</code>，這樣就會造成導覽列(<code>#main</code>)原本佔的空間突然空出來，之後下方的<code>.site-wrap</code>看上面還有空間就會擠上來，但擠上來的速度過快，因此在視覺上就會出現詭異的彈跳。</p>
 <p>為避免這種狀況發生，我們可以在置頂導覽列的同時，指定<code>body</code>的<code>padding-top: nav.ofsetHeight;</code>，讓原本導覽列佔有的空間，被<code>padding-top</code>補上。不置頂導覽列的同時，理所當然我們就要將<code>body</code>的<code>padding-top</code>改回 0。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fixNav</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(topOfNav,<span class="built_in">window</span>.scrollY);</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">window</span>.scrollY &gt;= topOfNav)&#123;</span><br><span class="line">      <span class="built_in">document</span>.body.style.paddingTop = nav.offsetHeight + <span class="string">&#x27;px&#x27;</span>;</span><br><span class="line">      <span class="built_in">document</span>.body.classList.add(<span class="string">&#x27;fixed-nav&#x27;</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="built_in">document</span>.body.style.paddingTop = <span class="number">0</span>;</span><br><span class="line">      <span class="built_in">document</span>.body.classList.remove(<span class="string">&#x27;fixed-nav&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&#x27;scroll&#x27;</span>,fixNav);</span><br></pre></td></tr></table></figure>
-<h3 id="CSS-部分-4">CSS 部分</h3>
+<h3 id="CSS-部分-2">CSS 部分</h3>
 <p>下面是在<code>body</code>上有<code>.fixed-nav</code>這個 class 時的特殊設定。</p>
 <p>設定導覽列<code>position: fixed</code>，在預設上是固定在<code>left: 0;</code>、<code>top: 0;</code>的位置(視窗左上角)，然後加上一點陰影。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fixed-nav</span> <span class="selector-tag">nav</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">5px</span> <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -268,7 +268,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fixed-nav</span> <span class="selector-tag">li</span><span class="selector-class">.logo</span>&#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">500px</span>; <span class="comment">/*use width can&#x27;t show animation effect*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在置頂導覽列的同時，把下方的文章區塊略為放大。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fixed-nav</span> <span class="selector-class">.site-wrap</span>&#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="補充資料-17">補充資料:</h4>
+<h4 id="補充資料-12">補充資料:</h4>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop">HTMLElement.offsetTop</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetHeight">HTMLElement.offsetHeight</a><br>
 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Element/classList">Element.classList</a><br>
@@ -283,7 +283,7 @@ style="color:red;">No Frameworks、No Compilers、No Libraries、No Boilerplate<
 
 
 
-    <a data-url="https://qi-xiang.github.io/2021/09/24/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D24/" data-id="clhw7mp4f003bbwtxbv5s1j52" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://qi-xiang.github.io/2021/09/24/2021%E9%90%B5%E4%BA%BA%E8%B3%BD/ironman2021D24/" data-id="clj61ukf0002wb8mva5428nba" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -464,6 +464,86 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                     <li>
                         
                         <div class="item-thumbnail">
+                            <a href="/2023/06/03/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-09/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/mq9bHys.png)" alt="SVG 自學微筆記(09) - 路徑" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2023/06/03/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-09/" class="title">SVG 自學微筆記(09) - 路徑</a></p>
+                            <p class="item-date"><time datetime="2023-06-02T18:23:56.000Z" itemprop="datePublished">2023-06-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/05/28/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-08/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/8PWiAPm.png)" alt="SVG 自學微筆記(08) - 線性&amp;放射漸層" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2023/05/28/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-08/" class="title">SVG 自學微筆記(08) - 線性&amp;放射漸層</a></p>
+                            <p class="item-date"><time datetime="2023-05-27T18:23:56.000Z" itemprop="datePublished">2023-05-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/05/26/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-07/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/vAWaLEv.png)" alt="SVG 自學微筆記(07) - 圖形濾鏡" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2023/05/26/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-07/" class="title">SVG 自學微筆記(07) - 圖形濾鏡</a></p>
+                            <p class="item-date"><time datetime="2023-05-25T18:23:56.000Z" itemprop="datePublished">2023-05-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2023/05/24/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-06/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/IkCZSiG.png)" alt="SVG 自學微筆記(06) - 線段的特性" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2023/05/24/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-06/" class="title">SVG 自學微筆記(06) - 線段的特性</a></p>
+                            <p class="item-date"><time datetime="2023-05-23T18:23:56.000Z" itemprop="datePublished">2023-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
                             <a href="/2023/05/20/%E8%82%A1%E7%A5%A8%E5%88%86%E6%9E%90/stock-2881-TA-20230520/" class="thumbnail">
     
     
@@ -481,86 +561,6 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2023/04/27/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-05/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://i.imgur.com/JtQam0D.png)" alt="SVG 自學微筆記(05) - 在圖上加文字" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
-                            <p class="item-title"><a href="/2023/04/27/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-05/" class="title">SVG 自學微筆記(05) - 在圖上加文字</a></p>
-                            <p class="item-date"><time datetime="2023-04-26T16:06:14.000Z" itemprop="datePublished">2023-04-27</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2023/03/01/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-04/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://i.imgur.com/uP51cF1.png)" alt="SVG 自學微筆記(04) - 繪製多邊形、折線" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
-                            <p class="item-title"><a href="/2023/03/01/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-04/" class="title">SVG 自學微筆記(04) - 繪製多邊形、折線</a></p>
-                            <p class="item-date"><time datetime="2023-02-28T16:06:14.000Z" itemprop="datePublished">2023-03-01</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2023/02/28/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-03/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://i.imgur.com/HNLQpiw.png)" alt="SVG 自學微筆記(03) - 繪製圓形、橢圓形 &amp; 線段" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
-                            <p class="item-title"><a href="/2023/02/28/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-03/" class="title">SVG 自學微筆記(03) - 繪製圓形、橢圓形 &amp; 線段</a></p>
-                            <p class="item-date"><time datetime="2023-02-28T15:59:22.000Z" itemprop="datePublished">2023-02-28</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2023/02/27/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-02/" class="thumbnail">
-    
-    
-        <span style="background-image:url(https://i.imgur.com/FKglnxX.png)" alt="SVG 自學微筆記(02) - 繪製矩形 &amp; 補充說明" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
-                            <p class="item-title"><a href="/2023/02/27/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-02/" class="title">SVG 自學微筆記(02) - 繪製矩形 &amp; 補充說明</a></p>
-                            <p class="item-date"><time datetime="2023-02-27T15:59:22.000Z" itemprop="datePublished">2023-02-27</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -570,7 +570,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分類</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">62</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">18</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">66</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">18</span></li></ul>
         </div>
     </div>
 
@@ -580,7 +580,7 @@ JS 30 是由加拿大的全端工程師 Wes Bos 免費提供的 JavaScript 簡�
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">標籤雲</h3>
         <div class="widget tagcloud">
-            <a href="/tags/BDC/" style="font-size: 14px;">BDC</a> <a href="/tags/CSS-Flex-Box/" style="font-size: 16px;">CSS Flex Box</a> <a href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/" style="font-size: 20px;">Django 初心者之旅</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 19px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11px;">區塊鏈</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 15px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%9B%B8%E7%B1%8D%E6%91%98%E8%A6%81/" style="font-size: 13px;">書籍摘要</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11px;">生活經驗分享</a> <a href="/tags/%E7%B5%B1%E8%A8%88%E5%AD%B8/" style="font-size: 13px;">統計學</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 17px;">網頁基礎</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E6%8A%80%E8%A1%93%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票技術分析</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17px;">財報狗挖好股精華</a> <a href="/tags/%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 11px;">資料探勘</a> <a href="/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/" style="font-size: 14px;">資料視覺化</a> <a href="/tags/%E8%B3%87%E7%AE%A1%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/" style="font-size: 10px;">資管畢業專題</a> <a href="/tags/%E8%B3%87%E8%A8%8A%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AD%98/" style="font-size: 10px;">資訊科普知識</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18px;">金魚也能學會寫網頁</a>
+            <a href="/tags/BDC/" style="font-size: 14px;">BDC</a> <a href="/tags/CSS-Flex-Box/" style="font-size: 16px;">CSS Flex Box</a> <a href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/" style="font-size: 20px;">Django 初心者之旅</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 19px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 12px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15px;">Python 學習日記</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 11px;">區塊鏈</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 15px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%9B%B8%E7%B1%8D%E6%91%98%E8%A6%81/" style="font-size: 13px;">書籍摘要</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 11px;">生活經驗分享</a> <a href="/tags/%E7%B5%B1%E8%A8%88%E5%AD%B8/" style="font-size: 13px;">統計學</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 17px;">網頁基礎</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E6%8A%80%E8%A1%93%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票技術分析</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 17px;">財報狗挖好股精華</a> <a href="/tags/%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 11px;">資料探勘</a> <a href="/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/" style="font-size: 18px;">資料視覺化</a> <a href="/tags/%E8%B3%87%E7%AE%A1%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/" style="font-size: 10px;">資管畢業專題</a> <a href="/tags/%E8%B3%87%E8%A8%8A%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AD%98/" style="font-size: 10px;">資訊科普知識</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 18px;">金魚也能學會寫網頁</a>
         </div>
     </div>
 
