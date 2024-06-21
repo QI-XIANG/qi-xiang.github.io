@@ -21,7 +21,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://i.imgur.com/G8DUJBq.png">
 <meta property="article:published_time" content="2024-06-07T16:46:18.000Z">
-<meta property="article:modified_time" content="2024-06-21T16:51:04.000Z">
+<meta property="article:modified_time" content="2024-06-21T17:08:26.000Z">
 <meta property="article:author" content="Qi Xiang,Zhang">
 <meta property="article:tag" content="分散式系統">
 <meta name="twitter:card" content="summary">
@@ -209,7 +209,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/06/08/%E9%99%BD%E4%BA%A4%E5%A4%A7%E5%88%86%E6%95%A3%E5%BC%8F%E7%B3%BB%E7%B5%B12024/distributed-final-cn/" class="article-date">
-     <time datetime="2024-06-21T16:51:04.000Z" itemprop="dateModified">2024-06-22</time>
+     <time datetime="2024-06-21T17:08:26.000Z" itemprop="dateModified">2024-06-22</time>
   </a>
 </div>
 
@@ -386,7 +386,7 @@
 </ul>
 </li>
 <li>DSN利用公共區塊鏈技術來執行儲存合約。區塊鏈技術為各方提供了一個無需單一可信第三方即可進行支付的可接受平台。因此，在區塊鏈啟用的DSN方案中，沒有單一方可以控制任何儲存合約。在DSN儲存服務中，客戶可能會在將資料提交給儲存服務提供者之前對其進行加密，以保護資料的機密性。此外，DSN可以透過在網路中的多個節點中儲存資料，提供冗餘性、高可用性和故障切換功能。作者們假設儲存服務提供者管理其儲存資源，包括冗餘性、服務器位置、備份服務、網路頻寬等，以最大化其按照服務水準協議（SLA）的回報。基於區塊鏈的DSN的整體方法就如下圖1所示，客戶端向儲存服務提供商要求資料儲存服務，後續可以透過部屬在區塊鏈上的智慧合約，來進行相關儲存費用的支付，以及提供儲存服務的驗證。<br>
-<img src="https://hackmd.io/_uploads/H1k8GqMB0.png" alt="圖片1"></li>
+<img src="https://i.imgur.com/vORPmEL.png" alt=""></li>
 <li>機制設計目標:
 <ul>
 <li>區塊鏈平台獨立性：提出一個兼容的儲存方案，可以插入現有的通用區塊鏈平台，具有智慧合約執行兼容性。</li>
@@ -421,15 +421,15 @@
 </ul>
 </li>
 <li>作者們機制設計的目標是確保這個非合作的重複動態賽局的子賽局完美均衡是（儲存服務供應商願意共享資料，並且客戶不挑戰儲存服務供應商的儲存證明）。客戶和儲存服務提供商的儲存合約可以表示成下圖的非合作重複動態賽局，其中儲存服務提供者可以選擇是否分享資料，而客戶可以選擇是否挑戰儲存服務提供商，樹狀圖的末端節點的S和C分別代表的是儲存服務提供商和客戶從賽局中獲得的payoff，並且這個payoff是經由utility function根據雙方採取的策略計算出來的。<br>
-<img src="https://hackmd.io/_uploads/SyYKM9MHR.png" alt="圖片2"><br>
-<img src="https://hackmd.io/_uploads/SyX9fqMHA.png" alt="圖片3"></li>
+<img src="https://i.imgur.com/GX2T8Ek.png" alt=""><br>
+<img src="https://i.imgur.com/pQGk6r5.png" alt=""></li>
 <li>因此，作者們希望儲存服務提供者在資料未被共享時選擇𝑆ℎ𝑎𝑟𝑖𝑛𝑔，客戶應資料未被共享的情況下選擇𝐶ℎ𝑎𝑙𝑙𝑒𝑛𝑔𝑒。為了實現這個目標，機制應該在資料未被共享時激勵客戶選擇挑戰，然而，挑戰請求是昂貴的。為了支付挑戰的成本，所提出的機制設計成證明策略強制要求將資料副本發送給客戶，以提高挑戰策略在不共享的情況下的收益。接下來以𝑃表示儲存服務提供者無法提供儲存服務的機率。讓𝑉表示對客戶訪問資料的價值。那麼，客戶選擇挑戰的預期效用可以表示為下方的式子。<br>
-<img src="https://hackmd.io/_uploads/BkwCM9MSR.png" alt="圖片4"></li>
+<img src="https://i.imgur.com/lG3I2WP.png" alt=""></li>
 <li>下面的圖是作者們定義在非合作動態賽局中，兩位賽局參與者在彼此的策略選擇下，所能得到的payoff值，其中的賽局均衡點是在share-nochallenge，此時的payoff總和是最大的。<br>
 <img src="https://i.imgur.com/FvYNMkm.png" alt=""></li>
 <li>作者們是利用智慧合約作為第三方信任來管理客戶和儲存服務提供者之間的協議。智慧合約由區塊鏈技術驅動。區塊鏈由點對點網絡管理數位分類帳。在提出的模型中，首先客戶和儲存服務提供者達成儲存協議。該協議包括以下資訊：合約期限、資料的merkle root、儲存服務的費用、資料交付時間和補償。資料的merkle root儲存在鏈上，將用於資料驗證。將整個資料儲存在區塊鏈上成本過高，因此使用merkle tree來最小化儲存驗證過程的成本。</li>
 <li>這邊要注意的是區塊鏈平台是一個獨立的網路，無法從外部系統中提取或推送資料。這個問題被稱為Oracle問題。為了解決這個問題，所以提出了Oracle網路。Oracle網路為區塊鏈提供了一個信任的來源，用於訪問區塊鏈外的資料。作者們所提出的方法中不同組件之間的互動就如下方的圖所示。可以看到，資料傳輸是在鏈外完成的。唯一的鏈上操作是挑戰請求。值得注意的是，在這個方法中，儲存服務提供者應該將受挑戰的資料發送給Oracle網路，而Oracle網路將資料轉發給客戶。這種設計有兩個主要原因。首先，它防止了作者們之前解釋過的服務拒絕攻擊。這是因為如果儲存服務提供者拒絕為客戶提供服務，則若儲存服務提供者能夠通過證明，客戶在挑戰請求中將收到資料的副本。因此，儲存服務提供者在向DSN證明儲存的同時無法拒絕向客戶提供服務。其次，當儲存服務提供者尚未共享資料時，機制應該為客戶提供提交挑戰的激勵。通過轉發資料，作者們為選擇挑戰策略的客戶的回報增加了價值，以達到作者們在之前討論的期望的次賽局完美均衡。<br>
-<img src="https://hackmd.io/_uploads/ryxeMd5zH0.png" alt="圖片6"></li>
+<img src="https://i.imgur.com/AZYkMRS.png" alt=""></li>
 <li>資料傳輸是在鏈外完成的。唯一的鏈上操作是挑戰請求。值得注意的是，在這個方法中，儲存服務提供者應該將受挑戰的資料發送給Oracle網路，而Oracle網路將資料轉發給客戶。這種設計有兩個主要原因:
 <ul>
 <li>防止服務拒絕攻擊。儲存服務提供者在向DSN證明儲存的同時無法拒絕向客戶提供服務。</li>
@@ -446,14 +446,14 @@
 </ul>
 </li>
 <li>第一個作者們從PoS方法中要求的屬性是完備性，即方法的演算法輸出的證明對於一個有效的敘述被正確驗證的機率除以可忽略的，它可以用下面的式子來表示，如果一個PoS方法是完備的，則會滿足下面的條件。<br>
-<img src="https://hackmd.io/_uploads/r1qshqMBA.png" alt="圖片7"></li>
+<img src="https://i.imgur.com/oSwTsTn.png" alt=""></li>
 <li>第二個屬性是挑戰聲明，它捕捉到一個惡意的挑戰者無法生成一個挑戰c ，即使證明者持有整個文件也無法回答。它可以用下面的式子來表示，如果一個PoS方法是挑戰聲明的，則會滿足下面的條件。<br>
-<img src="https://hackmd.io/_uploads/rk73n5GBA.png" alt="圖片8"></li>
+<img src="https://i.imgur.com/mOt7k92.png" alt=""></li>
 <li>第三個屬性是證明聲明，它捕捉到即使具有所有其他文件片段，一個惡意的儲存證明者也無法生成有效的證明，如果它不持有被挑戰的文件片段，它可以用下面的式子來表示，如果一個PoS方法是可被證明的，則會滿足下面的條件。<br>
-<img src="https://hackmd.io/_uploads/B11p29GS0.png" alt="圖片9"></li>
+<img src="https://i.imgur.com/DrxHWkn.png" alt=""></li>
 <li>密碼學基本構建區塊: 作者使用一個具有碰撞抗性和難以逆向運算的加密安全hash函數𝐻← 𝐻𝑎𝑠ℎ(𝑥)。數字簽名: 作者使用標準的EU-CMA安全數字簽名函數，其中包含三個函數，分別是產生公鑰和私鑰的函數、簽章的函數，以及驗證簽章有效性的函數。</li>
 <li>完整性直接來自協議。挑戰的聲明性來自設置函數中驗證的最大挑戰數。證明的聲明性來自hash值是一個抵抗碰撞和具有恢復難度的hash函數。很明顯，如果有一個破壞證明聲明性的對手，作者們使用這個對手來破壞hash值的碰撞抵抗性，這就會與假設相矛盾。下面的圖則是一個merkle tree的簡單例子。<br>
-<img src="https://hackmd.io/_uploads/Bye1a9GSC.png" alt="圖片11"></li>
+<img src="https://i.imgur.com/xK03Dls.png" alt=""></li>
 <li>作者們選擇merkle tree來構建基於PoS的主要原因主要有兩個：
 <ul>
 <li>在分散式設定中，作者們希望沒有信任的設定和更少的公共參數，這限制了RSA和雙線性配對解決方法的使用。</li>
@@ -518,11 +518,11 @@
 </li>
 <li>
 <p>下面的圖顯示的是文件讀取時間、merkle root計算、merkle path生成和merkle path驗證的計算成本，分別針對大小為10 MB、50 MB和100 MB的文件。<br>
-<img src="https://hackmd.io/_uploads/BkU7_oMr0.png" alt="圖片12"></p>
+<img src="https://i.imgur.com/9ZdgE1L.png" alt=""></p>
 </li>
 <li>
 <p>下面的圖則顯示的是大小為100 MB、500 MB和1GB的文件和圖6的相同設置。可以看出，隨著segement大小的增加，文件讀取時間、merkle root計算和merkle path生成的計算成本呈遞減的趨勢。merkle path驗證速度快，其時間隨著segement大小的增加而減少。而當相同segement大小的文件大小增加時，文件讀取時間、merkle root計算和merkle path生成的時間同步增長。相反，merkle path驗證時間幾乎保持不變，非常小。<br>
-<img src="https://hackmd.io/_uploads/BJ67uiGHR.png" alt="圖片13"></p>
+<img src="https://i.imgur.com/R3cJa5o.png" alt=""></p>
 </li>
 <li>
 <p>論文中所提出的方法分為兩個層面，即激勵層和PoS層：</p>
