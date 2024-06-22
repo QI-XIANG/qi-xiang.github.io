@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>GeTrust 論文摘要 | Xiang&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="論文摘要" />
+    
+    <meta name="description" content="原始論文來源 : GeTrust: A Guarantee-Based Trust Model in Chord-Based P2P Networks 簡介 P2P網路的主要特色是去中心化、自治和匿名性。然而，由於使用者可能會有非預期的行為，P2P網路需要一套信任模型來建立節點之間的信任關係。現有的大多數信任模型都是以推薦為基礎，但卻面臨著緩慢收斂和複雜的信任分數計算導致網路壅塞的問題。因此，在本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GeTrust 論文摘要">
+<meta property="og:url" content="https://qi-xiang.github.io/2023/07/31/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/GeTrust%E8%AB%96%E6%96%87%E6%91%98%E8%A6%81/index.html">
+<meta property="og:site_name" content="Xiang&#39;s Blog">
+<meta property="og:description" content="原始論文來源 : GeTrust: A Guarantee-Based Trust Model in Chord-Based P2P Networks 簡介 P2P網路的主要特色是去中心化、自治和匿名性。然而，由於使用者可能會有非預期的行為，P2P網路需要一套信任模型來建立節點之間的信任關係。現有的大多數信任模型都是以推薦為基礎，但卻面臨著緩慢收斂和複雜的信任分數計算導致網路壅塞的問題。因此，在本">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/G8DUJBq.png">
+<meta property="article:published_time" content="2023-07-30T17:10:22.000Z">
+<meta property="article:modified_time" content="2024-06-22T17:13:50.000Z">
+<meta property="article:author" content="Qi Xiang,Zhang">
+<meta property="article:tag" content="論文摘要">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/G8DUJBq.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
+
+    
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Titillium+Web:wght@200&display=swap.css">
+
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">首頁</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://qi-xiang.github.io/PersonalPage2023/">關於</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="輸入關鍵字..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '頁面',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-陽明交通大學資料/GeTrust論文摘要" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        GeTrust 論文摘要
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2023/07/31/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/GeTrust%E8%AB%96%E6%96%87%E6%91%98%E8%A6%81/" class="article-date">
+       <time datetime="2023-07-30T17:10:22.000Z" itemprop="datePublished">2023-07-31</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2023/07/31/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/GeTrust%E8%AB%96%E6%96%87%E6%91%98%E8%A6%81/" class="article-date">
+     <time datetime="2024-06-22T17:13:50.000Z" itemprop="dateModified">2024-06-23</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E8%AB%96%E6%96%87%E6%91%98%E8%A6%81/" rel="tag">論文摘要</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>原始論文來源 : <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/7407618">GeTrust: A Guarantee-Based Trust Model in Chord-Based P2P Networks</a></p>
+<h2 id="簡介">簡介</h2>
+<p>P2P網路的主要特色是去中心化、自治和匿名性。然而，由於使用者可能會有非預期的行為，P2P網路需要一套信任模型來建立節點之間的信任關係。現有的大多數信任模型都是以推薦為基礎，但卻面臨著緩慢收斂和複雜的信任分數計算導致網路壅塞的問題。因此，在本篇論文中，介紹了另一種以擔保為基礎的信任模型GeTrust，其適用於基於Chord的P2P網路。</p>
+<p>在GeTrust的模型架構下，提供服務的service peer需要透過guarantee peer的擔保，並拿雙方的reputation進行質押，才有機會提供服務給有服務需求的request peer。為了強化GeTrust的可用性和避免惡意行為，GeTrust設計了激勵機制和採用匿名的reputation管理機制。模擬結果顯示，GeTrust在提高成功交易率、抵抗複雜攻擊、減少網路壅塞和降低計算複雜度方面是有效和高效的。</p>
+<hr>
+<h2 id="相關定義">相關定義</h2>
+<p>這邊主要說明在理解GeTrust架構時，需要先知道的一些定義。</p>
+<h3 id="Service-Peer-Service-Reputation">Service Peer &amp; Service Reputation</h3>
+<ul>
+<li>Service Peer
+<ul>
+<li>在交易中提供服務的節點。</li>
+</ul>
+</li>
+<li>Service Reputation
+<ul>
+<li>Service Peer節點的聲譽，數值大小代表服務的可信度。</li>
+<li>Service Peer剛進入網路時，設定初始數值為0.5，合法數值則介於[0,1]。</li>
+<li>當Service Reputation落在(0.5, 1]，則Service Peer可以提供擔保成為Guarantee Peer。</li>
+<li>每次提供服務都需要質押部分的Reputation，所以不可能都是由特定Service Peer提供服務。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Guarantee-Peer-Guarantee-Reputation">Guarantee Peer &amp; Guarantee Reputation</h3>
+<ul>
+<li>Guarantee Peer
+<ul>
+<li>在交易中替Service Peer擔保。</li>
+</ul>
+</li>
+<li>Guarantee Reputation
+<ul>
+<li>Guarantee Peer的聲譽，數值大小代表擔保的可信度。</li>
+<li>每次提供擔保都需要質押部分的Reputation，所以不可能都是由特定Guarantee Peer提供擔保。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>每個Service Peer都需要有至少一個Guarantee Peer的擔保，並一起對所提供的服務負責(這邊說的負責指的是提供服務和擔保都需要拿出一定的Reputation進行質押)。</p>
+</blockquote>
+<h3 id="Archive-peer">Archive peer</h3>
+<ul>
+<li>Archive Peer
+<ul>
+<li>管理所負責的Service Peer、Guarantee Peer的Reputation。</li>
+<li>管理所負責的Service Peer、Guarantee Peer與Request Peer的交易紀錄。</li>
+<li>可以根據Request Peer給予的回饋(feedback)調整Service Peer、Guarantee Peer的Reputation。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>網路中的每個Peer都有機會變成Archive Peer。</p>
+</blockquote>
+<h3 id="Request-Peer">Request Peer</h3>
+<ul>
+<li>Request Peer
+<ul>
+<li>在交易中向Service Peer要求服務。</li>
+<li>交易後，給予管理參與這次交易的Service Peer和Guarantee Peer的Archive Peer回饋(feedback)。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>一個節點可以同時是Request、Service和Guarantee Peer。</p>
+</blockquote>
+<h3 id="Direct-Trust">Direct Trust</h3>
+<ul>
+<li>Direct Trust
+<ul>
+<li>Request Peer在要求服務時，會對參與交易的Service Peer和Guarantee Peer進行trust evaluation，而Request Peer可直接根據過去的交易紀錄進行trust evaluation，不必重新做各種計算，這種評估方式稱為Direct Trust，且越近期的交易，在做Direct Trust時的影響越大。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>如果Request Peer沒有過去的交易紀錄，則還是需要做各種計算來評估是否由Service Peer提供服務。</p>
+</blockquote>
+<hr>
+<h2 id="GeTrust運作流程">GeTrust運作流程</h2>
+<p>GeTrust的運作牽涉到很多公式的計算。為了輕鬆且快速的理解GeTrust的運作，以下是簡略的運作流程說明。詳細的流程請參見原始論文。</p>
+<p>GeTrust的運作流程 : 建立擔保關係 -&gt; 建立服務關係 -&gt; 計算聲譽。</p>
+<h3 id="建立擔保關係">建立擔保關係</h3>
+<ol>
+<li>
+<p>Service Peer需要確認有足夠的擔保可以提供服務</p>
+<p>Service Peer會有兩個紀錄替它擔保的Guarantee Peers的清單，分別是備援擔保清單(BGL)和目前擔保清單(CGL)，當Service Peer要提供新的服務，根據服務的交易量，Service Peer需要質押一定比例的Service Reputation。除此之外，它還需要檢查自己的備援擔保清單(BGL)裡面的Guarantee Peers剩下的Guarantee Reputation的總和與質押的Service Reputation的差值是否大於0，小於0則代表Reputation總和不夠，Service Peer需要到網路中找更多的Guarantee Peers，找不到足夠的Guarantee Peers，Service Peer就需要等待。</p>
+<blockquote>
+<p>BGL裡的Guarantee Peers的剩餘Reputation總和必須大於Service Peer質押的Service Reputation，差值的計算由Service Peer的Archive Peer負責</p>
+</blockquote>
+</li>
+<li>
+<p>Guarantee Peer需要評估Service Peer是否值得被擔保</p>
+<p>當收到來自Service Peer的擔保請求，Guarantee Peer的Archive Peer會先確認Service Peer不在它的黑名單裡面，若在黑名單裡面，則直接拒絕提供擔保，反之則進入後續的評估。根據過去Guarantee Peer為Service Peer提供擔保的紀錄和Service Peer目前的Service Reputation的數值，Guarantee Peer的Archive Peer可以算出對Service Peer的信任度，若計算出的信任度大於0，則Guarantee Peer的Archive Peer就會同意Guarantee Peer對Service Peer進行擔保。</p>
+<p>但是剛加入網路的Service Peer的初始Service Reputation很低(0.5)，也沒有被任何Guarantee Peer擔保的紀錄，所以很難有Guarantee Peer會為這類的Service Peer提供擔保。但在GeTrust裡面有一群特殊的Guarantee Peers稱為self-recommenders，它們會向Service Peer自我推薦，不必進行任何評估就願意為Service Peer提供擔保。</p>
+</li>
+<li>
+<p>成功建立Service Peer與Guarantee Peer間的擔保關係</p>
+<p>當成功建立Service Peer與Guarantee Peer間的擔保關係，Service Peer會把Guarantee Peer的資訊，添加到先前說的兩個清單CGL和BGL裡面，之後只需要在提供服務的時候先確認這兩個清單的資訊，因此相較recommendation-based的信任模型，GeTrust可以大量減少運算與訊息的複雜度。</p>
+</li>
+</ol>
+<h3 id="建立服務關係">建立服務關係</h3>
+<ol>
+<li>
+<p>Service Peer需要評估是否回應Request Peer的服務請求</p>
+<p>當收到Request Peer的服務請求，Service Peer需要評估是否回應服務請求。這個評估是根據Request Peer的Service Reputation和Guarantee Reputation依權重算出的總和(前面有說過，一個節點可以同時是Request、Service和Guarantee Peer)，再和目前Service Peer剩下的Service Reputation相減的差值來決定，當差值的絕對值小於Service Peer設定的閾值，則Service Peer會願意向Request Peer提供服務。</p>
+<blockquote>
+<p>我們可以歸納出以下原則，擁有high reputation的service peer只會接受<br>
+擁有high reputation的request peer的request</p>
+</blockquote>
+</li>
+<li>
+<p>Request Peer需要評估向哪個Service Peer提出服務請求</p>
+<p>Request Peer會根據Service Peer過去的成功交易率和Service Peer目前的Service Reputation，以及替Service Peer提供擔保的Guarantee Peer們的平均Guarantee Reputation，來評估要向哪個Service Peer提出服務請求。</p>
+<blockquote>
+<p>Request Peer希望得到最可靠的服務，並嘗試挑出最好的Service Peer，當然Service Peer要不要接受就又是另外一回事了</p>
+</blockquote>
+</li>
+<li>
+<p>成功建立Service Peer與Request Peer間的服務關係</p>
+<p>當成功建立Service Peer與Request Peer間的服務關係，即表示被Request Peer挑出的Service Peer願意回應來自Request Peer的服務請求。</p>
+</li>
+</ol>
+<h3 id="計算聲譽">計算聲譽</h3>
+<p>當交易結束，陸續會發生以下幾件事 :</p>
+<ol>
+<li>
+<p>Request Peer會提供參與交易的Service Peer和Guarantee Peer各自的Archive Peers回饋(feedback)，可以想成對服務的滿意度評分，但Archive Peers要怎麼知道是不是惡意的評分呢? Archive Peers會計算Request Peer過去的平均評分和評分的變異數來認定這是不是惡意評分，並決定是否接受該滿意度評分。不過就算是不被接受的滿意度評分，還是會被Archive Peers記錄起來，但會被排除在之後過去的平均評分和評分的變異數的計算外。</p>
+</li>
+<li>
+<p>交易結束並收到Request Peer的回饋後，Service Peer和Guarantee Peer各自的Archive Peers會根據回饋更新Service Reputation和Guarantee Reputation，Reputation的調整會因為回饋的類型，而有不同的計算方式，以下簡單說明。</p>
+<ul>
+<li>正向回饋
+<ul>
+<li>除了拿回原本質押的Reputation，還可根據交易成功率拿到額外的Reputation獎賞</li>
+</ul>
+</li>
+<li>負向回饋
+<ul>
+<li>拿不回原本質押的Reputation (剩餘Reputation減少)</li>
+</ul>
+</li>
+<li>零回饋
+<ul>
+<li>拿回原本質押的Reputation，不額外調整Reputation</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>當確立與Guarantee Peer的擔保關係，Service Peer就可以開始在網路中提供服務，而當Request Peer的服務請求被同意，交易就可以開始。等待交易完成，Archive Peer就根據Request Peer的回饋調整Reputation，並結束這次的交易，這就是GeTrust基本的運作流程。</p>
+<hr>
+<h2 id="GeTrust的特點">GeTrust的特點</h2>
+<ol>
+<li>為受社會信賴關係啟發所建立的以擔保關係為基礎的信賴模型。</li>
+<li>提出Reputation質押和獎勵機制鼓勵Peer提供有效服務。</li>
+<li>提出匿名Reputation管理機制，Peer無法得知自己的Reputation由誰管理。</li>
+<li>提出Guarantee Peer的擔保機制，取代推薦信任模型取得Gobal Trust的繁複過程。</li>
+<li>提出Peer的回饋機制，使得惡意Peer受到Reputation懲罰，更不易加入交易中。</li>
+</ol>
+<p><img src="https://i.imgur.com/G8DUJBq.png" alt=""></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://qi-xiang.github.io/2023/07/31/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/GeTrust%E8%AB%96%E6%96%87%E6%91%98%E8%A6%81/" data-id="clxqdzkte0001s4mv7nu3a6eu" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Qi Xiang,Zhang"
+        },
+        "headline": "GeTrust 論文摘要",
+        "image": "https://qi-xiang.github.iohttps://i.imgur.com/G8DUJBq.png",
+        "keywords": "論文摘要",
+        "genre": "技術類文章",
+        "datePublished": "2023-07-31",
+        "dateCreated": "2023-07-31",
+        "dateModified": "2024-06-23",
+        "url": "https://qi-xiang.github.io/2023/07/31/陽明交通大學資料/GeTrust論文摘要/",
+        "description": "原始論文來源 : GeTrust: A Guarantee-Based Trust Model in Chord-Based P2P Networks
+簡介
+P2P網路的主要特色是去中心化、自治和匿名性。然而，由於使用者可能會有非預期的行為，P2P網路需要一套信任模型來建立節點之間的信任關係。現有的大多數信任模型都是以推薦為基礎，但卻面臨著緩慢收斂和複雜的信任分數計算導致網路壅塞的問題。因此，在本",
+        "wordCount": 199
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>追蹤 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/profile.php?id=100004441091584" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/qi-xiang-zhang-499625210/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://stackoverflow.com/users/17213183/xiang?tab=profile" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/QI-XIANG" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2023/08/22/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/mCloud%E8%AB%96%E6%96%87%E6%91%98%E8%A6%81/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            mCloud 論文摘要
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2023/07/24/%E9%B3%A5%E5%93%A5%E7%A7%81%E6%88%BF%E8%8F%9C_%E8%A8%88%E7%AE%97%E6%A9%9F%E6%A6%82%E8%AB%96%E9%87%8D%E9%BB%9E%E6%95%B4%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">鳥哥私房菜 - 計算機概論重點整理</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/06/09/%E9%99%BD%E4%BA%A4%E5%A4%A7%E5%88%86%E6%95%A3%E5%BC%8F%E7%B3%BB%E7%B5%B12024/distributed_final/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/G8DUJBq.png)" alt="Decentralized Storage Network based on Blockchain Technology: A Survey" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2024/06/09/%E9%99%BD%E4%BA%A4%E5%A4%A7%E5%88%86%E6%95%A3%E5%BC%8F%E7%B3%BB%E7%B5%B12024/distributed_final/" class="title">Decentralized Storage Network based on Blockchain Technology: A Survey</a></p>
+                            <p class="item-date"><time datetime="2024-06-08T16:32:06.000Z" itemprop="datePublished">2024-06-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/06/08/%E9%99%BD%E4%BA%A4%E5%A4%A7%E5%88%86%E6%95%A3%E5%BC%8F%E7%B3%BB%E7%B5%B12024/distributed-final-cn/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/G8DUJBq.png)" alt="基於區塊鏈技術的去中心化儲存網路: 一份調查" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2024/06/08/%E9%99%BD%E4%BA%A4%E5%A4%A7%E5%88%86%E6%95%A3%E5%BC%8F%E7%B3%BB%E7%B5%B12024/distributed-final-cn/" class="title">基於區塊鏈技術的去中心化儲存網路: 一份調查</a></p>
+                            <p class="item-date"><time datetime="2024-06-07T16:46:18.000Z" itemprop="datePublished">2024-06-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/05/08/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E6%84%9F%E8%AC%9D-2024/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/G8DUJBq.png)" alt="感謝(2024)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
+                            <p class="item-title"><a href="/2024/05/08/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E6%84%9F%E8%AC%9D-2024/" class="title">感謝(2024)</a></p>
+                            <p class="item-date"><time datetime="2024-05-07T16:52:07.000Z" itemprop="datePublished">2024-05-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/04/04/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E5%A5%BD%E5%A5%BD%E8%AA%AA%E8%A9%B1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/G8DUJBq.png)" alt="好好說話" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
+                            <p class="item-title"><a href="/2024/04/04/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E5%A5%BD%E5%A5%BD%E8%AA%AA%E8%A9%B1/" class="title">好好說話</a></p>
+                            <p class="item-date"><time datetime="2024-04-03T16:46:09.000Z" itemprop="datePublished">2024-04-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/05/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E9%97%9C%E6%96%BC%E9%87%91%E9%8C%A2%E7%AE%A1%E7%90%86/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/G8DUJBq.png)" alt="關於金錢管理" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
+                            <p class="item-title"><a href="/2024/03/05/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E9%97%9C%E6%96%BC%E9%87%91%E9%8C%A2%E7%AE%A1%E7%90%86/" class="title">關於金錢管理</a></p>
+                            <p class="item-date"><time datetime="2024-03-04T16:49:20.000Z" itemprop="datePublished">2024-03-05</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">21</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/BDC/" style="font-size: 14.17px;">BDC</a> <a href="/tags/CSS-Flex-Box/" style="font-size: 15.83px;">CSS Flex Box</a> <a href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/" style="font-size: 20px;">Django 初心者之旅</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 19.17px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 11.67px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15px;">Python 學習日記</a> <a href="/tags/%E5%88%86%E6%95%A3%E5%BC%8F%E7%B3%BB%E7%B5%B1/" style="font-size: 10.83px;">分散式系統</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 10.83px;">區塊鏈</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 15px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%9B%B8%E7%B1%8D%E6%91%98%E8%A6%81/" style="font-size: 12.5px;">書籍摘要</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 13.33px;">生活經驗分享</a> <a href="/tags/%E7%B5%B1%E8%A8%88%E5%AD%B8/" style="font-size: 12.5px;">統計學</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 16.67px;">網頁基礎</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E6%8A%80%E8%A1%93%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票技術分析</a> <a href="/tags/%E8%AB%96%E6%96%87%E6%91%98%E8%A6%81/" style="font-size: 11.67px;">論文摘要</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 16.67px;">財報狗挖好股精華</a> <a href="/tags/%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 10.83px;">資料探勘</a> <a href="/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/" style="font-size: 18.33px;">資料視覺化</a> <a href="/tags/%E8%B3%87%E7%AE%A1%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/" style="font-size: 10px;">資管畢業專題</a> <a href="/tags/%E8%B3%87%E8%A8%8A%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AD%98/" style="font-size: 10.83px;">資訊科普知識</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 17.5px;">金魚也能學會寫網頁</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/QI-XIANG">My Github</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2024 Qi Xiang,Zhang</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://qi-xiang.github.io/2023/07/31/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/GeTrust%E8%AB%96%E6%96%87%E6%91%98%E8%A6%81/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>MSFLP論文概要 | Xiang&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="論文摘要" />
+    
+    <meta name="description" content="原始論文來源：Mitigating Sybils in Federated Learning Poisoning MSFLP的簡介 (From Abstract) 機器學習（ML）在分散式多方數據上是各種領域所需要的。現有的方法，如聯邦式學習(federated learning)，透過收集由一群設備所計算的輸出，在中央聚合器處運執行迭代演算法去訓練一個全域共享模型。但是，聯邦式學習方法容易受到各">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MSFLP論文概要">
+<meta property="og:url" content="https://qi-xiang.github.io/2023/09/12/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/MSFLP%E8%AB%96%E6%96%87%E6%A6%82%E8%A6%81/index.html">
+<meta property="og:site_name" content="Xiang&#39;s Blog">
+<meta property="og:description" content="原始論文來源：Mitigating Sybils in Federated Learning Poisoning MSFLP的簡介 (From Abstract) 機器學習（ML）在分散式多方數據上是各種領域所需要的。現有的方法，如聯邦式學習(federated learning)，透過收集由一群設備所計算的輸出，在中央聚合器處運執行迭代演算法去訓練一個全域共享模型。但是，聯邦式學習方法容易受到各">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/dz9ShLM.png">
+<meta property="article:published_time" content="2023-09-11T17:15:01.000Z">
+<meta property="article:modified_time" content="2024-06-22T17:21:00.000Z">
+<meta property="article:author" content="Qi Xiang,Zhang">
+<meta property="article:tag" content="論文摘要">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/dz9ShLM.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
+
+    
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Titillium+Web:wght@200&display=swap.css">
+
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">首頁</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://qi-xiang.github.io/PersonalPage2023/">關於</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="輸入關鍵字..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '頁面',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-陽明交通大學資料/MSFLP論文概要" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        MSFLP論文概要
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2023/09/12/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/MSFLP%E8%AB%96%E6%96%87%E6%A6%82%E8%A6%81/" class="article-date">
+       <time datetime="2023-09-11T17:15:01.000Z" itemprop="datePublished">2023-09-12</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2023/09/12/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/MSFLP%E8%AB%96%E6%96%87%E6%A6%82%E8%A6%81/" class="article-date">
+     <time datetime="2024-06-22T17:21:00.000Z" itemprop="dateModified">2024-06-23</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E8%AB%96%E6%96%87%E6%91%98%E8%A6%81/" rel="tag">論文摘要</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>原始論文來源：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1808.04866">Mitigating Sybils in Federated Learning Poisoning</a></p>
+<h2 id="MSFLP的簡介-From-Abstract">MSFLP的簡介 (From Abstract)</h2>
+<p>機器學習（ML）在分散式多方數據上是各種領域所需要的。現有的方法，如聯邦式學習(federated learning)，透過收集由一群設備所計算的輸出，在中央聚合器處運執行迭代演算法去訓練一個全域共享模型。但是，聯邦式學習方法容易受到各種攻擊的影響，包括模型毒化(model posioning)，特別是在存在&quot;混淆者(sybil)&quot;的情況下。</p>
+<p>論文首先評估聯邦式學習應對&quot;基於混淆者的毒化攻擊(sybil-based posioning attack)“的弱點。然後，內文提出了FoolsGold，一種新的防禦方法，該方法可以基於分散式學習過程中，客戶端的更新多樣性來判斷該客戶端是否為&quot;混淆者”。與以前的作法不同，內文提出的FoolsGold並不限制攻擊者的預期數量，不需要模型學習過程之外的輔助資訊，並且對客戶端及其持有數據的假設較少。</p>
+<p>在論文的評估段落中，清楚的顯示FoolsGold在對抗基於混淆者標籤翻轉(label-flipping)和後門毒化攻擊(backdoor poisoning attack)方面超越現有最先進方法的能力。研究結果適用於客戶數據的不同分佈，不同的毒化目標(poisoning target)和各種混淆策略(sybil strategy)。</p>
+<h2 id="Prior-Knowledge-先備知識">Prior Knowledge 先備知識</h2>
+<p><img src="https://i.imgur.com/dz9ShLM.png" alt=""></p>
+<p><a target="_blank" rel="noopener" href="https://federated.withgoogle.com/?source=post_page-----b4cc5af7a9c0--------------------------------">Federated Learning</a></p>
+<ul>
+<li>
+<p>federated learning</p>
+<ul>
+<li>train a centralized model on decentralized data</li>
+<li>all clients have equal influence on the system</li>
+<li>the server only observes model parameters
+<ul>
+<li>normal defense menthod can’t be applied to federated learning
+<ul>
+<li>anomaly detection, robust loss (loss function) -&gt; central aggregator without clients’ data</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>can’t easily verify which client parameter updates are honest
+<ul>
+<li>unable to to view client training data and does not have a validation dataset</li>
+</ul>
+</li>
+<li>two forms
+<ul>
+<li>FEDSGD
+<ul>
+<li>each client sends every SGD update to the server</li>
+</ul>
+</li>
+<li>FEDAVG
+<ul>
+<li>clients locally batch multiple iterations of SGD before sends to the server</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>label-flipping attack</p>
+<ul>
+<li>make model misjudge true label to target label (label attacker like)</li>
+</ul>
+</li>
+<li>
+<p>backdoor poisoning attack</p>
+<ul>
+<li>when training the model, the developer insert a backdoor in the model and use trigger for target class</li>
+</ul>
+</li>
+<li>
+<p>sybil attack</p>
+<ul>
+<li>happen when clients can easily join and leave the system, adversary can gain influence under multiple colluding (串通) aliases</li>
+</ul>
+</li>
+<li>
+<p>SGD</p>
+<ul>
+<li>select a batch of training examples, uses them to compute gradients on the parameters of the current model</li>
+<li>use subset to compute the gradient direction, so the gradient direction change very often, unlike normal gradient descent</li>
+<li>less expensive for large datasets and theoretically scales to datasets of infinite size</li>
+<li>early-stopping when the gradient is too small</li>
+</ul>
+</li>
+<li>
+<p>SGD Challenges and defenses (Under Federated Learning)</p>
+<ul>
+<li>difficult for the aggregator to tell whether the gradient points towards a malicious objective or not
+<ul>
+<li>each client has a partition of data, may not satisfy the global learning objective</li>
+</ul>
+</li>
+<li>aggregator cannot assume that updates pointing in sporadic directions are malicious
+<ul>
+<li>only a small subset of data is used in each iteration, make the gradient direction various</li>
+</ul>
+</li>
+<li>adversaries can send arbitrary updates to the model, they may not conform to a specified batch size configuration
+<ul>
+<li>smaller batch size make the variance of updates contributed by clients increases</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Multi-Krum</p>
+<ul>
+<li>the top f contributions to the model that are furthest from the mean client contribution are removed from the aggregated gradient</li>
+<li>uses the Euclidean distance to determine which gradient contributions are removed</li>
+<li>requires parameterization of the number of expected adversaries
+<ul>
+<li>but we don’t know the number of adversaries</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Core-Knowledge">Core Knowledge</h2>
+<h3 id="FoolsGold">FoolsGold</h3>
+<ul>
+<li>new defense against federated learning sybil attacks that adapts the learning rate of clients based on contribution similarity
+<ul>
+<li>because the attackers share the same malicious objective, so their gradient directions may look similar than expected</li>
+<li>does not assume a specific number of attackers</li>
+<li>evaluate FoolsGold on 4 diverse data sets (MNIST, VGGFace2, KDDCup99, Amazon Reviews) and 3 model types (1-layer Soft-max, Squeezenet, VGGNet)</li>
+</ul>
+</li>
+</ul>
+<h4 id="FoolsGold-Design">FoolsGold Design</h4>
+<ul>
+<li>honest clients can be separated from sybils by the diversity of their gradient updates</li>
+<li>sybils share a common objective and will contribute updates that appear more similar to each other than honest clients</li>
+<li>maintain the learning rate of unique gradient update, while reducing the learning rate of similar gradient update</li>
+</ul>
+<p>Goal 1. When the system is not attacked, FoolsGold should preserve the performance of federated learning.<br>
+Goal 2. FoolsGold should devalue contributions from clients that point in similar directions.<br>
+Goal 3. FoolsGold should be robust to an increasing number of sybils in a poisoning attack.<br>
+Goal 4. FoolsGold should distinguish between honest updates that mistakenly appear malicious due to the variance of SGD and sybil updates that operate on a common malicious objective.<br>
+Goal 5. FoolsGold should not rely on external assumptions about the clients or require parameterization about the number of attackers</p>
+<ul>
+<li>
+<p>FoolsGold adapts the learning rate based on “the update similarity” and “historical information”</p>
+<ul>
+<li>the update similarity
+<ul>
+<li>Cosine Similarity [-1,1] -&gt; measure angular distance, not affected by the vector size (no Euclidean Distance)
+<ul>
+<li>but cosine similarity can’t ensure to find the malicious client (innocent client may be punished)</li>
+</ul>
+</li>
+<li>Feature Importance -&gt; only focus on the the features that are relevant to the model correctness or the attack
+<ul>
+<li>we can know feature importance from model parameters in the output layer of global model and filter them
+<ul>
+<li>normalized across all classes to avoid biasing one class over another</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>historical information
+<ul>
+<li>Updates History -&gt; maintains a history of updates from each client
+<ul>
+<li>compute the similarity based on current iteration and historical updates</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Some tricks to modify the FoolsGold</p>
+<ul>
+<li>Pardoning
+<ul>
+<li>avoids penalizing such honest clients by re-weighing the cosine similarity (goal 4)</li>
+<li>similarity / maximum similarity -&gt; ensure the similarity scores along the [0,1]
+<ul>
+<li>ensures that at least one client will have an unmodified update (goal 1)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Logit
+<ul>
+<li>even for very similar updates, the cosine similarity may be less than one -&gt; encourage a higher divergence by logit function
+<ul>
+<li>exceeding the 0-1 range is clipped and rounded to its respective boundary value</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Augmenting FoolsGold with other method
+<ul>
+<li>FoolsGold can’t handle the attack from single adversary (can’t use cosine similarity), so we use FoolsGold with Multi-Krum to handle the attack</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Contributions">Contributions</h2>
+<ul>
+<li>We consider sybil attacks on federated learning architectures and show that existing defenses against malicious adversaries in ML (Multi-Krum [10] and RONI [6] (shown in Appendix B)) are inadequate.</li>
+<li>We design, implement, and evaluate a novel defense against sybil-based poisoning attacks for the federated learning setting that uses an adaptive learning rate per client based on inter-client contribution similarity.</li>
+<li>In this context, we discuss optimal and intelligent attacks that adversaries can perform, while suggesting possible directions for further mitigation.</li>
+</ul>
+<h2 id="Background">Background</h2>
+<ul>
+<li>assume SGD as the optimization algorithm in this paper</li>
+<li>assume that adversaries leverage sybils to mount more powerful poisoning attacks on federated learning</li>
+</ul>
+<h2 id="Assumption">Assumption</h2>
+<ul>
+<li>assume that server side (aggregator) is not malicious</li>
+<li>assume that some number of honest clients, who possess training data which opposes the attacker’s poisoning goal (at least 1 honest client) -&gt; learn nothing without any honest client</li>
+<li>assume that Secure-aggregation (obfuscations of clients’ update) is not used, so aggregator can observe any client’s update</li>
+<li>assume that adversary has a goal to make one class being classified as target class without influencing any other class</li>
+<li>assume that two kind of attack strategies : label-flipping/backdoor strategy</li>
+</ul>
+<h2 id="Evaluation">Evaluation</h2>
+<h3 id="framework">framework</h3>
+<ul>
+<li>federeated learning prototype -&gt; 600 lines python (150 for FoolsGold)</li>
+<li>scikit-learn to compute cosine similarity</li>
+<li>partition data into disjoint non-IID dataset</li>
+<li>evaluation dataset -&gt; MNIST(baseline)、VGGFace2(more complex, deep learning)、KDDCup(class imbalance)、Amazon(contain text data)
+<ul>
+<li>MNIST(10 honest), KDDCup(23 honest), and Amazon(50 honest) -&gt; single layer fully-connected softmax</li>
+<li>VGGFace2(10 honest) -&gt; SqueezeNet1.1(727,000)、VGGNet11(128 million)</li>
+<li>FoolsGold only use important feature to compute client similarity</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/x3BXefR.png" alt=""></p>
+<h2 id="Canonical-attack-scenarios">Canonical attack scenarios</h2>
+<p><img src="https://i.imgur.com/kVD2Y7k.png" alt=""></p>
+<p><img src="https://i.imgur.com/flhpcKG.png" alt=""></p>
+<h2 id="Comparison-to-prior-work-6-2">Comparison to prior work (6.2)</h2>
+<p><img src="https://i.imgur.com/PKVn8IC.png" alt=""></p>
+<h2 id="Varying-client-data-distributions-6-3">Varying client data distributions(6.3)</h2>
+<p>in real world, each client may has overlapping data</p>
+<p><img src="https://i.imgur.com/zU4SiA0.png" alt=""></p>
+<p><img src="https://i.imgur.com/dQzFDsC.png" alt=""></p>
+<h2 id="What-if-the-attacker-knows-FoolsGold-6-4">What if the attacker knows FoolsGold?(6.4)</h2>
+<p>attackers are aware of the FoolsGold algorithm, they will try to make updates become less similar</p>
+<p>four ways below :</p>
+<ul>
+<li>mixing malicious and correct data (Appendix B)</li>
+<li>change sybils’ training batch size (Appendix B)</li>
+<li>perturbing contributed updates with noise</li>
+<li>infrequently and adaptively sending poisoned updates</li>
+</ul>
+<h3 id="1-mixing-malicious-and-correct-data">1. mixing malicious and correct data</h3>
+<p>attackers may attempt to mix the honest and poisoned data, then attackers may have the opportunity to appear honest and less similar</p>
+<p><img src="https://i.imgur.com/0jyc0n1.png" alt=""></p>
+<h3 id="2-change-sybils’-training-batch-size">2. change sybils’ training batch size</h3>
+<p><img src="https://i.imgur.com/jRnHAQe.png" alt=""></p>
+<p>Amazon : the resulting attack rate was 4.76%, due to the curse of dimensionality (10,000 features, but only have 1,500 data)</p>
+<p><img src="https://i.imgur.com/dUatnNg.png" alt=""></p>
+<h3 id="3-perturbing-contributed-updates-with-noise">3. perturbing contributed updates with noise</h3>
+<p>FoolsGold can use feature importance to remove the noise from the cosine similarity</p>
+<p><img src="https://i.imgur.com/3uR5qgc.png" alt=""></p>
+<h3 id="4-infrequently-and-adaptively-sending-poisoned-updates">4. infrequently and adaptively sending poisoned updates</h3>
+<p>FoolsGold can use update history to compute Acosine similarity, so attackers can locally compute cosine similarity among the sybils and use a threshold M to decide whether to add noise to gradient or not</p>
+<p><img src="https://i.imgur.com/5WVeEXo.png" alt=""></p>
+<p>green region (M &gt; 0.27) -&gt; threshold too high, any posioning attack is detected<br>
+blue region -&gt; attack is not detected, but the number of sybils is insufficient to overpower the honest clients<br>
+red region -&gt; attack succeeds, but use more sybils than required</p>
+<p>(star -&gt; expected number of sybils for the optimal attack)</p>
+<p><img src="https://i.imgur.com/5e4T6P0.png" alt=""></p>
+<p>But it is hard for attackers to find a threshold M, because they don’t know :</p>
+<ol>
+<li>the number of honest clients</li>
+<li>FoolsGold’s feature importance</li>
+<li>original data distribution</li>
+</ol>
+<h2 id="Effects-of-design-elements-6-5">Effects of design elements(6.5)</h2>
+<p><img src="https://i.imgur.com/9E5CbVK.png" alt=""></p>
+<h2 id="FoolsGold-performance-overhead-6-6">FoolsGold performance overhead(6.6)</h2>
+<p><img src="https://i.imgur.com/NbiDpBZ.png" alt=""></p>
+<h2 id="Limitations">Limitations</h2>
+<ul>
+<li>FoolsGood is not successful at mitigating attacks from single poisoning client.</li>
+</ul>
+<p><img src="https://i.imgur.com/MqkdQn3.png" alt=""></p>
+<ul>
+<li>FoolsGood is lack of randomness while computing the cosine similarity. (Knowledgeable Adversary)</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://qi-xiang.github.io/2023/09/12/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/MSFLP%E8%AB%96%E6%96%87%E6%A6%82%E8%A6%81/" data-id="clxqdzktg0003s4mv9d4ggqrm" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Qi Xiang,Zhang"
+        },
+        "headline": "MSFLP論文概要",
+        "image": "https://qi-xiang.github.iohttps://i.imgur.com/dz9ShLM.png",
+        "keywords": "論文摘要",
+        "genre": "技術類文章",
+        "datePublished": "2023-09-12",
+        "dateCreated": "2023-09-12",
+        "dateModified": "2024-06-23",
+        "url": "https://qi-xiang.github.io/2023/09/12/陽明交通大學資料/MSFLP論文概要/",
+        "description": "原始論文來源：Mitigating Sybils in Federated Learning Poisoning
+MSFLP的簡介 (From Abstract)
+機器學習（ML）在分散式多方數據上是各種領域所需要的。現有的方法，如聯邦式學習(federated learning)，透過收集由一群設備所計算的輸出，在中央聚合器處運執行迭代演算法去訓練一個全域共享模型。但是，聯邦式學習方法容易受到各",
+        "wordCount": 1278
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>追蹤 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/profile.php?id=100004441091584" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/qi-xiang-zhang-499625210/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://stackoverflow.com/users/17213183/xiang?tab=profile" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/QI-XIANG" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2024/03/05/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E9%97%9C%E6%96%BC%E9%87%91%E9%8C%A2%E7%AE%A1%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            關於金錢管理
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2023/08/22/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/mCloud%E8%AB%96%E6%96%87%E6%91%98%E8%A6%81/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">mCloud 論文摘要</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/06/09/%E9%99%BD%E4%BA%A4%E5%A4%A7%E5%88%86%E6%95%A3%E5%BC%8F%E7%B3%BB%E7%B5%B12024/distributed_final/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/G8DUJBq.png)" alt="Decentralized Storage Network based on Blockchain Technology: A Survey" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2024/06/09/%E9%99%BD%E4%BA%A4%E5%A4%A7%E5%88%86%E6%95%A3%E5%BC%8F%E7%B3%BB%E7%B5%B12024/distributed_final/" class="title">Decentralized Storage Network based on Blockchain Technology: A Survey</a></p>
+                            <p class="item-date"><time datetime="2024-06-08T16:32:06.000Z" itemprop="datePublished">2024-06-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/06/08/%E9%99%BD%E4%BA%A4%E5%A4%A7%E5%88%86%E6%95%A3%E5%BC%8F%E7%B3%BB%E7%B5%B12024/distributed-final-cn/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/G8DUJBq.png)" alt="基於區塊鏈技術的去中心化儲存網路: 一份調查" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2024/06/08/%E9%99%BD%E4%BA%A4%E5%A4%A7%E5%88%86%E6%95%A3%E5%BC%8F%E7%B3%BB%E7%B5%B12024/distributed-final-cn/" class="title">基於區塊鏈技術的去中心化儲存網路: 一份調查</a></p>
+                            <p class="item-date"><time datetime="2024-06-07T16:46:18.000Z" itemprop="datePublished">2024-06-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/05/08/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E6%84%9F%E8%AC%9D-2024/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/G8DUJBq.png)" alt="感謝(2024)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
+                            <p class="item-title"><a href="/2024/05/08/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E6%84%9F%E8%AC%9D-2024/" class="title">感謝(2024)</a></p>
+                            <p class="item-date"><time datetime="2024-05-07T16:52:07.000Z" itemprop="datePublished">2024-05-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/04/04/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E5%A5%BD%E5%A5%BD%E8%AA%AA%E8%A9%B1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/G8DUJBq.png)" alt="好好說話" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
+                            <p class="item-title"><a href="/2024/04/04/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E5%A5%BD%E5%A5%BD%E8%AA%AA%E8%A9%B1/" class="title">好好說話</a></p>
+                            <p class="item-date"><time datetime="2024-04-03T16:46:09.000Z" itemprop="datePublished">2024-04-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/05/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E9%97%9C%E6%96%BC%E9%87%91%E9%8C%A2%E7%AE%A1%E7%90%86/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/G8DUJBq.png)" alt="關於金錢管理" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
+                            <p class="item-title"><a href="/2024/03/05/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E9%97%9C%E6%96%BC%E9%87%91%E9%8C%A2%E7%AE%A1%E7%90%86/" class="title">關於金錢管理</a></p>
+                            <p class="item-date"><time datetime="2024-03-04T16:49:20.000Z" itemprop="datePublished">2024-03-05</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">21</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/BDC/" style="font-size: 14.17px;">BDC</a> <a href="/tags/CSS-Flex-Box/" style="font-size: 15.83px;">CSS Flex Box</a> <a href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/" style="font-size: 20px;">Django 初心者之旅</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 19.17px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 11.67px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15px;">Python 學習日記</a> <a href="/tags/%E5%88%86%E6%95%A3%E5%BC%8F%E7%B3%BB%E7%B5%B1/" style="font-size: 10.83px;">分散式系統</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 10.83px;">區塊鏈</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 15px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%9B%B8%E7%B1%8D%E6%91%98%E8%A6%81/" style="font-size: 12.5px;">書籍摘要</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 13.33px;">生活經驗分享</a> <a href="/tags/%E7%B5%B1%E8%A8%88%E5%AD%B8/" style="font-size: 12.5px;">統計學</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 16.67px;">網頁基礎</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E6%8A%80%E8%A1%93%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票技術分析</a> <a href="/tags/%E8%AB%96%E6%96%87%E6%91%98%E8%A6%81/" style="font-size: 11.67px;">論文摘要</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 16.67px;">財報狗挖好股精華</a> <a href="/tags/%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 10.83px;">資料探勘</a> <a href="/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/" style="font-size: 18.33px;">資料視覺化</a> <a href="/tags/%E8%B3%87%E7%AE%A1%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/" style="font-size: 10px;">資管畢業專題</a> <a href="/tags/%E8%B3%87%E8%A8%8A%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AD%98/" style="font-size: 10.83px;">資訊科普知識</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 17.5px;">金魚也能學會寫網頁</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/QI-XIANG">My Github</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2024 Qi Xiang,Zhang</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://qi-xiang.github.io/2023/09/12/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/MSFLP%E8%AB%96%E6%96%87%E6%A6%82%E8%A6%81/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

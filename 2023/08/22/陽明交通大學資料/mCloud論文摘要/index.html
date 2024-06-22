@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>mCloud 論文摘要 | Xiang&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="論文摘要" />
+    
+    <meta name="description" content="原始論文來源 : mCloud: A Context-Aware Offloading Framework for Heterogeneous Mobile Cloud 簡介 行動雲端運算（Mobile Cloud Computing，MCC）已經成為一個把雲端運算技術的優勢，帶到行動裝置的知名應用。行動雲端運算(MCC)強調服務的可用性、性能增強和能源效率，而本篇論文提出一個名為mCloud的程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mCloud 論文摘要">
+<meta property="og:url" content="https://qi-xiang.github.io/2023/08/22/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/mCloud%E8%AB%96%E6%96%87%E6%91%98%E8%A6%81/index.html">
+<meta property="og:site_name" content="Xiang&#39;s Blog">
+<meta property="og:description" content="原始論文來源 : mCloud: A Context-Aware Offloading Framework for Heterogeneous Mobile Cloud 簡介 行動雲端運算（Mobile Cloud Computing，MCC）已經成為一個把雲端運算技術的優勢，帶到行動裝置的知名應用。行動雲端運算(MCC)強調服務的可用性、性能增強和能源效率，而本篇論文提出一個名為mCloud的程">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/OxynQGg.png">
+<meta property="article:published_time" content="2023-08-21T17:12:38.000Z">
+<meta property="article:modified_time" content="2024-06-22T17:14:26.000Z">
+<meta property="article:author" content="Qi Xiang,Zhang">
+<meta property="article:tag" content="論文摘要">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/OxynQGg.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
+
+    
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Titillium+Web:wght@200&display=swap.css">
+
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">首頁</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://qi-xiang.github.io/PersonalPage2023/">關於</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="輸入關鍵字..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '頁面',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-陽明交通大學資料/mCloud論文摘要" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        mCloud 論文摘要
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2023/08/22/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/mCloud%E8%AB%96%E6%96%87%E6%91%98%E8%A6%81/" class="article-date">
+       <time datetime="2023-08-21T17:12:38.000Z" itemprop="datePublished">2023-08-22</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2023/08/22/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/mCloud%E8%AB%96%E6%96%87%E6%91%98%E8%A6%81/" class="article-date">
+     <time datetime="2024-06-22T17:14:26.000Z" itemprop="dateModified">2024-06-23</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E8%AB%96%E6%96%87%E6%91%98%E8%A6%81/" rel="tag">論文摘要</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>原始論文來源 : <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/7362223">mCloud: A Context-Aware Offloading Framework for Heterogeneous Mobile Cloud</a></p>
+<h2 id="簡介-2">簡介</h2>
+<p>行動雲端運算（Mobile Cloud Computing，MCC）已經成為一個把雲端運算技術的優勢，帶到行動裝置的知名應用。行動雲端運算(MCC)強調服務的可用性、性能增強和能源效率，而本篇論文提出一個名為mCloud的程式碼交付框架，框架由行動裝置(mobile device)、網路邊緣的小規模雲端資料中心(cloudlet)和公共雲服務(public cloud service)組成，目標在於改善行動雲端運算的表現和可用性。</p>
+<p>行動裝置的情境對於行動雲端運算如何做出程式碼交付決策很關鍵，mCloud即對此研究了一個情境感知交付決策演算法(context-aware offloading decision algorithm)，該演算法會在要執行行動雲端運算時，選擇合適的無線傳輸媒介和雲端運算資源用來實際執行程式。除此之外，mCloud亦有做系統故障偵測與排除的研究。</p>
+<p>研究結果顯示，mCloud架構和提出的決策演算法能夠基於行動設備的不同情境提供合適的無線傳輸媒介和雲端運算資源的決策，在縮短工作時間和節省能源方面取得顯著的降低，與現有的決策演算法相比，mCloud在提高服務可用性方面亦有所改進。</p>
+<h2 id="mCloud的系統架構">mCloud的系統架構</h2>
+<p>這邊主要說明在理解mCloud的系統架構時，需要先知道的一些知識點。</p>
+<h3 id="mCloud使用的雲端資源">mCloud使用的雲端資源</h3>
+<p>mCloud使用的雲端資源總共有三種，分別是公共雲服務(public cloud service)、網路邊緣的小規模雲端資料中心(cloudlet)和行動隨意網路(mobile ad-hoc network，MANET)，以下說明它們各自的特點。</p>
+<ul>
+<li>Public Cloud Service
+<ul>
+<li>能提供大規模的算力和儲存空間</li>
+<li>行動客戶端可用WiFi和衛星網路連接</li>
+<li>有能力處理需要大量運算和資料傳遞的任務</li>
+</ul>
+</li>
+<li>Cloudlet
+<ul>
+<li>屬於一種本地資料中心</li>
+<li>由多核處理器組成叢集，並連結成大頻寬且低能耗的WLAN</li>
+<li>有能力處理需要低延遲的任務</li>
+</ul>
+</li>
+<li>MANET(mobile ad-hoc network)
+<ul>
+<li>由許多行動裝置藉由短距離通訊技術連結而成的網路結構</li>
+<li>因為行動裝置的可移動性，所以屬於不穩定的網路</li>
+<li>mcloud當中採用的網路拓撲(Topology)是one-hop</li>
+</ul>
+</li>
+</ul>
+<p>除了雲端資源之外，在某些情境下，任務也有機會被mCloud的決策演算法分配在行動裝置本地執行。</p>
+<h3 id="mCloud的框架組成元件">mCloud的框架組成元件</h3>
+<p>mCloud框架實際由許多元件組成，並分屬於兩個部分，即客戶端(client)和雲端伺服器(cloud server)。</p>
+<ul>
+<li>客戶端元件
+<ul>
+<li>情境感知器(context monitor)</li>
+<li>決策模組(decision module)</li>
+<li>任務管理器(task manager)</li>
+<li>通訊管理器(communication manager)</li>
+<li>故障排除(failure recovery)</li>
+</ul>
+</li>
+<li>雲端伺服器元件
+<ul>
+<li>通訊處理器(communication handler)</li>
+<li>任務管理器(task manager)</li>
+<li>其他行動雲端基礎建設</li>
+</ul>
+</li>
+</ul>
+<p>以下是對於各元件簡略的說明，詳細的元件說明請參見原始論文。</p>
+<ul>
+<li>情境感知器(context monitor)
+<ul>
+<li>提供決策引擎各類的情境參數輔助決策制定</li>
+<li>有三個主要情境感知的資料來源
+<ul>
+<li>程式分析器(program profiler)，以method level層級追蹤程式執行</li>
+<li>裝置分析器(device profiler)，監測行動裝置的執行環境</li>
+<li>網路分析器(network profiler)，非同步地監測行動裝置所處網路狀況</li>
+</ul>
+</li>
+<li>為節省間接成本、能耗，只有需要的時候，才會觀測目前的情境(on-demand strategy)</li>
+</ul>
+</li>
+<li>決策模組(decision module)
+<ul>
+<li>決定行動裝置的任務要如何根據情境分配執行</li>
+<li>模組由兩個部分組成
+<ul>
+<li>成本估計(cost estimation)，估計在不同雲端資源的執行時間、客戶端的能源消耗</li>
+<li>決策引擎(decision engine)，把成本估計結果傳入決策演算法，制定最後的決策</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>任務管理器(task manager)
+<ul>
+<li>接收來自決策引擎做出的決策，儲存任務的執行結果</li>
+<li>根據上層資訊，主動收集相關資訊(如method library)，並打包交給通訊管理器</li>
+</ul>
+</li>
+<li>通訊管理器(communication manager)
+<ul>
+<li>負責裝置和雲端資源的溝通，使雲端資源根據決策執行任務</li>
+<li>可以再細分成兩個部分
+<ul>
+<li>探知服務(discovery service)，週期性的監測目前可用的雲端資源</li>
+<li>通訊處理器(communication handler)，處理客戶端和雲端基礎建設的連線、通訊資料</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>故障排除(failure recovery)
+<ul>
+<li>常見故障包含遠端節點崩潰、超出通訊距離和訊息掉包等</li>
+<li>探知服務週期性監測雲端資源，當認定有故障發生就會觸發回復機制</li>
+<li>故障可透過尋找其他可用雲端運算資源來排除，完全找不到就在本地運算</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/OxynQGg.png" alt=""><br>
+(圖片出自原始論文)</p>
+<h2 id="mClould的運作流程">mClould的運作流程</h2>
+<p>在說明運作流程前，先稍微解釋mCloud如何計算任務交付到雲端運算資源和本地執行的成本，以及決策演算法制定決策使用的六大標準。</p>
+<ul>
+<li>如何計算任務交付執行的成本
+<ul>
+<li>成本(<strong>C</strong>) = <strong>a</strong>×執行時間(<strong>D</strong>) + <strong>b</strong>×<strong>c</strong>×能源消耗(<strong>E</strong>)</li>
+<li><strong>a</strong>和<strong>b</strong>總和為1，且<strong>a</strong>和<strong>b</strong>均需大於0，用來調整執行時間和能源消耗在成本考慮的重要性</li>
+<li><strong>c</strong>是硬體參數，用來調整硬體設定對能源消耗的影響。</li>
+</ul>
+</li>
+<li>決策演算法制定決策的六大標準
+<ul>
+<li>不同雲端資源各自的能源消耗多寡</li>
+<li>不同雲端資源、傳輸媒介的連線速度</li>
+<li>不同雲端資源、傳輸媒介的可用性</li>
+<li>資料從行動裝置傳遞到不同雲端資源的成本</li>
+<li>不同雲端資源和行動裝置之間連線的壅塞程度</li>
+<li>不同傳輸媒介的訊號品質</li>
+</ul>
+</li>
+</ul>
+<p>(但這六大標準對決策演算法在制定決策時的影響不是一樣的，後續會經由其他演算法算出每個標準對最終決策的影響權重。決定權重的過程稍微複雜，若有需要可以參考原始論文。)</p>
+<p>mCloud框架的簡易運作流程如下:</p>
+<ol>
+<li>客戶端送出交付請求(offloading request)到決策引擎。</li>
+<li>情境感知器觀測目前的情境收集情境參數，並將情境參數傳給決策引擎。</li>
+<li>通訊管理器透過探知服務，告知決策引擎目前可用的雲端資源。</li>
+<li>任務管理器接收來自決策引擎做出的決策，主動收集相關資訊並打包產生任務資訊。</li>
+<li>通訊管理器收到來自任務管理器的任務資訊，並把任務拆分成複數小任務準備做平行處理。</li>
+<li>通訊管理器將這些小任務交付給雲端資源在遠端執行。</li>
+<li>通訊管理器保持裝置和雲端資源的連線，等待收到任務的執行結果。</li>
+<li>通訊管理器將平行處理的結果聚合並向上傳遞到任務管理器，同時將執行時間和能源消耗儲存到任務管理器的資料庫。</li>
+<li>任務管理器將任務執行結果向上傳遞到決策引擎。</li>
+<li>決策引擎將任務執行結果向上傳遞到客戶端。</li>
+</ol>
+<p><img src="https://i.imgur.com/rVqIAhL.png" alt=""><br>
+(圖片出自原始論文)</p>
+<h2 id="mCloud的特點">mCloud的特點</h2>
+<ol>
+<li>mCloud是以ThinkAir為原型進行實作和設計的框架。</li>
+<li>mCloud提出一個新穎的情境感知交付決策演算法。</li>
+<li>mCloud不同於其他框架，設定眾多使用情境，專注於各類型的雲端資源最佳化。</li>
+<li>mCloud提出一個具普遍性的成本估計模型(考量執行時間、能源消耗)。</li>
+<li>mCloud能輕鬆適應新加入的可用雲端資源且容易調整架構。</li>
+</ol>
+<h2 id="心得">心得</h2>
+<p>目前看了2篇半的論文，我發現有沒有附上index terms在閱讀論文時會差很多，有放index terms的論文，我可以比較快就抓到論文的重點，像是這篇論文提出的新概念、改善的地方和應用的技術等，在看abstract之前，如果論文有附上index terms，我現在會選擇先看index terms。在論文的段落設計方面，我原本以為都是很制式要依照順序書寫(前2篇看的論文第二段都是Related Work)，看到第三篇論文才發現段落不一定都要依照制式，提供了我未來書寫論文做段落分隔的新思路。</p>
+<p>在選擇研究方向方面，我原本有不小的壓力，因為要提出一個完全新穎且具突破性的技術或應用，對我來說可能不是件容易的事，不過在閱讀幾篇論文後，我認知到論文是可以從現有技術或應用進行延伸的，像是GeTrust就是從Chord P2P network做延伸，而mCloud是從ThinkAir做延伸。我還發現論文後面作者通常都會提出未來的可能研究方向，這樣看來或許研究方向就不是個難解的問題，問題反而是想做的是什麼方面的應用，不過我到現在都還沒有明確的答案。</p>
+<p>最後，我還觀察到論文裡面一個蠻有趣的地方，就是實作結果和既存應用的比較，以GeTrust為例，它是2018年初發表的論文，在實作結果的部分，作者是拿GeTrust和FCTrust以及SecuredTrust進行比較，但FCTrust是在2008年提出，而SecuredTrust則是在2012年提出，我在想是不是這方面比較少人研究，所以才會選擇這兩個較舊的信任模型來比較，又或者是GeTrust與它們比較會讓圖表呈現比較好的結果，還是有其他可能的原因，我有點好奇實際上在寫實作結果時，拿來進行比較的相關技術或應用是怎麼被決定的。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://qi-xiang.github.io/2023/08/22/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/mCloud%E8%AB%96%E6%96%87%E6%91%98%E8%A6%81/" data-id="clxqdzku60005s4mvfnx7fx5z" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Qi Xiang,Zhang"
+        },
+        "headline": "mCloud 論文摘要",
+        "image": "https://qi-xiang.github.iohttps://i.imgur.com/OxynQGg.png",
+        "keywords": "論文摘要",
+        "genre": "技術類文章",
+        "datePublished": "2023-08-22",
+        "dateCreated": "2023-08-22",
+        "dateModified": "2024-06-23",
+        "url": "https://qi-xiang.github.io/2023/08/22/陽明交通大學資料/mCloud論文摘要/",
+        "description": "原始論文來源 : mCloud: A Context-Aware Offloading Framework for Heterogeneous Mobile Cloud
+簡介
+行動雲端運算（Mobile Cloud Computing，MCC）已經成為一個把雲端運算技術的優勢，帶到行動裝置的知名應用。行動雲端運算(MCC)強調服務的可用性、性能增強和能源效率，而本篇論文提出一個名為mCloud的程",
+        "wordCount": 74
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>追蹤 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/profile.php?id=100004441091584" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/qi-xiang-zhang-499625210/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://stackoverflow.com/users/17213183/xiang?tab=profile" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/QI-XIANG" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2023/09/12/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/MSFLP%E8%AB%96%E6%96%87%E6%A6%82%E8%A6%81/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            MSFLP論文概要
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2023/07/31/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/GeTrust%E8%AB%96%E6%96%87%E6%91%98%E8%A6%81/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">GeTrust 論文摘要</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/06/09/%E9%99%BD%E4%BA%A4%E5%A4%A7%E5%88%86%E6%95%A3%E5%BC%8F%E7%B3%BB%E7%B5%B12024/distributed_final/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/G8DUJBq.png)" alt="Decentralized Storage Network based on Blockchain Technology: A Survey" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2024/06/09/%E9%99%BD%E4%BA%A4%E5%A4%A7%E5%88%86%E6%95%A3%E5%BC%8F%E7%B3%BB%E7%B5%B12024/distributed_final/" class="title">Decentralized Storage Network based on Blockchain Technology: A Survey</a></p>
+                            <p class="item-date"><time datetime="2024-06-08T16:32:06.000Z" itemprop="datePublished">2024-06-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/06/08/%E9%99%BD%E4%BA%A4%E5%A4%A7%E5%88%86%E6%95%A3%E5%BC%8F%E7%B3%BB%E7%B5%B12024/distributed-final-cn/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/G8DUJBq.png)" alt="基於區塊鏈技術的去中心化儲存網路: 一份調查" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2024/06/08/%E9%99%BD%E4%BA%A4%E5%A4%A7%E5%88%86%E6%95%A3%E5%BC%8F%E7%B3%BB%E7%B5%B12024/distributed-final-cn/" class="title">基於區塊鏈技術的去中心化儲存網路: 一份調查</a></p>
+                            <p class="item-date"><time datetime="2024-06-07T16:46:18.000Z" itemprop="datePublished">2024-06-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/05/08/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E6%84%9F%E8%AC%9D-2024/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/G8DUJBq.png)" alt="感謝(2024)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
+                            <p class="item-title"><a href="/2024/05/08/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E6%84%9F%E8%AC%9D-2024/" class="title">感謝(2024)</a></p>
+                            <p class="item-date"><time datetime="2024-05-07T16:52:07.000Z" itemprop="datePublished">2024-05-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/04/04/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E5%A5%BD%E5%A5%BD%E8%AA%AA%E8%A9%B1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/G8DUJBq.png)" alt="好好說話" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
+                            <p class="item-title"><a href="/2024/04/04/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E5%A5%BD%E5%A5%BD%E8%AA%AA%E8%A9%B1/" class="title">好好說話</a></p>
+                            <p class="item-date"><time datetime="2024-04-03T16:46:09.000Z" itemprop="datePublished">2024-04-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/05/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E9%97%9C%E6%96%BC%E9%87%91%E9%8C%A2%E7%AE%A1%E7%90%86/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/G8DUJBq.png)" alt="關於金錢管理" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
+                            <p class="item-title"><a href="/2024/03/05/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E9%97%9C%E6%96%BC%E9%87%91%E9%8C%A2%E7%AE%A1%E7%90%86/" class="title">關於金錢管理</a></p>
+                            <p class="item-date"><time datetime="2024-03-04T16:49:20.000Z" itemprop="datePublished">2024-03-05</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">21</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/BDC/" style="font-size: 14.17px;">BDC</a> <a href="/tags/CSS-Flex-Box/" style="font-size: 15.83px;">CSS Flex Box</a> <a href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/" style="font-size: 20px;">Django 初心者之旅</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 19.17px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 11.67px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15px;">Python 學習日記</a> <a href="/tags/%E5%88%86%E6%95%A3%E5%BC%8F%E7%B3%BB%E7%B5%B1/" style="font-size: 10.83px;">分散式系統</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 10.83px;">區塊鏈</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 15px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%9B%B8%E7%B1%8D%E6%91%98%E8%A6%81/" style="font-size: 12.5px;">書籍摘要</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 13.33px;">生活經驗分享</a> <a href="/tags/%E7%B5%B1%E8%A8%88%E5%AD%B8/" style="font-size: 12.5px;">統計學</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 16.67px;">網頁基礎</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E6%8A%80%E8%A1%93%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票技術分析</a> <a href="/tags/%E8%AB%96%E6%96%87%E6%91%98%E8%A6%81/" style="font-size: 11.67px;">論文摘要</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 16.67px;">財報狗挖好股精華</a> <a href="/tags/%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 10.83px;">資料探勘</a> <a href="/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/" style="font-size: 18.33px;">資料視覺化</a> <a href="/tags/%E8%B3%87%E7%AE%A1%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/" style="font-size: 10px;">資管畢業專題</a> <a href="/tags/%E8%B3%87%E8%A8%8A%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AD%98/" style="font-size: 10.83px;">資訊科普知識</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 17.5px;">金魚也能學會寫網頁</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/QI-XIANG">My Github</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2024 Qi Xiang,Zhang</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://qi-xiang.github.io/2023/08/22/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/mCloud%E8%AB%96%E6%96%87%E6%91%98%E8%A6%81/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

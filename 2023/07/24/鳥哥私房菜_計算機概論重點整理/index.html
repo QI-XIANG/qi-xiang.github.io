@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>鳥哥私房菜 - 計算機概論重點整理 | Xiang&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="資訊科普知識" />
+    
+    <meta name="description" content="資料來源 : 鳥哥私房菜 - 計算機概論   電腦硬體組成  輸入單元+輸出單元+主機部分 CPU內有微指令集  算術邏輯單元+控制單元 CPU讀取的資料皆來自於主記憶體 (硬碟→RAM→CPU)      CPU 的架構  精簡指令集 RISC  SPARC (工作站)、Power PC (PS3)、ARM   複雜指令集 CISC  x86架構 (個人電腦)      電腦常用的計算單位  容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="鳥哥私房菜 - 計算機概論重點整理">
+<meta property="og:url" content="https://qi-xiang.github.io/2023/07/24/%E9%B3%A5%E5%93%A5%E7%A7%81%E6%88%BF%E8%8F%9C_%E8%A8%88%E7%AE%97%E6%A9%9F%E6%A6%82%E8%AB%96%E9%87%8D%E9%BB%9E%E6%95%B4%E7%90%86/index.html">
+<meta property="og:site_name" content="Xiang&#39;s Blog">
+<meta property="og:description" content="資料來源 : 鳥哥私房菜 - 計算機概論   電腦硬體組成  輸入單元+輸出單元+主機部分 CPU內有微指令集  算術邏輯單元+控制單元 CPU讀取的資料皆來自於主記憶體 (硬碟→RAM→CPU)      CPU 的架構  精簡指令集 RISC  SPARC (工作站)、Power PC (PS3)、ARM   複雜指令集 CISC  x86架構 (個人電腦)      電腦常用的計算單位  容">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://i.imgur.com/G8DUJBq.png">
+<meta property="article:published_time" content="2023-07-23T17:02:25.000Z">
+<meta property="article:modified_time" content="2024-06-22T17:05:38.000Z">
+<meta property="article:author" content="Qi Xiang,Zhang">
+<meta property="article:tag" content="資訊科普知識">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/G8DUJBq.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.css">
+
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css">
+
+    
+    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Titillium+Web:wght@200&display=swap.css">
+
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">首頁</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://qi-xiang.github.io/PersonalPage2023/">關於</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜尋" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="輸入關鍵字..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '頁面',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-鳥哥私房菜_計算機概論重點整理" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        鳥哥私房菜 - 計算機概論重點整理
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2023/07/24/%E9%B3%A5%E5%93%A5%E7%A7%81%E6%88%BF%E8%8F%9C_%E8%A8%88%E7%AE%97%E6%A9%9F%E6%A6%82%E8%AB%96%E9%87%8D%E9%BB%9E%E6%95%B4%E7%90%86/" class="article-date">
+       <time datetime="2023-07-23T17:02:25.000Z" itemprop="datePublished">2023-07-24</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2023/07/24/%E9%B3%A5%E5%93%A5%E7%A7%81%E6%88%BF%E8%8F%9C_%E8%A8%88%E7%AE%97%E6%A9%9F%E6%A6%82%E8%AB%96%E9%87%8D%E9%BB%9E%E6%95%B4%E7%90%86/" class="article-date">
+     <time datetime="2024-06-22T17:05:38.000Z" itemprop="dateModified">2024-06-23</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E8%B3%87%E8%A8%8A%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AD%98/" rel="tag">資訊科普知識</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p>資料來源 : <a target="_blank" rel="noopener" href="https://linux.vbird.org/linux_basic/centos7/0105computers.php">鳥哥私房菜 - 計算機概論</a></p>
+<ol>
+<li>
+<p>電腦硬體組成</p>
+<ul>
+<li>輸入單元+輸出單元+主機部分</li>
+<li>CPU內有微指令集
+<ul>
+<li>算術邏輯單元+控制單元</li>
+<li>CPU讀取的資料皆來自於主記憶體 (硬碟→RAM→CPU)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>CPU 的架構</p>
+<ul>
+<li>精簡指令集 RISC
+<ul>
+<li>SPARC (工作站)、Power PC (PS3)、ARM</li>
+</ul>
+</li>
+<li>複雜指令集 CISC
+<ul>
+<li>x86架構 (個人電腦)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>電腦常用的計算單位</p>
+<ul>
+<li>容量單位
+<ul>
+<li>1 Byte = 8 bits</li>
+<li>Tera = 1024G、Peta = 1024T、Exa = 1024P、Zetta = 1024E</li>
+<li>買500GB的硬碟，但接上電腦卻只有466GB?
+<ul>
+<li>因為廠商採用十進位(以1000為底)，而電腦採用二進位(以1024為底)!</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>速度單位
+<ul>
+<li>Mbps = Mbits per second</li>
+<li>20M/5M = 2.5Mbyte/625Kbyte (檔案容量以byte計算)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>CPU</p>
+<ul>
+<li>時脈 : CPU每秒可進行的工作次數</li>
+<li>外頻與倍頻
+<ul>
+<li>外頻 : CPU與外部元件進行資料傳輸時的速度</li>
+<li>倍頻 : CPU 內部用來加速工作效能的一個倍數 (通常被鎖定)</li>
+<li>內頻為3.0GHz，而外頻是333MHz，因此倍頻就是9倍</li>
+<li>一般情況，超頻說的是調整外頻 (現在的Intel CPU都會自動超頻)</li>
+</ul>
+</li>
+<li>CPU每次能夠處理的資料量稱為字組大小(word size)
+<ul>
+<li>64位元、32位元</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>匯流排『寬度』</p>
+<ul>
+<li>主記憶體提供給CPU的資料量越大，整體系統效能也應該比較快</li>
+<li>CPU 內的記憶體控制晶片與主記憶體間的傳輸速度 → 前端匯流排速度(Front Side Bus, FSB)</li>
+<li>主記憶體也有工作時脈
+<ul>
+<li>以64位元的CPU為例，主記憶體時脈1600MHz，則CPU與主記憶體之間的頻寬 = 12.8Gbyte/s</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>超執行緒 (Hyper-Threading, HT)</p>
+<ul>
+<li>CPU運算速度太快，運算核心經常閒置</li>
+<li>CPU內部的暫存器(register)分成兩群，讓兩個程序同時競爭運算單元</li>
+<li>四核心的CPU → 邏輯上分離 → 系統可以抓到八核心</li>
+</ul>
+</li>
+<li>
+<p>記憶體</p>
+<ul>
+<li>動態隨機存取記憶體(Dynamic Random Access Memory, DRAM)
+<ul>
+<li>揮發性記憶體，斷電資料消失</li>
+<li>SDRAM</li>
+<li>DDR SDRAM
+<ul>
+<li>Double Data Rate → 一次工作週期中進行兩次資料的傳送 (類似CPU的倍頻)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>多通道設計
+<ul>
+<li>將兩個主記憶體彙整在一起，一支記憶體64位元，兩支記憶體就可達到128位元!!!</li>
+<li>啟動雙通道記憶體功能時，資料是同步寫入/讀出這一對主記憶體中 (記憶體型號最好相同)</li>
+</ul>
+</li>
+<li>唯讀記憶體(ROM)
+<ul>
+<li>非揮發性記憶體，斷電資料不會消失</li>
+<li>CMOS晶片
+<ul>
+<li>記錄主機板上各元件的參數，主機板有額外的電池供應 (鈕扣電池)</li>
+<li>參數 : 系統時間、CPU電壓與頻率、各項設備的I/O位址與IRQ等</li>
+</ul>
+</li>
+<li>BIOS (Basic Input Output System)
+<ul>
+<li>用來讀取與更新CMOS晶片內資料的程式</li>
+<li>開機就會優先執行BIOS</li>
+</ul>
+</li>
+<li>韌體 (firmware)
+<ul>
+<li>韌體像軟體一樣，也是被電腦執行的程式</li>
+<li>很多的硬體上面都會有ROM，可以用韌體記錄硬體參數</li>
+<li>控制硬體內部的各項參數</li>
+<li>BIOS就是一個韌體</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>顯示卡</p>
+<ul>
+<li>顯示卡記憶體容量 → 螢幕解析度、色彩深度</li>
+<li>顯示卡嵌入一個3D加速的晶片 → GPU</li>
+<li>連接介面 : D-Sub、DVI、HDMI、Display port</li>
+</ul>
+</li>
+<li>
+<p>硬碟</p>
+<ul>
+<li>傳輸介面
+<ul>
+<li>SATA、SAS、USB</li>
+</ul>
+</li>
+<li>HDD、SSD (沒有讀寫頭、磁碟盤，類似快閃記憶體，但仍採用SATA、SAS介面)</li>
+</ul>
+</li>
+<li>
+<p>作業系統 (Operating System, OS)</p>
+<ul>
+<li>用於管理電腦的所有活動以及驅動系統中所有硬體的程式</li>
+<li>核心 (Kernel) + 系統呼叫 (System Call) → 作業系統 (介於硬體與應用程式之間)</li>
+<li>核心
+<ul>
+<li>管控硬體與提供相關的能力 : 存取硬碟、網路功能、CPU資源取得等</li>
+<li>開機後就一直常駐在記憶體當中 (受到保護) → 使用者無法直接使用</li>
+</ul>
+</li>
+<li>系統呼叫
+<ul>
+<li>系統呼叫介面 → 程式語言的相關語法轉成核心可以瞭解的任務函數 → 核心可以運作該程式</li>
+<li>軟體開發工程師只要遵循公認的系統呼叫參數來開發軟體，軟體就能夠在核心上頭運作</li>
+</ul>
+</li>
+<li>同一個作業系統程式不能夠在不一樣的硬體架構下運作</li>
+<li>應用程式的開發都是參考作業系統提供的開發介面， 所以該應用程式只能在該作業系統上面運作而已，不可以在其他作業系統上面運作的</li>
+<li>核心功能
+<ul>
+<li>系統呼叫介面 (System call interface)</li>
+<li>程序管理 (Process control)</li>
+<li>記憶體管理 (Memory management)</li>
+<li>檔案系統管理 (Filesystem management)</li>
+<li>裝置的驅動 (Device drivers)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://i.imgur.com/G8DUJBq.png" alt=""></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://qi-xiang.github.io/2023/07/24/%E9%B3%A5%E5%93%A5%E7%A7%81%E6%88%BF%E8%8F%9C_%E8%A8%88%E7%AE%97%E6%A9%9F%E6%A6%82%E8%AB%96%E9%87%8D%E9%BB%9E%E6%95%B4%E7%90%86/" data-id="clxqdzkt90000s4mvga3ma6fi" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Qi Xiang,Zhang"
+        },
+        "headline": "鳥哥私房菜 - 計算機概論重點整理",
+        "image": "https://qi-xiang.github.iohttps://i.imgur.com/G8DUJBq.png",
+        "keywords": "資訊科普知識",
+        "genre": "技術類文章",
+        "datePublished": "2023-07-24",
+        "dateCreated": "2023-07-24",
+        "dateModified": "2024-06-23",
+        "url": "https://qi-xiang.github.io/2023/07/24/鳥哥私房菜_計算機概論重點整理/",
+        "description": "資料來源 : 鳥哥私房菜 - 計算機概論
+
+
+電腦硬體組成
+
+輸入單元+輸出單元+主機部分
+CPU內有微指令集
+
+算術邏輯單元+控制單元
+CPU讀取的資料皆來自於主記憶體 (硬碟→RAM→CPU)
+
+
+
+
+
+CPU 的架構
+
+精簡指令集 RISC
+
+SPARC (工作站)、Power PC (PS3)、ARM
+
+
+複雜指令集 CISC
+
+x86架構 (個人電腦)
+
+
+
+
+
+電腦常用的計算單位
+
+容",
+        "wordCount": 119
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>追蹤 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/profile.php?id=100004441091584" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/qi-xiang-zhang-499625210/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="https://stackoverflow.com/users/17213183/xiang?tab=profile" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/QI-XIANG" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2023/07/31/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/GeTrust%E8%AB%96%E6%96%87%E6%91%98%E8%A6%81/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            GeTrust 論文摘要
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2023/06/22/SVG%E8%87%AA%E5%AD%B8%E5%BE%AE%E7%AD%86%E8%A8%98/svg-selfnote-10/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">SVG 自學微筆記(10) - SVG...為什麼?</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/06/09/%E9%99%BD%E4%BA%A4%E5%A4%A7%E5%88%86%E6%95%A3%E5%BC%8F%E7%B3%BB%E7%B5%B12024/distributed_final/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/G8DUJBq.png)" alt="Decentralized Storage Network based on Blockchain Technology: A Survey" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2024/06/09/%E9%99%BD%E4%BA%A4%E5%A4%A7%E5%88%86%E6%95%A3%E5%BC%8F%E7%B3%BB%E7%B5%B12024/distributed_final/" class="title">Decentralized Storage Network based on Blockchain Technology: A Survey</a></p>
+                            <p class="item-date"><time datetime="2024-06-08T16:32:06.000Z" itemprop="datePublished">2024-06-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/06/08/%E9%99%BD%E4%BA%A4%E5%A4%A7%E5%88%86%E6%95%A3%E5%BC%8F%E7%B3%BB%E7%B5%B12024/distributed-final-cn/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/G8DUJBq.png)" alt="基於區塊鏈技術的去中心化儲存網路: 一份調查" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a></p>
+                            <p class="item-title"><a href="/2024/06/08/%E9%99%BD%E4%BA%A4%E5%A4%A7%E5%88%86%E6%95%A3%E5%BC%8F%E7%B3%BB%E7%B5%B12024/distributed-final-cn/" class="title">基於區塊鏈技術的去中心化儲存網路: 一份調查</a></p>
+                            <p class="item-date"><time datetime="2024-06-07T16:46:18.000Z" itemprop="datePublished">2024-06-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/05/08/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E6%84%9F%E8%AC%9D-2024/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/G8DUJBq.png)" alt="感謝(2024)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
+                            <p class="item-title"><a href="/2024/05/08/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E6%84%9F%E8%AC%9D-2024/" class="title">感謝(2024)</a></p>
+                            <p class="item-date"><time datetime="2024-05-07T16:52:07.000Z" itemprop="datePublished">2024-05-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/04/04/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E5%A5%BD%E5%A5%BD%E8%AA%AA%E8%A9%B1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/G8DUJBq.png)" alt="好好說話" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
+                            <p class="item-title"><a href="/2024/04/04/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E5%A5%BD%E5%A5%BD%E8%AA%AA%E8%A9%B1/" class="title">好好說話</a></p>
+                            <p class="item-date"><time datetime="2024-04-03T16:46:09.000Z" itemprop="datePublished">2024-04-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/05/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E9%97%9C%E6%96%BC%E9%87%91%E9%8C%A2%E7%AE%A1%E7%90%86/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://i.imgur.com/G8DUJBq.png)" alt="關於金錢管理" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a></p>
+                            <p class="item-title"><a href="/2024/03/05/%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E8%B3%87%E6%96%99/%E9%97%9C%E6%96%BC%E9%87%91%E9%8C%A2%E7%AE%A1%E7%90%86/" class="title">關於金錢管理</a></p>
+                            <p class="item-date"><time datetime="2024-03-04T16:49:20.000Z" itemprop="datePublished">2024-03-05</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分類</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/2021-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2021 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/2022-iThome-%E9%90%B5%E4%BA%BA%E8%B3%BD/">2022 iThome 鐵人賽</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E8%A1%93%E9%A1%9E%E6%96%87%E7%AB%A0/">技術類文章</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E9%A1%9E%E6%96%87%E7%AB%A0/">生活類文章</a><span class="category-list-count">21</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">標籤雲</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/BDC/" style="font-size: 14.17px;">BDC</a> <a href="/tags/CSS-Flex-Box/" style="font-size: 15.83px;">CSS Flex Box</a> <a href="/tags/Django-%E5%88%9D%E5%BF%83%E8%80%85%E4%B9%8B%E6%97%85/" style="font-size: 20px;">Django 初心者之旅</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS30/" style="font-size: 19.17px;">JS30</a> <a href="/tags/LineBot%E8%B6%85%E5%85%A5%E9%96%80/" style="font-size: 10px;">LineBot超入門</a> <a href="/tags/NLP%E8%87%AA%E7%84%B6%E8%AA%9E%E8%A8%80%E8%99%95%E7%90%86/" style="font-size: 11.67px;">NLP自然語言處理</a> <a href="/tags/Python-%E5%AD%B8%E7%BF%92%E6%97%A5%E8%A8%98/" style="font-size: 15px;">Python 學習日記</a> <a href="/tags/%E5%88%86%E6%95%A3%E5%BC%8F%E7%B3%BB%E7%B5%B1/" style="font-size: 10.83px;">分散式系統</a> <a href="/tags/%E5%8D%80%E5%A1%8A%E9%8F%88/" style="font-size: 10.83px;">區塊鏈</a> <a href="/tags/%E5%95%86%E6%A5%AD%E5%88%86%E6%9E%90%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 15px;">商業分析資料探勘</a> <a href="/tags/%E5%A1%AB%E5%9D%91%E7%B3%BB%E5%88%97/" style="font-size: 10px;">填坑系列</a> <a href="/tags/%E6%80%A7%E5%88%A5%E7%A4%BE%E6%9C%83%E5%AD%B8/" style="font-size: 10px;">性別社會學</a> <a href="/tags/%E6%9B%B8%E7%B1%8D%E6%91%98%E8%A6%81/" style="font-size: 12.5px;">書籍摘要</a> <a href="/tags/%E6%AD%B7%E5%8F%B2/" style="font-size: 10px;">歷史</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/" style="font-size: 13.33px;">生活經驗分享</a> <a href="/tags/%E7%B5%B1%E8%A8%88%E5%AD%B8/" style="font-size: 12.5px;">統計學</a> <a href="/tags/%E7%B6%B2%E9%A0%81%E5%9F%BA%E7%A4%8E/" style="font-size: 16.67px;">網頁基礎</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E6%8A%80%E8%A1%93%E5%88%86%E6%9E%90/" style="font-size: 10px;">股票技術分析</a> <a href="/tags/%E8%AB%96%E6%96%87%E6%91%98%E8%A6%81/" style="font-size: 11.67px;">論文摘要</a> <a href="/tags/%E8%B2%A1%E5%A0%B1%E7%8B%97%E6%8C%96%E5%A5%BD%E8%82%A1%E7%B2%BE%E8%8F%AF/" style="font-size: 16.67px;">財報狗挖好股精華</a> <a href="/tags/%E8%B3%87%E6%96%99%E6%8E%A2%E5%8B%98/" style="font-size: 10.83px;">資料探勘</a> <a href="/tags/%E8%B3%87%E6%96%99%E8%A6%96%E8%A6%BA%E5%8C%96/" style="font-size: 18.33px;">資料視覺化</a> <a href="/tags/%E8%B3%87%E7%AE%A1%E7%95%A2%E6%A5%AD%E5%B0%88%E9%A1%8C/" style="font-size: 10px;">資管畢業專題</a> <a href="/tags/%E8%B3%87%E8%A8%8A%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AD%98/" style="font-size: 10.83px;">資訊科普知識</a> <a href="/tags/%E9%87%91%E9%AD%9A%E4%B9%9F%E8%83%BD%E5%AD%B8%E6%9C%83%E5%AF%AB%E7%B6%B2%E9%A0%81/" style="font-size: 17.5px;">金魚也能學會寫網頁</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">連結</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/QI-XIANG">My Github</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2024 Qi Xiang,Zhang</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://qi-xiang.github.io/2023/07/24/%E9%B3%A5%E5%93%A5%E7%A7%81%E6%88%BF%E8%8F%9C_%E8%A8%88%E7%AE%97%E6%A9%9F%E6%A6%82%E8%AB%96%E9%87%8D%E9%BB%9E%E6%95%B4%E7%90%86/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
